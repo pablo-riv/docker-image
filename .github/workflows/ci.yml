@@ -29,9 +29,16 @@ jobs:
         ECR_REGISTRY: ${{ secrets.AWS_IMAGE_REGISTRY }}
         ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPOSITORY }}
       run: |
-        docker build . -t "$ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_SHA::7}" -t "$ECR_REGISTRY/$ECR_REPOSITORY:latest" -f docker/production/app/Dockerfile
+        docker build . -t "$ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_SHA::7}" -f docker/production/app/Dockerfile
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:"${GITHUB_SHA::7}
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_SHA::7}
+
+    - name: Tag with latest
+      env:
+        ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPOSITORY }}
+      run: |
+        MANIFEST=$(aws ecr batch-get-image --repository-name $ECR_REPOSITORY --image-ids imageTag=${GITHUB_SHA::7} --query 'images[].imageManifest' --output text)
+        aws ecr put-image --repository-name $ECR_REPOSITORY --image-tag latest --image-manifest "$MANIFEST"
 
     - name: Set Service name
       env:
