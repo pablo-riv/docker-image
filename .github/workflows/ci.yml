@@ -24,7 +24,9 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Set Service name
-      run: echo "SERVICE_NAME=$(echo $secrets.AWS_ECR_REPOSITORY | cut -f1 -d"-")" >> $GITHUB_ENV
+      env:
+        ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPOSITORY }}
+      run: echo "SERVICE_NAME=$(echo $ECR_REPOSITORY | cut -f1 -d"-")" >> $GITHUB_ENV
     - name: Echo Service name
       run: echo $SERVICE_NAME
 
