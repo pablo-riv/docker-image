@@ -23,26 +23,24 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Set Service name
-      env:
-        ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPOSITORY }}
-      run: echo "SERVICE_NAME=$(echo $ECR_REPOSITORY | cut -f1 -d"-")" >> $GITHUB_ENV
-    - name: Echo Service name
-      run: echo "service-$SERVICE_NAME"
-
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
         ECR_REGISTRY: ${{ secrets.AWS_IMAGE_REGISTRY }}
         ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPOSITORY }}
       run: |
-        docker build . -t "$ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_SHA::8}" -f docker/production/app/Dockerfile
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:"${GITHUB_SHA::8}
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_SHA::8}
+        docker build . -t "$ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_SHA::7}" -t "$ECR_REGISTRY/$ECR_REPOSITORY:latest" -f docker/production/app/Dockerfile
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:"${GITHUB_SHA::7}
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_SHA::7}
+
+    - name: Set Service name
+      env:
+        ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPOSITORY }}
+      run: echo "SERVICE_NAME=$(echo $ECR_REPOSITORY | cut -f1 -d"-")" >> $GITHUB_ENV
 
     # - name: Deploy to cluster
     #   id: rolling-update
     #   env:
     #     SERVICE: ${{ secrets.AWS_ECR_REPOSITORY }}
     #   run:
-    #     aws ecs update-service --service service-michello --cluster shipit-prod --force-new-deployment
+    #     aws ecs update-service --service "service-$SERVICE_NAME" --cluster shipit-prod --force-new-deployment
