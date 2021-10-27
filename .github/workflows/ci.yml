@@ -45,7 +45,7 @@ jobs:
         ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPOSITORY }}
       run: echo "SERVICE_NAME=$(echo $ECR_REPOSITORY | cut -f1 -d"-")" >> $GITHUB_ENV
 
-    # - name: Deploy to cluster
+    - name: Deploy to cluster
       id: rolling-update
       env:
         SERVICE: ${{ secrets.AWS_ECR_REPOSITORY }}
