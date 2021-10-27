@@ -1,0 +1,224 @@
+- breadcrumb :notifications
+
+div ng-controller='NotificationsController' ng-init='loadNotifications(#{@company.id});'
+  div uib-alert='' ng-repeat='alert in alerts track by $index' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='10000' close="closeAlert($index)" {{alert.message}}
+  .card
+    .card-block
+      .row
+        .col-md-8
+          h2.card-title
+            = I18n.t('menu.notification')
+        .col-md-4.text-right
+          button.btn.btn-primary ng-click='lunchBaseFormatModal(company)' = I18n.t('notifications.card.titles.base')
+
+  .card
+    .card-block
+      h2.card-title = I18n.t('notifications.card.titles.client')
+      hr
+      .row.mb-20
+        .col-md-6.col-sm-6
+          h4.card-title
+            = I18n.t('notifications.card_block.client.pickup.title')
+            i.help.ml-20.fas.fa-info-circle.pointer uib-popover="#{I18n.t('notifications.card_block.client.pickup.message')} Ejemplo: #{notification_emails(current_account)}" popover-title='Información' popover-placement='bottom' tabindex='0'
+        .col-md-6.col-sm-6
+          .row
+            .col-md-6
+              .m-b-1
+                label.switch
+                  input.cxp name='' ng-model='setting.configuration.notification.client.pickup' type='checkbox' ng-change='updateNotifcation(setting)'
+                  .slider.round
+            .col-md-6
+      .row.mb-20
+        .col-md-6.col-sm-6
+          h4.card-title
+            = I18n.t('notifications.card_block.client.state.in_preparation.title')
+            i.help.ml-20.fas.fa-info-circle.pointer uib-popover="#{I18n.t('notifications.card_block.client.state.in_preparation.message')} Ejemplo: #{notification_emails(current_account)}" popover-title='Información' popover-placement='bottom' tabindex='0'
+        .col-md-6.col-sm-6
+          .row
+            .col-md-6
+              .m-b-1
+                label.switch
+                  input.cxp name='' ng-model='setting.configuration.notification.client.state.in_preparation' type='checkbox' ng-change='updateNotifcation(setting)'
+                  .slider.round
+            .col-md-6
+
+      .row.mb-20
+        .col-md-6.col-sm-6
+          h4.card-title
+            = I18n.t('notifications.card_block.client.state.failed.title')
+            i.help.ml-20.fas.fa-info-circle.pointer uib-popover="#{I18n.t('notifications.card_block.client.state.failed.message')} Ejemplo: #{notification_emails(current_account)}" popover-title='Información' popover-placement='bottom' tabindex='0'
+        .col-md-6.col-sm-6
+          .row
+            .col-md-6
+              .m-b-1
+                label.switch
+                  input.cxp name='' ng-model='setting.configuration.notification.client.state.failed' type='checkbox' ng-change='updateNotifcation(setting)'
+                  .slider.round
+            .col-md-6
+
+      .row.mb-20
+        .col-md-6.col-sm-6
+          h4.card-title
+            = I18n.t('notifications.card_block.client.order_to_high.title')
+            i.help.ml-20.fas.fa-info-circle.pointer uib-popover="#{I18n.t('notifications.card_block.client.order_to_high.message')} Ejemplo: #{notification_emails(current_account)}" popover-title='Información' popover-placement='bottom' tabindex='0'
+        .col-md-6.col-sm-6
+          .row
+            .col-md-6
+              .m-b-1
+                label.switch
+                  input name='order_to_high.enable' ng-model='setting.configuration.notification.client.order_to_high.enable' type='checkbox' ng-change='updateNotifcation(setting)'
+                  .slider.round
+            .col-md-6.text-center ng-show='setting.configuration.notification.client.order_to_high.enable'
+              .m-b-1
+                input.form-control ng-show='setting.configuration.notification.client.order_to_high.enable' ng-value='setting.configuration.notification.order_to_high.amount' ng-model='setting.configuration.notification.client.order_to_high.amount' placeholder='50000' ng-blur='updateNotifcation(setting)'
+
+      - if @fulfillment
+        .row.mb-20
+          .col-md-6.col-sm-6
+            h4.card-title
+              = I18n.t('notifications.card_block.client.fulfillment.broke_stock.title')
+              i.help.ml-20.fas.fa-info-circle.pointer uib-popover="#{I18n.t('notifications.card_block.client.fulfillment.broke_stock.message')} Ejemplo: #{notification_emails(current_account)}" popover-title='Información' popover-placement='bottom' tabindex='0'
+          .col-md-6.col-sm-6
+            .row
+              .col-md-6
+                .m-b-1
+                  label.switch
+                    input name='fulfillment.broke_stock' ng-model='setting.configuration.notification.client.fulfillment.broke_stock' type='checkbox' ng-disabled='true' ng-checked='true'
+                    .slider.round
+              .col-md-6.form-group
+                .m-b-1
+                  label.fw-900 = I18n.t('notifications.card_block.client.fulfillment.broke_stock.email')
+                  input.form-control type='email' ng-model='setting.configuration.notification.client.fulfillment.email' ng-blur='updateNotifcation(setting, "email")'
+        .row.mb-20
+          .col-md-6.col-sm-6
+            h4.card-title
+              = I18n.t('notifications.card_block.client.fulfillment.security_stock.title')
+              i.help.ml-20.fas.fa-info-circle.pointer uib-popover="#{I18n.t('notifications.card_block.client.fulfillment.security_stock.message')} Ejemplo: #{notification_emails(current_account)}" popover-title='Información' popover-placement='bottom' tabindex='0'
+          .col-md-6.col-sm-6
+            .row
+              .col-md-12
+                .m-b-1
+                  label.switch
+                    input name='fulfillment.security_stock' ng-model='setting.configuration.notification.client.fulfillment.security_stock' type='checkbox' ng-change='updateNotifcation(setting)'
+                    .slider.round
+              .col-md-12.text-center.pt-20 ng-if='setting.configuration.notification.client.fulfillment.security_stock'
+                button.btn.btn-link ng-click='loadModalSkus()' = I18n.t('notifications.card_block.client.fulfillment.security_stock.link')
+
+  .card
+    .card-block
+      h2.card-title = I18n.t('notifications.card.titles.buyer')
+      hr
+      .col-md-9.col-sm-12
+        .row.mb-20
+          .col-md-5.col-sm-4
+            h3.text-left Notificacion
+          - if rollout(:cc_email)  
+            .col-md-2.col-sm-2.text-right
+              h3.text-right ¿Agregar copia?
+          .col-md-2.col-sm-2.text-center
+            h3.text-right ¿Activar?
+          - if rollout(:cc_email)            
+            .col-md-3.col-sm-4.text-left
+              h3.text-left Editar
+        .row.mb-20
+          .col-md-5.col-sm-5
+            h4.card-title
+              = I18n.t('notifications.card_block.buyer.state.in_preparation.title')
+              = content_tag(:span, 'En Preparación', class: 'tag tag-pill process ml-20')
+              i.help.ml-20.fas.fa-info-circle.pointer uib-popover="#{I18n.t('notifications.card_block.buyer.state.in_preparation.message')} Ejemplo: #{I18n.t('notifications.card_block.buyer.state.in_preparation.example')}" popover-title='Información' popover-placement='right' tabindex='0'
+          - if rollout(:cc_email)  
+            .col-md-2.col-sm-2.text-right
+              .m-b-1
+                label.switch
+                  input.cxp name='' ng-model='setting.configuration.notification.buyer.mail.state.in_preparation.cc' type='checkbox' ng-change='updateNotifcation(setting)'
+                  .slider.round
+          .col-md-2.col-sm-2.text-right
+            .m-b-1
+              label.switch
+                input.cxp name='' ng-model='setting.configuration.notification.buyer.mail.state.in_preparation.active' type='checkbox' ng-change='updateNotifcation(setting)'
+                .slider.round
+          .col-md-2.col-sm-2.text-left
+            = link_to '', edit_mail_notifications_path(:in_preparation), class: 'btn btn-sm far fa-edit', data: { turbolinks: :false }
+        .row.mb-20
+          .col-md-5.col-sm-5
+            h4.card-title
+              = I18n.t('notifications.card_block.buyer.state.in_route.title')
+              = content_tag(:span, 'En Ruta', class: 'tag tag-pill route ml-20')
+              i.help.ml-20.fas.fa-info-circle.pointer uib-popover="#{I18n.t('notifications.card_block.buyer.state.in_route.message')} Ejemplo: #{I18n.t('notifications.card_block.buyer.state.in_route.example')}" popover-title='Información' popover-placement='bottom' tabindex='0'
+          - if rollout(:cc_email)  
+            .col-md-2.col-sm-2.text-right
+              .m-b-1
+                label.switch
+                  input.cxp name='' ng-model='setting.configuration.notification.buyer.mail.state.in_route.cc' type='checkbox' ng-change='updateNotifcation(setting)'
+                  .slider.round
+          .col-md-2.col-sm-2.text-right
+            .m-b-1
+              label.switch
+                input.cxp name='' ng-model='setting.configuration.notification.buyer.mail.state.in_route.active' type='checkbox' ng-change='updateNotifcation(setting)'
+                .slider.round
+          .col-md-2.col-sm-2.text-left
+            = link_to '', edit_mail_notifications_path(:in_route), class: 'btn btn-sm far fa-edit', data: { turbolinks: :false }
+        .row.mb-20
+          .col-md-5.col-sm-5
+            h4.card-title
+              = I18n.t('notifications.card_block.buyer.state.by_retired.title')
+              = content_tag(:span, 'Por Retirar', class: 'tag tag-pill by-retired ml-20')
+              i.help.ml-20.fas.fa-info-circle.pointer uib-popover="#{I18n.t('notifications.card_block.buyer.state.by_retired.message')} Ejemplo: #{I18n.t('notifications.card_block.buyer.state.by_retired.example')}" popover-title='Información' popover-placement='bottom' tabindex='0'
+          - if rollout(:cc_email)  
+            .col-md-2.col-sm-2.text-right
+              .m-b-1
+                label.switch
+                  input.cxp name='' ng-model='setting.configuration.notification.buyer.mail.state.by_retired.cc' type='checkbox' ng-change='updateNotifcation(setting)'
+                  .slider.round
+          .col-md-2.col-sm-2.text-right
+            .m-b-1
+              label.switch
+                input.cxp name='' ng-model='setting.configuration.notification.buyer.mail.state.by_retired.active' type='checkbox' ng-change='updateNotifcation(setting)'
+                .slider.round
+          .col-md-2.col-sm-2.text-left
+            = link_to '', edit_mail_notifications_path(:by_retired), class: 'btn btn-sm far fa-edit', data: { turbolinks: :false }
+        .row.mb-20
+          .col-md-5.col-sm-5
+            h4.card-title
+              = I18n.t('notifications.card_block.buyer.state.delivered.title')
+              = content_tag(:span, 'Entregado', class: 'tag tag-pill delivery ml-20')
+              i.help.ml-20.fas.fa-info-circle.pointer uib-popover="#{I18n.t('notifications.card_block.buyer.state.delivered.message')} Ejemplo: #{I18n.t('notifications.card_block.buyer.state.delivered.example')}" popover-title='Información' popover-placement='bottom' tabindex='0'
+          - if rollout(:cc_email)  
+            .col-md-2.col-sm-2.text-right
+              .m-b-1
+                label.switch
+                  input.cxp name='' ng-model='setting.configuration.notification.buyer.mail.state.delivered.cc' type='checkbox' ng-change='updateNotifcation(setting)'
+                  .slider.round
+          .col-md-2.col-sm-2.text-right
+            .m-b-1
+              label.switch
+                input.cxp name='' ng-model='setting.configuration.notification.buyer.mail.state.delivered.active' type='checkbox' ng-change='updateNotifcation(setting)'
+                .slider.round
+          .col-md-2.col-sm-2.text-left
+            = link_to '', edit_mail_notifications_path(:delivered), class: 'btn btn-sm far fa-edit', data: { turbolinks: :false }
+        .row.mb-20
+          .col-md-5.col-sm-5
+            h4.card-title
+              = I18n.t('notifications.card_block.buyer.state.failed.title')
+              = content_tag(:span, 'Rechazado', class: 'tag tag-pill fail ml-20')
+              i.help.ml-20.fas.fa-info-circle.pointer uib-popover="#{I18n.t('notifications.card_block.buyer.state.failed.message')} Ejemplo: #{I18n.t('notifications.card_block.buyer.state.failed.example')}" popover-title='Información' popover-placement='right' tabindex='0'
+          - if rollout(:cc_email)  
+            .col-md-2.col-sm-2.text-right
+              .m-b-1
+                label.switch
+                  input.cxp name='' ng-model='setting.configuration.notification.buyer.mail.state.failed.cc' type='checkbox' ng-change='updateNotifcation(setting)'
+                  .slider.round
+          .col-md-2.col-sm-2.text-right
+            .m-b-1
+              label.switch
+                input.cxp name='' ng-model='setting.configuration.notification.buyer.mail.state.failed.active' type='checkbox' ng-change='updateNotifcation(setting)'
+                .slider.round
+          .col-md-2.col-sm-2.text-left
+            = link_to '', edit_mail_notifications_path(:failed), class: 'btn btn-sm far fa-edit', data: { turbolinks: :false }
+      - if rollout(:cc_email)  
+        .col-md-3.col-sm-12.form-group
+          .m-b-1
+            label.fw-900 = I18n.t('notifications.card_block.buyer.cc.email')
+            input.form-control type='email' ng-model='setting.configuration.notification.buyer.mail.cc' ng-blur='updateNotifcation(setting, "email")'
+  = render 'shared/modal_security_stock'
+  = render 'shared/edit_email_base_format'

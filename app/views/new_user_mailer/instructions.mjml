@@ -1,0 +1,87 @@
+<mjml>
+  <mj-head>
+    <mj-style>
+      .box-shadow {
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.6);
+      }
+
+      .margin {
+        margin: 20px;
+      }
+
+      .header {
+        background-color: #00C2DE;
+        margin-top: -40px;
+      }
+
+      .footer {
+        background-color: #00C2DE;
+        margin-bottom: -40px;
+        padding: 20px 0 20px 0;
+      }
+
+      .font {
+        font-family: "Roboto, Helvetica,sans-serif";
+      }
+    </mj-style>
+    <mj-attributes>
+      <mj-text align="center" color="#555" font-family="Roboto, Helvetica, sans-serif" />
+      <mj-wrapper css-class="font box-shadow"></mj-wrapper>
+      <mj-column css-class="font" />
+      <mj-section css-class="font" />
+      <mj-navbar-link font-family="Roboto, Helvetica, sans-serif" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body css-class="margin">
+    <mj-wrapper>
+      <mj-section background-color="#00C2DE">
+        <mj-column css-class="header">
+          <mj-image width="150px" padding-top="30px" src="http://staff.shipit.cl/assets/logo-shipit-light.png"></mj-image>
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#fff">
+        <mj-column>
+          <mj-text align="center">
+            <h2>¡Hola!</h2>
+          </mj-text>
+          <mj-text align="justify">Para solicitar un retiro debes ingresar a "Solicita tu retiro", y rellenar la planilla con los datos de envío (destino) del producto, además de asignarle un código a cada uno (ID envío). Este debe ser único y será a partir de él que nos comunicaremos sobre los envíos. La mayoría de los clientes usa el número de orden de compra o número de boleta asociado al envío. </mj-text>
+          <mj-text align="justify">Luego, debes apretar el botón de "Shipit" que aparece arriba después del menú de la planilla, antes del horario corte: 14:00hras para las comunas de Vitacura, Providencia y Las Condes, y las 13:00hras para Santiago Centro, Ñuñoa, La Reina, Peñalolén, Macul, La Florida, Huechuraba, Independencia y Recoleta. Tras esto, te llegará un correo de confirmación con la información del "Héroe" que irá a retirar las cosas durante la tarde. Ahí, debes marcar físicamente todos los productos con el ID de envío (con algo que no se salga, y se vea claro, como un sticker o masking tape), y esperar a que los productos sean retirados. Para que el retiro sea efectivo, deben estar disponibles todos los productos establecidos en la planilla antes del horario corte; si hubiera alguna discordancia, no se retirará nada.</mj-text>
+          <mj-text align="justify">Ese mismo día los productos se empaquetan y envian, a través del courier más conveniente. Esto se te informa a través de un correo que también contiene los números de seguimiento de estos envíos. Igualmente, toda esta información estará disponible en tu plataforma.</mj-text>
+          <mj-text align="center">Avísame si se entiende, y si tienes alguna pregunta no dudes en escribirnos a ayuda@shipit.cl
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#00C2DE" padding-bottom="0px">
+        <mj-column width="100%">
+          <mj-navbar>
+            <mj-navbar-link text-transform="lowercase" color="#ffffff" href="http://www.shipit.cl">
+              <mj-text align="center" padding-bottom="5px">
+                www.shipit.cl
+              </mj-text>
+            </mj-navbar-link>
+          </mj-navbar>
+        </mj-column>
+        </mj-navbar>
+        </mj-column>
+        <mj-column width="25%"></mj-column>
+        <mj-column width="15%">
+          <mj-image src="http://www.iconsdb.com/icons/preview/white/facebook-3-xxl.png" href="https://www.facebook.com/ShipitChile/" width="32px"></mj-image>
+        </mj-column>
+        <mj-column width="15%">
+          <mj-image src="http://www.iconsdb.com/icons/preview/white/instagram-xxl.png" href="https://www.instagram.com/shipitcl/" width="32px"></mj-image>
+        </mj-column>
+        <mj-column width="25%"></mj-column>
+      </mj-section>
+      <mj-section background-color="#00C2DE" padding-top="0px">
+        <mj-column css-class="footer">
+          <mj-text color="#ffffff">
+            <%= I18n.t('email.footer.copyright', year: Time.current.year) %><br> &#160;</mj-text>
+          <mj-text color="#ffffff">
+            <%= I18n.t('email.footer.title') %>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>

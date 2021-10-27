@@ -1,0 +1,942 @@
+es:
+  title: Shipit
+  'true': 'SI'
+  'false': 'NO'
+  'on': true
+  'off': false
+  'NO': false
+  'SI': true
+  'No': false
+  'Si': true
+  monthly: Mensual
+  yearly: Anual
+  mongoid:
+    errors:
+      messages:
+        message_title: mongoid error title
+        document_with_attributes_not_found:
+          message: mongoid document with attributes not found
+          resolution: mongo id resolution
+          summary: mongoid summary
+        summary_title: mongoid summary title
+        resolution_title: mongoid resolution title
+  activerecord:
+    attributes:
+      account:
+        email: Correo
+        password: Contraseña
+        password_confirmation: Confirmación de contraseña
+      order:
+        destiny:
+          kind:
+            home_delivery: Domicilio
+            courier_branch_office: Sucursal
+      incidence:
+        subject:
+          wrong_address: Error de dirección
+          lost_parcel: Envío reembolsado
+      package:
+        table:
+          print: Imprimir etiqueta
+          edit: Editar envío
+          support: Generar ticket de ayuda
+          delete: Eliminar envío
+          refund: Generar devolución
+        id: ID Shipit
+        mongo_order_id: ID Integración
+        reference: ID Envío
+        courier_for_client: Courier
+        courier_selected: Courier Seleccionado
+        tracking_number: Nº Seguimiento
+        created_at: Fecha Creación
+        status: Estado
+        items_count: '# Productos'
+        shipping_type: Tipo de entrega
+        is_returned: Devolución
+        is_paid_shipit: Pagado por Shipit
+        is_payable: Por Pagar
+        full_name: Destinatario
+        cellphone: Teléfono
+        email: Correo
+        destiny: Sucursal / Domicilio
+        courier_branch_office: Sucursal Courier
+        shipping_price: Precio de Envío
+        estimated_shipping_price: Precio Estimado de Envío
+        material_extra: Precio de empaque
+        volume_price: Peso de Cobro
+        volume: Volumen
+        packing: Agregar empaque
+        sell_type: Tipo de venta
+        without_courier: Envío sin courier
+        fulfillment_delivery: Tipo de Despacho
+        approx_size: Tamaño Aproximado
+        width: Ancho (cm)
+        height: Alto (cm)
+        length: Largo (cm)
+        weight: Peso (kg)
+        serie: Número de Serie
+        sku_name: SKU
+        inventory_activity:
+          inventory_activity_orders_attributes:
+            sku_id: SKU
+            amount: Cantidad
+            description: Descripción del producto
+            created_at: Fecha Envío Order
+            amount_available: Cantidad disponible
+            mix: Skus / Cantidad
+        with_purchase_insurance: Seguro
+        purchase:
+          question: Asegurar Envío
+          detail: Contenido del Pedido
+          amount: Valor Declarado
+          ticket_number: Número de Documento
+          extra_insurance: Seguro Adicional
+          insurance_price: Precio Seguro
+          max_insurance: Monto Máximo
+          max_insurance_description: El monto máximo a asegurar será
+          insurance_price_description: El precio de tu seguro será
+        total_price: Precio Total
+        estimated_total_price: Precio Total Estimado
+        total_is_payable: Sobrecargo Por Pagar
+        status: Estado
+        statuses:
+          pending: No Retirado # FELIPE
+          in_preparation: Envío Creado
+          in_route: En Ruta
+          delivered: Entregado
+          by_retired: Disponible en Sucursal
+          retired_by: Retirado Por Shipit
+          failed: Rechazado
+          other: Otro
+          indemnify: Reembolso
+          ready_to_dispatch: Con Check In
+          dispatched: Entregado a Courier
+          at_shipit: En Shipit
+          returned: Devuelto
+          created: Envío Creado
+          received_for_courier: Recibido por
+          requested: Solicitado
+          first_closed_address: 1er Domicilio Cerrado
+          second_closed_address: 2do Domicilio Cerrado
+          back_in_route: En Proceso De Devolución
+          incomplete_address: 'Atención: Dirección Incompleta'
+          unexisting_address: 'Atención: Dirección No Existe'
+          reused_by_destinatary: 'Atención: Rehusado Por Destinatario'
+          unkown_destinatary: 'Atención: Destinatario Desconocido'
+          unreachable_destiny: 'Atención: Destino Sin Cobertura'
+          strayed: 'Extraviado'
+          damaged: 'Dañado'
+          indemnify_out_of_date: Reembolso Fuera De Plazo
+          failed_with_observations: Fallido Con Observaciones
+          almost_failed: Casi Fallido
+          failed_by_retired: 'Atención: Rechazado'
+          returned_failed: En Devolución
+          returned_in_route: En Devolución Al Remitente
+          fulfillment: Envío Creado
+          fulfillment_open: Envío Creado
+          fulfillment_pending: Envío Creado
+          fulfillment_success: Envío Creado
+          fulfillment_partial: Envío Creado
+          fulfillment_canceled: Cancelado
+          returned_in_route: Devolución en Ruta
+          crossdock: Procesado en Bodega
+          crossdock_processed: Procesado en Bodega
+        label_printed: ¿Etiqueta Impresa?
+        checkout: Check-Out
+        courier_status_updated_at: Actualización Courier
+        shipit_status_updated_at: Actualización Shipit
+        courier_status: Estado Courier
+        discount_amount: Descuento
+        commune:
+          name: Comuna
+      inventory:
+        id: ID
+        created_at: Fecha de movimiento
+        type: Tipo
+        sku: SKU
+        description: Descripción del producto
+        units: Unidades movidas
+        total: Unidades totales
+        shipment_id: ID Envío
+      insurance:
+        detail: Contenido
+        ticket_amount: Valor Declarado
+        ticket_number: Número de Documento
+        extra: Seguro Adicional
+        price: Precio Seguro
+      address:
+        name: Dirección
+        street: Calle
+        number: Número
+        complement: Depto / Piso
+        commune_id: Comuna
+      commune:
+        name: Comuna
+        region_id: Region
+      region:
+        name: Region
+      person:
+        first_name: Nombre
+        last_name: Apellido
+        phone: Teléfono
+      sku:
+        id: SKU
+        amount: Cantidad
+        description: Descripción del producto
+        created_at: Fecha Envío Order
+        amount_available: Cantidad disponible
+        mix: Skus / Cantidad
+      company:
+        name: Nombre
+        phone: Teléfono
+        logo: Logo
+        preferences:
+          base: Preferencias
+          email:
+            base: Correos a compradores
+            color:
+              base: Colores Base
+              background_header: Color de Fondo encabezado
+              background_footer: Color de Fondo pie de página
+              font_color_footer: Color de Letra pie de página
+            text:
+              Base: Textos Base
+              footer:
+      charges:
+        statuses:
+          Base: Estado
+          created: Factura Emitida
+          paid: Pagado
+          no_paid: No Pagado
+          expired_soon: Por vencer
+          expired: Vencida
+          without_state: No Emitida
+        fulfillment:
+          title: Pagos Fullfilment
+          date: Fecha
+          month: Mes
+          category: Categoría
+          kind: Tipo
+          amount: Monto
+          description: Descripción
+          in: Ingresos
+          out: Egresos
+          stock: Almacenaje
+          shipping_cost: Envíos
+          total_is_payable: Total por pagar
+          other_services: Otros servicios
+          total: Total
+          premium: Shipit Premium
+          recurrent_charge: Cobro Recurrente
+          discounts: Descuentos
+          empty: No existen registros de movimiento para este mes
+          totals:
+            packages: Cantidad de envíos
+            shippings: Envíos
+            total_is_payable: Sobrecargo Por Pagar
+            extras: Costos Extras
+            discounts: Descuento
+            resume: Total a Pagar
+            total_in: Total recepciones
+            total_out: Total egreso
+            total_stock: Total Almacenaje
+            total_other_services: Total Otros servicios
+            total_packages: Cantidad de envíos
+            total_shipments: Total por envíos
+            total_total_is_payable: Total Sobrecargo por pagar
+            total_extras: Total costos extras
+            total_recurrent: Total Cobro Recurrente
+            total_discounts: Descuento Total
+            premium: Total Shipit Premium
+            total_resume: Total a pagar
+            total_others: Total otros
+        pick_and_pack:
+          title: Pagos Pick & Pack
+          date: Fecha
+          base: Base
+          shipping_cost: Costos de envíos
+          total_is_payable: Sobrecargo Por Pagar
+          extras: Costos extras
+          total: Total a Pagar
+          discounts: Descuento
+          empty: No existen registros de movimiento para este mes
+          recurrent_charge: Cobro Recurrente
+          premium: Shipit Premium
+          totals:
+            date: Fecha
+            base: Cobro Base
+            packages: Cantidad de Envíos
+            shippings: Envíos
+            extras: Costos Extras
+            other_service: Otros Servicios
+            extras: Costos Extras
+            total_is_payable: Sobrecargo Por Pagar
+            premium: Shipit Premium
+            total_recurrent_charge: Total Cobro Recurrente
+            discounts: Descuento Total
+            resume: Total a Pagar
+      sku:
+        id: ID
+        name: SKU
+        amount: Cantidad
+        min_amount: Cantidad mínima
+        description: Descripción del producto
+        created_at: Fecha de creación
+        amount_available: Unidades disponibles
+        size: Dimensiones (largo x ancho x alto)
+        width: Ancho (cm)
+        height: Alto (cm)
+        length: Largo (cm)
+        weight: Peso (kg)
+      whatsapp_notification:
+        state: Estado
+        text:
+          subject:
+            base: Asunto
+            state:
+              in_preparation: '📦 ¡Estamos preparando tu pedido! 📦'
+              in_route: '🚛 ¡Tu pedido va en camino! 🚛'
+              delivered: '🎉 ¡Pedido Entregado! 🎉'
+              failed: '😧 No hemos podido entregar tu pedido... 😧'
+              by_retired: '🏣 ¡Pedido disponible en sucursal! 🏣'
+          one:
+            base: Texto 1
+            state:
+              in_preparation: '¡Hola *{nombre_comprador}*! Estamos preparando tu pedido {package_reference} de {mi_empresa} y será despachado a través de {package_courier} 🚚. Tu número de seguimiento es el {enlace_seguimiento} y se activará cuando esté en ruta. Este es un mensaje automático enviado desde Shipit, no lo contestes.'
+              in_route: '¡Buenas noticias *{nombre_comprador}*! Tu pedido {package_reference} de {mi_empresa} ya se encuentra en ruta a su destino 🚀. Revisa su estado aquí: {enlace_seguimiento} 🔎. Este es un mensaje automático enviado desde Shipit, no lo contestes.'
+              by_retired: '¡Se acabó la espera *{nombre_comprador}*! 🎉 {package_courier} nos avisó que tu pedido {package_reference} de {mi_empresa} ya está en la sucursal para ser retirado. Encuentra más información aquí: {enlace_seguimiento} ¡Disfruta tu producto! Este es un mensaje automático enviado desde Shipit, no lo contestes.'
+              delivered: '¡Pedido entregado 📦! Tu pedido {package_reference} de {mi_empresa} ha sido entregado. Encuentra más información aquí: {enlace_seguimiento}. Este es un mensaje automático enviado desde Shipit, no lo contestes.'
+              failed: '¡Whooops! Algo salió mal con tu envío {nombre_comprador} 🚨. {package_courier} nos avisó que tu pedido {package_reference} de {mi_empresa} no pudo ser entregado y su último estado es: {enlace_seguimiento}. Este es un mensaje automático enviado desde Shipit, para más información contacta a {mi_empresa}.'
+        tags:
+          buyer_name: Nombre Comprador
+          tracking_number: Nº de Seguimiento
+          package_reference: ID Pedido Cliente
+          company_name: Mi Empresa
+          package_courier: Courier
+      mail_notification:
+        state: Estado
+        tracking: Habilitar botón Nº seguimiento
+        text:
+          subject:
+            base: Asunto
+            state:
+              in_preparation: '📦 ¡Estamos preparando tu pedido! 📦'
+              in_route: '🚛 ¡Tu pedido va en camino! 🚛'
+              delivered: '🎉 ¡Pedido Entregado! 🎉'
+              failed: '😧 No hemos podido entregar tu pedido... 😧'
+              by_retired: '🏣 ¡Pedido disponible en sucursal! 🏣'
+          title: Texto Título
+          one:
+            base: Texto 1
+            state:
+              in_preparation: '<p>Hola {buyer_name},</p><br><p>Hemos comenzado a preparar tu pedido y este debería ser despachado a través de {package_courier}. A continuación te entregamos el número de seguimiento para que puedas saber el estado de tu pedido:</p>'
+              in_route: '<p>Hola {buyer_name},</p><br><p>Tu pedido ID {package_reference} ya se encuentra ruta a destino y puedes hacerle seguimiento en el siguiente enlace:<p>'
+              by_retired: '<p>Hola {buyer_name},</p><br><p>Según la información del Courier, tu pedido ID {package_reference} se encuentra disponible en la sucursal para ser retirado.</p>'
+              delivered: '<p>Hola {buyer_name},</p><br><p>Tu pedido ID {package_reference} ha sido entregado. Puedes encontrar más información aquí:</p>'
+              failed: '<p>Hola {buyer_name},</p><br><p>Según la información entregada por el Courier, tu pedido ID {package_reference} no pudo ser entregado y su último estado es:</p>'
+          two:
+            base: Texto 2
+            state:
+              in_preparation: '<p>Este número se encuentra desactivado en este momento, pero se activará una vez que entreguemos el producto al Courier y ahí podrás rastrear tu pedido hasta que lo recibas.</p><br/><p>¡Saludos!</p>'
+              in_route: '<p>Para cualquier consulta o gestión, contáctate con la tienda.</p><br/><p>¡Saludos!</p>'
+              by_retired: '<p>Recuerda que sólo tú puedes retirar el pedido y debes ir con tu Documento de Identidad.</p><br/><p>¡Saludos!</p>'
+              delivered: '<p>Para cualquier consulta o gestión, contáctate con la tienda.</p><br/><p>¡Saludos!</p>'
+              failed: '<p>Para cualquier consulta o gestión, contáctate con la tienda.</p><br/><p>¡Saludos!</p>'
+          three:
+            base: Texto 3
+            state:
+              in_preparation: ''
+              in_route: '<p><strong>Importante:</strong>Para cualquier consulta o gestión, revisa nuestra página seguimiento.shipit.cl o contáctate con nosotros llenando el siguiente <a href="https://shipitcl.zendesk.com/hc/es-419/requests/new"><strong>formulario</strong></a></p><br/>'
+              by_retired: '<p><strong>Importante:</strong>Te recordamos que tienes 5 días hábiles para retirar tu producto y que debes ir con tu documento de Identificación.</p><br/><p>Si necesitas que un tercero retire por ti, tienes dos opciones:</p><ol><li>Retirar en sucursal con un poder simple y su documento de identidad</li><li>Llenando el siguiente <a href="https://shipitcl.zendesk.com/hc/es-419/requests/new"><strong>formulario</strong></a> indicando el número de seguimiento de tu pedido y los datos de la persona. Esta gestión podría tomar hasta 2 días hábiles por los tiempos de respuesta del Courier.</li></ol><br/>'
+              delivered: '<p><strong>Importante:</strong>En caso que hayas recibido tu pedido y tenga señales de daño por transporte tienes 24 horas para llenar el <a href="https://shipitcl.zendesk.com/hc/es-419/requests/new"><strong>formulario para reembolso</strong></a>. Para realizar la devolución de un producto dañado o con merma necesitarás el número de seguimiento, una foto del empaque dañado y una foto del producto recibido.</p>'
+              failed: '<p><strong>Importante:</strong>Si aún no nos hemos contactado contigo sobre este pedido ingresa en <a href="https://shipitcl.zendesk.com/hc/es-419/requests/new"><strong>este enlace</strong></a> para que podamos gestionar la solución lo antes posible.</p><br/><p>¡Saludos!</p>'
+          tracking: Texto botón Nº seguimiento
+          footer: Texto pie de página
+        color:
+          title: Color Fondo Título
+          title_font_color: Color Fuente Título
+          tracking_font: Color fuente botón Nº seguimiento
+          button: Color Fondo botón Nº seguimiento
+        tags:
+          buyer_name: Nombre Comprador
+          tracking_number: Nº de Seguimiento
+          package_reference: ID Pedido Cliente
+          package_courier: Courier
+      zendesk:
+        ticket:
+          proactive_monitoring:
+            bad_attribute_courier: El nombre del courier no es un argumento válido como atributo de símbolo
+            invalid_email: Email no válido
+            invalid_requester: Id no válido
+            invalid_ticket: El Ticket no pudo ser creado, puesto que la información suministrada no es correcta para proceder con la creación del mismo.
+            invalid_agent: Agente no válido
+          status:
+            open: abierto
+            pending: pendiente
+            closed: cerrado
+            resolved: resuelto
+      download:
+        pending: Descarga en proceso. Una vez finalizada, estará disponible en la sección Descargas ☁️
+    errors:
+      models:
+        account:
+          attributes:
+            email:
+              not_found: No existe
+      messages:
+        record_invalid: "La validación falló: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "No se puede eliminar el registro porque existe un %{record} dependiente"
+          has_many: "No se puede eliminar el registro porque existen %{record} dependientes"
+  send_couriers:
+    title: "Courier de envío"
+    subtitle: "Seleccionar los couriers por los que desea enviar"
+    modify_couriers: "Si desea modificar el listado de couriers, le invitamos a contactar su ejecutivo de ventas."
+  algorithm:
+    save: "Guardar"
+    global_explain: "Selecciona la opción predeterminada para elegir por dónde se enviarán tus pedidos."
+    default_option: "Algoritmo Shipit: Más económico dentro de los más rápidos"
+    title: "Regla de elección de Courier predeterminada"
+    subtitle: "Esta será la configuración por defecto, pero siempre podrás elegir un Courier a tu gusto para cada pedido a la hora de solicitar un despacho."
+    days_quantity: "Ingrese la cantidad de días"
+    alert_option_two: "* Por el momento esta opción sólo considera DHL, Chilexpress y Starken para la elección de Courier para el despacho."
+  notifications:
+    card:
+      titles:
+        client: Mis Notificaciones
+        buyer: Al Comprador
+        base: Configurar Formato
+        mail: Configurar Formato Correo a Comprador
+    card_block:
+      client:
+        pickup:
+          title: Solicitud de retiro
+          message: Cuando ha solicitado un retiro a través de Shipit, se enviará un correo a su cuenta, el cual indica la cantidad de pedidos que se retirarán y la información del héroe asignado.
+        state:
+          in_preparation:
+            title: Números de seguimiento
+            message: Estos son los números de seguimiento asignados por los couriers. Con cada código puedes realizar seguimiento del envío.
+          failed:
+            title: Notificación de envíos fallidos
+            message: Esta notificación se gatillará y te enviará un correo cuando el courier tenga problemas para realizar la entrega del pedido.
+          delivered:
+            title: Notificación de envíos entregados
+            message: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        order_to_high:
+          title: Notificación de envíos con precio demasiado alto
+          message: Esta notificación se enviará cuando el precio de envío demasiado alto sobre el monto indicado.
+        fulfillment:
+          broke_stock:
+            title: Notificación de Quiebre de inventario
+            message: Esta notificación se enviará cuando alguna de tus unidades de SKU llegue a 0.
+            email: Correo de notificación inventario
+          security_stock:
+            title: Notificación de inventario de seguridad
+            message: Esta notificación se enviará cuando alguna de tus unidades de SKU llegue en el monto indicado.
+            link: Configurar inventario de seguridad
+      buyer:
+        state:
+          in_preparation:
+            title: Número de seguimiento
+            message: Este es el número de seguimiento que es asignado por el courier. Con este código puede realizar seguimiento del envío.
+            example: email.comprador@customer.com (email asociado a cada pedido)
+          in_route:
+            title: Pedido En Camino
+            message: Este correo se enviará cuando se actualice el estado del envío, indicando a tu cliente que ya va en camino a su destino
+            example: email.comprador@customer.com (email asociado a cada pedido)
+          by_retired:
+            title: Pedido Listo para Retirar
+            message: Este correo se enviará cuando se actualice el estado del envío, indicando a tu cliente que ya esta disponible para retiro en sucursal
+            example: email.comprador@customer.com (email asociado a cada pedido)
+          delivered:
+            title: Pedido Entregado
+            message: Este correo se enviará cuando se actualice el estado del envío, indicando a tu cliente que su pedido ya ha sido entregado.
+            example: email.comprador@customer.com (email asociado a cada pedido)
+          failed:
+            title: Notificación de envíos fallidos
+            message: Esta notificación se gatillará cuando el courier tenga problemas para realizar la entrega del pedido.
+            example: email.comprador@customer.com (email asociado a cada pedido)
+        cc:
+          email: Correo de notificación con copia
+    modals:
+      security_stock:
+        title: Configuración de inventario de seguridad
+        button:
+          cancel: Cancelar
+          success: Guardar
+      base_format:
+        title: Configuración Base para Correos a Clientes
+
+      emails_base_format:
+        title: Configuración de formato correos
+        button:
+          cancel: Cancelar
+          success: Guardar
+  calculator:
+    title: Cotiza el mejor precio
+    commune: Selecciona una comuna para empezar
+    width: Ancho (cm)
+    height: Alto (cm)
+    length: Largo (cm)
+    weight: Peso (kg)
+    button: Cotizar
+    result_title: Resultados de tu cotización
+    result_subtitle: Elección de courier y tarifa por defecto.
+    attributes:
+      courier: Courier
+      delivery_time: Plazo Estimado
+      pv: Peso Equivalente
+      total: Precio Mercado
+    top_price: Elección Shipit
+    courier_election_with_variables: "La elección de courier y tarifa de envío por defecto, considera las siguientes variables en el orden a continuación: cobertura de los Couriers al destino seleccionado, cumplimiento del menor tiempo de entrega y finalmente, según el peso y las medidas, se elige el menor precio. Es importante destacar que el courier elegido puede ser diferente al courier de la menor tarifa"
+    prices_without_weekend: Los días de entrega calculados no incluye feriados legales ni fines de semana
+    prices_before_calculated: Los precios anteriores fueron calculados con fecha
+    home: Domicilio
+    select_origin: Seleccione el origen
+    select_destination: Seleccione el destino
+  packages:
+    with_series: Detalle números de serie
+    new:
+      title: Nuevo Envío
+      card:
+        titles:
+          general: Información General
+          secure: Seguro
+          address: Dirección Entrega
+          fulfillment: Productos a enviar
+          sku_list: SKU's Agregados
+          algorithm: Regla elección de Courier
+      buttons:
+        add_sku: Añadir SKU
+        delete_sku: Quitar
+        mass_sku: Carga Masiva
+        create: Generar Envío
+        return: Generar Devolución
+        edit: Editar Envío
+      errors:
+        blank:
+          package:
+            full_name: Debes ingresar nombre destinatario
+            reference: Debes ingresar referencia
+            destiny: Debes seleccionar destino
+            courier_branch_office: Debes seleccionar sucursal de destino
+            packing: Debes seleccionar empaque
+            items_count: Debes ingresar cantidad de productos
+            approx_size: Debes seleccionar tamaño aproximado
+          address:
+            street: Debes ingresar calle
+            number: Debes ingresar número
+            commune: Debes seleccionar comuna
+        length:
+          package:
+            reference: Referencia debe ser menor o igual a 12 caracteres
+            purchase:
+              amount: Sólo se puede asegurar hasta $1.000.000
+      add_package: Ingresar pedido
+      add_massive_package: Ingresar pedido masivo
+      add_request: Ingresar solicitud
+      google_sheet: Planilla Google Sheets
+    select_marketplaces: Seleccionar Punto de Retiro
+    show:
+      card:
+        titles:
+          general: Informacíon General
+          information: Observaciones del Envío
+          delivery: Información Despacho
+          price: Detalle Precio
+          skus: Detalle de SKU
+    shipping_history:
+      title:
+        title_history: Historial de Envíos
+      options: Opciones
+      tooltips:
+        download: Descarga un CSV con el detalle de los envíos actualmente
+    return:
+      title: Devolución de Envío
+    edit:
+      title: Editar Envío
+  monitor:
+    base: Monitor de Envíos
+    explication: '* Este calendario muestra todos tus pedidos con estado no finalizado para que puedas monitorear tus envíos.'
+    feedback: 'Si tienes comentarios o ideas acerca de esta nueva herramienta, escríbenos a feedback@shipit.cl.'
+  menu:
+    home: Inicio
+    packages: Envíos
+    history: Historial
+    returns: Devoluciones
+    sells: Mis Ventas
+    budgets: Cotizador
+    notification: Notificaciones
+    payments: Pagos
+    marketplaces: Puntos de Retiro
+    api: API
+    fulfillment: Inventario
+    integrations: Integraciones
+    labels: Etiquetas
+    labels_pack: Impresión por código
+    support: Soporte
+    support_management: Gestión de Tickets
+    help_center: Centro de Ayuda
+    configuration: Configuraciones
+    analytics: Analíticas
+    packages:
+      history: Historial
+      monitor: Monitor
+      base: Envíos
+    apps: Apps
+    services: Servicios
+    config_couriers: Couriers
+    config_printers: Impresión
+  date:
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mié
+    - jue
+    - vie
+    - sáb
+    abbr_month_names:
+    -
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    parse_day_name:
+      sunday: domingo
+      monday: lunes
+      tuesday: martes
+      wednesday: miércoles
+      thursday: jueves
+      friday: viernes
+      saturday: sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %b"
+      datepicker: ! "%d/%m/%Y"
+      monthYear: ! "%B %Y"
+      months: "%B"
+      day_date_month: "%A, %d de %B"
+    month_names:
+    -
+    - Enero
+    - Febrero
+    - Marzo
+    - Abril
+    - Mayo
+    - Junio
+    - Julio
+    - Agosto
+    - Septiembre
+    - Octubre
+    - Noviembre
+    - Diciembre
+    order:
+    - :day
+    - :month
+    - :year
+  ssd:
+    zero: ' de hoy'
+  footer:
+    copyright: 'Shipit © %{year}. Todos los derechos reservados.'
+    conditions: Términos y Condiciones
+    help_center: Centro de Ayuda
+    instructions: Instrucciones
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: alrededor de 1 hora
+        other: alrededor de %{count} horas
+      about_x_months:
+        one: alrededor de 1 mes
+        other: alrededor de %{count} meses
+      about_x_years:
+        one: alrededor de 1 año
+        other: alrededor de %{count} años
+      almost_x_years:
+        one: casi 1 año
+        other: casi %{count} años
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de 1 minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: más de 1 año
+        other: más de %{count} años
+      x_days:
+        one: 1 día
+        other: "%{count} días"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mes
+        other: "%{count} meses"
+      x_years:
+        one: 1 year
+        other: "%{count} years"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
+    prompts:
+      day: Día
+      hour: Hora
+      minute: Minutos
+      month: Mes
+      second: Segundos
+      year: Año
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: debe ser aceptado
+      blank: no puede estar en blanco
+      present: debe estar en blanco
+      confirmation: no coincide
+      empty: no puede estar vacío
+      equal_to: debe ser igual a %{count}
+      even: debe ser par
+      exclusion: está reservado
+      greater_than: debe ser mayor que %{count}
+      greater_than_or_equal_to: debe ser mayor que o igual a %{count}
+      inclusion: no está incluido en la lista
+      invalid: no es válido
+      less_than: debe ser menor que %{count}
+      less_than_or_equal_to: debe ser menor que o igual a %{count}
+      model_invalid: "La validación falló: %{errors}"
+      not_a_number: no es un número
+      not_an_integer: debe ser un entero
+      odd: debe ser impar
+      required: debe existir
+      taken: ya está en uso
+      too_long:
+        one: "es demasiado largo (1 carácter máximo)"
+        other: "es demasiado largo (%{count} caracteres máximo)"
+      too_short:
+        one: "es demasiado corto (1 carácter mínimo)"
+        other: "es demasiado corto (%{count} caracteres mínimo)"
+      wrong_length:
+        one: "no tiene la longitud correcta (1 carácter exactos)"
+        other: "no tiene la longitud correcta (%{count} caracteres exactos)"
+      other_than: debe ser distinto de %{count}
+    template:
+      body: 'Se encontraron problemas con los siguientes campos:'
+      header:
+        one: No se pudo guardar este/a %{model} porque se encontró 1 error
+        other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
+  helpers:
+    select:
+      prompt: Por favor seleccione
+    submit:
+      create: Crear %{model}
+      submit: Guardar %{model}
+      update: Actualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%u %n"
+        precision: 0
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
+    format:
+      delimiter: "."
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: mil millones
+          million:
+            one: millón
+            other: millones
+          quadrillion: mil billones
+          thousand: mil
+          trillion:
+            one: billón
+            other: billones
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n %"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " y "
+      two_words_connector: " y "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%A, %d de %B de %Y %H:%M:%S %z"
+      long: "%d de %B de %Y %H:%M"
+      short: "%d de %b %H:%M"
+      datetimepicker: ! "%d/%m/%Y %H:%M"
+      datepicker: ! "%d/%m/%Y"
+      file_datetime: ! "%d-%m-%Y_%H-%M"
+      monthYear: ! "%B %Y"
+      hour_minute: ! "%H:%M"
+      year: ! "%Y"
+    pm: pm
+  helps:
+    type:
+      problem: Problema
+      incident: Incidente
+      question: Pregunta
+      task: Tarea
+  email:
+    footer:
+      title: Enviado por www.shipit.cl - Tecnología y logística para tu eCommerce
+      title_poll: Este correo fue enviado por Shipit %{href}. ¡Participa por GiftCard de $60.000 para comprar en esta misma tienda! ¿Cómo? Cuéntanos de otra tienda online, ¡y participa! %{poll}
+      copyright: 'Shipit © %{year}. Todos los derechos reservados.'
+      poll:
+        in_preparation: http://bit.ly/2GdRZVq
+        in_route: http://bit.ly/2GdRZVq
+        delivered: http://bit.ly/2DL9erF
+        by_retired: http://bit.ly/2DL9erF
+        failed: http://bit.ly/2GbZ5cU
+    generic:
+      errors:
+        package_courier_selected_error:
+          title: 'Se reinició el courier del package'
+          message: 'Se actualizó el courier selected a false y el courier seleccionado por el cliente a vacío ya que el mismo no lo tiene disponible en su configuración'
+  forms:
+    validations:
+      sign_up:
+        name: Debes ingresar nombre de empresa o tienda.
+        email: Debes ingresar un correo.
+        password: Debes ingresar un password.
+        password_confirmation: Debes ingresar la confirmación de password.
+        accept_terms: Debes aceptar los términos y condiciones para continuar.
+        accept_base_charge: Debes aceptar la condición de cobro base.
+        accept_size: Debes aceptar la condición de medidas y productos frágiles.
+        how_to_know_shipit: Debes seleccionar ¿Cómo llegaste a Shipit?.
+        how_to_know_shipit_from: Debes ingresar como conociste a Shipit.
+  buttons_filter:
+    search: Buscar
+    clean: Limpiar
+  dashboard:
+    titles:
+      welcome: ¡Bienvenido!
+      indicators_last_month: Envíos acumulados del mes
+      total_shipments: Total de envíos
+      last_shipments: Tus últimos 10 envíos
+    subtitles:
+      save_time: Ahorra tiempo solicitando el retiro de tus envíos
+      latest_days: (Últimos 30 días)
+    indicators:
+      total_time_saved: Tiempo total ahorrado
+      day_with_more_shipments: Día con más envíos
+      region_with_more_shipments: Región con más envíos
+      commune_with_more_shipments: Comuna con más envíos
+      statuses:
+        in_preparation: Envío Creado
+        in_route: En Ruta
+        delivered: Entregados
+        by_retired: Por Retirar
+        failed: Fallidos
+        at_shipit: En Shipit
+  returns:
+    title: Devoluciones
+    tabs:
+      register: Registradas
+      actives: Pendientes
+      processed: Procesadas
+    actives:
+      buttons:
+        all: Seleccionar Todas
+        clean: Deseleccionar todas
+        return: Devolver a Punto de Retiro
+        no_packages: Debes seleccionar a lo menos 1 envío
+        selected: Envío(s) seleccionado(s)
+      table:
+        headers:
+          return_created_at: Fecha devolución
+          reference: ID envío
+          full_name: Destinatario
+          status: Estado
+          comments: Comentarios
+          return: Generar reenvío
+      no_returns: No tienes devoluciones pendientes
+      no_coments: Sin Comentarios
+      modal:
+        title: Confirmar devolución
+        package: Pedido ha sido seleccionado para ser devolvuelto a su tienda.
+        packages: Pedidos han sido seleccionados para ser devueltos a su tienda.
+        buttons:
+          cancel: Cancelar
+          confirm: Confirmar para
+    processed:
+      table:
+        headers:
+          status: Estado
+          created_at: Fecha de creación
+          reference: ID envío
+          full_name: Destinatario
+          courier_for_client: Courier
+          ubication: Ubicación
+  zendesk:
+    attributes:
+      name: "Nombre"
+      email: "Correo"
+      phone: "Teléfono"
+      street: "Calle"
+      number: "Número"
+      complement: "Complemento"
+      commune: "Comuna"
+    title:
+      lost_parcel: "%{reference_number} - reembolso"
+      wrong_address: "%{reference_number} - cambio de dirección"
+      change_address_with_client: "%{reference_number} - cambio de dirección"
+      change_address_with_courier: "%{reference_number} - cambio de dirección"
+    validations:
+      filename: El documento no existe, no es posible crear el nombre del archivo
+  pickups:
+    messages:
+      not_found_manifest_generation: 'No se encontraron pickups para la generación de manifiestos'
+      manifest_generation_finished: 'Generación de manifiestos finalizada'
+      manifest_generation_success: 'Generación de manifiestos sin errores'
+      errors:
+        shipments_not_found: 'Sin envíos'

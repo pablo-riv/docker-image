@@ -1,0 +1,28 @@
+upstream puma-site {
+  server unix:///tmp/sockets/puma.sock;
+}
+
+server {
+  listen 5080;
+
+  root /usr/src/app/public;
+  access_log /tmp/log/nginx.access.log;
+  error_log /tmp/log/nginx.error.log info;
+
+  try_files /index.html @puma-site;
+
+  location @puma-site {
+    proxy_set_header X-Service api;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_http_version 1.1;
+    proxy_set_header Connection '';
+    chunked_transfer_encoding off;
+    proxy_buffering off;
+    proxy_send_timeout 300s;
+    proxy_read_timeout 300s;
+    proxy_connect_timeout 75s;
+    proxy_pass http://puma-site;
+  }
+}

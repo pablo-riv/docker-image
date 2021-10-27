@@ -1,0 +1,1 @@
+json.extract! @setting, :id, :company_id, :configuration

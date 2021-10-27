@@ -1,0 +1,20 @@
+---
+:verbose: false
+:logfile: ./log/sidekiq.log
+:queues:
+  - [manifest, 1]
+  - [shipments, 1]
+  - [fulfillment, 2]
+  - [downloads, 3]
+  - [printers, 3]
+  - default
+  - [webhooks, 4]
+development:
+  :concurrency:  2
+  :pidfile: ./tmp/sidekiq.pid
+staging:
+  :concurrency:  2
+  :pidfile: /home/deploy/www/clientes/shared/tmp/pids/sidekiq.pid
+production:
+  :concurrency:  1
+  :pidfile: /tmp/pids/sidekiq.pid

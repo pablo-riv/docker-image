@@ -1,0 +1,131 @@
+# Chilean holiday definitions for the Ruby Holiday gem.
+#
+# Updated: 2020-1-2
+#
+# Sources:
+# - http://www.feriados.cl
+#
+
+---
+months:
+  1:
+  - name: Año Nuevo
+    regions: [custom_cl]
+    mday: 1
+    year_ranges:
+    - limited: [2021]
+  4:
+  - name: Viernes Santo
+    regions: [custom_cl]
+    mday: 2
+    year_ranges:
+    - limited: [2021]
+  - name: Sábado Santo
+    regions: [custom_cl]
+    mday: 3
+    year_ranges:
+    - limited: [2021]
+  - name: Elecciones Alcaldes, Consejales, Gobernadores Regionales y Constituyentes Irrenunciable
+    regions: [custom_cl]
+    mday: 11
+    year_ranges:
+    - limited: [2021]
+  5:
+  - name: Día del Trabajo
+    regions: [custom_cl]
+    mday: 1
+    year_ranges:
+    - limited: [2021]
+  - name: Segunda Vuelta Gobernadores Regionales
+    regions: [custom_cl]
+    mday: 9
+    year_ranges:
+    - limited: [2021]
+  - name: Día de las Glorias Navales
+    regions: [custom_cl]
+    mday: 21
+    year_ranges:
+    - limited: [2021]
+  6:
+  - name: Día Nacional de los Pueblos Originarios
+    regions: [custom_cl]
+    mday: 21
+    year_ranges:
+    - limited: [2021]
+  - name: San Pedro y San Pablo
+    regions: [custom_cl]
+    mday: 28
+    year_ranges:
+    - limited: [2021]
+  7:
+  - name: Elecciones Primarias Presidenciales
+    regions: [custom_cl]
+    mday: 4
+    year_ranges:
+    - limited: [2021]
+  - name: Día de la Virgen del Carmen
+    regions: [custom_cl]
+    mday: 16
+    year_ranges:
+    - limited: [2021]
+  8:
+  - name: Asunción de la Virgen
+    regions: [custom_cl]
+    mday: 15
+    year_ranges:
+    - limited: [2021]
+  9:
+  - name: Feriado Adicional
+    regions: [custom_cl]
+    mday: 17
+    year_ranges:
+    - limited: [2021]
+  - name: Independencia Nacional
+    regions: [custom_cl]
+    mday: 18
+    year_ranges:
+    - limited: [2021]
+  - name: Día de las Glorias del Ejército
+    regions: [custom_cl]
+    mday: 19
+    year_ranges:
+    - limited: [2021]
+  10:
+  - name: Encuentro de Dos Mundos
+    regions: [custom_cl]
+    mday: 11
+    year_ranges:
+    - limited: [2021]
+  - name: Día de las Iglesias Evangélicas y Protestantes
+    regions: [custom_cl]
+    mday: 31
+    year_ranges:
+    - limited: [2021]
+  11:
+  - name: Día de Todos los Santos
+    regions: [custom_cl]
+    mday: 1
+    year_ranges:
+    - limited: [2021]
+  - name: Elecciones Presidenciales y Parlamentarias
+    regions: [custom_cl]
+    mday: 21
+    year_ranges:
+    - limited: [2021]
+  12:
+  - name: Inmaculada Concepción de María
+    regions: [custom_cl]
+    mday: 8
+    year_ranges:
+    - limited: [2021]
+  - name: Segunda Vuelta Elecciones Presidenciales
+    regions: [custom_cl]
+    mday: 19
+    year_ranges:
+    - limited: [2021]
+  - name: Navidad
+    regions: [custom_cl]
+    mday: 25
+    year_ranges:
+    - limited: [2021]
+tests:

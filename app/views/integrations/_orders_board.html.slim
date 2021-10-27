@@ -1,0 +1,65 @@
+.table-responsive.orders-table-wrapper ng-if='newOrder.length > 0'
+  table.table.table-hover.table-orders
+    colgroup
+      col width='40px'
+      col
+      col
+      col
+      col ng-if='hasFulfillment == true'
+      col
+      col
+      col
+      col
+      col ng-if='hasFulfillment == false'
+      col width='70px'
+      col width='70px'
+    thead
+      tr
+        td
+        td = I18n.t('integrations.attributes.id')
+        td = I18n.t('integrations.attributes.full_name')
+        td = I18n.t('integrations.attributes.created_at')
+        td ng-if='hasFulfillment == true' = I18n.t('integrations.attributes.sku')
+        td = I18n.t('integrations.attributes.street')
+        td = I18n.t('integrations.attributes.number')
+        td = I18n.t('integrations.attributes.complement')
+        td = I18n.t('integrations.attributes.commune')
+        td ng-if='hasFulfillment == false' = I18n.t('integrations.attributes.packing')
+        td
+        td
+    tbody
+      tr.table-orders-row ng-repeat='order in newOrder' ng-class="{'active-orders-row': order.selected}" ng-click='order.selected=!order.selected' uib-popover-template="'orders_popover.html'" popover-title='{{ order.seller_reference }}' popover-trigger="'mouseenter'" popover-placement="'top-left'"
+        td
+          input type='checkbox' name='check' value='asd' ng-checked="order.selected"
+        td
+          .pull-left.orders_icon ng-class='order.seller'
+          | {{ order.seller_reference }}
+        td
+          | {{ order.customer_name }}
+        td
+          | {{ order.created | date: format: 'medium' }}
+        td ng-if='hasFulfillment == true'
+          | {{ order.skus }}
+        td
+          | {{ order.shipping_data.street }}
+        td
+          | {{ order.shipping_data.number }}
+        td
+          | {{ order.shipping_data_complement }}
+        td
+          | {{ order.commune.name }}
+        td ng-if='hasFulfillment == false'
+          | {{ order.packing }}
+        td
+          button.btn.btn-warning ng-click='showEditModal(order)'
+            i.fas.fa-edit aria-hidden='true'
+        td
+          button.btn.btn-default ng-click='archive(order, true)'
+            i.fas.fa-trash-alt aria-hidden='true'
+.col-md-12 ng-if='newOrder.length < 1'
+  h4 = t("integrations.today_without_orders")
+br/
+hr/
+.row
+  .col-md-12.col-sm-12.text-center
+    ul.pagination ng-change='getOrders()' total-items='totalOrders' items-per-page='search.per' ng-model='search.page' max-size='5' boundary-link-numbers='true' first-text='Primera' last-text='Última' previous-text='Anterior' next-text='Siguiente' uib-pagination='' template-url='pagination.html'

@@ -1,0 +1,18 @@
+.row
+  .container-fluid
+    .col-lg-7.text-center
+      = inline_svg 'hero.svg', height: '410', class: 'login-logo'
+
+    .col-lg-5
+      .card
+        .card-block.form-layout
+          = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, id: 'reset_password', class: 'mb-30' }) do |f|
+            .text-xs-center.m-b-3
+              = inline_svg 'svg/logo-shipit.svg', height: '100'
+              h1 ¿Olvidaste tu clave?
+            = devise_error_messages!
+            fieldset.form-group
+              = f.label :email, 'Escribe tu correo'
+              = f.email_field :email, autofocus: true, class: 'form-control form-control-lg', placeholder: 'correo@dominio.cl', required: true
+            .actions.text-center
+              = f.submit 'Enviarme correo para resetear contraseña', class: 'btn btn-primary text-center'

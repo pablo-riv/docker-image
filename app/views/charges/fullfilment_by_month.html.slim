@@ -1,0 +1,87 @@
+- breadcrumb :charges_fulfillment_by_month
+.card
+  .card-block
+    .row
+      .col-md-8
+        h2.card-title
+          | Pago Fulfillment #{l @date, format: '%B %Y'}
+      .col-md-2
+      .col-md-2
+        button.btn.btn-success.dropdown-toggle.btn-block type='button' data-toggle='dropdown' aria-expanded='false'
+          | Opciones
+          span.caret
+        .dropdown-menu role='menu'
+          = link_to 'Descargar Cobros', fulfillment_month_xls_charges_path(params[:year], params[:month]), class: 'dropdown-item', target: '_blank'
+          / = link_to 'Ver detalles', fullfilment_by_month_details_charges_path(@date.year, @date.month), class: 'dropdown-item', target: '_blank'
+          span.divider
+          = link_to 'Volver', fullfilment_charges_path, class: 'dropdown-item'
+    hr/
+    .row.mb-20
+      p.text-right
+        = date_navigation_links @date
+    .row.mb-20
+      .col-md-12
+        table.table.ff_totals_table
+          theader
+            tr
+              th.text-center = I18n.t('activerecord.attributes.charges.fulfillment.totals.total_in')
+              th.text-center = I18n.t('activerecord.attributes.charges.fulfillment.totals.total_stock')
+              th.text-center = I18n.t('activerecord.attributes.charges.fulfillment.totals.total_out')
+              th.text-center = I18n.t('activerecord.attributes.charges.fulfillment.totals.total_others')
+              th.text-center = I18n.t('activerecord.attributes.charges.fulfillment.totals.premium')
+              th.text-center = I18n.t('activerecord.attributes.charges.fulfillment.totals.total_recurrent')
+              th.text-center = I18n.t('activerecord.attributes.charges.fulfillment.totals.total_shipments')
+              th.text-center = I18n.t('activerecord.attributes.charges.fulfillment.totals.total_resume')
+          tbody
+            tr.text-center
+              td
+                | $ #{number_with_delimiter(@totals[:in].try(:round), delimiter: '.')}
+              td
+                | $ #{number_with_delimiter(@totals[:stock].try(:round), delimiter: '.')}
+              td
+                | $ #{number_with_delimiter(@totals[:out].try(:round), delimiter: '.')}
+              td
+                | $ #{number_with_delimiter(@totals[:others].try(:round), delimiter: '.')}
+              td data-placement='top' data-title="Total en días: #{number_with_delimiter(@totals[:premium], delimiter: '.')}" data-toggle='tooltip' title="Total en días:  #{number_with_delimiter(@totals[:premium], delimiter: '.')}"
+                | $ #{number_with_delimiter(@totals[:total_premium].try(:round), delimiter: '.')}
+
+              td data-placement='top' data-title="Total en días: #{number_with_delimiter(@totals[:recurrent_charge], delimiter: '.')}" data-toggle='tooltip' title="Total en días:  #{number_with_delimiter(@totals[:recurrent_charge], delimiter: '.')}"
+                | $ #{number_with_delimiter(@totals[:recurrent_total_charge].try(:round), delimiter: '.')}
+              td
+                | $ #{number_with_delimiter(@totals[:shipments].try(:round), delimiter: '.')}
+              td
+                | $ #{number_with_delimiter(@totals[:resume].try(:round), delimiter: '.')}
+
+    - if @charges.empty?
+      p.alert.alert-danger = I18n.t('activerecord.attributes.charges.fulfillment.empty')
+    - else
+      table.table.table-hover.table-striped
+        thead
+          tr
+            th = I18n.t('activerecord.attributes.charges.fulfillment.date')
+            th = I18n.t('activerecord.attributes.charges.fulfillment.in')
+            th = I18n.t('activerecord.attributes.charges.fulfillment.stock')
+            th = I18n.t('activerecord.attributes.charges.fulfillment.out')
+            th = I18n.t('activerecord.attributes.charges.fulfillment.other_services')
+            th = I18n.t('activerecord.attributes.charges.fulfillment.recurrent_charge')
+            th = I18n.t('activerecord.attributes.charges.fulfillment.shipping_cost')
+            th = I18n.t('activerecord.attributes.charges.fulfillment.total')
+        tbody
+          - @charges.each do |charge|
+            - total_amounts = charge.total_amounts
+            tr
+              td = l charge.date, format: '%d/%m/%Y'
+              td
+                | $ #{number_with_delimiter(total_amounts[:in].try(:round), delimiter: '.')}
+              td
+                | $ #{number_with_delimiter(total_amounts[:stock].try(:round), delimiter: '.')}
+              td
+                | $ #{number_with_delimiter(total_amounts[:out].try(:round), delimiter: '.')}
+              td
+                | $ #{number_with_delimiter(total_amounts[:others].try(:round), delimiter: '.')}
+              td
+                | $ #{number_with_delimiter(total_amounts[:recurrent_charge].try(:round), delimiter: '.')}
+              td = link_to "$ #{number_with_delimiter(sum_shipments(total_amounts), delimiter: '.')}", fulfillment_day_packages_charges_path(charge.date.year, charge.date.month, charge.date.day)
+              td
+                strong
+                  | $ #{number_with_delimiter(total_warehouse_shipments(total_amounts), delimiter: '.')}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registro | Shipit</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'devise', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_path('favicon.png') %>">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:500,900,200'
+rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <%= render 'layouts/top_navbar' %>
+    <div class="row">
+      <% flash.each do |key, values| %>
+        <% if values.class == String %>
+          <div class="alert alert-<%= key %> alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong class="fw-b"><%= values %></strong>
+          </div>
+        <% else %>
+          <% values.each do |value| %>
+            <div class="alert alert-<%= key == 'alert' ? 'danger' : key %> alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong class="fw-b"><%= value %></strong>
+            </div>
+          <% end%>
+        <% end %>
+      <% end %>
+    <%= yield %>
+  </body>
+</html>

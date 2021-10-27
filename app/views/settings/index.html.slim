@@ -1,0 +1,28 @@
+- breadcrumb :general_settings
+
+.card
+  .card-block
+    .row
+      .col-md-12
+        h2.card-title
+          = I18n.t('settings.index.title')
+  .card-block
+    - if rollout(:main_menu_v2)
+      = render '/settings/partials/services'
+    -else
+      ul.nav.nav-tabs
+        li.nav-item
+          = link_to I18n.t('settings.index.tabs.services'), "#servicios", class: 'nav-link active', 'data-toggle': 'tab', 'aria-expanded': 'true', 'role': 'tab'
+        li.nav-item
+            =link_to I18n.t('settings.index.tabs.general'), "#general", class: 'nav-link', 'data-toggle': 'tab', 'aria-expanded': 'true', 'role': 'tab'
+        li.nav-item
+          = link_to '#printers', class: 'nav-link', 'data-toggle': 'tab', 'aria-expanded': 'true', 'role': 'tab' do
+            = I18n.t('settings.index.tabs.printers')
+
+      .tab-content
+        #servicios.tab-pane.active role='tabpanel'  aria-expanded='true'
+          = render '/settings/partials/services'
+        #general.tab-pane role='tabpanel'  aria-expanded='true'
+          = render '/settings/partials/general'
+        #printers.tab-pane role='tabpanel'  aria-expanded='true'
+          = render '/settings/partials/printers'

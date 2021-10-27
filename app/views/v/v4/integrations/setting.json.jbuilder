@@ -1,0 +1,1 @@
+json.extract! @integration, :id, :company_id, :configuration

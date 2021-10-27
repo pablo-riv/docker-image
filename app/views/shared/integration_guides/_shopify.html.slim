@@ -1,0 +1,70 @@
+.row
+  .col-md-12
+    .text-center.wp-100
+      h3
+        | Cómo integrar Shopify
+      p 
+        span 
+          | Descarga esta pequeña
+          = " "
+          = link_to 'guía', download_pdf_integrations_path(store: 'shopify'), class: 'underlined'
+          = " "
+          | o se despliega un paso a paso de como integrar tu tienda Shopify
+      p
+        a data-toggle="collapse" data-target="#shopify-steps"
+          | Ver más...
+      br /
+      #shopify-steps.collapse
+        h5
+          | ¿Dónde está el API Key de Shopify?
+        p
+          | 1.- Ingresa a tu cuenta de Shopify al menú apps y selecciona view private apps.
+        = image_tag asset_path('shopify-instructions/1.PNG'), class: 'w-500'
+        p
+          | 2.- Selecciona generate api credentials
+        = image_tag asset_path('shopify-instructions/2.PNG'), class: 'w-500'
+        p
+          | 3.- Nómbrala shipit y completa los permisos.
+        = image_tag asset_path('shopify-instructions/3.PNG'), class: 'w-500'
+        p
+          | 4.- Asegúrate de que los permisos sean completados así
+        = image_tag asset_path('shopify-instructions/4.PNG'), class: 'w-500'
+        p
+          | 5.- Copia el api key y el password
+        = image_tag asset_path('shopify-instructions/5.PNG'), class: 'w-500'
+        br /
+        hr /
+        h5
+          | ¿Dónde poner el API KEY y el PASSWORD en Shipit?
+        p
+          | 1.- Ingresa a tu cuenta de shipit y selecciona integraciones
+        = image_tag asset_path('shopify-instructions/6.PNG'), class: 'w-200 h-400'
+        p
+          | 2.- Seleccionar configurar en shopify
+        = image_tag asset_path('shopify-instructions/7.PNG'), class: 'w-500'
+        p
+          | 3.- Pega tu api key, tu password, y el nombre de tu tienda (el nombre de shopify, sin myshopify.com) ; haz click en guardar
+        = image_tag asset_path('shopify-instructions/8.PNG'), class: 'w-500'
+        br /
+        hr /
+        h5
+          | IMPORTANTE: Como configurar el Checkout para descargar las direcciones de manera correcta
+        p
+          | 1.- Ingresa a tu cuenta de shopify y selecciona online store
+        = image_tag asset_path('shopify-instructions/9.PNG'), class: 'w-500'
+        p
+          | 2.- Haz click en los 3 puntos y selecciona edit language
+        = image_tag asset_path('shopify-instructions/10.PNG'), class: 'w-500'
+        p Lorem ipsum...
+          | 3.- Haz click en los 3 puntos y selecciona checkout & system
+        = image_tag asset_path('shopify-instructions/11.PNG'), class: 'w-500'
+        p
+          | 4.- Anda hacia abajo hasta la sección checkout contact
+        = image_tag asset_path('shopify-instructions/12.PNG'), class: 'w-500'
+        p
+          | 5.- Edita los siguientes campos y completalos así
+        = image_tag asset_path('shopify-instructions/13.PNG'), class: 'w-500'
+        p
+          | 6.- Actualiza tu checkout y asegúrate que quedó asi
+        = image_tag asset_path('shopify-instructions/14.PNG'), class: 'w-500'
+hr

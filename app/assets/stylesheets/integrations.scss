@@ -1,0 +1,23 @@
+.table-orders-row {
+    cursor: pointer;
+}
+
+.table-orders {
+    table-layout: fixed;
+    td {
+        padding: 0 1rem 0 1rem !important;
+        font-size: 12px !important;
+    }
+    td,
+    th {
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .active-orders-row {
+        background-color: rgba(15, 15, 15, 0.1);
+    }
+}
+
+.orders-table-wrapper {
+    overflow: scroll;
+}

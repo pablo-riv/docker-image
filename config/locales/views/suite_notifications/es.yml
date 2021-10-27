@@ -1,0 +1,15 @@
+es:
+  notifications:
+    download:
+      title:
+        pending: Descarga pendiente
+        init: Proceso iniciado
+        downloading: Descargando
+        success: Descarga finalizada
+        failed: Descarga fallida
+      content:
+        pending: Se está procesando tu solicitud
+        init: Proceso de descarga iniciado correctamente
+        downloading: Descaga en proceso
+        success: Ha finalizado la descarga
+        failed: Ha ocurrido un error en la descarga

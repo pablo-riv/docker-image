@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-lg-12 col-sm-12">
+    <label>¿Selecciona con qué precios vas a operar?</label>
+    <div class="row">
+      <!-- <div class="col-lg-4 col-sm-4">
+        <div class="card">
+          <%#= image_tag("customer.png", class: "card-img-top img-fluid starken-rules") %>
+          <div class="card-block">
+            <h5 class="card-title pull-left">Tus Precios</h5>
+            <div class="checkbox m-b-1 pull-right">
+              <label>
+                <input type="radio" value="false" name="setting[is_default_price]"> Elegir
+              </label>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="col-lg-4 col-sm-4">
+        <div class="card">
+          <%= image_tag("logo_shipit.png", class: "card-img-top img-fluid starken-rules") %>
+          <div class="card-block">
+            <h5 class="card-title pull-left">Precios Shipit</h5>
+            <div class="checkbox m-b-1 pull-right">
+              <label>
+                <input type="radio" value="true" name="setting[is_default_price]" checked="true"> Selecciona
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-4"></div>
+      <div class="col-lg-4 col-sm-4"></div>
+    </div>
+  </div>
+</div>

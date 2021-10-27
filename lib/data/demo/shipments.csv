@@ -1,0 +1,1502 @@
+id,status,sub_status,created_at,operation_date,reference,full_name,courier,ID Envío,tracking
+1503897,in_preparation,in_preparation,17/5/2020 9:36:00,17/5/2020,Shipit0001,Antonio Garcia,starken,TEST001,929621911
+1503896,in_preparation,in_preparation,17/5/2020 9:35:59,17/5/2020,Shipit0002,Jose Gonzalez,starken,TEST002,929621892
+1503895,in_preparation,in_preparation,17/5/2020 9:35:58,17/5/2020,Shipit0003,Manuel Fernandez,starken,TEST003,929621891
+1503894,in_preparation,in_preparation,17/5/2020 9:35:57,17/5/2020,Shipit0004,Francisco Perez,starken,TEST004,929621893
+1503893,in_preparation,in_preparation,17/5/2020 9:35:57,17/5/2020,Shipit0005,David Lopez,starken,TEST005,929621888
+1503892,in_preparation,in_preparation,17/5/2020 9:35:56,17/5/2020,Shipit0006,Juan Rodriguez,starken,TEST006,929621910
+1503891,in_preparation,in_preparation,17/5/2020 9:35:55,17/5/2020,Shipit0007,Jose Antonio Martinez,starken,TEST007,929621908
+1503890,in_preparation,in_preparation,17/5/2020 9:35:54,17/5/2020,Shipit0008,Javier Sanchez,starken,TEST008,929621889
+1503889,in_preparation,in_preparation,17/5/2020 9:35:53,17/5/2020,Shipit0009,Daniel Gomez,starken,TEST009,929621866
+1503888,in_preparation,in_preparation,17/5/2020 9:35:52,17/5/2020,Shipit0010,Jose Luis Alvarez,starken,TEST010,929621886
+1503887,retired_by,retired_by,17/5/2020 9:35:51,17/5/2020,Shipit0011,Francisco Javier Martin,starken,TEST011,929621864
+1503886,retired_by,retired_by,17/5/2020 9:35:50,17/5/2020,Shipit0012,Carlos Diaz,starken,TEST012,929621887
+1503885,retired_by,retired_by,17/5/2020 9:35:50,17/5/2020,Shipit0013,Jesus Alonso,starken,TEST013,929621863
+1503884,retired_by,retired_by,17/5/2020 9:35:49,17/5/2020,Shipit0014,Alejandro Ruiz,starken,TEST014,929621885
+1503883,retired_by,retired_by,17/5/2020 9:35:48,17/5/2020,Shipit0015,Miguel Hernandez,starken,TEST015,929621861
+1503882,received_for_courier,received_for_courier,17/5/2020 9:35:47,17/5/2020,Shipit0016,Jose Manuel Gutierrez,starken,TEST016,929621860
+1503881,received_for_courier,received_for_courier,17/5/2020 9:35:46,17/5/2020,Shipit0017,Rafael Blanco,starken,TEST017,929621862
+1503880,received_for_courier,received_for_courier,17/5/2020 9:35:45,17/5/2020,Shipit0018,Miguel Angel Jimenez,starken,TEST018,929621884
+1503879,received_for_courier,received_for_courier,17/5/2020 9:35:44,17/5/2020,Shipit0019,Pedro Moreno,starken,TEST019,929621883
+1503878,received_for_courier,received_for_courier,17/5/2020 9:35:44,17/5/2020,Shipit0020,Angel Muñoz,starken,TEST020,929621859
+1503877,in_route,in_route,16/5/2020 9:35:44,16/5/2020,Shipit0021,Antonio Vazquez,starken,TEST021,929621882
+1503876,in_route,in_route,16/5/2020 9:35:43,16/5/2020,Shipit0022,Jose Gil,starken,TEST022,929621858
+1503875,in_route,in_route,16/5/2020 9:35:42,16/5/2020,Shipit0023,Manuel Dominguez,starken,TEST023,929621855
+1503874,in_route,in_route,16/5/2020 9:35:41,16/5/2020,Shipit0024,Francisco Castro,starken,TEST024,929621876
+1503873,in_route,in_route,16/5/2020 9:35:40,16/5/2020,Shipit0025,David Ramos,starken,TEST025,929621853
+1503872,in_route,in_route,16/5/2020 9:35:39,16/5/2020,Shipit0026,Juan Garcia,starken,TEST026,929621874
+1503871,in_route,in_route,16/5/2020 9:35:38,16/5/2020,Shipit0027,Jose Antonio Gonzalez,starken,TEST027,929621851
+1503870,in_route,in_route,16/5/2020 9:35:38,16/5/2020,Shipit0028,Javier Fernandez,starken,TEST028,929621870
+1503869,in_route,first_closed_address,16/5/2020 9:35:37,16/5/2020,Shipit0029,Daniel Perez,starken,TEST029,929621869
+1503868,by_retired,by_retired,16/5/2020 9:35:36,16/5/2020,Shipit0030,Jose Luis Lopez,starken,TEST030,929621849
+1503867,by_retired,by_retired,16/5/2020 9:35:35,16/5/2020,Shipit0031,Francisco Javier Rodriguez,starken,TEST031,929621850
+1503866,delivered,delivered,16/5/2020 9:35:34,16/5/2020,Shipit0032,Carlos Martinez,starken,TEST032,929621868
+1503865,delivered,delivered,16/5/2020 9:35:33,16/5/2020,Shipit0033,Jesus Sanchez,starken,TEST033,929621846
+1503864,delivered,delivered,16/5/2020 9:35:32,16/5/2020,Shipit0034,Alejandro Gomez,starken,TEST034,929621848
+1503863,delivered,delivered,16/5/2020 9:35:31,16/5/2020,Shipit0035,Miguel Alvarez,starken,TEST035,929621826
+1503862,delivered,delivered,16/5/2020 9:35:31,16/5/2020,Shipit0036,Jose Manuel Martin,starken,TEST036,929621825
+1503861,delivered,delivered,16/5/2020 9:35:30,16/5/2020,Shipit0037,Rafael Diaz,starken,TEST037,929621845
+1503860,delivered,delivered,16/5/2020 9:35:29,16/5/2020,Shipit0038,Miguel Angel Alonso,starken,TEST038,929621843
+1503859,delivered,delivered,16/5/2020 9:35:28,16/5/2020,Shipit0039,Pedro Ruiz,starken,TEST039,929621842
+1503858,delivered,delivered,16/5/2020 9:35:27,16/5/2020,Shipit0040,Angel Hernandez,starken,TEST040,929621844
+1503857,delivered,delivered,16/5/2020 9:35:26,16/5/2020,Shipit0041,Antonio Gutierrez,starken,TEST041,929621840
+1503856,delivered,delivered,16/5/2020 9:35:25,16/5/2020,Shipit0042,Jose Blanco,starken,TEST042,929621824
+1503855,delivered,delivered,16/5/2020 9:35:25,16/5/2020,Shipit0043,Manuel Jimenez,starken,TEST043,929621841
+1503854,delivered,delivered,16/5/2020 9:35:24,16/5/2020,Shipit0044,Francisco Moreno,starken,TEST044,929621837
+1503853,delivered,delivered,16/5/2020 9:35:23,16/5/2020,Shipit0045,David Muñoz,starken,TEST045,929621821
+1503852,delivered,delivered,16/5/2020 9:35:22,16/5/2020,Shipit0046,Juan Vazquez,starken,TEST046,929621838
+1503851,delivered,delivered,16/5/2020 9:35:21,16/5/2020,Shipit0047,Jose Antonio Gil,starken,TEST047,929621835
+1503850,delivered,delivered,16/5/2020 9:35:20,16/5/2020,Shipit0048,Javier Dominguez,starken,TEST048,929621823
+1503849,delivered,delivered,16/5/2020 9:35:19,16/5/2020,Shipit0049,Daniel Castro,starken,TEST049,929621836
+1503848,delivered,delivered,16/5/2020 9:35:19,16/5/2020,Shipit0050,Jose Luis Ramos,starken,TEST050,929621820
+1503847,delivered,delivered,16/5/2020 9:35:18,16/5/2020,Shipit0051,Francisco Javier Garcia,starken,TEST051,929621822
+1503846,delivered,delivered,16/5/2020 9:35:17,16/5/2020,Shipit0052,Carlos Gonzalez,starken,TEST052,929621819
+1503845,delivered,delivered,16/5/2020 9:35:16,16/5/2020,Shipit0053,Jesus Fernandez,starken,TEST053,929621818
+1503844,delivered,delivered,16/5/2020 9:35:15,16/5/2020,Shipit0054,Alejandro Perez,starken,TEST054,929621834
+1503843,delivered,delivered,16/5/2020 9:35:14,16/5/2020,Shipit0055,Miguel Lopez,starken,TEST055,929621816
+1503842,delivered,delivered,16/5/2020 9:35:13,16/5/2020,Shipit0056,Jose Manuel Rodriguez,starken,TEST056,929621831
+1503841,delivered,delivered,16/5/2020 9:35:12,16/5/2020,Shipit0057,Rafael Martinez,starken,TEST057,929621833
+1503840,delivered,delivered,16/5/2020 9:35:12,16/5/2020,Shipit0058,Miguel Angel Sanchez,starken,TEST058,929621815
+1503839,delivered,delivered,16/5/2020 9:35:11,16/5/2020,Shipit0059,Pedro Gomez,starken,TEST059,929621812
+1503838,delivered,delivered,16/5/2020 9:35:10,16/5/2020,Shipit0060,Angel Alvarez,starken,TEST060,929621810
+1503837,delivered,delivered,16/5/2020 9:35:09,16/5/2020,Shipit0061,Antonio Martin,starken,TEST061,929621809
+1503836,delivered,delivered,16/5/2020 9:35:08,16/5/2020,Shipit0062,Jose Diaz,starken,TEST062,929621796
+1503835,delivered,delivered,16/5/2020 9:35:07,16/5/2020,Shipit0063,Manuel Alonso,starken,TEST063,929621799
+1503834,delivered,delivered,16/5/2020 9:35:06,16/5/2020,Shipit0064,Francisco Ruiz,starken,TEST064,929621798
+1503833,delivered,delivered,16/5/2020 9:35:06,16/5/2020,Shipit0065,David Hernandez,starken,TEST065,929621784
+1503832,delivered,delivered,16/5/2020 9:35:05,16/5/2020,Shipit0066,Juan Gutierrez,starken,TEST066,929621795
+1503831,delivered,delivered,16/5/2020 9:35:04,16/5/2020,Shipit0067,Jose Antonio Blanco,starken,TEST067,929621793
+1503830,delivered,delivered,16/5/2020 9:35:03,16/5/2020,Shipit0068,Javier Jimenez,starken,TEST068,929621794
+1503829,delivered,delivered,16/5/2020 9:35:02,16/5/2020,Shipit0069,Daniel Moreno,starken,TEST069,929621792
+1503828,delivered,delivered,16/5/2020 9:35:01,16/5/2020,Shipit0070,Jose Luis Muñoz,starken,TEST070,929621786
+1503827,delivered,delivered,16/5/2020 9:35:00,16/5/2020,Shipit0071,Francisco Javier Vazquez,starken,TEST071,929621807
+1503826,delivered,delivered,16/5/2020 9:35:00,16/5/2020,Shipit0072,Carlos Gil,starken,TEST072,929621785
+1503825,delivered,delivered,16/5/2020 9:34:59,16/5/2020,Shipit0073,Jesus Dominguez,starken,TEST073,929621782
+1503824,delivered,delivered,16/5/2020 9:34:58,16/5/2020,Shipit0074,Alejandro Castro,starken,TEST074,929621788
+1503823,delivered,delivered,16/5/2020 9:34:57,16/5/2020,Shipit0075,Miguel Ramos,starken,TEST075,929621783
+1503822,delivered,delivered,16/5/2020 9:34:56,16/5/2020,Shipit0076,Jose Manuel Garcia,starken,TEST076,929621789
+1503821,delivered,delivered,16/5/2020 9:34:55,16/5/2020,Shipit0077,Rafael Gonzalez,starken,TEST077,929621787
+1503820,delivered,delivered,16/5/2020 9:34:54,16/5/2020,Shipit0078,Miguel Angel Fernandez,starken,TEST078,929621780
+1503819,delivered,delivered,16/5/2020 9:34:53,16/5/2020,Shipit0079,Pedro Perez,starken,TEST079,929621781
+1503818,delivered,delivered,16/5/2020 9:34:53,16/5/2020,Shipit0080,Angel Lopez,starken,TEST080,929621791
+1503817,delivered,delivered,16/5/2020 9:34:52,16/5/2020,Shipit0081,Antonio Rodriguez,starken,TEST081,929621765
+1503816,delivered,delivered,16/5/2020 9:34:51,16/5/2020,Shipit0082,Jose Martinez,starken,TEST082,929621779
+1503815,delivered,delivered,16/5/2020 9:34:50,16/5/2020,Shipit0083,Manuel Sanchez,starken,TEST083,929621764
+1503814,delivered,delivered,16/5/2020 9:34:49,16/5/2020,Shipit0084,Francisco Gomez,starken,TEST084,929621777
+1503813,delivered,delivered,16/5/2020 9:34:48,16/5/2020,Shipit0085,David Alvarez,starken,TEST085,929621776
+1503812,delivered,delivered,16/5/2020 9:34:47,16/5/2020,Shipit0086,Juan Martin,starken,TEST086,929621762
+1503811,delivered,delivered,16/5/2020 9:34:47,16/5/2020,Shipit0087,Jose Antonio Diaz,starken,TEST087,929621790
+1503810,delivered,delivered,16/5/2020 9:34:46,16/5/2020,Shipit0088,Javier Alonso,starken,TEST088,929621766
+1503809,delivered,delivered,16/5/2020 9:34:45,16/5/2020,Shipit0089,Daniel Ruiz,starken,TEST089,929621763
+1503808,delivered,delivered,16/5/2020 9:34:44,16/5/2020,Shipit0090,Jose Luis Hernandez,starken,TEST090,929621778
+1503794,delivered,delivered,16/5/2020 9:34:43,16/5/2020,Shipit0091,Francisco Javier Gutierrez,chilexpress,TEST091,712090414055
+1503793,delivered,delivered,16/5/2020 9:34:42,16/5/2020,Shipit0092,Carlos Blanco,chilexpress,TEST092,712090414044
+1503792,delivered,delivered,16/5/2020 9:34:41,16/5/2020,Shipit0093,Jesus Jimenez,chilexpress,TEST093,712090413963
+1503791,delivered,delivered,16/5/2020 9:34:41,16/5/2020,Shipit0094,Alejandro Moreno,chilexpress,TEST094,712090414022
+1503790,delivered,delivered,16/5/2020 9:34:40,16/5/2020,Shipit0095,Miguel Muñoz,chilexpress,TEST095,712090414011
+1503789,delivered,delivered,15/5/2020 9:34:40,15/5/2020,Shipit0096,Jose Manuel Vazquez,chilexpress,TEST096,712090413893
+1503788,delivered,delivered,15/5/2020 9:34:39,15/5/2020,Shipit0097,Rafael Gil,chilexpress,TEST097,712090413860
+1503787,delivered,delivered,15/5/2020 9:34:38,15/5/2020,Shipit0098,Miguel Angel Dominguez,chilexpress,TEST098,712090414033
+1503786,delivered,delivered,15/5/2020 9:34:37,15/5/2020,Shipit0099,Pedro Castro,chilexpress,TEST099,712090413974
+1503785,delivered,delivered,15/5/2020 9:34:36,15/5/2020,Shipit0100,Angel Ramos,chilexpress,TEST100,712090414000
+1503784,delivered,delivered,15/5/2020 9:34:35,15/5/2020,Shipit0101,Antonio Garcia,chilexpress,TEST101,712090413834
+1503783,delivered,delivered,15/5/2020 9:34:34,15/5/2020,Shipit0102,Jose Gonzalez,chilexpress,TEST102,712090413985
+1503782,delivered,delivered,15/5/2020 9:34:34,15/5/2020,Shipit0103,Manuel Fernandez,chilexpress,TEST103,712090413952
+1503781,delivered,delivered,15/5/2020 9:34:33,15/5/2020,Shipit0104,Francisco Perez,chilexpress,TEST104,712090413941
+1503780,delivered,delivered,15/5/2020 9:34:32,15/5/2020,Shipit0105,David Lopez,chilexpress,TEST105,712090413926
+1503779,delivered,delivered,15/5/2020 9:34:31,15/5/2020,Shipit0106,Juan Rodriguez,chilexpress,TEST106,712090413996
+1503778,delivered,delivered,15/5/2020 9:34:30,15/5/2020,Shipit0107,Jose Antonio Martinez,chilexpress,TEST107,712090413786
+1503777,delivered,delivered,15/5/2020 9:34:29,15/5/2020,Shipit0108,Javier Sanchez,chilexpress,TEST108,712090413871
+1503776,delivered,delivered,15/5/2020 9:34:28,15/5/2020,Shipit0109,Daniel Gomez,chilexpress,TEST109,712090413904
+1503775,delivered,delivered,15/5/2020 9:34:28,15/5/2020,Shipit0110,Jose Luis Alvarez,chilexpress,TEST110,712090413764
+1503774,delivered,delivered,15/5/2020 9:34:27,15/5/2020,Shipit0111,Francisco Javier Martin,chilexpress,TEST111,712090413930
+1503773,delivered,delivered,15/5/2020 9:34:26,15/5/2020,Shipit0112,Carlos Diaz,chilexpress,TEST112,712090413731
+1503772,delivered,delivered,15/5/2020 9:34:25,15/5/2020,Shipit0113,Jesus Alonso,chilexpress,TEST113,712090413753
+1503771,delivered,delivered,15/5/2020 9:34:24,15/5/2020,Shipit0114,Alejandro Ruiz,chilexpress,TEST114,712090413742
+1503770,delivered,delivered,15/5/2020 9:34:23,15/5/2020,Shipit0115,Miguel Hernandez,chilexpress,TEST115,712090413775
+1503769,delivered,delivered,15/5/2020 9:34:22,15/5/2020,Shipit0116,Jose Manuel Gutierrez,chilexpress,TEST116,712090413845
+1503768,delivered,delivered,15/5/2020 9:34:22,15/5/2020,Shipit0117,Rafael Blanco,chilexpress,TEST117,712090413823
+1503767,delivered,delivered,15/5/2020 9:34:21,15/5/2020,Shipit0118,Miguel Angel Jimenez,chilexpress,TEST118,712090413801
+1503766,delivered,delivered,15/5/2020 9:34:20,15/5/2020,Shipit0119,Pedro Moreno,chilexpress,TEST119,712090413790
+1503765,delivered,delivered,15/5/2020 9:34:19,15/5/2020,Shipit0120,Angel Muñoz,chilexpress,TEST120,712090413720
+1503764,delivered,delivered,15/5/2020 9:34:18,15/5/2020,Shipit0121,Antonio Vazquez,chilexpress,TEST121,712090413683
+1503763,delivered,delivered,15/5/2020 9:34:17,15/5/2020,Shipit0122,Jose Gil,chilexpress,TEST122,712090413672
+1503762,delivered,delivered,15/5/2020 9:34:16,15/5/2020,Shipit0123,Manuel Dominguez,chilexpress,TEST123,712090413602
+1503761,delivered,delivered,15/5/2020 9:34:15,15/5/2020,Shipit0124,Francisco Castro,chilexpress,TEST124,712090413694
+1503760,delivered,delivered,15/5/2020 9:34:15,15/5/2020,Shipit0125,David Ramos,chilexpress,TEST125,712090413646
+1503759,delivered,delivered,15/5/2020 9:34:14,15/5/2020,Shipit0126,Juan Garcia,chilexpress,TEST126,712090413716
+1503758,delivered,delivered,15/5/2020 9:34:13,15/5/2020,Shipit0127,Jose Antonio Gonzalez,chilexpress,TEST127,712090413635
+1503757,delivered,delivered,15/5/2020 9:34:12,15/5/2020,Shipit0128,Javier Fernandez,chilexpress,TEST128,712090413576
+1503756,delivered,delivered,15/5/2020 9:34:11,15/5/2020,Shipit0129,Daniel Perez,chilexpress,TEST129,712090413624
+1503755,delivered,delivered,15/5/2020 9:34:10,15/5/2020,Shipit0130,Jose Luis Lopez,chilexpress,TEST130,712090413521
+1503754,delivered,delivered,15/5/2020 9:34:09,15/5/2020,Shipit0131,Francisco Javier Rodriguez,chilexpress,TEST131,712090413613
+1503753,delivered,delivered,15/5/2020 9:34:09,15/5/2020,Shipit0132,Carlos Martinez,chilexpress,TEST132,712090413591
+1503752,delivered,delivered,15/5/2020 9:34:08,15/5/2020,Shipit0133,Jesus Sanchez,chilexpress,TEST133,712090413580
+1503751,delivered,delivered,15/5/2020 9:34:07,15/5/2020,Shipit0134,Alejandro Gomez,chilexpress,TEST134,712090413565
+1503750,delivered,delivered,15/5/2020 9:34:06,15/5/2020,Shipit0135,Miguel Alvarez,chilexpress,TEST135,712090413440
+1503749,delivered,delivered,15/5/2020 9:34:05,15/5/2020,Shipit0136,Jose Manuel Martin,chilexpress,TEST136,712090413554
+1503748,delivered,delivered,15/5/2020 9:34:04,15/5/2020,Shipit0137,Rafael Diaz,chilexpress,TEST137,712090413650
+1503747,delivered,delivered,15/5/2020 9:34:03,15/5/2020,Shipit0138,Miguel Angel Alonso,chilexpress,TEST138,712090413451
+1503746,delivered,delivered,15/5/2020 9:34:02,15/5/2020,Shipit0139,Pedro Ruiz,chilexpress,TEST139,712090413506
+1503745,delivered,delivered,15/5/2020 9:34:02,15/5/2020,Shipit0140,Angel Hernandez,chilexpress,TEST140,712090413403
+1503744,delivered,delivered,15/5/2020 9:34:01,15/5/2020,Shipit0141,Antonio Gutierrez,chilexpress,TEST141,712090413484
+1503743,delivered,delivered,15/5/2020 9:34:00,15/5/2020,Shipit0142,Jose Blanco,chilexpress,TEST142,712090413462
+1503742,delivered,delivered,15/5/2020 9:33:59,15/5/2020,Shipit0143,Manuel Jimenez,chilexpress,TEST143,712090413473
+1503741,delivered,delivered,15/5/2020 9:33:58,15/5/2020,Shipit0144,Francisco Moreno,chilexpress,TEST144,712090413436
+1503740,delivered,delivered,15/5/2020 9:33:57,15/5/2020,Shipit0145,David Muñoz,chilexpress,TEST145,712090413355
+1503739,delivered,delivered,15/5/2020 9:33:56,15/5/2020,Shipit0146,Juan Vazquez,chilexpress,TEST146,712090413532
+1503738,delivered,delivered,15/5/2020 9:33:56,15/5/2020,Shipit0147,Jose Antonio Gil,chilexpress,TEST147,712090413344
+1503737,delivered,delivered,15/5/2020 9:33:55,15/5/2020,Shipit0148,Javier Dominguez,chilexpress,TEST148,712090413495
+1503736,delivered,delivered,15/5/2020 9:33:54,15/5/2020,Shipit0149,Daniel Castro,chilexpress,TEST149,712090413252
+1503735,delivered,delivered,15/5/2020 9:33:53,15/5/2020,Shipit0150,Jose Luis Ramos,chilexpress,TEST150,712090414070
+1503734,delivered,delivered,15/5/2020 9:33:52,15/5/2020,Shipit0151,Francisco Javier Garcia,chilexpress,TEST151,712090413263
+1503733,delivered,delivered,15/5/2020 9:33:51,15/5/2020,Shipit0152,Carlos Gonzalez,chilexpress,TEST152,712090413370
+1503732,delivered,delivered,15/5/2020 9:33:50,15/5/2020,Shipit0153,Jesus Fernandez,chilexpress,TEST153,712090413333
+1503731,delivered,delivered,15/5/2020 9:33:50,15/5/2020,Shipit0154,Alejandro Perez,chilexpress,TEST154,712090413230
+1503730,delivered,delivered,15/5/2020 9:33:49,15/5/2020,Shipit0155,Miguel Lopez,chilexpress,TEST155,712090413241
+1503729,delivered,delivered,15/5/2020 9:33:48,15/5/2020,Shipit0156,Jose Manuel Rodriguez,chilexpress,TEST156,712090413425
+1503728,delivered,delivered,15/5/2020 9:33:47,15/5/2020,Shipit0157,Rafael Martinez,chilexpress,TEST157,712090413414
+1503727,delivered,delivered,15/5/2020 9:33:46,15/5/2020,Shipit0158,Miguel Angel Sanchez,chilexpress,TEST158,712090413285
+1503726,delivered,delivered,15/5/2020 9:33:45,15/5/2020,Shipit0159,Pedro Gomez,chilexpress,TEST159,712090413226
+1503725,delivered,delivered,15/5/2020 9:33:44,15/5/2020,Shipit0160,Angel Alvarez,chilexpress,TEST160,712090413915
+1503724,delivered,delivered,15/5/2020 9:33:43,15/5/2020,Shipit0161,Antonio Martin,chilexpress,TEST161,712090413322
+1503723,delivered,delivered,15/5/2020 9:33:43,15/5/2020,Shipit0162,Jose Diaz,chilexpress,TEST162,712090413311
+1503722,delivered,delivered,15/5/2020 9:33:42,15/5/2020,Shipit0163,Manuel Alonso,chilexpress,TEST163,712090413274
+1503721,delivered,delivered,15/5/2020 9:33:41,15/5/2020,Shipit0164,Francisco Ruiz,chilexpress,TEST164,712090413300
+1503720,delivered,delivered,15/5/2020 9:33:40,15/5/2020,Shipit0165,David Hernandez,chilexpress,TEST165,712090413366
+1503719,delivered,delivered,15/5/2020 9:33:39,15/5/2020,Shipit0166,Juan Gutierrez,chilexpress,TEST166,712090413392
+1503718,delivered,delivered,15/5/2020 9:33:38,15/5/2020,Shipit0167,Jose Antonio Blanco,chilexpress,TEST167,712090413215
+1503717,delivered,delivered,15/5/2020 9:33:37,15/5/2020,Shipit0168,Javier Jimenez,chilexpress,TEST168,712090413171
+1503716,delivered,delivered,15/5/2020 9:33:37,15/5/2020,Shipit0169,Daniel Moreno,chilexpress,TEST169,712090413182
+1503715,delivered,delivered,15/5/2020 9:33:36,15/5/2020,Shipit0170,Jose Luis Muñoz,chilexpress,TEST170,712090413134
+1503714,delivered,delivered,15/5/2020 9:33:35,15/5/2020,Shipit0171,Francisco Javier Vazquez,chilexpress,TEST171,712090413156
+1503713,delivered,delivered,15/5/2020 9:33:34,15/5/2020,Shipit0172,Carlos Gil,chilexpress,TEST172,712090413812
+1503712,delivered,delivered,15/5/2020 9:33:33,15/5/2020,Shipit0173,Jesus Dominguez,chilexpress,TEST173,712090413510
+1503711,delivered,delivered,15/5/2020 9:33:32,15/5/2020,Shipit0174,Alejandro Castro,chilexpress,TEST174,712090413296
+1503710,delivered,delivered,15/5/2020 9:33:31,15/5/2020,Shipit0175,Miguel Ramos,chilexpress,TEST175,712090413101
+1503709,delivered,delivered,15/5/2020 9:33:31,15/5/2020,Shipit0176,Jose Manuel Garcia,chilexpress,TEST176,712090413160
+1503708,delivered,delivered,15/5/2020 9:33:30,15/5/2020,Shipit0177,Rafael Gonzalez,chilexpress,TEST177,712090413053
+1503707,delivered,delivered,15/5/2020 9:33:29,15/5/2020,Shipit0178,Miguel Angel Fernandez,chilexpress,TEST178,712090413123
+1503706,delivered,delivered,15/5/2020 9:33:28,15/5/2020,Shipit0179,Pedro Perez,chilexpress,TEST179,712090413090
+1503705,delivered,delivered,15/5/2020 9:33:27,15/5/2020,Shipit0180,Angel Lopez,chilexpress,TEST180,712090413145
+1503704,in_route,second_closed_address,15/5/2020 9:33:26,15/5/2020,Shipit0181,Antonio Rodriguez,chilexpress,TEST181,712090413064
+1503703,in_route,second_closed_address,15/5/2020 9:33:25,15/5/2020,Shipit0182,Jose Martinez,chilexpress,TEST182,712090413112
+1503448,indemnify,strayed,15/5/2020 9:33:24,15/5/2020,Shipit0183,Manuel Sanchez,chilexpress,TEST183,712090381376
+1503446,indemnify,strayed,15/5/2020 9:33:24,15/5/2020,Shipit0184,Francisco Gomez,starken,TEST184,929616234
+1503445,indemnify,damaged,15/5/2020 9:33:23,15/5/2020,Shipit0185,David Alvarez,chilexpress,TEST185,712090381391
+1503443,indemnify,damaged,15/5/2020 9:33:22,15/5/2020,Shipit0186,Juan Martin,chilexpress,TEST186,712090381380
+1503441,indemnify,indemnify,15/5/2020 9:33:21,15/5/2020,Shipit0187,Jose Antonio Diaz,chilexpress,TEST187,712090381365
+1503440,indemnify,indemnify,15/5/2020 9:33:20,15/5/2020,Shipit0188,Javier Alonso,starken,TEST188,929616233
+1503180,indemnify,indemnify_out_of_date,15/5/2020 9:33:19,15/5/2020,Shipit0189,Daniel Ruiz,starken,TEST189,929615059
+1503179,indemnify,indemnify_out_of_date,15/5/2020 9:33:18,15/5/2020,Shipit0190,Jose Luis Hernandez,starken,TEST190,929615073
+1503113,pending,pending,15/5/2020 9:33:18,15/5/2020,Shipit0191,Francisco Javier Gutierrez,chilexpress,TEST191,712090377854
+1503112,pending,pending,15/5/2020 9:33:17,15/5/2020,Shipit0192,Carlos Blanco,chilexpress,TEST192,712090377810
+1503111,pending,pending,15/5/2020 9:33:16,15/5/2020,Shipit0193,Jesus Jimenez,chilexpress,TEST193,712090377692
+1501829,pending,pending,15/5/2020 9:33:15,15/5/2020,Shipit0194,Alejandro Moreno,starken,TEST194,929609363
+1501828,pending,pending,15/5/2020 9:33:14,15/5/2020,Shipit0195,Miguel Muñoz,starken,TEST195,929609388
+1501827,failed,returned_failed,15/5/2020 9:33:13,15/5/2020,Shipit0196,Jose Manuel Vazquez,starken,TEST196,929609365
+1501826,failed,returned_failed,15/5/2020 9:33:12,15/5/2020,Shipit0197,Rafael Gil,starken,TEST197,929609364
+1501778,failed,returned_failed,15/5/2020 9:33:12,15/5/2020,Shipit0198,Miguel Angel Dominguez,chilexpress,TEST198,712090323313
+1501777,failed,returned_failed,15/5/2020 9:33:11,15/5/2020,Shipit0199,Pedro Garcia,chilexpress,TEST199,712090323291
+1501776,failed,returned_failed,15/5/2020 9:33:10,15/5/2020,Shipit0200,Angel Gonzalez,chilexpress,TEST200,712090323280
+1501775,delivered,delivered,15/5/2020 9:33:09,15/5/2020,Shipit0201,Antonio Fernandez,chilexpress,TEST201,712090323276
+1501774,delivered,delivered,15/5/2020 9:33:08,15/5/2020,Shipit0202,Jose Perez,chilexpress,TEST202,712090323265
+1501773,delivered,delivered,15/5/2020 9:33:07,15/5/2020,Shipit0203,Manuel Lopez,chilexpress,TEST203,712090323254
+1501772,delivered,delivered,15/5/2020 9:33:06,15/5/2020,Shipit0204,Francisco Rodriguez,chilexpress,TEST204,712090323243
+1501771,delivered,delivered,15/5/2020 9:33:05,15/5/2020,Shipit0205,David Martinez,chilexpress,TEST205,712090323232
+1501770,delivered,delivered,15/5/2020 9:33:05,15/5/2020,Shipit0206,Juan Sanchez,chilexpress,TEST206,712090323221
+1501769,delivered,delivered,15/5/2020 9:33:04,15/5/2020,Shipit0207,Jose Antonio Gomez,chilexpress,TEST207,712090323210
+1501768,delivered,delivered,15/5/2020 9:33:03,15/5/2020,Shipit0208,Javier Alvarez,chilexpress,TEST208,712090323206
+1501767,delivered,delivered,15/5/2020 9:33:02,15/5/2020,Shipit0209,Daniel Martin,chilexpress,TEST209,712090323195
+1501766,delivered,delivered,15/5/2020 9:33:01,15/5/2020,Shipit0210,Jose Luis Diaz,chilexpress,TEST210,712090323162
+1501765,delivered,delivered,15/5/2020 9:33:00,15/5/2020,Shipit0211,Francisco Javier Alonso,chilexpress,TEST211,712090323151
+1501764,delivered,delivered,15/5/2020 9:32:59,15/5/2020,Shipit0212,Carlos Ruiz,chilexpress,TEST212,712090323140
+1501763,delivered,delivered,15/5/2020 9:32:59,15/5/2020,Shipit0213,Jesus Hernandez,chilexpress,TEST213,712090323136
+1501762,delivered,delivered,15/5/2020 9:32:58,15/5/2020,Shipit0214,Alejandro Gutierrez,chilexpress,TEST214,712090323114
+1501761,delivered,delivered,15/5/2020 9:32:57,15/5/2020,Shipit0215,Miguel Blanco,chilexpress,TEST215,712090323125
+1501760,delivered,delivered,15/5/2020 9:32:56,15/5/2020,Shipit0216,Jose Manuel Jimenez,chilexpress,TEST216,712090323103
+1501758,delivered,delivered,15/5/2020 9:32:55,15/5/2020,Shipit0217,Rafael Moreno,starken,TEST217,929609330
+1501757,delivered,delivered,15/5/2020 9:32:54,15/5/2020,Shipit0218,Miguel Angel Muñoz,starken,TEST218,929609312
+1501756,delivered,delivered,15/5/2020 9:32:53,15/5/2020,Shipit0219,Pedro Vazquez,starken,TEST219,929609329
+1501755,delivered,delivered,15/5/2020 9:32:53,15/5/2020,Shipit0220,Angel Gil,starken,TEST220,929609311
+1501754,delivered,delivered,15/5/2020 9:32:52,15/5/2020,Shipit0221,Antonio Dominguez,starken,TEST221,929609328
+1501753,delivered,delivered,15/5/2020 9:32:51,15/5/2020,Shipit0222,Jose Castro,starken,TEST222,929609327
+1501752,delivered,delivered,15/5/2020 9:32:50,15/5/2020,Shipit0223,Manuel Ramos,starken,TEST223,929609306
+1501751,delivered,delivered,15/5/2020 9:32:49,15/5/2020,Shipit0224,Francisco Garcia,starken,TEST224,929609305
+1501750,delivered,delivered,15/5/2020 9:32:48,15/5/2020,Shipit0225,David Gonzalez,starken,TEST225,929609304
+1501749,delivered,delivered,15/5/2020 9:32:47,15/5/2020,Shipit0226,Juan Fernandez,starken,TEST226,929609310
+1501748,delivered,delivered,15/5/2020 9:32:46,15/5/2020,Shipit0227,Jose Antonio Perez,starken,TEST227,929609309
+1501747,delivered,delivered,15/5/2020 9:32:46,15/5/2020,Shipit0228,Javier Lopez,starken,TEST228,929609307
+1501746,delivered,delivered,15/5/2020 9:32:45,15/5/2020,Shipit0229,Daniel Rodriguez,starken,TEST229,929609303
+1501745,delivered,delivered,15/5/2020 9:32:44,15/5/2020,Shipit0230,Jose Luis Martinez,starken,TEST230,929609302
+1501744,delivered,delivered,14/5/2020 9:32:44,14/5/2020,Shipit0231,Francisco Javier Sanchez,starken,TEST231,929609286
+1501743,delivered,delivered,14/5/2020 9:32:43,14/5/2020,Shipit0232,Carlos Gomez,starken,TEST232,929609301
+1501742,delivered,delivered,14/5/2020 9:32:42,14/5/2020,Shipit0233,Jesus Alvarez,starken,TEST233,929609300
+1501741,delivered,delivered,14/5/2020 9:32:41,14/5/2020,Shipit0234,Alejandro Martin,starken,TEST234,929609299
+1501740,delivered,delivered,14/5/2020 9:32:40,14/5/2020,Shipit0235,Miguel Diaz,starken,TEST235,929609298
+1501739,delivered,delivered,14/5/2020 9:32:40,14/5/2020,Shipit0236,Jose Manuel Alonso,starken,TEST236,929609285
+1501738,delivered,delivered,14/5/2020 9:32:39,14/5/2020,Shipit0237,Rafael Ruiz,starken,TEST237,929609297
+1501737,delivered,delivered,14/5/2020 9:32:38,14/5/2020,Shipit0238,Miguel Angel Hernandez,starken,TEST238,929609284
+1501736,delivered,delivered,14/5/2020 9:32:37,14/5/2020,Shipit0239,Pedro Gutierrez,starken,TEST239,929609281
+1501735,delivered,delivered,14/5/2020 9:32:36,14/5/2020,Shipit0240,Angel Blanco,starken,TEST240,929609280
+1501734,delivered,delivered,14/5/2020 9:32:35,14/5/2020,Shipit0241,Antonio Jimenez,starken,TEST241,929609296
+1501733,delivered,delivered,14/5/2020 9:32:34,14/5/2020,Shipit0242,Jose Moreno,starken,TEST242,929609295
+1501732,delivered,delivered,14/5/2020 9:32:34,14/5/2020,Shipit0243,Manuel Muñoz,starken,TEST243,929609294
+1501731,delivered,delivered,14/5/2020 9:32:33,14/5/2020,Shipit0244,Francisco Vazquez,starken,TEST244,929609279
+1501730,delivered,delivered,14/5/2020 9:32:32,14/5/2020,Shipit0245,David Gil,starken,TEST245,929609278
+1501729,delivered,delivered,14/5/2020 9:32:31,14/5/2020,Shipit0246,Juan Dominguez,starken,TEST246,929609293
+1501728,delivered,delivered,14/5/2020 9:32:30,14/5/2020,Shipit0247,Jose Antonio Castro,starken,TEST247,929609277
+1501727,delivered,delivered,14/5/2020 9:32:29,14/5/2020,Shipit0248,Javier Ramos,starken,TEST248,929609276
+1501726,delivered,delivered,14/5/2020 9:32:28,14/5/2020,Shipit0249,Daniel Garcia,starken,TEST249,929609292
+1501725,delivered,delivered,14/5/2020 9:32:27,14/5/2020,Shipit0250,Jose Luis Gonzalez,starken,TEST250,929609291
+1501724,delivered,delivered,14/5/2020 9:32:27,14/5/2020,Shipit0251,Francisco Javier Fernandez,starken,TEST251,929609290
+1501723,delivered,delivered,14/5/2020 9:32:26,14/5/2020,Shipit0252,Carlos Perez,starken,TEST252,929609289
+1501722,delivered,delivered,14/5/2020 9:32:25,14/5/2020,Shipit0253,Jesus Lopez,starken,TEST253,929609275
+1501721,delivered,delivered,14/5/2020 9:32:24,14/5/2020,Shipit0254,Alejandro Rodriguez,starken,TEST254,929609288
+1501720,delivered,delivered,14/5/2020 9:32:23,14/5/2020,Shipit0255,Miguel Martinez,starken,TEST255,929609274
+1501719,delivered,delivered,14/5/2020 9:32:22,14/5/2020,Shipit0256,Jose Manuel Sanchez,starken,TEST256,929609287
+1501718,delivered,delivered,14/5/2020 9:32:21,14/5/2020,Shipit0257,Rafael Gomez,starken,TEST257,929609266
+1501717,delivered,delivered,14/5/2020 9:32:21,14/5/2020,Shipit0258,Miguel Angel Alvarez,starken,TEST258,929609273
+1501716,delivered,delivered,14/5/2020 9:32:20,14/5/2020,Shipit0259,Pedro Martin,starken,TEST259,929609272
+1501715,delivered,delivered,14/5/2020 9:32:19,14/5/2020,Shipit0260,Angel Diaz,starken,TEST260,929609265
+1501714,delivered,delivered,14/5/2020 9:32:18,14/5/2020,Shipit0261,Antonio Alonso,starken,TEST261,929609282
+1501713,delivered,delivered,14/5/2020 9:32:17,14/5/2020,Shipit0262,Jose Ruiz,starken,TEST262,929609264
+1501712,delivered,delivered,14/5/2020 9:32:16,14/5/2020,Shipit0263,Manuel Hernandez,starken,TEST263,929609269
+1501711,delivered,delivered,14/5/2020 9:32:15,14/5/2020,Shipit0264,Francisco Gutierrez,starken,TEST264,929609263
+1501710,delivered,delivered,14/5/2020 9:32:14,14/5/2020,Shipit0265,David Blanco,starken,TEST265,929609268
+1501709,delivered,delivered,14/5/2020 9:32:14,14/5/2020,Shipit0266,Juan Jimenez,starken,TEST266,929609267
+1501708,delivered,delivered,14/5/2020 9:32:13,14/5/2020,Shipit0267,Jose Antonio Moreno,starken,TEST267,929609262
+1501707,delivered,delivered,14/5/2020 9:32:12,14/5/2020,Shipit0268,Javier Muñoz,starken,TEST268,929609261
+1501706,delivered,delivered,14/5/2020 9:32:11,14/5/2020,Shipit0269,Daniel Vazquez,starken,TEST269,929609260
+1501705,delivered,delivered,14/5/2020 9:32:10,14/5/2020,Shipit0270,Jose Luis Gil,starken,TEST270,929609246
+1501704,delivered,delivered,14/5/2020 9:32:09,14/5/2020,Shipit0271,Francisco Javier Dominguez,starken,TEST271,929609259
+1501703,delivered,delivered,14/5/2020 9:32:08,14/5/2020,Shipit0272,Carlos Castro,starken,TEST272,929609245
+1501702,delivered,delivered,14/5/2020 9:32:08,14/5/2020,Shipit0273,Jesus Ramos,starken,TEST273,929609244
+1501701,delivered,delivered,14/5/2020 9:32:07,14/5/2020,Shipit0274,Alejandro Garcia,starken,TEST274,929609243
+1501700,delivered,delivered,14/5/2020 9:32:06,14/5/2020,Shipit0275,Miguel Gonzalez,starken,TEST275,929609343
+1501699,delivered,delivered,14/5/2020 9:32:05,14/5/2020,Shipit0276,Jose Manuel Fernandez,starken,TEST276,929609258
+1501698,delivered,delivered,14/5/2020 9:32:04,14/5/2020,Shipit0277,Rafael Perez,starken,TEST277,929609242
+1501697,delivered,delivered,14/5/2020 9:32:03,14/5/2020,Shipit0278,Miguel Angel Lopez,starken,TEST278,929609257
+1501696,delivered,delivered,14/5/2020 9:32:02,14/5/2020,Shipit0279,Pedro Rodriguez,starken,TEST279,929609256
+1501694,delivered,delivered,14/5/2020 9:32:02,14/5/2020,Shipit0280,Angel Martinez,starken,TEST280,929609241
+1501693,delivered,delivered,14/5/2020 9:32:01,14/5/2020,Shipit0281,Antonio Sanchez,starken,TEST281,929609255
+1501692,delivered,delivered,14/5/2020 9:32:00,14/5/2020,Shipit0282,Jose Gomez,starken,TEST282,929609254
+1501691,delivered,delivered,14/5/2020 9:31:59,14/5/2020,Shipit0283,Manuel Alvarez,starken,TEST283,929609240
+1501690,delivered,delivered,14/5/2020 9:31:58,14/5/2020,Shipit0284,Francisco Martin,starken,TEST284,929609253
+1501689,delivered,delivered,14/5/2020 9:31:57,14/5/2020,Shipit0285,David Diaz,starken,TEST285,929609252
+1501688,delivered,delivered,14/5/2020 9:31:56,14/5/2020,Shipit0286,Juan Alonso,starken,TEST286,929609251
+1501687,delivered,delivered,14/5/2020 9:31:55,14/5/2020,Shipit0287,Jose Antonio Ruiz,starken,TEST287,929609250
+1501686,delivered,delivered,14/5/2020 9:31:55,14/5/2020,Shipit0288,Javier Hernandez,starken,TEST288,929609239
+1501685,delivered,delivered,14/5/2020 9:31:54,14/5/2020,Shipit0289,Daniel Gutierrez,starken,TEST289,929609238
+1501684,delivered,delivered,14/5/2020 9:31:53,14/5/2020,Shipit0290,Jose Luis Blanco,starken,TEST290,929609249
+1501683,delivered,delivered,14/5/2020 9:31:52,14/5/2020,Shipit0291,Francisco Javier Jimenez,starken,TEST291,929609237
+1501682,delivered,delivered,14/5/2020 9:31:51,14/5/2020,Shipit0292,Carlos Moreno,starken,TEST292,929609236
+1501681,delivered,delivered,14/5/2020 9:31:50,14/5/2020,Shipit0293,Jesus Muñoz,starken,TEST293,929609235
+1501680,delivered,delivered,14/5/2020 9:31:49,14/5/2020,Shipit0294,Alejandro Vazquez,starken,TEST294,929609247
+1501679,delivered,delivered,14/5/2020 9:31:49,14/5/2020,Shipit0295,Miguel Gil,starken,TEST295,929609225
+1501678,delivered,delivered,14/5/2020 9:31:48,14/5/2020,Shipit0296,Jose Manuel Dominguez,starken,TEST296,929609226
+1501677,delivered,delivered,14/5/2020 9:31:47,14/5/2020,Shipit0297,Rafael Castro,starken,TEST297,929609234
+1501676,delivered,delivered,14/5/2020 9:31:46,14/5/2020,Shipit0298,Miguel Angel Ramos,starken,TEST298,929609233
+1501675,delivered,delivered,14/5/2020 9:31:45,14/5/2020,Shipit0299,Pedro Garcia,starken,TEST299,929609223
+1501674,delivered,delivered,14/5/2020 9:31:44,14/5/2020,Shipit0300,Angel Gonzalez,starken,TEST300,929609231
+1501673,delivered,delivered,14/5/2020 9:31:43,14/5/2020,Shipit0301,Antonio Fernandez,starken,TEST301,929609222
+1501672,delivered,delivered,14/5/2020 9:31:43,14/5/2020,Shipit0302,Jose Perez,starken,TEST302,929609230
+1501671,delivered,delivered,14/5/2020 9:31:42,14/5/2020,Shipit0303,Manuel Lopez,starken,TEST303,929609221
+1501670,delivered,delivered,14/5/2020 9:31:41,14/5/2020,Shipit0304,Francisco Rodriguez,starken,TEST304,929609220
+1501669,delivered,delivered,14/5/2020 9:31:40,14/5/2020,Shipit0305,David Martinez,starken,TEST305,929609229
+1501668,delivered,delivered,14/5/2020 9:31:39,14/5/2020,Shipit0306,Juan Sanchez,starken,TEST306,929609219
+1501667,delivered,delivered,14/5/2020 9:31:38,14/5/2020,Shipit0307,Jose Antonio Gomez,starken,TEST307,929609228
+1501666,delivered,delivered,14/5/2020 9:31:37,14/5/2020,Shipit0308,Javier Alvarez,starken,TEST308,929609218
+1501665,delivered,delivered,14/5/2020 9:31:36,14/5/2020,Shipit0309,Daniel Martin,starken,TEST309,929609217
+1501664,delivered,delivered,14/5/2020 9:31:36,14/5/2020,Shipit0310,Jose Luis Diaz,starken,TEST310,929609227
+1501663,delivered,delivered,14/5/2020 9:31:35,14/5/2020,Shipit0311,Francisco Javier Alonso,starken,TEST311,929609206
+1501662,delivered,delivered,14/5/2020 9:31:34,14/5/2020,Shipit0312,Carlos Ruiz,starken,TEST312,929609216
+1501661,delivered,delivered,14/5/2020 9:31:25,14/5/2020,Shipit0313,Jesus Hernandez,starken,TEST313,929609204
+1501660,delivered,delivered,14/5/2020 9:31:24,14/5/2020,Shipit0314,Alejandro Gutierrez,starken,TEST314,929609203
+1501659,delivered,delivered,14/5/2020 9:31:24,14/5/2020,Shipit0315,Miguel Blanco,starken,TEST315,929609202
+1501658,delivered,delivered,14/5/2020 9:31:23,14/5/2020,Shipit0316,Jose Manuel Jimenez,starken,TEST316,929609201
+1501656,delivered,delivered,14/5/2020 9:31:14,14/5/2020,Shipit0317,Rafael Moreno,starken,TEST317,929609200
+1501655,delivered,delivered,14/5/2020 9:31:13,14/5/2020,Shipit0318,Miguel Angel Muñoz,starken,TEST318,929609215
+1501654,delivered,delivered,14/5/2020 9:31:12,14/5/2020,Shipit0319,Pedro Vazquez,starken,TEST319,929609199
+1501653,delivered,delivered,14/5/2020 9:31:11,14/5/2020,Shipit0320,Angel Gil,starken,TEST320,929609214
+1501652,delivered,delivered,14/5/2020 9:31:11,14/5/2020,Shipit0321,Antonio Dominguez,starken,TEST321,929609197
+1501651,delivered,delivered,14/5/2020 9:31:10,14/5/2020,Shipit0322,Jose Castro,starken,TEST322,929609322
+1501650,delivered,delivered,14/5/2020 9:31:09,14/5/2020,Shipit0323,Manuel Ramos,starken,TEST323,929609313
+1501649,delivered,delivered,14/5/2020 9:31:08,14/5/2020,Shipit0324,Francisco Garcia,starken,TEST324,929609314
+1501648,delivered,delivered,14/5/2020 9:31:07,14/5/2020,Shipit0325,David Gonzalez,starken,TEST325,929609196
+1501647,delivered,delivered,13/5/2020 9:31:07,13/5/2020,Shipit0326,Juan Fernandez,starken,TEST326,929609213
+1501646,delivered,delivered,13/5/2020 9:31:06,13/5/2020,Shipit0327,Jose Antonio Perez,starken,TEST327,929609212
+1501645,delivered,delivered,13/5/2020 9:31:05,13/5/2020,Shipit0328,Javier Lopez,starken,TEST328,929609323
+1501644,delivered,delivered,13/5/2020 9:31:05,13/5/2020,Shipit0329,Daniel Rodriguez,starken,TEST329,929609211
+1501643,delivered,delivered,13/5/2020 9:31:04,13/5/2020,Shipit0330,Jose Luis Martinez,starken,TEST330,929609194
+1501642,delivered,delivered,13/5/2020 9:31:03,13/5/2020,Shipit0331,Francisco Javier Sanchez,starken,TEST331,929609342
+1501641,delivered,delivered,13/5/2020 9:31:02,13/5/2020,Shipit0332,Carlos Gomez,starken,TEST332,929609195
+1501640,delivered,delivered,13/5/2020 9:31:01,13/5/2020,Shipit0333,Jesus Alvarez,starken,TEST333,929609334
+1501639,delivered,delivered,13/5/2020 9:31:00,13/5/2020,Shipit0334,Alejandro Martin,starken,TEST334,929609321
+1501638,delivered,delivered,13/5/2020 9:30:59,13/5/2020,Shipit0335,Miguel Diaz,starken,TEST335,929609210
+1501637,delivered,delivered,13/5/2020 9:30:58,13/5/2020,Shipit0336,Jose Manuel Alonso,starken,TEST336,929609341
+1501636,delivered,delivered,13/5/2020 9:30:58,13/5/2020,Shipit0337,Rafael Ruiz,starken,TEST337,929609209
+1501635,delivered,delivered,13/5/2020 9:30:57,13/5/2020,Shipit0338,Miguel Angel Hernandez,starken,TEST338,929609340
+1501634,delivered,delivered,13/5/2020 9:30:56,13/5/2020,Shipit0339,Pedro Gutierrez,starken,TEST339,929609208
+1501633,delivered,delivered,13/5/2020 9:30:55,13/5/2020,Shipit0340,Angel Blanco,starken,TEST340,929609333
+1501632,delivered,delivered,13/5/2020 9:30:54,13/5/2020,Shipit0341,Antonio Jimenez,starken,TEST341,929609316
+1501631,delivered,delivered,13/5/2020 9:30:53,13/5/2020,Shipit0342,Jose Moreno,starken,TEST342,929609319
+1501630,delivered,delivered,13/5/2020 9:30:52,13/5/2020,Shipit0343,Manuel Muñoz,starken,TEST343,929609339
+1501629,delivered,delivered,13/5/2020 9:30:52,13/5/2020,Shipit0344,Francisco Vazquez,starken,TEST344,929609338
+1501628,delivered,delivered,13/5/2020 9:30:51,13/5/2020,Shipit0345,David Gil,starken,TEST345,929609337
+1501627,delivered,delivered,13/5/2020 9:30:50,13/5/2020,Shipit0346,Juan Dominguez,starken,TEST346,929609331
+1501626,delivered,delivered,13/5/2020 9:30:49,13/5/2020,Shipit0347,Jose Antonio Castro,starken,TEST347,929609193
+1501625,delivered,delivered,13/5/2020 9:30:48,13/5/2020,Shipit0348,Javier Ramos,starken,TEST348,929609332
+1501624,delivered,delivered,13/5/2020 9:30:47,13/5/2020,Shipit0349,Daniel Garcia,starken,TEST349,929609315
+1501623,delivered,delivered,13/5/2020 9:30:46,13/5/2020,Shipit0350,Jose Luis Gonzalez,starken,TEST350,929609318
+1501622,delivered,delivered,13/5/2020 9:30:46,13/5/2020,Shipit0351,Francisco Javier Fernandez,starken,TEST351,929609192
+1501621,delivered,delivered,13/5/2020 9:30:45,13/5/2020,Shipit0352,Carlos Perez,starken,TEST352,929609207
+1501620,delivered,delivered,13/5/2020 9:30:44,13/5/2020,Shipit0353,Jesus Lopez,starken,TEST353,929609317
+1501460,delivered,delivered,13/5/2020 9:30:43,13/5/2020,Shipit0354,Alejandro Rodriguez,starken,TEST354,929609028
+1499339,delivered,delivered,13/5/2020 9:30:42,13/5/2020,Shipit0355,Miguel Martinez,starken,TEST355,929606042
+1495125,delivered,delivered,13/5/2020 9:30:41,13/5/2020,Shipit0356,Jose Manuel Sanchez,starken,TEST356,929561004
+1493995,delivered,delivered,13/5/2020 9:30:40,13/5/2020,Shipit0357,Rafael Gomez,starken,TEST357,929555319
+1493994,delivered,delivered,13/5/2020 9:30:39,13/5/2020,Shipit0358,Miguel Angel Alvarez,starken,TEST358,929555317
+1493993,delivered,delivered,13/5/2020 9:30:39,13/5/2020,Shipit0359,Pedro Martin,starken,TEST359,929555299
+1493992,delivered,delivered,13/5/2020 9:30:38,13/5/2020,Shipit0360,Angel Diaz,starken,TEST360,929555316
+1493991,delivered,delivered,13/5/2020 9:30:37,13/5/2020,Shipit0361,Antonio Alonso,starken,TEST361,929555315
+1493990,delivered,delivered,13/5/2020 9:30:36,13/5/2020,Shipit0362,Jose Ruiz,starken,TEST362,929555318
+1493989,delivered,delivered,13/5/2020 9:30:35,13/5/2020,Shipit0363,Manuel Hernandez,starken,TEST363,929555298
+1493987,delivered,delivered,13/5/2020 9:30:34,13/5/2020,Shipit0364,Francisco Gutierrez,starken,TEST364,929555314
+1493986,delivered,delivered,13/5/2020 9:30:33,13/5/2020,Shipit0365,David Blanco,starken,TEST365,929555312
+1493985,delivered,delivered,13/5/2020 9:30:33,13/5/2020,Shipit0366,Juan Jimenez,starken,TEST366,929555297
+1493984,delivered,delivered,13/5/2020 9:30:32,13/5/2020,Shipit0367,Jose Antonio Moreno,starken,TEST367,929555313
+1493983,delivered,delivered,13/5/2020 9:30:31,13/5/2020,Shipit0368,Javier Muñoz,starken,TEST368,929555310
+1493982,delivered,delivered,13/5/2020 9:30:30,13/5/2020,Shipit0369,Daniel Vazquez,starken,TEST369,929555311
+1493981,delivered,delivered,13/5/2020 9:30:29,13/5/2020,Shipit0370,Jose Luis Gil,starken,TEST370,929555296
+1493695,delivered,delivered,13/5/2020 9:30:28,13/5/2020,Shipit0371,Francisco Javier Dominguez,chilexpress,TEST371,712089842181
+1493694,delivered,delivered,13/5/2020 9:30:27,13/5/2020,Shipit0372,Carlos Castro,chilexpress,TEST372,712089842170
+1493693,delivered,delivered,13/5/2020 9:30:26,13/5/2020,Shipit0373,Jesus Ramos,chilexpress,TEST373,712089842273
+1493692,delivered,delivered,13/5/2020 9:30:26,13/5/2020,Shipit0374,Alejandro Garcia,chilexpress,TEST374,712089842284
+1493691,delivered,delivered,13/5/2020 9:30:25,13/5/2020,Shipit0375,Miguel Gonzalez,chilexpress,TEST375,712089842074
+1493690,delivered,delivered,13/5/2020 9:30:24,13/5/2020,Shipit0376,Jose Manuel Fernandez,chilexpress,TEST376,712089842063
+1493689,delivered,delivered,13/5/2020 9:30:23,13/5/2020,Shipit0377,Rafael Perez,chilexpress,TEST377,712089842133
+1493688,delivered,delivered,13/5/2020 9:30:22,13/5/2020,Shipit0378,Miguel Angel Lopez,chilexpress,TEST378,712089842100
+1493687,delivered,delivered,13/5/2020 9:30:21,13/5/2020,Shipit0379,Pedro Rodriguez,chilexpress,TEST379,712089842214
+1493685,delivered,delivered,13/5/2020 9:30:20,13/5/2020,Shipit0380,Angel Martinez,chilexpress,TEST380,712089842122
+1493684,delivered,delivered,13/5/2020 9:30:20,13/5/2020,Shipit0381,Antonio Sanchez,chilexpress,TEST381,712089842192
+1493683,delivered,delivered,12/5/2020 9:30:20,12/5/2020,Shipit0382,Jose Gomez,chilexpress,TEST382,712089842096
+1493682,delivered,delivered,12/5/2020 9:30:19,12/5/2020,Shipit0383,Manuel Alvarez,chilexpress,TEST383,712089842004
+1493681,delivered,delivered,12/5/2020 9:30:18,12/5/2020,Shipit0384,Francisco Martin,chilexpress,TEST384,712089842111
+1493680,delivered,delivered,12/5/2020 9:30:17,12/5/2020,Shipit0385,David Diaz,chilexpress,TEST385,712089842144
+1493679,delivered,delivered,12/5/2020 9:30:08,12/5/2020,Shipit0386,Juan Alonso,chilexpress,TEST386,712089842052
+1493678,delivered,delivered,12/5/2020 9:30:07,12/5/2020,Shipit0387,Jose Antonio Ruiz,chilexpress,TEST387,712089842203
+1493677,delivered,delivered,12/5/2020 9:30:07,12/5/2020,Shipit0388,Javier Hernandez,chilexpress,TEST388,712089842041
+1493676,delivered,delivered,12/5/2020 9:30:06,12/5/2020,Shipit0389,Daniel Gutierrez,chilexpress,TEST389,712089842262
+1493675,delivered,delivered,12/5/2020 9:30:05,12/5/2020,Shipit0390,Jose Luis Blanco,chilexpress,TEST390,712089842030
+1493674,delivered,delivered,12/5/2020 9:30:04,12/5/2020,Shipit0391,Francisco Javier Jimenez,chilexpress,TEST391,712089842026
+1493673,delivered,delivered,12/5/2020 9:30:03,12/5/2020,Shipit0392,Carlos Moreno,chilexpress,TEST392,712089842015
+1493672,delivered,delivered,12/5/2020 9:30:02,12/5/2020,Shipit0393,Jesus Muñoz,chilexpress,TEST393,712089842251
+1493671,delivered,delivered,12/5/2020 9:30:01,12/5/2020,Shipit0394,Alejandro Vazquez,chilexpress,TEST394,712089842166
+1493670,delivered,delivered,12/5/2020 9:30:01,12/5/2020,Shipit0395,Miguel Gil,chilexpress,TEST395,712089841982
+1493669,delivered,delivered,12/5/2020 9:30:00,12/5/2020,Shipit0396,Jose Manuel Dominguez,chilexpress,TEST396,712089841960
+1493668,delivered,delivered,12/5/2020 9:29:59,12/5/2020,Shipit0397,Rafael Garcia,chilexpress,TEST397,712089841993
+1493667,delivered,delivered,12/5/2020 9:29:58,12/5/2020,Shipit0398,Miguel Angel Gonzalez,chilexpress,TEST398,712089841945
+1493666,delivered,delivered,12/5/2020 9:29:57,12/5/2020,Shipit0399,Pedro Fernandez,chilexpress,TEST399,712089841971
+1493665,delivered,delivered,12/5/2020 9:29:56,12/5/2020,Shipit0400,Angel Perez,chilexpress,TEST400,712089841956
+1489523,delivered,delivered,12/5/2020 9:29:55,12/5/2020,Shipit0401,Antonio Lopez,starken,TEST401,929543289
+1489522,delivered,delivered,12/5/2020 9:29:55,12/5/2020,Shipit0402,Jose Rodriguez,starken,TEST402,929543288
+1489521,delivered,delivered,12/5/2020 9:29:54,12/5/2020,Shipit0403,Manuel Martinez,starken,TEST403,929543287
+1489520,delivered,delivered,12/5/2020 9:29:53,12/5/2020,Shipit0404,Francisco Sanchez,starken,TEST404,929543272
+1489519,delivered,delivered,12/5/2020 9:29:52,12/5/2020,Shipit0405,David Gomez,starken,TEST405,929543273
+1489518,delivered,delivered,12/5/2020 9:29:51,12/5/2020,Shipit0406,Juan Alvarez,starken,TEST406,929543266
+1489517,delivered,delivered,12/5/2020 9:29:50,12/5/2020,Shipit0407,Jose Antonio Martin,starken,TEST407,929543269
+1489516,delivered,delivered,12/5/2020 9:29:49,12/5/2020,Shipit0408,Javier Diaz,starken,TEST408,929543270
+1489515,delivered,delivered,12/5/2020 9:29:48,12/5/2020,Shipit0409,Daniel Alonso,starken,TEST409,929543265
+1489514,delivered,delivered,12/5/2020 9:29:48,12/5/2020,Shipit0410,Jose Luis Ruiz,starken,TEST410,929543268
+1489513,delivered,delivered,12/5/2020 9:29:47,12/5/2020,Shipit0411,Francisco Javier Hernandez,starken,TEST411,929543264
+1489512,delivered,delivered,12/5/2020 9:29:46,12/5/2020,Shipit0412,Carlos Gutierrez,starken,TEST412,929543262
+1489511,delivered,delivered,12/5/2020 9:29:45,12/5/2020,Shipit0413,Jesus Blanco,starken,TEST413,929543261
+1489510,delivered,delivered,12/5/2020 9:29:44,12/5/2020,Shipit0414,Alejandro Jimenez,starken,TEST414,929543246
+1489509,delivered,delivered,12/5/2020 9:29:43,12/5/2020,Shipit0415,Miguel Moreno,starken,TEST415,929543244
+1489508,delivered,delivered,12/5/2020 9:29:42,12/5/2020,Shipit0416,Jose Manuel Muñoz,starken,TEST416,929543260
+1489507,delivered,delivered,12/5/2020 9:29:42,12/5/2020,Shipit0417,Rafael Vazquez,starken,TEST417,929543243
+1489506,delivered,delivered,12/5/2020 9:29:41,12/5/2020,Shipit0418,Miguel Angel Gil,starken,TEST418,929543245
+1489505,delivered,delivered,12/5/2020 9:29:40,12/5/2020,Shipit0419,Pedro Dominguez,starken,TEST419,929543259
+1489504,delivered,delivered,12/5/2020 9:29:39,12/5/2020,Shipit0420,Angel Castro,starken,TEST420,929543258
+1489503,delivered,delivered,12/5/2020 9:29:38,12/5/2020,Shipit0421,Antonio Ramos,starken,TEST421,929543241
+1489502,delivered,delivered,12/5/2020 9:29:37,12/5/2020,Shipit0422,Jose Garcia,starken,TEST422,929543240
+1489501,delivered,delivered,12/5/2020 9:29:36,12/5/2020,Shipit0423,Manuel Gonzalez,starken,TEST423,929543242
+1489500,delivered,delivered,12/5/2020 9:29:36,12/5/2020,Shipit0424,Francisco Fernandez,starken,TEST424,929543257
+1489499,delivered,delivered,12/5/2020 9:29:35,12/5/2020,Shipit0425,David Perez,starken,TEST425,929543239
+1489498,delivered,delivered,12/5/2020 9:29:26,12/5/2020,Shipit0426,Juan Lopez,starken,TEST426,929543238
+1489497,delivered,delivered,12/5/2020 9:29:25,12/5/2020,Shipit0427,Jose Antonio Rodriguez,starken,TEST427,929543256
+1489496,delivered,delivered,12/5/2020 9:29:24,12/5/2020,Shipit0428,Javier Martinez,starken,TEST428,929543255
+1489495,delivered,delivered,12/5/2020 9:29:23,12/5/2020,Shipit0429,Daniel Sanchez,starken,TEST429,929543254
+1489494,delivered,delivered,12/5/2020 9:29:23,12/5/2020,Shipit0430,Jose Luis Gomez,starken,TEST430,929543237
+1489493,delivered,delivered,12/5/2020 9:29:22,12/5/2020,Shipit0431,Francisco Javier Alvarez,starken,TEST431,929543236
+1489492,delivered,delivered,12/5/2020 9:29:21,12/5/2020,Shipit0432,Carlos Martin,starken,TEST432,929543235
+1489491,delivered,delivered,12/5/2020 9:29:20,12/5/2020,Shipit0433,Jesus Diaz,starken,TEST433,929543251
+1489490,delivered,delivered,12/5/2020 9:29:19,12/5/2020,Shipit0434,Alejandro Alonso,starken,TEST434,929543253
+1489489,delivered,delivered,12/5/2020 9:29:18,12/5/2020,Shipit0435,Miguel Ruiz,starken,TEST435,929543252
+1489488,delivered,delivered,12/5/2020 9:29:17,12/5/2020,Shipit0436,Jose Manuel Hernandez,starken,TEST436,929543234
+1489487,delivered,delivered,12/5/2020 9:29:17,12/5/2020,Shipit0437,Rafael Gutierrez,starken,TEST437,929543233
+1489486,delivered,delivered,12/5/2020 9:29:16,12/5/2020,Shipit0438,Miguel Angel Blanco,starken,TEST438,929543250
+1489485,delivered,delivered,12/5/2020 9:29:15,12/5/2020,Shipit0439,Pedro Jimenez,starken,TEST439,929543248
+1489484,delivered,delivered,12/5/2020 9:29:14,12/5/2020,Shipit0440,Angel Moreno,starken,TEST440,929543226
+1489483,delivered,delivered,12/5/2020 9:29:13,12/5/2020,Shipit0441,Antonio Muñoz,starken,TEST441,929543227
+1489482,delivered,delivered,12/5/2020 9:29:12,12/5/2020,Shipit0442,Jose Vazquez,starken,TEST442,929543228
+1489481,delivered,delivered,12/5/2020 9:29:11,12/5/2020,Shipit0443,Manuel Gil,starken,TEST443,929543222
+1489480,delivered,delivered,12/5/2020 9:29:10,12/5/2020,Shipit0444,Francisco Dominguez,starken,TEST444,929543221
+1489479,delivered,delivered,12/5/2020 9:29:10,12/5/2020,Shipit0445,David Castro,starken,TEST445,929543218
+1489478,delivered,delivered,12/5/2020 9:29:09,12/5/2020,Shipit0446,Juan Ramos,starken,TEST446,929543220
+1489477,delivered,delivered,11/5/2020 9:29:09,11/5/2020,Shipit0447,Jose Antonio Garcia,starken,TEST447,929543205
+1489476,delivered,delivered,11/5/2020 9:29:08,11/5/2020,Shipit0448,Javier Gonzalez,starken,TEST448,929543216
+1489475,delivered,delivered,11/5/2020 9:29:07,11/5/2020,Shipit0449,Daniel Fernandez,starken,TEST449,929543203
+1489474,delivered,delivered,11/5/2020 9:29:06,11/5/2020,Shipit0450,Jose Luis Perez,starken,TEST450,929543206
+1489473,delivered,delivered,11/5/2020 9:29:05,11/5/2020,Shipit0451,Francisco Javier Lopez,starken,TEST451,929543199
+1489472,delivered,delivered,11/5/2020 9:29:04,11/5/2020,Shipit0452,Carlos Rodriguez,starken,TEST452,929543201
+1489471,delivered,delivered,11/5/2020 9:29:04,11/5/2020,Shipit0453,Jesus Martinez,starken,TEST453,929543217
+1489470,delivered,delivered,11/5/2020 9:29:03,11/5/2020,Shipit0454,Alejandro Sanchez,starken,TEST454,929543212
+1489469,delivered,delivered,11/5/2020 9:29:02,11/5/2020,Shipit0455,Miguel Gomez,starken,TEST455,929543204
+1489468,delivered,delivered,11/5/2020 9:29:01,11/5/2020,Shipit0456,Jose Manuel Alvarez,starken,TEST456,929543196
+1489467,delivered,delivered,11/5/2020 9:29:00,11/5/2020,Shipit0457,Rafael Martin,starken,TEST457,929543198
+1489466,delivered,delivered,11/5/2020 9:28:59,11/5/2020,Shipit0458,Miguel Angel Diaz,starken,TEST458,929543219
+1489465,delivered,delivered,11/5/2020 9:28:58,11/5/2020,Shipit0459,Pedro Alonso,starken,TEST459,929543211
+1489464,delivered,delivered,11/5/2020 9:28:58,11/5/2020,Shipit0460,Angel Ruiz,starken,TEST460,929543197
+1489463,delivered,delivered,11/5/2020 9:28:57,11/5/2020,Shipit0461,Antonio Hernandez,starken,TEST461,929543195
+1489462,delivered,delivered,11/5/2020 9:28:56,11/5/2020,Shipit0462,Jose Gutierrez,starken,TEST462,929543194
+1489461,delivered,delivered,11/5/2020 9:28:55,11/5/2020,Shipit0463,Manuel Blanco,starken,TEST463,929543186
+1489460,delivered,delivered,11/5/2020 9:28:54,11/5/2020,Shipit0464,Francisco Jimenez,starken,TEST464,929543184
+1489459,delivered,delivered,11/5/2020 9:28:53,11/5/2020,Shipit0465,David Moreno,starken,TEST465,929543193
+1489458,delivered,delivered,11/5/2020 9:28:52,11/5/2020,Shipit0466,Juan Muñoz,starken,TEST466,929543210
+1489457,delivered,delivered,11/5/2020 9:28:51,11/5/2020,Shipit0467,Jose Antonio Vazquez,starken,TEST467,929543209
+1489456,delivered,delivered,11/5/2020 9:28:43,11/5/2020,Shipit0468,Javier Gil,starken,TEST468,929543208
+1489455,delivered,delivered,11/5/2020 9:28:42,11/5/2020,Shipit0469,Daniel Dominguez,starken,TEST469,929543207
+1489454,delivered,delivered,11/5/2020 9:28:41,11/5/2020,Shipit0470,Jose Luis Castro,starken,TEST470,929543191
+1489453,delivered,delivered,11/5/2020 9:28:40,11/5/2020,Shipit0471,Francisco Javier Ramos,starken,TEST471,929543185
+1489452,delivered,delivered,11/5/2020 9:28:39,11/5/2020,Shipit0472,Carlos Garcia,starken,TEST472,929543192
+1489432,delivered,delivered,11/5/2020 9:28:38,11/5/2020,Shipit0473,Jesus Gonzalez,chilexpress,TEST473,712089606966
+1489431,delivered,delivered,11/5/2020 9:28:38,11/5/2020,Shipit0474,Alejandro Fernandez,chilexpress,TEST474,712089606885
+1489430,delivered,delivered,11/5/2020 9:28:37,11/5/2020,Shipit0475,Miguel Perez,chilexpress,TEST475,712089606933
+1489429,delivered,delivered,11/5/2020 9:28:36,11/5/2020,Shipit0476,Jose Manuel Lopez,chilexpress,TEST476,712089606852
+1489428,delivered,delivered,11/5/2020 9:28:35,11/5/2020,Shipit0477,Rafael Rodriguez,chilexpress,TEST477,712089606900
+1489427,delivered,delivered,11/5/2020 9:28:34,11/5/2020,Shipit0478,Miguel Angel Martinez,chilexpress,TEST478,712089606896
+1489426,delivered,delivered,11/5/2020 9:28:33,11/5/2020,Shipit0479,Pedro Sanchez,chilexpress,TEST479,712089606830
+1489425,delivered,delivered,11/5/2020 9:28:32,11/5/2020,Shipit0480,Angel Gomez,chilexpress,TEST480,712089606863
+1489424,delivered,delivered,11/5/2020 9:28:32,11/5/2020,Shipit0481,Antonio Alvarez,chilexpress,TEST481,712089606826
+1489423,delivered,delivered,11/5/2020 9:28:31,11/5/2020,Shipit0482,Jose Martin,chilexpress,TEST482,712089606874
+1489422,delivered,delivered,11/5/2020 9:28:30,11/5/2020,Shipit0483,Manuel Diaz,chilexpress,TEST483,712089606815
+1489421,delivered,delivered,11/5/2020 9:28:29,11/5/2020,Shipit0484,Francisco Alonso,chilexpress,TEST484,712089606841
+1489419,delivered,delivered,11/5/2020 9:28:28,11/5/2020,Shipit0485,David Ruiz,chilexpress,TEST485,712089608484
+1489418,delivered,delivered,11/5/2020 9:28:27,11/5/2020,Shipit0486,Juan Hernandez,chilexpress,TEST486,712089608473
+1489417,delivered,delivered,11/5/2020 9:28:26,11/5/2020,Shipit0487,Jose Antonio Gutierrez,chilexpress,TEST487,712089608436
+1489416,delivered,delivered,11/5/2020 9:28:26,11/5/2020,Shipit0488,Javier Blanco,chilexpress,TEST488,712089608462
+1489415,delivered,delivered,11/5/2020 9:28:25,11/5/2020,Shipit0489,Daniel Jimenez,chilexpress,TEST489,712089608440
+1489414,delivered,delivered,11/5/2020 9:28:24,11/5/2020,Shipit0490,Jose Luis Moreno,chilexpress,TEST490,712089608403
+1489413,delivered,delivered,11/5/2020 9:28:23,11/5/2020,Shipit0491,Francisco Javier Muñoz,chilexpress,TEST491,712089608495
+1489412,delivered,delivered,11/5/2020 9:28:22,11/5/2020,Shipit0492,Carlos Vazquez,chilexpress,TEST492,712089608425
+1489411,delivered,delivered,11/5/2020 9:28:21,11/5/2020,Shipit0493,Jesus Gil,chilexpress,TEST493,712089608580
+1489410,delivered,delivered,11/5/2020 9:28:20,11/5/2020,Shipit0494,Alejandro Dominguez,chilexpress,TEST494,712089608414
+1489409,delivered,delivered,11/5/2020 9:28:19,11/5/2020,Shipit0495,Miguel Castro,chilexpress,TEST495,712089608381
+1489408,delivered,delivered,11/5/2020 9:28:19,11/5/2020,Shipit0496,Jose Manuel Ramos,chilexpress,TEST496,712089608392
+1489407,delivered,delivered,11/5/2020 9:28:18,11/5/2020,Shipit0497,Rafael Garcia,chilexpress,TEST497,712089608366
+1489406,delivered,delivered,11/5/2020 9:28:17,11/5/2020,Shipit0498,Miguel Angel Gonzalez,chilexpress,TEST498,712089608370
+1489404,delivered,delivered,11/5/2020 9:28:16,11/5/2020,Shipit0499,Pedro Fernandez,chilexpress,TEST499,712089608355
+1489403,delivered,delivered,11/5/2020 9:28:15,11/5/2020,Shipit0500,Angel Perez,chilexpress,TEST500,712089608333
+1503897,delivered,delivered,17/4/2020 9:36:00,17/4/2020,Shipit0501,Antonio Garcia,starken,TEST001,929621911
+1503896,delivered,delivered,17/4/2020 9:36:01,17/4/2020,Shipit0502,Jose Gonzalez,starken,TEST002,929621892
+1503895,delivered,delivered,17/4/2020 9:36:02,17/4/2020,Shipit0503,Manuel Fernandez,starken,TEST003,929621891
+1503894,delivered,delivered,17/4/2020 9:36:03,17/4/2020,Shipit0504,Francisco Perez,starken,TEST004,929621893
+1503893,delivered,delivered,17/4/2020 9:36:04,17/4/2020,Shipit0505,David Lopez,starken,TEST005,929621888
+1503892,delivered,delivered,17/4/2020 9:36:05,17/4/2020,Shipit0506,Juan Rodriguez,starken,TEST006,929621910
+1503891,delivered,delivered,17/4/2020 9:36:06,17/4/2020,Shipit0507,Jose Antonio Martinez,starken,TEST007,929621908
+1503890,delivered,delivered,17/4/2020 9:35:52,17/4/2020,Shipit0508,Javier Sanchez,starken,TEST008,929621889
+1503889,delivered,delivered,17/4/2020 9:35:53,17/4/2020,Shipit0509,Daniel Gomez,starken,TEST009,929621866
+1503888,delivered,delivered,17/4/2020 9:35:52,17/4/2020,Shipit0510,Jose Luis Alvarez,starken,TEST010,929621886
+1503887,delivered,delivered,17/4/2020 9:35:51,17/4/2020,Shipit0511,Francisco Javier Martin,starken,TEST011,929621864
+1503886,delivered,delivered,17/4/2020 9:35:50,17/4/2020,Shipit0512,Carlos Diaz,starken,TEST012,929621887
+1503885,delivered,delivered,17/4/2020 9:35:50,17/4/2020,Shipit0513,Jesus Alonso,starken,TEST013,929621863
+1503884,delivered,delivered,17/4/2020 9:35:49,17/4/2020,Shipit0514,Alejandro Ruiz,starken,TEST014,929621885
+1503883,delivered,delivered,17/4/2020 9:35:48,17/4/2020,Shipit0515,Miguel Hernandez,starken,TEST015,929621861
+1503882,delivered,delivered,17/4/2020 9:35:47,17/4/2020,Shipit0516,Jose Manuel Gutierrez,starken,TEST016,929621860
+1503881,delivered,delivered,17/4/2020 9:35:46,17/4/2020,Shipit0517,Rafael Blanco,starken,TEST017,929621862
+1503880,delivered,delivered,17/4/2020 9:35:45,17/4/2020,Shipit0518,Miguel Angel Jimenez,starken,TEST018,929621884
+1503879,delivered,delivered,17/4/2020 9:35:44,17/4/2020,Shipit0519,Pedro Moreno,starken,TEST019,929621883
+1503878,delivered,delivered,17/4/2020 9:35:44,17/4/2020,Shipit0520,Angel Muñoz,starken,TEST020,929621859
+1503877,delivered,delivered,16/4/2020 9:35:44,16/4/2020,Shipit0521,Antonio Vazquez,starken,TEST021,929621882
+1503876,delivered,delivered,16/4/2020 9:35:43,16/4/2020,Shipit0522,Jose Gil,starken,TEST022,929621858
+1503875,delivered,delivered,16/4/2020 9:35:42,16/4/2020,Shipit0523,Manuel Dominguez,starken,TEST023,929621855
+1503874,delivered,delivered,16/4/2020 9:35:41,16/4/2020,Shipit0524,Francisco Castro,starken,TEST024,929621876
+1503873,delivered,delivered,16/4/2020 9:35:40,16/4/2020,Shipit0525,David Ramos,starken,TEST025,929621853
+1503872,delivered,delivered,16/4/2020 9:35:39,16/4/2020,Shipit0526,Juan Garcia,starken,TEST026,929621874
+1503871,delivered,delivered,16/4/2020 9:35:38,16/4/2020,Shipit0527,Jose Antonio Gonzalez,starken,TEST027,929621851
+1503870,delivered,delivered,16/4/2020 9:35:38,16/4/2020,Shipit0528,Javier Fernandez,starken,TEST028,929621870
+1503869,delivered,delivered,16/4/2020 9:35:37,16/4/2020,Shipit0529,Daniel Perez,starken,TEST029,929621869
+1503868,delivered,delivered,16/4/2020 9:35:36,16/4/2020,Shipit0530,Jose Luis Lopez,starken,TEST030,929621849
+1503867,delivered,delivered,16/4/2020 9:35:35,16/4/2020,Shipit0531,Francisco Javier Rodriguez,starken,TEST031,929621850
+1503866,delivered,delivered,16/4/2020 9:35:34,16/4/2020,Shipit0532,Carlos Martinez,starken,TEST032,929621868
+1503865,delivered,delivered,16/4/2020 9:35:33,16/4/2020,Shipit0533,Jesus Sanchez,starken,TEST033,929621846
+1503864,delivered,delivered,16/4/2020 9:35:32,16/4/2020,Shipit0534,Alejandro Gomez,starken,TEST034,929621848
+1503863,delivered,delivered,16/4/2020 9:35:31,16/4/2020,Shipit0535,Miguel Alvarez,starken,TEST035,929621826
+1503862,delivered,delivered,16/4/2020 9:35:31,16/4/2020,Shipit0536,Jose Manuel Martin,starken,TEST036,929621825
+1503861,delivered,delivered,16/4/2020 9:35:30,16/4/2020,Shipit0537,Rafael Diaz,starken,TEST037,929621845
+1503860,delivered,delivered,16/4/2020 9:35:29,16/4/2020,Shipit0538,Miguel Angel Alonso,starken,TEST038,929621843
+1503859,delivered,delivered,16/4/2020 9:35:28,16/4/2020,Shipit0539,Pedro Ruiz,starken,TEST039,929621842
+1503858,delivered,delivered,16/4/2020 9:35:27,16/4/2020,Shipit0540,Angel Hernandez,starken,TEST040,929621844
+1503857,delivered,delivered,16/4/2020 9:35:26,16/4/2020,Shipit0541,Antonio Gutierrez,starken,TEST041,929621840
+1503856,delivered,delivered,16/4/2020 9:35:25,16/4/2020,Shipit0542,Jose Blanco,starken,TEST042,929621824
+1503855,delivered,delivered,16/4/2020 9:35:25,16/4/2020,Shipit0543,Manuel Jimenez,starken,TEST043,929621841
+1503854,delivered,delivered,16/4/2020 9:35:24,16/4/2020,Shipit0544,Francisco Moreno,starken,TEST044,929621837
+1503853,delivered,delivered,16/4/2020 9:35:23,16/4/2020,Shipit0545,David Muñoz,starken,TEST045,929621821
+1503852,delivered,delivered,16/4/2020 9:35:22,16/4/2020,Shipit0546,Juan Vazquez,starken,TEST046,929621838
+1503851,delivered,delivered,16/4/2020 9:35:21,16/4/2020,Shipit0547,Jose Antonio Gil,starken,TEST047,929621835
+1503850,delivered,delivered,16/4/2020 9:35:20,16/4/2020,Shipit0548,Javier Dominguez,starken,TEST048,929621823
+1503849,delivered,delivered,16/4/2020 9:35:19,16/4/2020,Shipit0549,Daniel Castro,starken,TEST049,929621836
+1503848,delivered,delivered,16/4/2020 9:35:19,16/4/2020,Shipit0550,Jose Luis Ramos,starken,TEST050,929621820
+1503847,delivered,delivered,16/4/2020 9:35:18,16/4/2020,Shipit0551,Francisco Javier Garcia,starken,TEST051,929621822
+1503846,delivered,delivered,16/4/2020 9:35:17,16/4/2020,Shipit0552,Carlos Gonzalez,starken,TEST052,929621819
+1503845,delivered,delivered,16/4/2020 9:35:16,16/4/2020,Shipit0553,Jesus Fernandez,starken,TEST053,929621818
+1503844,delivered,delivered,16/4/2020 9:35:15,16/4/2020,Shipit0554,Alejandro Perez,starken,TEST054,929621834
+1503843,delivered,delivered,16/4/2020 9:35:14,16/4/2020,Shipit0555,Miguel Lopez,starken,TEST055,929621816
+1503842,delivered,delivered,16/4/2020 9:35:13,16/4/2020,Shipit0556,Jose Manuel Rodriguez,starken,TEST056,929621831
+1503841,delivered,delivered,16/4/2020 9:35:12,16/4/2020,Shipit0557,Rafael Martinez,starken,TEST057,929621833
+1503840,delivered,delivered,16/4/2020 9:35:12,16/4/2020,Shipit0558,Miguel Angel Sanchez,starken,TEST058,929621815
+1503839,delivered,delivered,16/4/2020 9:35:11,16/4/2020,Shipit0559,Pedro Gomez,starken,TEST059,929621812
+1503838,delivered,delivered,16/4/2020 9:35:10,16/4/2020,Shipit0560,Angel Alvarez,starken,TEST060,929621810
+1503837,delivered,delivered,16/4/2020 9:35:09,16/4/2020,Shipit0561,Antonio Martin,starken,TEST061,929621809
+1503836,delivered,delivered,16/4/2020 9:35:08,16/4/2020,Shipit0562,Jose Diaz,starken,TEST062,929621796
+1503835,delivered,delivered,16/4/2020 9:35:07,16/4/2020,Shipit0563,Manuel Alonso,starken,TEST063,929621799
+1503834,delivered,delivered,16/4/2020 9:35:06,16/4/2020,Shipit0564,Francisco Ruiz,starken,TEST064,929621798
+1503833,delivered,delivered,16/4/2020 9:35:06,16/4/2020,Shipit0565,David Hernandez,starken,TEST065,929621784
+1503832,delivered,delivered,16/4/2020 9:35:05,16/4/2020,Shipit0566,Juan Gutierrez,starken,TEST066,929621795
+1503831,delivered,delivered,16/4/2020 9:35:04,16/4/2020,Shipit0567,Jose Antonio Blanco,starken,TEST067,929621793
+1503830,delivered,delivered,16/4/2020 9:35:03,16/4/2020,Shipit0568,Javier Jimenez,starken,TEST068,929621794
+1503829,delivered,delivered,16/4/2020 9:35:02,16/4/2020,Shipit0569,Daniel Moreno,starken,TEST069,929621792
+1503828,delivered,delivered,16/4/2020 9:35:01,16/4/2020,Shipit0570,Jose Luis Muñoz,starken,TEST070,929621786
+1503827,delivered,delivered,16/4/2020 9:35:00,16/4/2020,Shipit0571,Francisco Javier Vazquez,starken,TEST071,929621807
+1503826,delivered,delivered,16/4/2020 9:35:00,16/4/2020,Shipit0572,Carlos Gil,starken,TEST072,929621785
+1503825,delivered,delivered,16/4/2020 9:34:59,16/4/2020,Shipit0573,Jesus Dominguez,starken,TEST073,929621782
+1503824,delivered,delivered,16/4/2020 9:34:58,16/4/2020,Shipit0574,Alejandro Castro,starken,TEST074,929621788
+1503823,delivered,delivered,16/4/2020 9:34:57,16/4/2020,Shipit0575,Miguel Ramos,starken,TEST075,929621783
+1503822,delivered,delivered,16/4/2020 9:34:56,16/4/2020,Shipit0576,Jose Manuel Garcia,starken,TEST076,929621789
+1503821,delivered,delivered,16/4/2020 9:34:55,16/4/2020,Shipit0577,Rafael Gonzalez,starken,TEST077,929621787
+1503820,delivered,delivered,16/4/2020 9:34:54,16/4/2020,Shipit0578,Miguel Angel Fernandez,starken,TEST078,929621780
+1503819,delivered,delivered,16/4/2020 9:34:53,16/4/2020,Shipit0579,Pedro Perez,starken,TEST079,929621781
+1503818,delivered,delivered,16/4/2020 9:34:53,16/4/2020,Shipit0580,Angel Lopez,starken,TEST080,929621791
+1503817,delivered,delivered,16/4/2020 9:34:52,16/4/2020,Shipit0581,Antonio Rodriguez,starken,TEST081,929621765
+1503816,delivered,delivered,16/4/2020 9:34:51,16/4/2020,Shipit0582,Jose Martinez,starken,TEST082,929621779
+1503815,delivered,delivered,16/4/2020 9:34:50,16/4/2020,Shipit0583,Manuel Sanchez,starken,TEST083,929621764
+1503814,delivered,delivered,16/4/2020 9:34:49,16/4/2020,Shipit0584,Francisco Gomez,starken,TEST084,929621777
+1503813,delivered,delivered,16/4/2020 9:34:48,16/4/2020,Shipit0585,David Alvarez,starken,TEST085,929621776
+1503812,delivered,delivered,16/4/2020 9:34:47,16/4/2020,Shipit0586,Juan Martin,starken,TEST086,929621762
+1503811,delivered,delivered,16/4/2020 9:34:47,16/4/2020,Shipit0587,Jose Antonio Diaz,starken,TEST087,929621790
+1503810,delivered,delivered,16/4/2020 9:34:46,16/4/2020,Shipit0588,Javier Alonso,starken,TEST088,929621766
+1503809,delivered,delivered,16/4/2020 9:34:45,16/4/2020,Shipit0589,Daniel Ruiz,starken,TEST089,929621763
+1503808,delivered,delivered,16/4/2020 9:34:44,16/4/2020,Shipit0590,Jose Luis Hernandez,starken,TEST090,929621778
+1503794,delivered,delivered,16/4/2020 9:34:43,16/4/2020,Shipit0591,Francisco Javier Gutierrez,chilexpress,TEST091,712090414055
+1503793,delivered,delivered,16/4/2020 9:34:42,16/4/2020,Shipit0592,Carlos Blanco,chilexpress,TEST092,712090414044
+1503792,delivered,delivered,16/4/2020 9:34:41,16/4/2020,Shipit0593,Jesus Jimenez,chilexpress,TEST093,712090413963
+1503791,delivered,delivered,16/4/2020 9:34:41,16/4/2020,Shipit0594,Alejandro Moreno,chilexpress,TEST094,712090414022
+1503790,delivered,delivered,16/4/2020 9:34:40,16/4/2020,Shipit0595,Miguel Muñoz,chilexpress,TEST095,712090414011
+1503789,delivered,delivered,15/4/2020 9:34:40,15/4/2020,Shipit0596,Jose Manuel Vazquez,chilexpress,TEST096,712090413893
+1503788,delivered,delivered,15/4/2020 9:34:39,15/4/2020,Shipit0597,Rafael Gil,chilexpress,TEST097,712090413860
+1503787,delivered,delivered,15/4/2020 9:34:38,15/4/2020,Shipit0598,Miguel Angel Dominguez,chilexpress,TEST098,712090414033
+1503786,delivered,delivered,15/4/2020 9:34:37,15/4/2020,Shipit0599,Pedro Castro,chilexpress,TEST099,712090413974
+1503785,delivered,delivered,15/4/2020 9:34:36,15/4/2020,Shipit0600,Angel Ramos,chilexpress,TEST100,712090414000
+1503784,delivered,delivered,15/4/2020 9:34:35,15/4/2020,Shipit0601,Antonio Garcia,chilexpress,TEST101,712090413834
+1503783,delivered,delivered,15/4/2020 9:34:34,15/4/2020,Shipit0602,Jose Gonzalez,chilexpress,TEST102,712090413985
+1503782,delivered,delivered,15/4/2020 9:34:34,15/4/2020,Shipit0603,Manuel Fernandez,chilexpress,TEST103,712090413952
+1503781,delivered,delivered,15/4/2020 9:34:33,15/4/2020,Shipit0604,Francisco Perez,chilexpress,TEST104,712090413941
+1503780,delivered,delivered,15/4/2020 9:34:32,15/4/2020,Shipit0605,David Lopez,chilexpress,TEST105,712090413926
+1503779,delivered,delivered,15/4/2020 9:34:31,15/4/2020,Shipit0606,Juan Rodriguez,chilexpress,TEST106,712090413996
+1503778,delivered,delivered,15/4/2020 9:34:30,15/4/2020,Shipit0607,Jose Antonio Martinez,chilexpress,TEST107,712090413786
+1503777,delivered,delivered,15/4/2020 9:34:29,15/4/2020,Shipit0608,Javier Sanchez,chilexpress,TEST108,712090413871
+1503776,delivered,delivered,15/4/2020 9:34:28,15/4/2020,Shipit0609,Daniel Gomez,chilexpress,TEST109,712090413904
+1503775,delivered,delivered,15/4/2020 9:34:28,15/4/2020,Shipit0610,Jose Luis Alvarez,chilexpress,TEST110,712090413764
+1503774,delivered,delivered,15/4/2020 9:34:27,15/4/2020,Shipit0611,Francisco Javier Martin,chilexpress,TEST111,712090413930
+1503773,delivered,delivered,15/4/2020 9:34:26,15/4/2020,Shipit0612,Carlos Diaz,chilexpress,TEST112,712090413731
+1503772,delivered,delivered,15/4/2020 9:34:25,15/4/2020,Shipit0613,Jesus Alonso,chilexpress,TEST113,712090413753
+1503771,delivered,delivered,15/4/2020 9:34:24,15/4/2020,Shipit0614,Alejandro Ruiz,chilexpress,TEST114,712090413742
+1503770,delivered,delivered,15/4/2020 9:34:23,15/4/2020,Shipit0615,Miguel Hernandez,chilexpress,TEST115,712090413775
+1503769,delivered,delivered,15/4/2020 9:34:22,15/4/2020,Shipit0616,Jose Manuel Gutierrez,chilexpress,TEST116,712090413845
+1503768,delivered,delivered,15/4/2020 9:34:22,15/4/2020,Shipit0617,Rafael Blanco,chilexpress,TEST117,712090413823
+1503767,delivered,delivered,15/4/2020 9:34:21,15/4/2020,Shipit0618,Miguel Angel Jimenez,chilexpress,TEST118,712090413801
+1503766,delivered,delivered,15/4/2020 9:34:20,15/4/2020,Shipit0619,Pedro Moreno,chilexpress,TEST119,712090413790
+1503765,delivered,delivered,15/4/2020 9:34:19,15/4/2020,Shipit0620,Angel Muñoz,chilexpress,TEST120,712090413720
+1503764,delivered,delivered,15/4/2020 9:34:18,15/4/2020,Shipit0621,Antonio Vazquez,chilexpress,TEST121,712090413683
+1503763,delivered,delivered,15/4/2020 9:34:17,15/4/2020,Shipit0622,Jose Gil,chilexpress,TEST122,712090413672
+1503762,delivered,delivered,15/4/2020 9:34:16,15/4/2020,Shipit0623,Manuel Dominguez,chilexpress,TEST123,712090413602
+1503761,delivered,delivered,15/4/2020 9:34:15,15/4/2020,Shipit0624,Francisco Castro,chilexpress,TEST124,712090413694
+1503760,delivered,delivered,15/4/2020 9:34:15,15/4/2020,Shipit0625,David Ramos,chilexpress,TEST125,712090413646
+1503759,delivered,delivered,15/4/2020 9:34:14,15/4/2020,Shipit0626,Juan Garcia,chilexpress,TEST126,712090413716
+1503758,delivered,delivered,15/4/2020 9:34:13,15/4/2020,Shipit0627,Jose Antonio Gonzalez,chilexpress,TEST127,712090413635
+1503757,delivered,delivered,15/4/2020 9:34:12,15/4/2020,Shipit0628,Javier Fernandez,chilexpress,TEST128,712090413576
+1503756,delivered,delivered,15/4/2020 9:34:11,15/4/2020,Shipit0629,Daniel Perez,chilexpress,TEST129,712090413624
+1503755,delivered,delivered,15/4/2020 9:34:10,15/4/2020,Shipit0630,Jose Luis Lopez,chilexpress,TEST130,712090413521
+1503754,delivered,delivered,15/4/2020 9:34:09,15/4/2020,Shipit0631,Francisco Javier Rodriguez,chilexpress,TEST131,712090413613
+1503753,delivered,delivered,15/4/2020 9:34:09,15/4/2020,Shipit0632,Carlos Martinez,chilexpress,TEST132,712090413591
+1503752,delivered,delivered,15/4/2020 9:34:08,15/4/2020,Shipit0633,Jesus Sanchez,chilexpress,TEST133,712090413580
+1503751,delivered,delivered,15/4/2020 9:34:07,15/4/2020,Shipit0634,Alejandro Gomez,chilexpress,TEST134,712090413565
+1503750,delivered,delivered,15/4/2020 9:34:06,15/4/2020,Shipit0635,Miguel Alvarez,chilexpress,TEST135,712090413440
+1503749,delivered,delivered,15/4/2020 9:34:05,15/4/2020,Shipit0636,Jose Manuel Martin,chilexpress,TEST136,712090413554
+1503748,delivered,delivered,15/4/2020 9:34:04,15/4/2020,Shipit0637,Rafael Diaz,chilexpress,TEST137,712090413650
+1503747,delivered,delivered,15/4/2020 9:34:03,15/4/2020,Shipit0638,Miguel Angel Alonso,chilexpress,TEST138,712090413451
+1503746,delivered,delivered,15/4/2020 9:34:02,15/4/2020,Shipit0639,Pedro Ruiz,chilexpress,TEST139,712090413506
+1503745,delivered,delivered,15/4/2020 9:34:02,15/4/2020,Shipit0640,Angel Hernandez,chilexpress,TEST140,712090413403
+1503744,delivered,delivered,15/4/2020 9:34:01,15/4/2020,Shipit0641,Antonio Gutierrez,chilexpress,TEST141,712090413484
+1503743,delivered,delivered,15/4/2020 9:34:00,15/4/2020,Shipit0642,Jose Blanco,chilexpress,TEST142,712090413462
+1503742,delivered,delivered,15/4/2020 9:33:59,15/4/2020,Shipit0643,Manuel Jimenez,chilexpress,TEST143,712090413473
+1503741,delivered,delivered,15/4/2020 9:33:58,15/4/2020,Shipit0644,Francisco Moreno,chilexpress,TEST144,712090413436
+1503740,delivered,delivered,15/4/2020 9:33:57,15/4/2020,Shipit0645,David Muñoz,chilexpress,TEST145,712090413355
+1503739,delivered,delivered,15/4/2020 9:33:56,15/4/2020,Shipit0646,Juan Vazquez,chilexpress,TEST146,712090413532
+1503738,delivered,delivered,15/4/2020 9:33:56,15/4/2020,Shipit0647,Jose Antonio Gil,chilexpress,TEST147,712090413344
+1503737,delivered,delivered,15/4/2020 9:33:55,15/4/2020,Shipit0648,Javier Dominguez,chilexpress,TEST148,712090413495
+1503736,delivered,delivered,15/4/2020 9:33:54,15/4/2020,Shipit0649,Daniel Castro,chilexpress,TEST149,712090413252
+1503735,delivered,delivered,15/4/2020 9:33:53,15/4/2020,Shipit0650,Jose Luis Ramos,chilexpress,TEST150,712090414070
+1503734,delivered,delivered,15/4/2020 9:33:52,15/4/2020,Shipit0651,Francisco Javier Garcia,chilexpress,TEST151,712090413263
+1503733,delivered,delivered,15/4/2020 9:33:51,15/4/2020,Shipit0652,Carlos Gonzalez,chilexpress,TEST152,712090413370
+1503732,delivered,delivered,15/4/2020 9:33:50,15/4/2020,Shipit0653,Jesus Fernandez,chilexpress,TEST153,712090413333
+1503731,delivered,delivered,15/4/2020 9:33:50,15/4/2020,Shipit0654,Alejandro Perez,chilexpress,TEST154,712090413230
+1503730,delivered,delivered,15/4/2020 9:33:49,15/4/2020,Shipit0655,Miguel Lopez,chilexpress,TEST155,712090413241
+1503729,delivered,delivered,15/4/2020 9:33:48,15/4/2020,Shipit0656,Jose Manuel Rodriguez,chilexpress,TEST156,712090413425
+1503728,delivered,delivered,15/4/2020 9:33:47,15/4/2020,Shipit0657,Rafael Martinez,chilexpress,TEST157,712090413414
+1503727,delivered,delivered,15/4/2020 9:33:46,15/4/2020,Shipit0658,Miguel Angel Sanchez,chilexpress,TEST158,712090413285
+1503726,delivered,delivered,15/4/2020 9:33:45,15/4/2020,Shipit0659,Pedro Gomez,chilexpress,TEST159,712090413226
+1503725,delivered,delivered,15/4/2020 9:33:44,15/4/2020,Shipit0660,Angel Alvarez,chilexpress,TEST160,712090413915
+1503724,delivered,delivered,15/4/2020 9:33:43,15/4/2020,Shipit0661,Antonio Martin,chilexpress,TEST161,712090413322
+1503723,delivered,delivered,15/4/2020 9:33:43,15/4/2020,Shipit0662,Jose Diaz,chilexpress,TEST162,712090413311
+1503722,delivered,delivered,15/4/2020 9:33:42,15/4/2020,Shipit0663,Manuel Alonso,chilexpress,TEST163,712090413274
+1503721,delivered,delivered,15/4/2020 9:33:41,15/4/2020,Shipit0664,Francisco Ruiz,chilexpress,TEST164,712090413300
+1503720,delivered,delivered,15/4/2020 9:33:40,15/4/2020,Shipit0665,David Hernandez,chilexpress,TEST165,712090413366
+1503719,delivered,delivered,15/4/2020 9:33:39,15/4/2020,Shipit0666,Juan Gutierrez,chilexpress,TEST166,712090413392
+1503718,delivered,delivered,15/4/2020 9:33:38,15/4/2020,Shipit0667,Jose Antonio Blanco,chilexpress,TEST167,712090413215
+1503717,delivered,delivered,15/4/2020 9:33:37,15/4/2020,Shipit0668,Javier Jimenez,chilexpress,TEST168,712090413171
+1503716,delivered,delivered,15/4/2020 9:33:37,15/4/2020,Shipit0669,Daniel Moreno,chilexpress,TEST169,712090413182
+1503715,delivered,delivered,15/4/2020 9:33:36,15/4/2020,Shipit0670,Jose Luis Muñoz,chilexpress,TEST170,712090413134
+1503714,delivered,delivered,15/4/2020 9:33:35,15/4/2020,Shipit0671,Francisco Javier Vazquez,chilexpress,TEST171,712090413156
+1503713,delivered,delivered,15/4/2020 9:33:34,15/4/2020,Shipit0672,Carlos Gil,chilexpress,TEST172,712090413812
+1503712,delivered,delivered,15/4/2020 9:33:33,15/4/2020,Shipit0673,Jesus Dominguez,chilexpress,TEST173,712090413510
+1503711,delivered,delivered,15/4/2020 9:33:32,15/4/2020,Shipit0674,Alejandro Castro,chilexpress,TEST174,712090413296
+1503710,delivered,delivered,15/4/2020 9:33:31,15/4/2020,Shipit0675,Miguel Ramos,chilexpress,TEST175,712090413101
+1503709,delivered,delivered,15/4/2020 9:33:31,15/4/2020,Shipit0676,Jose Manuel Garcia,chilexpress,TEST176,712090413160
+1503708,delivered,delivered,15/4/2020 9:33:30,15/4/2020,Shipit0677,Rafael Gonzalez,chilexpress,TEST177,712090413053
+1503707,delivered,delivered,15/4/2020 9:33:29,15/4/2020,Shipit0678,Miguel Angel Fernandez,chilexpress,TEST178,712090413123
+1503706,delivered,delivered,15/4/2020 9:33:28,15/4/2020,Shipit0679,Pedro Perez,chilexpress,TEST179,712090413090
+1503705,delivered,delivered,15/4/2020 9:33:27,15/4/2020,Shipit0680,Angel Lopez,chilexpress,TEST180,712090413145
+1503704,delivered,delivered,15/4/2020 9:33:26,15/4/2020,Shipit0681,Antonio Rodriguez,chilexpress,TEST181,712090413064
+1503703,delivered,delivered,15/4/2020 9:33:25,15/4/2020,Shipit0682,Jose Martinez,chilexpress,TEST182,712090413112
+1503448,delivered,delivered,15/4/2020 9:33:24,15/4/2020,Shipit0683,Manuel Sanchez,chilexpress,TEST183,712090381376
+1503446,delivered,delivered,15/4/2020 9:33:24,15/4/2020,Shipit0684,Francisco Gomez,starken,TEST184,929616234
+1503445,delivered,delivered,15/4/2020 9:33:23,15/4/2020,Shipit0685,David Alvarez,chilexpress,TEST185,712090381391
+1503443,delivered,delivered,15/4/2020 9:33:22,15/4/2020,Shipit0686,Juan Martin,chilexpress,TEST186,712090381380
+1503441,delivered,delivered,15/4/2020 9:33:21,15/4/2020,Shipit0687,Jose Antonio Diaz,chilexpress,TEST187,712090381365
+1503440,delivered,delivered,15/4/2020 9:33:20,15/4/2020,Shipit0688,Javier Alonso,starken,TEST188,929616233
+1503180,delivered,delivered,15/4/2020 9:33:19,15/4/2020,Shipit0689,Daniel Ruiz,starken,TEST189,929615059
+1503179,delivered,delivered,15/4/2020 9:33:18,15/4/2020,Shipit0690,Jose Luis Hernandez,starken,TEST190,929615073
+1503113,delivered,delivered,15/4/2020 9:33:18,15/4/2020,Shipit0691,Francisco Javier Gutierrez,chilexpress,TEST191,712090377854
+1503112,delivered,delivered,15/4/2020 9:33:17,15/4/2020,Shipit0692,Carlos Blanco,chilexpress,TEST192,712090377810
+1503111,delivered,delivered,15/4/2020 9:33:16,15/4/2020,Shipit0693,Jesus Jimenez,chilexpress,TEST193,712090377692
+1501829,delivered,delivered,15/4/2020 9:33:15,15/4/2020,Shipit0694,Alejandro Moreno,starken,TEST194,929609363
+1501828,delivered,delivered,15/4/2020 9:33:14,15/4/2020,Shipit0695,Miguel Muñoz,starken,TEST195,929609388
+1501827,delivered,delivered,15/4/2020 9:33:13,15/4/2020,Shipit0696,Jose Manuel Vazquez,starken,TEST196,929609365
+1501826,delivered,delivered,15/4/2020 9:33:12,15/4/2020,Shipit0697,Rafael Gil,starken,TEST197,929609364
+1501778,delivered,delivered,15/4/2020 9:33:12,15/4/2020,Shipit0698,Miguel Angel Dominguez,chilexpress,TEST198,712090323313
+1501777,delivered,delivered,15/4/2020 9:33:11,15/4/2020,Shipit0699,Pedro Garcia,chilexpress,TEST199,712090323291
+1501776,delivered,delivered,15/4/2020 9:33:10,15/4/2020,Shipit0700,Angel Gonzalez,chilexpress,TEST200,712090323280
+1501775,delivered,delivered,15/4/2020 9:33:09,15/4/2020,Shipit0701,Antonio Fernandez,chilexpress,TEST201,712090323276
+1501774,delivered,delivered,15/4/2020 9:33:08,15/4/2020,Shipit0702,Jose Perez,chilexpress,TEST202,712090323265
+1501773,delivered,delivered,15/4/2020 9:33:07,15/4/2020,Shipit0703,Manuel Lopez,chilexpress,TEST203,712090323254
+1501772,delivered,delivered,15/4/2020 9:33:06,15/4/2020,Shipit0704,Francisco Rodriguez,chilexpress,TEST204,712090323243
+1501771,delivered,delivered,15/4/2020 9:33:05,15/4/2020,Shipit0705,David Martinez,chilexpress,TEST205,712090323232
+1501770,delivered,delivered,15/4/2020 9:33:05,15/4/2020,Shipit0706,Juan Sanchez,chilexpress,TEST206,712090323221
+1501769,delivered,delivered,15/4/2020 9:33:04,15/4/2020,Shipit0707,Jose Antonio Gomez,chilexpress,TEST207,712090323210
+1501768,delivered,delivered,15/4/2020 9:33:03,15/4/2020,Shipit0708,Javier Alvarez,chilexpress,TEST208,712090323206
+1501767,delivered,delivered,15/4/2020 9:33:02,15/4/2020,Shipit0709,Daniel Martin,chilexpress,TEST209,712090323195
+1501766,delivered,delivered,15/4/2020 9:33:01,15/4/2020,Shipit0710,Jose Luis Diaz,chilexpress,TEST210,712090323162
+1501765,delivered,delivered,15/4/2020 9:33:00,15/4/2020,Shipit0711,Francisco Javier Alonso,chilexpress,TEST211,712090323151
+1501764,delivered,delivered,15/4/2020 9:32:59,15/4/2020,Shipit0712,Carlos Ruiz,chilexpress,TEST212,712090323140
+1501763,delivered,delivered,15/4/2020 9:32:59,15/4/2020,Shipit0713,Jesus Hernandez,chilexpress,TEST213,712090323136
+1501762,delivered,delivered,15/4/2020 9:32:58,15/4/2020,Shipit0714,Alejandro Gutierrez,chilexpress,TEST214,712090323114
+1501761,delivered,delivered,15/4/2020 9:32:57,15/4/2020,Shipit0715,Miguel Blanco,chilexpress,TEST215,712090323125
+1501760,delivered,delivered,15/4/2020 9:32:56,15/4/2020,Shipit0716,Jose Manuel Jimenez,chilexpress,TEST216,712090323103
+1501758,delivered,delivered,15/4/2020 9:32:55,15/4/2020,Shipit0717,Rafael Moreno,starken,TEST217,929609330
+1501757,delivered,delivered,15/4/2020 9:32:54,15/4/2020,Shipit0718,Miguel Angel Muñoz,starken,TEST218,929609312
+1501756,delivered,delivered,15/4/2020 9:32:53,15/4/2020,Shipit0719,Pedro Vazquez,starken,TEST219,929609329
+1501755,delivered,delivered,15/4/2020 9:32:53,15/4/2020,Shipit0720,Angel Gil,starken,TEST220,929609311
+1501754,delivered,delivered,15/4/2020 9:32:52,15/4/2020,Shipit0721,Antonio Dominguez,starken,TEST221,929609328
+1501753,delivered,delivered,15/4/2020 9:32:51,15/4/2020,Shipit0722,Jose Castro,starken,TEST222,929609327
+1501752,delivered,delivered,15/4/2020 9:32:50,15/4/2020,Shipit0723,Manuel Ramos,starken,TEST223,929609306
+1501751,delivered,delivered,15/4/2020 9:32:49,15/4/2020,Shipit0724,Francisco Garcia,starken,TEST224,929609305
+1501750,delivered,delivered,15/4/2020 9:32:48,15/4/2020,Shipit0725,David Gonzalez,starken,TEST225,929609304
+1501749,delivered,delivered,15/4/2020 9:32:47,15/4/2020,Shipit0726,Juan Fernandez,starken,TEST226,929609310
+1501748,delivered,delivered,15/4/2020 9:32:46,15/4/2020,Shipit0727,Jose Antonio Perez,starken,TEST227,929609309
+1501747,delivered,delivered,15/4/2020 9:32:46,15/4/2020,Shipit0728,Javier Lopez,starken,TEST228,929609307
+1501746,delivered,delivered,15/4/2020 9:32:45,15/4/2020,Shipit0729,Daniel Rodriguez,starken,TEST229,929609303
+1501745,delivered,delivered,15/4/2020 9:32:44,15/4/2020,Shipit0730,Jose Luis Martinez,starken,TEST230,929609302
+1501744,delivered,delivered,14/4/2020 9:32:44,14/4/2020,Shipit0731,Francisco Javier Sanchez,starken,TEST231,929609286
+1501743,delivered,delivered,14/4/2020 9:32:43,14/4/2020,Shipit0732,Carlos Gomez,starken,TEST232,929609301
+1501742,delivered,delivered,14/4/2020 9:32:42,14/4/2020,Shipit0733,Jesus Alvarez,starken,TEST233,929609300
+1501741,delivered,delivered,14/4/2020 9:32:41,14/4/2020,Shipit0734,Alejandro Martin,starken,TEST234,929609299
+1501740,delivered,delivered,14/4/2020 9:32:40,14/4/2020,Shipit0735,Miguel Diaz,starken,TEST235,929609298
+1501739,delivered,delivered,14/4/2020 9:32:40,14/4/2020,Shipit0736,Jose Manuel Alonso,starken,TEST236,929609285
+1501738,delivered,delivered,14/4/2020 9:32:39,14/4/2020,Shipit0737,Rafael Ruiz,starken,TEST237,929609297
+1501737,delivered,delivered,14/4/2020 9:32:38,14/4/2020,Shipit0738,Miguel Angel Hernandez,starken,TEST238,929609284
+1501736,delivered,delivered,14/4/2020 9:32:37,14/4/2020,Shipit0739,Pedro Gutierrez,starken,TEST239,929609281
+1501735,delivered,delivered,14/4/2020 9:32:36,14/4/2020,Shipit0740,Angel Blanco,starken,TEST240,929609280
+1501734,delivered,delivered,14/4/2020 9:32:35,14/4/2020,Shipit0741,Antonio Jimenez,starken,TEST241,929609296
+1501733,delivered,delivered,14/4/2020 9:32:34,14/4/2020,Shipit0742,Jose Moreno,starken,TEST242,929609295
+1501732,delivered,delivered,14/4/2020 9:32:34,14/4/2020,Shipit0743,Manuel Muñoz,starken,TEST243,929609294
+1501731,delivered,delivered,14/4/2020 9:32:33,14/4/2020,Shipit0744,Francisco Vazquez,starken,TEST244,929609279
+1501730,delivered,delivered,14/4/2020 9:32:32,14/4/2020,Shipit0745,David Gil,starken,TEST245,929609278
+1501729,delivered,delivered,14/4/2020 9:32:31,14/4/2020,Shipit0746,Juan Dominguez,starken,TEST246,929609293
+1501728,delivered,delivered,14/4/2020 9:32:30,14/4/2020,Shipit0747,Jose Antonio Castro,starken,TEST247,929609277
+1501727,delivered,delivered,14/4/2020 9:32:29,14/4/2020,Shipit0748,Javier Ramos,starken,TEST248,929609276
+1501726,delivered,delivered,14/4/2020 9:32:28,14/4/2020,Shipit0749,Daniel Garcia,starken,TEST249,929609292
+1501725,delivered,delivered,14/4/2020 9:32:27,14/4/2020,Shipit0750,Jose Luis Gonzalez,starken,TEST250,929609291
+1501724,delivered,delivered,14/4/2020 9:32:27,14/4/2020,Shipit0751,Francisco Javier Fernandez,starken,TEST251,929609290
+1501723,delivered,delivered,14/4/2020 9:32:26,14/4/2020,Shipit0752,Carlos Perez,starken,TEST252,929609289
+1501722,delivered,delivered,14/4/2020 9:32:25,14/4/2020,Shipit0753,Jesus Lopez,starken,TEST253,929609275
+1501721,delivered,delivered,14/4/2020 9:32:24,14/4/2020,Shipit0754,Alejandro Rodriguez,starken,TEST254,929609288
+1501720,delivered,delivered,14/4/2020 9:32:23,14/4/2020,Shipit0755,Miguel Martinez,starken,TEST255,929609274
+1501719,delivered,delivered,14/4/2020 9:32:22,14/4/2020,Shipit0756,Jose Manuel Sanchez,starken,TEST256,929609287
+1501718,delivered,delivered,14/4/2020 9:32:21,14/4/2020,Shipit0757,Rafael Gomez,starken,TEST257,929609266
+1501717,delivered,delivered,14/4/2020 9:32:21,14/4/2020,Shipit0758,Miguel Angel Alvarez,starken,TEST258,929609273
+1501716,delivered,delivered,14/4/2020 9:32:20,14/4/2020,Shipit0759,Pedro Martin,starken,TEST259,929609272
+1501715,delivered,delivered,14/4/2020 9:32:19,14/4/2020,Shipit0760,Angel Diaz,starken,TEST260,929609265
+1501714,delivered,delivered,14/4/2020 9:32:18,14/4/2020,Shipit0761,Antonio Alonso,starken,TEST261,929609282
+1501713,delivered,delivered,14/4/2020 9:32:17,14/4/2020,Shipit0762,Jose Ruiz,starken,TEST262,929609264
+1501712,delivered,delivered,14/4/2020 9:32:16,14/4/2020,Shipit0763,Manuel Hernandez,starken,TEST263,929609269
+1501711,delivered,delivered,14/4/2020 9:32:15,14/4/2020,Shipit0764,Francisco Gutierrez,starken,TEST264,929609263
+1501710,delivered,delivered,14/4/2020 9:32:14,14/4/2020,Shipit0765,David Blanco,starken,TEST265,929609268
+1501709,delivered,delivered,14/4/2020 9:32:14,14/4/2020,Shipit0766,Juan Jimenez,starken,TEST266,929609267
+1501708,delivered,delivered,14/4/2020 9:32:13,14/4/2020,Shipit0767,Jose Antonio Moreno,starken,TEST267,929609262
+1501707,delivered,delivered,14/4/2020 9:32:12,14/4/2020,Shipit0768,Javier Muñoz,starken,TEST268,929609261
+1501706,delivered,delivered,14/4/2020 9:32:11,14/4/2020,Shipit0769,Daniel Vazquez,starken,TEST269,929609260
+1501705,delivered,delivered,14/4/2020 9:32:10,14/4/2020,Shipit0770,Jose Luis Gil,starken,TEST270,929609246
+1501704,delivered,delivered,14/4/2020 9:32:09,14/4/2020,Shipit0771,Francisco Javier Dominguez,starken,TEST271,929609259
+1501703,delivered,delivered,14/4/2020 9:32:08,14/4/2020,Shipit0772,Carlos Castro,starken,TEST272,929609245
+1501702,delivered,delivered,14/4/2020 9:32:08,14/4/2020,Shipit0773,Jesus Ramos,starken,TEST273,929609244
+1501701,delivered,delivered,14/4/2020 9:32:07,14/4/2020,Shipit0774,Alejandro Garcia,starken,TEST274,929609243
+1501700,delivered,delivered,14/4/2020 9:32:06,14/4/2020,Shipit0775,Miguel Gonzalez,starken,TEST275,929609343
+1501699,delivered,delivered,14/4/2020 9:32:05,14/4/2020,Shipit0776,Jose Manuel Fernandez,starken,TEST276,929609258
+1501698,delivered,delivered,14/4/2020 9:32:04,14/4/2020,Shipit0777,Rafael Perez,starken,TEST277,929609242
+1501697,delivered,delivered,14/4/2020 9:32:03,14/4/2020,Shipit0778,Miguel Angel Lopez,starken,TEST278,929609257
+1501696,delivered,delivered,14/4/2020 9:32:02,14/4/2020,Shipit0779,Pedro Rodriguez,starken,TEST279,929609256
+1501694,delivered,delivered,14/4/2020 9:32:02,14/4/2020,Shipit0780,Angel Martinez,starken,TEST280,929609241
+1501693,delivered,delivered,14/4/2020 9:32:01,14/4/2020,Shipit0781,Antonio Sanchez,starken,TEST281,929609255
+1501692,delivered,delivered,14/4/2020 9:32:00,14/4/2020,Shipit0782,Jose Gomez,starken,TEST282,929609254
+1501691,delivered,delivered,14/4/2020 9:31:59,14/4/2020,Shipit0783,Manuel Alvarez,starken,TEST283,929609240
+1501690,delivered,delivered,14/4/2020 9:31:58,14/4/2020,Shipit0784,Francisco Martin,starken,TEST284,929609253
+1501689,delivered,delivered,14/4/2020 9:31:57,14/4/2020,Shipit0785,David Diaz,starken,TEST285,929609252
+1501688,delivered,delivered,14/4/2020 9:31:56,14/4/2020,Shipit0786,Juan Alonso,starken,TEST286,929609251
+1501687,delivered,delivered,14/4/2020 9:31:55,14/4/2020,Shipit0787,Jose Antonio Ruiz,starken,TEST287,929609250
+1501686,delivered,delivered,14/4/2020 9:31:55,14/4/2020,Shipit0788,Javier Hernandez,starken,TEST288,929609239
+1501685,delivered,delivered,14/4/2020 9:31:54,14/4/2020,Shipit0789,Daniel Gutierrez,starken,TEST289,929609238
+1501684,delivered,delivered,14/4/2020 9:31:53,14/4/2020,Shipit0790,Jose Luis Blanco,starken,TEST290,929609249
+1501683,delivered,delivered,14/4/2020 9:31:52,14/4/2020,Shipit0791,Francisco Javier Jimenez,starken,TEST291,929609237
+1501682,delivered,delivered,14/4/2020 9:31:51,14/4/2020,Shipit0792,Carlos Moreno,starken,TEST292,929609236
+1501681,delivered,delivered,14/4/2020 9:31:50,14/4/2020,Shipit0793,Jesus Muñoz,starken,TEST293,929609235
+1501680,delivered,delivered,14/4/2020 9:31:49,14/4/2020,Shipit0794,Alejandro Vazquez,starken,TEST294,929609247
+1501679,delivered,delivered,14/4/2020 9:31:49,14/4/2020,Shipit0795,Miguel Gil,starken,TEST295,929609225
+1501678,delivered,delivered,14/4/2020 9:31:48,14/4/2020,Shipit0796,Jose Manuel Dominguez,starken,TEST296,929609226
+1501677,delivered,delivered,14/4/2020 9:31:47,14/4/2020,Shipit0797,Rafael Castro,starken,TEST297,929609234
+1501676,delivered,delivered,14/4/2020 9:31:46,14/4/2020,Shipit0798,Miguel Angel Ramos,starken,TEST298,929609233
+1501675,delivered,delivered,14/4/2020 9:31:45,14/4/2020,Shipit0799,Pedro Garcia,starken,TEST299,929609223
+1501674,delivered,delivered,14/4/2020 9:31:44,14/4/2020,Shipit0800,Angel Gonzalez,starken,TEST300,929609231
+1501673,delivered,delivered,14/4/2020 9:31:43,14/4/2020,Shipit0801,Antonio Fernandez,starken,TEST301,929609222
+1501672,delivered,delivered,14/4/2020 9:31:43,14/4/2020,Shipit0802,Jose Perez,starken,TEST302,929609230
+1501671,delivered,delivered,14/4/2020 9:31:42,14/4/2020,Shipit0803,Manuel Lopez,starken,TEST303,929609221
+1501670,delivered,delivered,14/4/2020 9:31:41,14/4/2020,Shipit0804,Francisco Rodriguez,starken,TEST304,929609220
+1501669,delivered,delivered,14/4/2020 9:31:40,14/4/2020,Shipit0805,David Martinez,starken,TEST305,929609229
+1501668,delivered,delivered,14/4/2020 9:31:39,14/4/2020,Shipit0806,Juan Sanchez,starken,TEST306,929609219
+1501667,delivered,delivered,14/4/2020 9:31:38,14/4/2020,Shipit0807,Jose Antonio Gomez,starken,TEST307,929609228
+1501666,delivered,delivered,14/4/2020 9:31:37,14/4/2020,Shipit0808,Javier Alvarez,starken,TEST308,929609218
+1501665,delivered,delivered,14/4/2020 9:31:36,14/4/2020,Shipit0809,Daniel Martin,starken,TEST309,929609217
+1501664,delivered,delivered,14/4/2020 9:31:36,14/4/2020,Shipit0810,Jose Luis Diaz,starken,TEST310,929609227
+1501663,delivered,delivered,14/4/2020 9:31:35,14/4/2020,Shipit0811,Francisco Javier Alonso,starken,TEST311,929609206
+1501662,delivered,delivered,14/4/2020 9:31:34,14/4/2020,Shipit0812,Carlos Ruiz,starken,TEST312,929609216
+1501661,delivered,delivered,14/4/2020 9:31:25,14/4/2020,Shipit0813,Jesus Hernandez,starken,TEST313,929609204
+1501660,delivered,delivered,14/4/2020 9:31:24,14/4/2020,Shipit0814,Alejandro Gutierrez,starken,TEST314,929609203
+1501659,delivered,delivered,14/4/2020 9:31:24,14/4/2020,Shipit0815,Miguel Blanco,starken,TEST315,929609202
+1501658,delivered,delivered,14/4/2020 9:31:23,14/4/2020,Shipit0816,Jose Manuel Jimenez,starken,TEST316,929609201
+1501656,delivered,delivered,14/4/2020 9:31:14,14/4/2020,Shipit0817,Rafael Moreno,starken,TEST317,929609200
+1501655,delivered,delivered,14/4/2020 9:31:13,14/4/2020,Shipit0818,Miguel Angel Muñoz,starken,TEST318,929609215
+1501654,delivered,delivered,14/4/2020 9:31:12,14/4/2020,Shipit0819,Pedro Vazquez,starken,TEST319,929609199
+1501653,delivered,delivered,14/4/2020 9:31:11,14/4/2020,Shipit0820,Angel Gil,starken,TEST320,929609214
+1501652,delivered,delivered,14/4/2020 9:31:11,14/4/2020,Shipit0821,Antonio Dominguez,starken,TEST321,929609197
+1501651,delivered,delivered,14/4/2020 9:31:10,14/4/2020,Shipit0822,Jose Castro,starken,TEST322,929609322
+1501650,delivered,delivered,14/4/2020 9:31:09,14/4/2020,Shipit0823,Manuel Ramos,starken,TEST323,929609313
+1501649,delivered,delivered,14/4/2020 9:31:08,14/4/2020,Shipit0824,Francisco Garcia,starken,TEST324,929609314
+1501648,delivered,delivered,14/4/2020 9:31:07,14/4/2020,Shipit0825,David Gonzalez,starken,TEST325,929609196
+1501647,delivered,delivered,13/4/2020 9:31:07,13/4/2020,Shipit0826,Juan Fernandez,starken,TEST326,929609213
+1501646,delivered,delivered,13/4/2020 9:31:06,13/4/2020,Shipit0827,Jose Antonio Perez,starken,TEST327,929609212
+1501645,delivered,delivered,13/4/2020 9:31:05,13/4/2020,Shipit0828,Javier Lopez,starken,TEST328,929609323
+1501644,delivered,delivered,13/4/2020 9:31:05,13/4/2020,Shipit0829,Daniel Rodriguez,starken,TEST329,929609211
+1501643,delivered,delivered,13/4/2020 9:31:04,13/4/2020,Shipit0830,Jose Luis Martinez,starken,TEST330,929609194
+1501642,delivered,delivered,13/4/2020 9:31:03,13/4/2020,Shipit0831,Francisco Javier Sanchez,starken,TEST331,929609342
+1501641,delivered,delivered,13/4/2020 9:31:02,13/4/2020,Shipit0832,Carlos Gomez,starken,TEST332,929609195
+1501640,delivered,delivered,13/4/2020 9:31:01,13/4/2020,Shipit0833,Jesus Alvarez,starken,TEST333,929609334
+1501639,delivered,delivered,13/4/2020 9:31:00,13/4/2020,Shipit0834,Alejandro Martin,starken,TEST334,929609321
+1501638,delivered,delivered,13/4/2020 9:30:59,13/4/2020,Shipit0835,Miguel Diaz,starken,TEST335,929609210
+1501637,delivered,delivered,13/4/2020 9:30:58,13/4/2020,Shipit0836,Jose Manuel Alonso,starken,TEST336,929609341
+1501636,delivered,delivered,13/4/2020 9:30:58,13/4/2020,Shipit0837,Rafael Ruiz,starken,TEST337,929609209
+1501635,delivered,delivered,13/4/2020 9:30:57,13/4/2020,Shipit0838,Miguel Angel Hernandez,starken,TEST338,929609340
+1501634,delivered,delivered,13/4/2020 9:30:56,13/4/2020,Shipit0839,Pedro Gutierrez,starken,TEST339,929609208
+1501633,delivered,delivered,13/4/2020 9:30:55,13/4/2020,Shipit0840,Angel Blanco,starken,TEST340,929609333
+1501632,delivered,delivered,13/4/2020 9:30:54,13/4/2020,Shipit0841,Antonio Jimenez,starken,TEST341,929609316
+1501631,delivered,delivered,13/4/2020 9:30:53,13/4/2020,Shipit0842,Jose Moreno,starken,TEST342,929609319
+1501630,delivered,delivered,13/4/2020 9:30:52,13/4/2020,Shipit0843,Manuel Muñoz,starken,TEST343,929609339
+1501629,delivered,delivered,13/4/2020 9:30:52,13/4/2020,Shipit0844,Francisco Vazquez,starken,TEST344,929609338
+1501628,delivered,delivered,13/4/2020 9:30:51,13/4/2020,Shipit0845,David Gil,starken,TEST345,929609337
+1501627,delivered,delivered,13/4/2020 9:30:50,13/4/2020,Shipit0846,Juan Dominguez,starken,TEST346,929609331
+1501626,delivered,delivered,13/4/2020 9:30:49,13/4/2020,Shipit0847,Jose Antonio Castro,starken,TEST347,929609193
+1501625,delivered,delivered,13/4/2020 9:30:48,13/4/2020,Shipit0848,Javier Ramos,starken,TEST348,929609332
+1501624,delivered,delivered,13/4/2020 9:30:47,13/4/2020,Shipit0849,Daniel Garcia,starken,TEST349,929609315
+1501623,delivered,delivered,13/4/2020 9:30:46,13/4/2020,Shipit0850,Jose Luis Gonzalez,starken,TEST350,929609318
+1501622,delivered,delivered,13/4/2020 9:30:46,13/4/2020,Shipit0851,Francisco Javier Fernandez,starken,TEST351,929609192
+1501621,delivered,delivered,13/4/2020 9:30:45,13/4/2020,Shipit0852,Carlos Perez,starken,TEST352,929609207
+1501620,delivered,delivered,13/4/2020 9:30:44,13/4/2020,Shipit0853,Jesus Lopez,starken,TEST353,929609317
+1501460,delivered,delivered,13/4/2020 9:30:43,13/4/2020,Shipit0854,Alejandro Rodriguez,starken,TEST354,929609028
+1499339,delivered,delivered,13/4/2020 9:30:42,13/4/2020,Shipit0855,Miguel Martinez,starken,TEST355,929606042
+1495125,delivered,delivered,13/4/2020 9:30:41,13/4/2020,Shipit0856,Jose Manuel Sanchez,starken,TEST356,929561004
+1493995,delivered,delivered,13/4/2020 9:30:40,13/4/2020,Shipit0857,Rafael Gomez,starken,TEST357,929555319
+1493994,delivered,delivered,13/4/2020 9:30:39,13/4/2020,Shipit0858,Miguel Angel Alvarez,starken,TEST358,929555317
+1493993,delivered,delivered,13/4/2020 9:30:39,13/4/2020,Shipit0859,Pedro Martin,starken,TEST359,929555299
+1493992,delivered,delivered,13/4/2020 9:30:38,13/4/2020,Shipit0860,Angel Diaz,starken,TEST360,929555316
+1493991,delivered,delivered,13/4/2020 9:30:37,13/4/2020,Shipit0861,Antonio Alonso,starken,TEST361,929555315
+1493990,delivered,delivered,13/4/2020 9:30:36,13/4/2020,Shipit0862,Jose Ruiz,starken,TEST362,929555318
+1493989,delivered,delivered,13/4/2020 9:30:35,13/4/2020,Shipit0863,Manuel Hernandez,starken,TEST363,929555298
+1493987,delivered,delivered,13/4/2020 9:30:34,13/4/2020,Shipit0864,Francisco Gutierrez,starken,TEST364,929555314
+1493986,delivered,delivered,13/4/2020 9:30:33,13/4/2020,Shipit0865,David Blanco,starken,TEST365,929555312
+1493985,delivered,delivered,13/4/2020 9:30:33,13/4/2020,Shipit0866,Juan Jimenez,starken,TEST366,929555297
+1493984,delivered,delivered,13/4/2020 9:30:32,13/4/2020,Shipit0867,Jose Antonio Moreno,starken,TEST367,929555313
+1493983,delivered,delivered,13/4/2020 9:30:31,13/4/2020,Shipit0868,Javier Muñoz,starken,TEST368,929555310
+1493982,delivered,delivered,13/4/2020 9:30:30,13/4/2020,Shipit0869,Daniel Vazquez,starken,TEST369,929555311
+1493981,delivered,delivered,13/4/2020 9:30:29,13/4/2020,Shipit0870,Jose Luis Gil,starken,TEST370,929555296
+1493695,delivered,delivered,13/4/2020 9:30:28,13/4/2020,Shipit0871,Francisco Javier Dominguez,chilexpress,TEST371,712089842181
+1493694,delivered,delivered,13/4/2020 9:30:27,13/4/2020,Shipit0872,Carlos Castro,chilexpress,TEST372,712089842170
+1493693,delivered,delivered,13/4/2020 9:30:26,13/4/2020,Shipit0873,Jesus Ramos,chilexpress,TEST373,712089842273
+1493692,delivered,delivered,13/4/2020 9:30:26,13/4/2020,Shipit0874,Alejandro Garcia,chilexpress,TEST374,712089842284
+1493691,delivered,delivered,13/4/2020 9:30:25,13/4/2020,Shipit0875,Miguel Gonzalez,chilexpress,TEST375,712089842074
+1493690,delivered,delivered,13/4/2020 9:30:24,13/4/2020,Shipit0876,Jose Manuel Fernandez,chilexpress,TEST376,712089842063
+1493689,delivered,delivered,13/4/2020 9:30:23,13/4/2020,Shipit0877,Rafael Perez,chilexpress,TEST377,712089842133
+1493688,delivered,delivered,13/4/2020 9:30:22,13/4/2020,Shipit0878,Miguel Angel Lopez,chilexpress,TEST378,712089842100
+1493687,delivered,delivered,13/4/2020 9:30:21,13/4/2020,Shipit0879,Pedro Rodriguez,chilexpress,TEST379,712089842214
+1493685,delivered,delivered,13/4/2020 9:30:20,13/4/2020,Shipit0880,Angel Martinez,chilexpress,TEST380,712089842122
+1493684,delivered,delivered,13/4/2020 9:30:20,13/4/2020,Shipit0881,Antonio Sanchez,chilexpress,TEST381,712089842192
+1493683,delivered,delivered,12/4/2020 9:30:20,12/4/2020,Shipit0882,Jose Gomez,chilexpress,TEST382,712089842096
+1493682,delivered,delivered,12/4/2020 9:30:19,12/4/2020,Shipit0883,Manuel Alvarez,chilexpress,TEST383,712089842004
+1493681,delivered,delivered,12/4/2020 9:30:18,12/4/2020,Shipit0884,Francisco Martin,chilexpress,TEST384,712089842111
+1493680,delivered,delivered,12/4/2020 9:30:17,12/4/2020,Shipit0885,David Diaz,chilexpress,TEST385,712089842144
+1493679,delivered,delivered,12/4/2020 9:30:08,12/4/2020,Shipit0886,Juan Alonso,chilexpress,TEST386,712089842052
+1493678,delivered,delivered,12/4/2020 9:30:07,12/4/2020,Shipit0887,Jose Antonio Ruiz,chilexpress,TEST387,712089842203
+1493677,delivered,delivered,12/4/2020 9:30:07,12/4/2020,Shipit0888,Javier Hernandez,chilexpress,TEST388,712089842041
+1493676,delivered,delivered,12/4/2020 9:30:06,12/4/2020,Shipit0889,Daniel Gutierrez,chilexpress,TEST389,712089842262
+1493675,delivered,delivered,12/4/2020 9:30:05,12/4/2020,Shipit0890,Jose Luis Blanco,chilexpress,TEST390,712089842030
+1493674,delivered,delivered,12/4/2020 9:30:04,12/4/2020,Shipit0891,Francisco Javier Jimenez,chilexpress,TEST391,712089842026
+1493673,delivered,delivered,12/4/2020 9:30:03,12/4/2020,Shipit0892,Carlos Moreno,chilexpress,TEST392,712089842015
+1493672,delivered,delivered,12/4/2020 9:30:02,12/4/2020,Shipit0893,Jesus Muñoz,chilexpress,TEST393,712089842251
+1493671,delivered,delivered,12/4/2020 9:30:01,12/4/2020,Shipit0894,Alejandro Vazquez,chilexpress,TEST394,712089842166
+1493670,delivered,delivered,12/4/2020 9:30:01,12/4/2020,Shipit0895,Miguel Gil,chilexpress,TEST395,712089841982
+1493669,delivered,delivered,12/4/2020 9:30:00,12/4/2020,Shipit0896,Jose Manuel Dominguez,chilexpress,TEST396,712089841960
+1493668,delivered,delivered,12/4/2020 9:29:59,12/4/2020,Shipit0897,Rafael Garcia,chilexpress,TEST397,712089841993
+1493667,delivered,delivered,12/4/2020 9:29:58,12/4/2020,Shipit0898,Miguel Angel Gonzalez,chilexpress,TEST398,712089841945
+1493666,delivered,delivered,12/4/2020 9:29:57,12/4/2020,Shipit0899,Pedro Fernandez,chilexpress,TEST399,712089841971
+1493665,delivered,delivered,12/4/2020 9:29:56,12/4/2020,Shipit0900,Angel Perez,chilexpress,TEST400,712089841956
+1489523,delivered,delivered,12/4/2020 9:29:55,12/4/2020,Shipit0901,Antonio Lopez,starken,TEST401,929543289
+1489522,delivered,delivered,12/4/2020 9:29:55,12/4/2020,Shipit0902,Jose Rodriguez,starken,TEST402,929543288
+1489521,delivered,delivered,12/4/2020 9:29:54,12/4/2020,Shipit0903,Manuel Martinez,starken,TEST403,929543287
+1489520,delivered,delivered,12/4/2020 9:29:53,12/4/2020,Shipit0904,Francisco Sanchez,starken,TEST404,929543272
+1489519,delivered,delivered,12/4/2020 9:29:52,12/4/2020,Shipit0905,David Gomez,starken,TEST405,929543273
+1489518,delivered,delivered,12/4/2020 9:29:51,12/4/2020,Shipit0906,Juan Alvarez,starken,TEST406,929543266
+1489517,delivered,delivered,12/4/2020 9:29:50,12/4/2020,Shipit0907,Jose Antonio Martin,starken,TEST407,929543269
+1489516,delivered,delivered,12/4/2020 9:29:49,12/4/2020,Shipit0908,Javier Diaz,starken,TEST408,929543270
+1489515,delivered,delivered,12/4/2020 9:29:48,12/4/2020,Shipit0909,Daniel Alonso,starken,TEST409,929543265
+1489514,delivered,delivered,12/4/2020 9:29:48,12/4/2020,Shipit0910,Jose Luis Ruiz,starken,TEST410,929543268
+1489513,delivered,delivered,12/4/2020 9:29:47,12/4/2020,Shipit0911,Francisco Javier Hernandez,starken,TEST411,929543264
+1489512,delivered,delivered,12/4/2020 9:29:46,12/4/2020,Shipit0912,Carlos Gutierrez,starken,TEST412,929543262
+1489511,delivered,delivered,12/4/2020 9:29:45,12/4/2020,Shipit0913,Jesus Blanco,starken,TEST413,929543261
+1489510,delivered,delivered,12/4/2020 9:29:44,12/4/2020,Shipit0914,Alejandro Jimenez,starken,TEST414,929543246
+1489509,delivered,delivered,12/4/2020 9:29:43,12/4/2020,Shipit0915,Miguel Moreno,starken,TEST415,929543244
+1489508,delivered,delivered,12/4/2020 9:29:42,12/4/2020,Shipit0916,Jose Manuel Muñoz,starken,TEST416,929543260
+1489507,delivered,delivered,12/4/2020 9:29:42,12/4/2020,Shipit0917,Rafael Vazquez,starken,TEST417,929543243
+1489506,delivered,delivered,12/4/2020 9:29:41,12/4/2020,Shipit0918,Miguel Angel Gil,starken,TEST418,929543245
+1489505,delivered,delivered,12/4/2020 9:29:40,12/4/2020,Shipit0919,Pedro Dominguez,starken,TEST419,929543259
+1489504,delivered,delivered,12/4/2020 9:29:39,12/4/2020,Shipit0920,Angel Castro,starken,TEST420,929543258
+1489503,delivered,delivered,12/4/2020 9:29:38,12/4/2020,Shipit0921,Antonio Ramos,starken,TEST421,929543241
+1489502,delivered,delivered,12/4/2020 9:29:37,12/4/2020,Shipit0922,Jose Garcia,starken,TEST422,929543240
+1489501,delivered,delivered,12/4/2020 9:29:36,12/4/2020,Shipit0923,Manuel Gonzalez,starken,TEST423,929543242
+1489500,delivered,delivered,12/4/2020 9:29:36,12/4/2020,Shipit0924,Francisco Fernandez,starken,TEST424,929543257
+1489499,delivered,delivered,12/4/2020 9:29:35,12/4/2020,Shipit0925,David Perez,starken,TEST425,929543239
+1489498,delivered,delivered,12/4/2020 9:29:26,12/4/2020,Shipit0926,Juan Lopez,starken,TEST426,929543238
+1489497,delivered,delivered,12/4/2020 9:29:25,12/4/2020,Shipit0927,Jose Antonio Rodriguez,starken,TEST427,929543256
+1489496,delivered,delivered,12/4/2020 9:29:24,12/4/2020,Shipit0928,Javier Martinez,starken,TEST428,929543255
+1489495,delivered,delivered,12/4/2020 9:29:23,12/4/2020,Shipit0929,Daniel Sanchez,starken,TEST429,929543254
+1489494,delivered,delivered,12/4/2020 9:29:23,12/4/2020,Shipit0930,Jose Luis Gomez,starken,TEST430,929543237
+1489493,delivered,delivered,12/4/2020 9:29:22,12/4/2020,Shipit0931,Francisco Javier Alvarez,starken,TEST431,929543236
+1489492,delivered,delivered,12/4/2020 9:29:21,12/4/2020,Shipit0932,Carlos Martin,starken,TEST432,929543235
+1489491,delivered,delivered,12/4/2020 9:29:20,12/4/2020,Shipit0933,Jesus Diaz,starken,TEST433,929543251
+1489490,delivered,delivered,12/4/2020 9:29:19,12/4/2020,Shipit0934,Alejandro Alonso,starken,TEST434,929543253
+1489489,delivered,delivered,12/4/2020 9:29:18,12/4/2020,Shipit0935,Miguel Ruiz,starken,TEST435,929543252
+1489488,delivered,delivered,12/4/2020 9:29:17,12/4/2020,Shipit0936,Jose Manuel Hernandez,starken,TEST436,929543234
+1489487,delivered,delivered,12/4/2020 9:29:17,12/4/2020,Shipit0937,Rafael Gutierrez,starken,TEST437,929543233
+1489486,delivered,delivered,12/4/2020 9:29:16,12/4/2020,Shipit0938,Miguel Angel Blanco,starken,TEST438,929543250
+1489485,delivered,delivered,12/4/2020 9:29:15,12/4/2020,Shipit0939,Pedro Jimenez,starken,TEST439,929543248
+1489484,delivered,delivered,12/4/2020 9:29:14,12/4/2020,Shipit0940,Angel Moreno,starken,TEST440,929543226
+1489483,delivered,delivered,12/4/2020 9:29:13,12/4/2020,Shipit0941,Antonio Muñoz,starken,TEST441,929543227
+1489482,delivered,delivered,12/4/2020 9:29:12,12/4/2020,Shipit0942,Jose Vazquez,starken,TEST442,929543228
+1489481,delivered,delivered,12/4/2020 9:29:11,12/4/2020,Shipit0943,Manuel Gil,starken,TEST443,929543222
+1489480,delivered,delivered,12/4/2020 9:29:10,12/4/2020,Shipit0944,Francisco Dominguez,starken,TEST444,929543221
+1489479,delivered,delivered,12/4/2020 9:29:10,12/4/2020,Shipit0945,David Castro,starken,TEST445,929543218
+1489478,delivered,delivered,12/4/2020 9:29:09,12/4/2020,Shipit0946,Juan Ramos,starken,TEST446,929543220
+1489477,delivered,delivered,11/4/2020 9:29:09,11/4/2020,Shipit0947,Jose Antonio Garcia,starken,TEST447,929543205
+1489476,delivered,delivered,11/4/2020 9:29:08,11/4/2020,Shipit0948,Javier Gonzalez,starken,TEST448,929543216
+1489475,delivered,delivered,11/4/2020 9:29:07,11/4/2020,Shipit0949,Daniel Fernandez,starken,TEST449,929543203
+1489474,delivered,delivered,11/4/2020 9:29:06,11/4/2020,Shipit0950,Jose Luis Perez,starken,TEST450,929543206
+1489473,delivered,delivered,11/4/2020 9:29:05,11/4/2020,Shipit0951,Francisco Javier Lopez,starken,TEST451,929543199
+1489472,delivered,delivered,11/4/2020 9:29:04,11/4/2020,Shipit0952,Carlos Rodriguez,starken,TEST452,929543201
+1489471,delivered,delivered,11/4/2020 9:29:04,11/4/2020,Shipit0953,Jesus Martinez,starken,TEST453,929543217
+1489470,delivered,delivered,11/4/2020 9:29:03,11/4/2020,Shipit0954,Alejandro Sanchez,starken,TEST454,929543212
+1489469,delivered,delivered,11/4/2020 9:29:02,11/4/2020,Shipit0955,Miguel Gomez,starken,TEST455,929543204
+1489468,delivered,delivered,11/4/2020 9:29:01,11/4/2020,Shipit0956,Jose Manuel Alvarez,starken,TEST456,929543196
+1489467,delivered,delivered,11/4/2020 9:29:00,11/4/2020,Shipit0957,Rafael Martin,starken,TEST457,929543198
+1489466,delivered,delivered,11/4/2020 9:28:59,11/4/2020,Shipit0958,Miguel Angel Diaz,starken,TEST458,929543219
+1489465,delivered,delivered,11/4/2020 9:28:58,11/4/2020,Shipit0959,Pedro Alonso,starken,TEST459,929543211
+1489464,delivered,delivered,11/4/2020 9:28:58,11/4/2020,Shipit0960,Angel Ruiz,starken,TEST460,929543197
+1489463,delivered,delivered,11/4/2020 9:28:57,11/4/2020,Shipit0961,Antonio Hernandez,starken,TEST461,929543195
+1489462,delivered,delivered,11/4/2020 9:28:56,11/4/2020,Shipit0962,Jose Gutierrez,starken,TEST462,929543194
+1489461,delivered,delivered,11/4/2020 9:28:55,11/4/2020,Shipit0963,Manuel Blanco,starken,TEST463,929543186
+1489460,delivered,delivered,11/4/2020 9:28:54,11/4/2020,Shipit0964,Francisco Jimenez,starken,TEST464,929543184
+1489459,delivered,delivered,11/4/2020 9:28:53,11/4/2020,Shipit0965,David Moreno,starken,TEST465,929543193
+1489458,delivered,delivered,11/4/2020 9:28:52,11/4/2020,Shipit0966,Juan Muñoz,starken,TEST466,929543210
+1489457,delivered,delivered,11/4/2020 9:28:51,11/4/2020,Shipit0967,Jose Antonio Vazquez,starken,TEST467,929543209
+1489456,delivered,delivered,11/4/2020 9:28:43,11/4/2020,Shipit0968,Javier Gil,starken,TEST468,929543208
+1489455,delivered,delivered,11/4/2020 9:28:42,11/4/2020,Shipit0969,Daniel Dominguez,starken,TEST469,929543207
+1489454,delivered,delivered,11/4/2020 9:28:41,11/4/2020,Shipit0970,Jose Luis Castro,starken,TEST470,929543191
+1489453,delivered,delivered,11/4/2020 9:28:40,11/4/2020,Shipit0971,Francisco Javier Ramos,starken,TEST471,929543185
+1489452,delivered,delivered,11/4/2020 9:28:39,11/4/2020,Shipit0972,Carlos Garcia,starken,TEST472,929543192
+1489432,delivered,delivered,11/4/2020 9:28:38,11/4/2020,Shipit0973,Jesus Gonzalez,chilexpress,TEST473,712089606966
+1489431,delivered,delivered,11/4/2020 9:28:38,11/4/2020,Shipit0974,Alejandro Fernandez,chilexpress,TEST474,712089606885
+1489430,delivered,delivered,11/4/2020 9:28:37,11/4/2020,Shipit0975,Miguel Perez,chilexpress,TEST475,712089606933
+1489429,delivered,delivered,11/4/2020 9:28:36,11/4/2020,Shipit0976,Jose Manuel Lopez,chilexpress,TEST476,712089606852
+1489428,delivered,delivered,11/4/2020 9:28:35,11/4/2020,Shipit0977,Rafael Rodriguez,chilexpress,TEST477,712089606900
+1489427,delivered,delivered,11/4/2020 9:28:34,11/4/2020,Shipit0978,Miguel Angel Martinez,chilexpress,TEST478,712089606896
+1489426,delivered,delivered,11/4/2020 9:28:33,11/4/2020,Shipit0979,Pedro Sanchez,chilexpress,TEST479,712089606830
+1489425,delivered,delivered,11/4/2020 9:28:32,11/4/2020,Shipit0980,Angel Gomez,chilexpress,TEST480,712089606863
+1489424,delivered,delivered,11/4/2020 9:28:32,11/4/2020,Shipit0981,Antonio Alvarez,chilexpress,TEST481,712089606826
+1489423,delivered,delivered,11/4/2020 9:28:31,11/4/2020,Shipit0982,Jose Martin,chilexpress,TEST482,712089606874
+1489422,delivered,delivered,11/4/2020 9:28:30,11/4/2020,Shipit0983,Manuel Diaz,chilexpress,TEST483,712089606815
+1489421,delivered,delivered,11/4/2020 9:28:29,11/4/2020,Shipit0984,Francisco Alonso,chilexpress,TEST484,712089606841
+1489419,delivered,delivered,11/4/2020 9:28:28,11/4/2020,Shipit0985,David Ruiz,chilexpress,TEST485,712089608484
+1489418,delivered,delivered,11/4/2020 9:28:27,11/4/2020,Shipit0986,Juan Hernandez,chilexpress,TEST486,712089608473
+1489417,delivered,delivered,11/4/2020 9:28:26,11/4/2020,Shipit0987,Jose Antonio Gutierrez,chilexpress,TEST487,712089608436
+1489416,delivered,delivered,11/4/2020 9:28:26,11/4/2020,Shipit0988,Javier Blanco,chilexpress,TEST488,712089608462
+1489415,delivered,delivered,11/4/2020 9:28:25,11/4/2020,Shipit0989,Daniel Jimenez,chilexpress,TEST489,712089608440
+1489414,delivered,delivered,11/4/2020 9:28:24,11/4/2020,Shipit0990,Jose Luis Moreno,chilexpress,TEST490,712089608403
+1489413,delivered,delivered,11/4/2020 9:28:23,11/4/2020,Shipit0991,Francisco Javier Muñoz,chilexpress,TEST491,712089608495
+1489412,delivered,delivered,11/4/2020 9:28:22,11/4/2020,Shipit0992,Carlos Vazquez,chilexpress,TEST492,712089608425
+1489411,delivered,delivered,11/4/2020 9:28:21,11/4/2020,Shipit0993,Jesus Gil,chilexpress,TEST493,712089608580
+1489410,delivered,delivered,11/4/2020 9:28:20,11/4/2020,Shipit0994,Alejandro Dominguez,chilexpress,TEST494,712089608414
+1489409,delivered,delivered,11/4/2020 9:28:19,11/4/2020,Shipit0995,Miguel Castro,chilexpress,TEST495,712089608381
+1489408,delivered,delivered,11/4/2020 9:28:19,11/4/2020,Shipit0996,Jose Manuel Ramos,chilexpress,TEST496,712089608392
+1489407,delivered,delivered,11/4/2020 9:28:18,11/4/2020,Shipit0997,Rafael Garcia,chilexpress,TEST497,712089608366
+1489406,delivered,delivered,11/4/2020 9:28:17,11/4/2020,Shipit0998,Miguel Angel Gonzalez,chilexpress,TEST498,712089608370
+1489404,delivered,delivered,11/4/2020 9:28:16,11/4/2020,Shipit0999,Pedro Fernandez,chilexpress,TEST499,712089608355
+1489403,delivered,delivered,11/4/2020 9:28:15,11/4/2020,Shipit1000,Angel Perez,chilexpress,TEST500,712089608333
+1489403,delivered,delivered,11/3/2020 9:28:15,11/3/2020,Shipit1001,Angel Perez,chilexpress,TEST500,712089608333
+1503897,delivered,delivered,17/3/2020 9:36:00,17/3/2020,Shipit1002,Antonio Garcia,starken,TEST001,929621911
+1503896,delivered,delivered,17/3/2020 9:35:59,17/3/2020,Shipit1003,Jose Gonzalez,starken,TEST002,929621892
+1503895,delivered,delivered,17/3/2020 9:35:58,17/3/2020,Shipit1004,Manuel Fernandez,starken,TEST003,929621891
+1503894,delivered,delivered,17/3/2020 9:35:57,17/3/2020,Shipit1005,Francisco Perez,starken,TEST004,929621893
+1503893,delivered,delivered,17/3/2020 9:35:57,17/3/2020,Shipit1006,David Lopez,starken,TEST005,929621888
+1503892,delivered,delivered,17/3/2020 9:35:56,17/3/2020,Shipit1007,Juan Rodriguez,starken,TEST006,929621910
+1503891,delivered,delivered,17/3/2020 9:35:55,17/3/2020,Shipit1008,Jose Antonio Martinez,starken,TEST007,929621908
+1503890,delivered,delivered,17/3/2020 9:35:54,17/3/2020,Shipit1009,Javier Sanchez,starken,TEST008,929621889
+1503889,delivered,delivered,17/3/2020 9:35:53,17/3/2020,Shipit1010,Daniel Gomez,starken,TEST009,929621866
+1503888,delivered,delivered,17/3/2020 9:35:52,17/3/2020,Shipit1011,Jose Luis Alvarez,starken,TEST010,929621886
+1503887,delivered,delivered,17/3/2020 9:35:51,17/3/2020,Shipit1012,Francisco Javier Martin,starken,TEST011,929621864
+1503886,delivered,delivered,17/3/2020 9:35:50,17/3/2020,Shipit1013,Carlos Diaz,starken,TEST012,929621887
+1503885,delivered,delivered,17/3/2020 9:35:50,17/3/2020,Shipit1014,Jesus Alonso,starken,TEST013,929621863
+1503884,delivered,delivered,17/3/2020 9:35:49,17/3/2020,Shipit1015,Alejandro Ruiz,starken,TEST014,929621885
+1503883,delivered,delivered,17/3/2020 9:35:48,17/3/2020,Shipit1016,Miguel Hernandez,starken,TEST015,929621861
+1503882,delivered,delivered,17/3/2020 9:35:47,17/3/2020,Shipit1017,Jose Manuel Gutierrez,starken,TEST016,929621860
+1503881,delivered,delivered,17/3/2020 9:35:46,17/3/2020,Shipit1018,Rafael Blanco,starken,TEST017,929621862
+1503880,delivered,delivered,17/3/2020 9:35:45,17/3/2020,Shipit1019,Miguel Angel Jimenez,starken,TEST018,929621884
+1503879,delivered,delivered,17/3/2020 9:35:44,17/3/2020,Shipit1020,Pedro Moreno,starken,TEST019,929621883
+1503878,delivered,delivered,17/3/2020 9:35:44,17/3/2020,Shipit1021,Angel Muñoz,starken,TEST020,929621859
+1503877,delivered,delivered,16/3/2020 9:35:44,16/3/2020,Shipit1022,Antonio Vazquez,starken,TEST021,929621882
+1503876,delivered,delivered,16/3/2020 9:35:43,16/3/2020,Shipit1023,Jose Gil,starken,TEST022,929621858
+1503875,delivered,delivered,16/3/2020 9:35:42,16/3/2020,Shipit1024,Manuel Dominguez,starken,TEST023,929621855
+1503874,delivered,delivered,16/3/2020 9:35:41,16/3/2020,Shipit1025,Francisco Castro,starken,TEST024,929621876
+1503873,delivered,delivered,16/3/2020 9:35:40,16/3/2020,Shipit1026,David Ramos,starken,TEST025,929621853
+1503872,delivered,delivered,16/3/2020 9:35:39,16/3/2020,Shipit1027,Juan Garcia,starken,TEST026,929621874
+1503871,delivered,delivered,16/3/2020 9:35:38,16/3/2020,Shipit1028,Jose Antonio Gonzalez,starken,TEST027,929621851
+1503870,delivered,delivered,16/3/2020 9:35:38,16/3/2020,Shipit1029,Javier Fernandez,starken,TEST028,929621870
+1503869,delivered,delivered,16/3/2020 9:35:37,16/3/2020,Shipit1030,Daniel Perez,starken,TEST029,929621869
+1503868,delivered,delivered,16/3/2020 9:35:36,16/3/2020,Shipit1031,Jose Luis Lopez,starken,TEST030,929621849
+1503867,delivered,delivered,16/3/2020 9:35:35,16/3/2020,Shipit1032,Francisco Javier Rodriguez,starken,TEST031,929621850
+1503866,delivered,delivered,16/3/2020 9:35:34,16/3/2020,Shipit1033,Carlos Martinez,starken,TEST032,929621868
+1503865,delivered,delivered,16/3/2020 9:35:33,16/3/2020,Shipit1034,Jesus Sanchez,starken,TEST033,929621846
+1503864,delivered,delivered,16/3/2020 9:35:32,16/3/2020,Shipit1035,Alejandro Gomez,starken,TEST034,929621848
+1503863,delivered,delivered,16/3/2020 9:35:31,16/3/2020,Shipit1036,Miguel Alvarez,starken,TEST035,929621826
+1503862,delivered,delivered,16/3/2020 9:35:31,16/3/2020,Shipit1037,Jose Manuel Martin,starken,TEST036,929621825
+1503861,delivered,delivered,16/3/2020 9:35:30,16/3/2020,Shipit1038,Rafael Diaz,starken,TEST037,929621845
+1503860,delivered,delivered,16/3/2020 9:35:29,16/3/2020,Shipit1039,Miguel Angel Alonso,starken,TEST038,929621843
+1503859,delivered,delivered,16/3/2020 9:35:28,16/3/2020,Shipit1040,Pedro Ruiz,starken,TEST039,929621842
+1503858,delivered,delivered,16/3/2020 9:35:27,16/3/2020,Shipit1041,Angel Hernandez,starken,TEST040,929621844
+1503857,delivered,delivered,16/3/2020 9:35:26,16/3/2020,Shipit1042,Antonio Gutierrez,starken,TEST041,929621840
+1503856,delivered,delivered,16/3/2020 9:35:25,16/3/2020,Shipit1043,Jose Blanco,starken,TEST042,929621824
+1503855,delivered,delivered,16/3/2020 9:35:25,16/3/2020,Shipit1044,Manuel Jimenez,starken,TEST043,929621841
+1503854,delivered,delivered,16/3/2020 9:35:24,16/3/2020,Shipit1045,Francisco Moreno,starken,TEST044,929621837
+1503853,delivered,delivered,16/3/2020 9:35:23,16/3/2020,Shipit1046,David Muñoz,starken,TEST045,929621821
+1503852,delivered,delivered,16/3/2020 9:35:22,16/3/2020,Shipit1047,Juan Vazquez,starken,TEST046,929621838
+1503851,delivered,delivered,16/3/2020 9:35:21,16/3/2020,Shipit1048,Jose Antonio Gil,starken,TEST047,929621835
+1503850,delivered,delivered,16/3/2020 9:35:20,16/3/2020,Shipit1049,Javier Dominguez,starken,TEST048,929621823
+1503849,delivered,delivered,16/3/2020 9:35:19,16/3/2020,Shipit1050,Daniel Castro,starken,TEST049,929621836
+1503848,delivered,delivered,16/3/2020 9:35:19,16/3/2020,Shipit1051,Jose Luis Ramos,starken,TEST050,929621820
+1503847,delivered,delivered,16/3/2020 9:35:18,16/3/2020,Shipit1052,Francisco Javier Garcia,starken,TEST051,929621822
+1503846,delivered,delivered,16/3/2020 9:35:17,16/3/2020,Shipit1053,Carlos Gonzalez,starken,TEST052,929621819
+1503845,delivered,delivered,16/3/2020 9:35:16,16/3/2020,Shipit1054,Jesus Fernandez,starken,TEST053,929621818
+1503844,delivered,delivered,16/3/2020 9:35:15,16/3/2020,Shipit1055,Alejandro Perez,starken,TEST054,929621834
+1503843,delivered,delivered,16/3/2020 9:35:14,16/3/2020,Shipit1056,Miguel Lopez,starken,TEST055,929621816
+1503842,delivered,delivered,16/3/2020 9:35:13,16/3/2020,Shipit1057,Jose Manuel Rodriguez,starken,TEST056,929621831
+1503841,delivered,delivered,16/3/2020 9:35:12,16/3/2020,Shipit1058,Rafael Martinez,starken,TEST057,929621833
+1503840,delivered,delivered,16/3/2020 9:35:12,16/3/2020,Shipit1059,Miguel Angel Sanchez,starken,TEST058,929621815
+1503839,delivered,delivered,16/3/2020 9:35:11,16/3/2020,Shipit1060,Pedro Gomez,starken,TEST059,929621812
+1503838,delivered,delivered,16/3/2020 9:35:10,16/3/2020,Shipit1061,Angel Alvarez,starken,TEST060,929621810
+1503837,delivered,delivered,16/3/2020 9:35:09,16/3/2020,Shipit1062,Antonio Martin,starken,TEST061,929621809
+1503836,delivered,delivered,16/3/2020 9:35:08,16/3/2020,Shipit1063,Jose Diaz,starken,TEST062,929621796
+1503835,delivered,delivered,16/3/2020 9:35:07,16/3/2020,Shipit1064,Manuel Alonso,starken,TEST063,929621799
+1503834,delivered,delivered,16/3/2020 9:35:06,16/3/2020,Shipit1065,Francisco Ruiz,starken,TEST064,929621798
+1503833,delivered,delivered,16/3/2020 9:35:06,16/3/2020,Shipit1066,David Hernandez,starken,TEST065,929621784
+1503832,delivered,delivered,16/3/2020 9:35:05,16/3/2020,Shipit1067,Juan Gutierrez,starken,TEST066,929621795
+1503831,delivered,delivered,16/3/2020 9:35:04,16/3/2020,Shipit1068,Jose Antonio Blanco,starken,TEST067,929621793
+1503830,delivered,delivered,16/3/2020 9:35:03,16/3/2020,Shipit1069,Javier Jimenez,starken,TEST068,929621794
+1503829,delivered,delivered,16/3/2020 9:35:02,16/3/2020,Shipit1070,Daniel Moreno,starken,TEST069,929621792
+1503828,delivered,delivered,16/3/2020 9:35:01,16/3/2020,Shipit1071,Jose Luis Muñoz,starken,TEST070,929621786
+1503827,delivered,delivered,16/3/2020 9:35:00,16/3/2020,Shipit1072,Francisco Javier Vazquez,starken,TEST071,929621807
+1503826,delivered,delivered,16/3/2020 9:35:00,16/3/2020,Shipit1073,Carlos Gil,starken,TEST072,929621785
+1503825,delivered,delivered,16/3/2020 9:34:59,16/3/2020,Shipit1074,Jesus Dominguez,starken,TEST073,929621782
+1503824,delivered,delivered,16/3/2020 9:34:58,16/3/2020,Shipit1075,Alejandro Castro,starken,TEST074,929621788
+1503823,delivered,delivered,16/3/2020 9:34:57,16/3/2020,Shipit1076,Miguel Ramos,starken,TEST075,929621783
+1503822,delivered,delivered,16/3/2020 9:34:56,16/3/2020,Shipit1077,Jose Manuel Garcia,starken,TEST076,929621789
+1503821,delivered,delivered,16/3/2020 9:34:55,16/3/2020,Shipit1078,Rafael Gonzalez,starken,TEST077,929621787
+1503820,delivered,delivered,16/3/2020 9:34:54,16/3/2020,Shipit1079,Miguel Angel Fernandez,starken,TEST078,929621780
+1503819,delivered,delivered,16/3/2020 9:34:53,16/3/2020,Shipit1080,Pedro Perez,starken,TEST079,929621781
+1503818,delivered,delivered,16/3/2020 9:34:53,16/3/2020,Shipit1081,Angel Lopez,starken,TEST080,929621791
+1503817,delivered,delivered,16/3/2020 9:34:52,16/3/2020,Shipit1082,Antonio Rodriguez,starken,TEST081,929621765
+1503816,delivered,delivered,16/3/2020 9:34:51,16/3/2020,Shipit1083,Jose Martinez,starken,TEST082,929621779
+1503815,delivered,delivered,16/3/2020 9:34:50,16/3/2020,Shipit1084,Manuel Sanchez,starken,TEST083,929621764
+1503814,delivered,delivered,16/3/2020 9:34:49,16/3/2020,Shipit1085,Francisco Gomez,starken,TEST084,929621777
+1503813,delivered,delivered,16/3/2020 9:34:48,16/3/2020,Shipit1086,David Alvarez,starken,TEST085,929621776
+1503812,delivered,delivered,16/3/2020 9:34:47,16/3/2020,Shipit1087,Juan Martin,starken,TEST086,929621762
+1503811,delivered,delivered,16/3/2020 9:34:47,16/3/2020,Shipit1088,Jose Antonio Diaz,starken,TEST087,929621790
+1503810,delivered,delivered,16/3/2020 9:34:46,16/3/2020,Shipit1089,Javier Alonso,starken,TEST088,929621766
+1503809,delivered,delivered,16/3/2020 9:34:45,16/3/2020,Shipit1090,Daniel Ruiz,starken,TEST089,929621763
+1503808,delivered,delivered,16/3/2020 9:34:44,16/3/2020,Shipit1091,Jose Luis Hernandez,starken,TEST090,929621778
+1503794,delivered,delivered,16/3/2020 9:34:43,16/3/2020,Shipit1092,Francisco Javier Gutierrez,chilexpress,TEST091,712090414055
+1503793,delivered,delivered,16/3/2020 9:34:42,16/3/2020,Shipit1093,Carlos Blanco,chilexpress,TEST092,712090414044
+1503792,delivered,delivered,16/3/2020 9:34:41,16/3/2020,Shipit1094,Jesus Jimenez,chilexpress,TEST093,712090413963
+1503791,delivered,delivered,16/3/2020 9:34:41,16/3/2020,Shipit1095,Alejandro Moreno,chilexpress,TEST094,712090414022
+1503790,delivered,delivered,16/3/2020 9:34:40,16/3/2020,Shipit1096,Miguel Muñoz,chilexpress,TEST095,712090414011
+1503789,delivered,delivered,15/3/2020 9:34:40,15/3/2020,Shipit1097,Jose Manuel Vazquez,chilexpress,TEST096,712090413893
+1503788,delivered,delivered,15/3/2020 9:34:39,15/3/2020,Shipit1098,Rafael Gil,chilexpress,TEST097,712090413860
+1503787,delivered,delivered,15/3/2020 9:34:38,15/3/2020,Shipit1099,Miguel Angel Dominguez,chilexpress,TEST098,712090414033
+1503786,delivered,delivered,15/3/2020 9:34:37,15/3/2020,Shipit1100,Pedro Castro,chilexpress,TEST099,712090413974
+1503785,delivered,delivered,15/3/2020 9:34:36,15/3/2020,Shipit1101,Angel Ramos,chilexpress,TEST100,712090414000
+1503784,delivered,delivered,15/3/2020 9:34:35,15/3/2020,Shipit1102,Antonio Garcia,chilexpress,TEST101,712090413834
+1503783,delivered,delivered,15/3/2020 9:34:34,15/3/2020,Shipit1103,Jose Gonzalez,chilexpress,TEST102,712090413985
+1503782,delivered,delivered,15/3/2020 9:34:34,15/3/2020,Shipit1104,Manuel Fernandez,chilexpress,TEST103,712090413952
+1503781,delivered,delivered,15/3/2020 9:34:33,15/3/2020,Shipit1105,Francisco Perez,chilexpress,TEST104,712090413941
+1503780,delivered,delivered,15/3/2020 9:34:32,15/3/2020,Shipit1106,David Lopez,chilexpress,TEST105,712090413926
+1503779,delivered,delivered,15/3/2020 9:34:31,15/3/2020,Shipit1107,Juan Rodriguez,chilexpress,TEST106,712090413996
+1503778,delivered,delivered,15/3/2020 9:34:30,15/3/2020,Shipit1108,Jose Antonio Martinez,chilexpress,TEST107,712090413786
+1503777,delivered,delivered,15/3/2020 9:34:29,15/3/2020,Shipit1109,Javier Sanchez,chilexpress,TEST108,712090413871
+1503776,delivered,delivered,15/3/2020 9:34:28,15/3/2020,Shipit1110,Daniel Gomez,chilexpress,TEST109,712090413904
+1503775,delivered,delivered,15/3/2020 9:34:28,15/3/2020,Shipit1111,Jose Luis Alvarez,chilexpress,TEST110,712090413764
+1503774,delivered,delivered,15/3/2020 9:34:27,15/3/2020,Shipit1112,Francisco Javier Martin,chilexpress,TEST111,712090413930
+1503773,delivered,delivered,15/3/2020 9:34:26,15/3/2020,Shipit1113,Carlos Diaz,chilexpress,TEST112,712090413731
+1503772,delivered,delivered,15/3/2020 9:34:25,15/3/2020,Shipit1114,Jesus Alonso,chilexpress,TEST113,712090413753
+1503771,delivered,delivered,15/3/2020 9:34:24,15/3/2020,Shipit1115,Alejandro Ruiz,chilexpress,TEST114,712090413742
+1503770,delivered,delivered,15/3/2020 9:34:23,15/3/2020,Shipit1116,Miguel Hernandez,chilexpress,TEST115,712090413775
+1503769,delivered,delivered,15/3/2020 9:34:22,15/3/2020,Shipit1117,Jose Manuel Gutierrez,chilexpress,TEST116,712090413845
+1503768,delivered,delivered,15/3/2020 9:34:22,15/3/2020,Shipit1118,Rafael Blanco,chilexpress,TEST117,712090413823
+1503767,delivered,delivered,15/3/2020 9:34:21,15/3/2020,Shipit1119,Miguel Angel Jimenez,chilexpress,TEST118,712090413801
+1503766,delivered,delivered,15/3/2020 9:34:20,15/3/2020,Shipit1120,Pedro Moreno,chilexpress,TEST119,712090413790
+1503765,delivered,delivered,15/3/2020 9:34:19,15/3/2020,Shipit1121,Angel Muñoz,chilexpress,TEST120,712090413720
+1503764,delivered,delivered,15/3/2020 9:34:18,15/3/2020,Shipit1122,Antonio Vazquez,chilexpress,TEST121,712090413683
+1503763,delivered,delivered,15/3/2020 9:34:17,15/3/2020,Shipit1123,Jose Gil,chilexpress,TEST122,712090413672
+1503762,delivered,delivered,15/3/2020 9:34:16,15/3/2020,Shipit1124,Manuel Dominguez,chilexpress,TEST123,712090413602
+1503761,delivered,delivered,15/3/2020 9:34:15,15/3/2020,Shipit1125,Francisco Castro,chilexpress,TEST124,712090413694
+1503760,delivered,delivered,15/3/2020 9:34:15,15/3/2020,Shipit1126,David Ramos,chilexpress,TEST125,712090413646
+1503759,delivered,delivered,15/3/2020 9:34:14,15/3/2020,Shipit1127,Juan Garcia,chilexpress,TEST126,712090413716
+1503758,delivered,delivered,15/3/2020 9:34:13,15/3/2020,Shipit1128,Jose Antonio Gonzalez,chilexpress,TEST127,712090413635
+1503757,delivered,delivered,15/3/2020 9:34:12,15/3/2020,Shipit1129,Javier Fernandez,chilexpress,TEST128,712090413576
+1503756,delivered,delivered,15/3/2020 9:34:11,15/3/2020,Shipit1130,Daniel Perez,chilexpress,TEST129,712090413624
+1503755,delivered,delivered,15/3/2020 9:34:10,15/3/2020,Shipit1131,Jose Luis Lopez,chilexpress,TEST130,712090413521
+1503754,delivered,delivered,15/3/2020 9:34:09,15/3/2020,Shipit1132,Francisco Javier Rodriguez,chilexpress,TEST131,712090413613
+1503753,delivered,delivered,15/3/2020 9:34:09,15/3/2020,Shipit1133,Carlos Martinez,chilexpress,TEST132,712090413591
+1503752,delivered,delivered,15/3/2020 9:34:08,15/3/2020,Shipit1134,Jesus Sanchez,chilexpress,TEST133,712090413580
+1503751,delivered,delivered,15/3/2020 9:34:07,15/3/2020,Shipit1135,Alejandro Gomez,chilexpress,TEST134,712090413565
+1503750,delivered,delivered,15/3/2020 9:34:06,15/3/2020,Shipit1136,Miguel Alvarez,chilexpress,TEST135,712090413440
+1503749,delivered,delivered,15/3/2020 9:34:05,15/3/2020,Shipit1137,Jose Manuel Martin,chilexpress,TEST136,712090413554
+1503748,delivered,delivered,15/3/2020 9:34:04,15/3/2020,Shipit1138,Rafael Diaz,chilexpress,TEST137,712090413650
+1503747,delivered,delivered,15/3/2020 9:34:03,15/3/2020,Shipit1139,Miguel Angel Alonso,chilexpress,TEST138,712090413451
+1503746,delivered,delivered,15/3/2020 9:34:02,15/3/2020,Shipit1140,Pedro Ruiz,chilexpress,TEST139,712090413506
+1503745,delivered,delivered,15/3/2020 9:34:02,15/3/2020,Shipit1141,Angel Hernandez,chilexpress,TEST140,712090413403
+1503744,delivered,delivered,15/3/2020 9:34:01,15/3/2020,Shipit1142,Antonio Gutierrez,chilexpress,TEST141,712090413484
+1503743,delivered,delivered,15/3/2020 9:34:00,15/3/2020,Shipit1143,Jose Blanco,chilexpress,TEST142,712090413462
+1503742,delivered,delivered,15/3/2020 9:33:59,15/3/2020,Shipit1144,Manuel Jimenez,chilexpress,TEST143,712090413473
+1503741,delivered,delivered,15/3/2020 9:33:58,15/3/2020,Shipit1145,Francisco Moreno,chilexpress,TEST144,712090413436
+1503740,delivered,delivered,15/3/2020 9:33:57,15/3/2020,Shipit1146,David Muñoz,chilexpress,TEST145,712090413355
+1503739,delivered,delivered,15/3/2020 9:33:56,15/3/2020,Shipit1147,Juan Vazquez,chilexpress,TEST146,712090413532
+1503738,delivered,delivered,15/3/2020 9:33:56,15/3/2020,Shipit1148,Jose Antonio Gil,chilexpress,TEST147,712090413344
+1503737,delivered,delivered,15/3/2020 9:33:55,15/3/2020,Shipit1149,Javier Dominguez,chilexpress,TEST148,712090413495
+1503736,delivered,delivered,15/3/2020 9:33:54,15/3/2020,Shipit1150,Daniel Castro,chilexpress,TEST149,712090413252
+1503735,delivered,delivered,15/3/2020 9:33:53,15/3/2020,Shipit1151,Jose Luis Ramos,chilexpress,TEST150,712090414070
+1503734,delivered,delivered,15/3/2020 9:33:52,15/3/2020,Shipit1152,Francisco Javier Garcia,chilexpress,TEST151,712090413263
+1503733,delivered,delivered,15/3/2020 9:33:51,15/3/2020,Shipit1153,Carlos Gonzalez,chilexpress,TEST152,712090413370
+1503732,delivered,delivered,15/3/2020 9:33:50,15/3/2020,Shipit1154,Jesus Fernandez,chilexpress,TEST153,712090413333
+1503731,delivered,delivered,15/3/2020 9:33:50,15/3/2020,Shipit1155,Alejandro Perez,chilexpress,TEST154,712090413230
+1503730,delivered,delivered,15/3/2020 9:33:49,15/3/2020,Shipit1156,Miguel Lopez,chilexpress,TEST155,712090413241
+1503729,delivered,delivered,15/3/2020 9:33:48,15/3/2020,Shipit1157,Jose Manuel Rodriguez,chilexpress,TEST156,712090413425
+1503728,delivered,delivered,15/3/2020 9:33:47,15/3/2020,Shipit1158,Rafael Martinez,chilexpress,TEST157,712090413414
+1503727,delivered,delivered,15/3/2020 9:33:46,15/3/2020,Shipit1159,Miguel Angel Sanchez,chilexpress,TEST158,712090413285
+1503726,delivered,delivered,15/3/2020 9:33:45,15/3/2020,Shipit1160,Pedro Gomez,chilexpress,TEST159,712090413226
+1503725,delivered,delivered,15/3/2020 9:33:44,15/3/2020,Shipit1161,Angel Alvarez,chilexpress,TEST160,712090413915
+1503724,delivered,delivered,15/3/2020 9:33:43,15/3/2020,Shipit1162,Antonio Martin,chilexpress,TEST161,712090413322
+1503723,delivered,delivered,15/3/2020 9:33:43,15/3/2020,Shipit1163,Jose Diaz,chilexpress,TEST162,712090413311
+1503722,delivered,delivered,15/3/2020 9:33:42,15/3/2020,Shipit1164,Manuel Alonso,chilexpress,TEST163,712090413274
+1503721,delivered,delivered,15/3/2020 9:33:41,15/3/2020,Shipit1165,Francisco Ruiz,chilexpress,TEST164,712090413300
+1503720,delivered,delivered,15/3/2020 9:33:40,15/3/2020,Shipit1166,David Hernandez,chilexpress,TEST165,712090413366
+1503719,delivered,delivered,15/3/2020 9:33:39,15/3/2020,Shipit1167,Juan Gutierrez,chilexpress,TEST166,712090413392
+1503718,delivered,delivered,15/3/2020 9:33:38,15/3/2020,Shipit1168,Jose Antonio Blanco,chilexpress,TEST167,712090413215
+1503717,delivered,delivered,15/3/2020 9:33:37,15/3/2020,Shipit1169,Javier Jimenez,chilexpress,TEST168,712090413171
+1503716,delivered,delivered,15/3/2020 9:33:37,15/3/2020,Shipit1170,Daniel Moreno,chilexpress,TEST169,712090413182
+1503715,delivered,delivered,15/3/2020 9:33:36,15/3/2020,Shipit1171,Jose Luis Muñoz,chilexpress,TEST170,712090413134
+1503714,delivered,delivered,15/3/2020 9:33:35,15/3/2020,Shipit1172,Francisco Javier Vazquez,chilexpress,TEST171,712090413156
+1503713,delivered,delivered,15/3/2020 9:33:34,15/3/2020,Shipit1173,Carlos Gil,chilexpress,TEST172,712090413812
+1503712,delivered,delivered,15/3/2020 9:33:33,15/3/2020,Shipit1174,Jesus Dominguez,chilexpress,TEST173,712090413510
+1503711,delivered,delivered,15/3/2020 9:33:32,15/3/2020,Shipit1175,Alejandro Castro,chilexpress,TEST174,712090413296
+1503710,delivered,delivered,15/3/2020 9:33:31,15/3/2020,Shipit1176,Miguel Ramos,chilexpress,TEST175,712090413101
+1503709,delivered,delivered,15/3/2020 9:33:31,15/3/2020,Shipit1177,Jose Manuel Garcia,chilexpress,TEST176,712090413160
+1503708,delivered,delivered,15/3/2020 9:33:30,15/3/2020,Shipit1178,Rafael Gonzalez,chilexpress,TEST177,712090413053
+1503707,delivered,delivered,15/3/2020 9:33:29,15/3/2020,Shipit1179,Miguel Angel Fernandez,chilexpress,TEST178,712090413123
+1503706,delivered,delivered,15/3/2020 9:33:28,15/3/2020,Shipit1180,Pedro Perez,chilexpress,TEST179,712090413090
+1503705,delivered,delivered,15/3/2020 9:33:27,15/3/2020,Shipit1181,Angel Lopez,chilexpress,TEST180,712090413145
+1503704,delivered,delivered,15/3/2020 9:33:26,15/3/2020,Shipit1182,Antonio Rodriguez,chilexpress,TEST181,712090413064
+1503703,delivered,delivered,15/3/2020 9:33:25,15/3/2020,Shipit1183,Jose Martinez,chilexpress,TEST182,712090413112
+1503448,delivered,delivered,15/3/2020 9:33:24,15/3/2020,Shipit1184,Manuel Sanchez,chilexpress,TEST183,712090381376
+1503446,delivered,delivered,15/3/2020 9:33:24,15/3/2020,Shipit1185,Francisco Gomez,starken,TEST184,929616234
+1503445,delivered,delivered,15/3/2020 9:33:23,15/3/2020,Shipit1186,David Alvarez,chilexpress,TEST185,712090381391
+1503443,delivered,delivered,15/3/2020 9:33:22,15/3/2020,Shipit1187,Juan Martin,chilexpress,TEST186,712090381380
+1503441,delivered,delivered,15/3/2020 9:33:21,15/3/2020,Shipit1188,Jose Antonio Diaz,chilexpress,TEST187,712090381365
+1503440,delivered,delivered,15/3/2020 9:33:20,15/3/2020,Shipit1189,Javier Alonso,starken,TEST188,929616233
+1503180,delivered,delivered,15/3/2020 9:33:19,15/3/2020,Shipit1190,Daniel Ruiz,starken,TEST189,929615059
+1503179,delivered,delivered,15/3/2020 9:33:18,15/3/2020,Shipit1191,Jose Luis Hernandez,starken,TEST190,929615073
+1503113,delivered,delivered,15/3/2020 9:33:18,15/3/2020,Shipit1192,Francisco Javier Gutierrez,chilexpress,TEST191,712090377854
+1503112,delivered,delivered,15/3/2020 9:33:17,15/3/2020,Shipit1193,Carlos Blanco,chilexpress,TEST192,712090377810
+1503111,delivered,delivered,15/3/2020 9:33:16,15/3/2020,Shipit1194,Jesus Jimenez,chilexpress,TEST193,712090377692
+1501829,delivered,delivered,15/3/2020 9:33:15,15/3/2020,Shipit1195,Alejandro Moreno,starken,TEST194,929609363
+1501828,delivered,delivered,15/3/2020 9:33:14,15/3/2020,Shipit1196,Miguel Muñoz,starken,TEST195,929609388
+1501827,delivered,delivered,15/3/2020 9:33:13,15/3/2020,Shipit1197,Jose Manuel Vazquez,starken,TEST196,929609365
+1501826,delivered,delivered,15/3/2020 9:33:12,15/3/2020,Shipit1198,Rafael Gil,starken,TEST197,929609364
+1501778,delivered,delivered,15/3/2020 9:33:12,15/3/2020,Shipit1199,Miguel Angel Dominguez,chilexpress,TEST198,712090323313
+1501777,delivered,delivered,15/3/2020 9:33:11,15/3/2020,Shipit1200,Pedro Garcia,chilexpress,TEST199,712090323291
+1501776,delivered,delivered,15/3/2020 9:33:10,15/3/2020,Shipit1201,Angel Gonzalez,chilexpress,TEST200,712090323280
+1501775,delivered,delivered,15/3/2020 9:33:09,15/3/2020,Shipit1202,Antonio Fernandez,chilexpress,TEST201,712090323276
+1501774,delivered,delivered,15/3/2020 9:33:08,15/3/2020,Shipit1203,Jose Perez,chilexpress,TEST202,712090323265
+1501773,delivered,delivered,15/3/2020 9:33:07,15/3/2020,Shipit1204,Manuel Lopez,chilexpress,TEST203,712090323254
+1501772,delivered,delivered,15/3/2020 9:33:06,15/3/2020,Shipit1205,Francisco Rodriguez,chilexpress,TEST204,712090323243
+1501771,delivered,delivered,15/3/2020 9:33:05,15/3/2020,Shipit1206,David Martinez,chilexpress,TEST205,712090323232
+1501770,delivered,delivered,15/3/2020 9:33:05,15/3/2020,Shipit1207,Juan Sanchez,chilexpress,TEST206,712090323221
+1501769,delivered,delivered,15/3/2020 9:33:04,15/3/2020,Shipit1208,Jose Antonio Gomez,chilexpress,TEST207,712090323210
+1501768,delivered,delivered,15/3/2020 9:33:03,15/3/2020,Shipit1209,Javier Alvarez,chilexpress,TEST208,712090323206
+1501767,delivered,delivered,15/3/2020 9:33:02,15/3/2020,Shipit1210,Daniel Martin,chilexpress,TEST209,712090323195
+1501766,delivered,delivered,15/3/2020 9:33:01,15/3/2020,Shipit1211,Jose Luis Diaz,chilexpress,TEST210,712090323162
+1501765,delivered,delivered,15/3/2020 9:33:00,15/3/2020,Shipit1212,Francisco Javier Alonso,chilexpress,TEST211,712090323151
+1501764,delivered,delivered,15/3/2020 9:32:59,15/3/2020,Shipit1213,Carlos Ruiz,chilexpress,TEST212,712090323140
+1501763,delivered,delivered,15/3/2020 9:32:59,15/3/2020,Shipit1214,Jesus Hernandez,chilexpress,TEST213,712090323136
+1501762,delivered,delivered,15/3/2020 9:32:58,15/3/2020,Shipit1215,Alejandro Gutierrez,chilexpress,TEST214,712090323114
+1501761,delivered,delivered,15/3/2020 9:32:57,15/3/2020,Shipit1216,Miguel Blanco,chilexpress,TEST215,712090323125
+1501760,delivered,delivered,15/3/2020 9:32:56,15/3/2020,Shipit1217,Jose Manuel Jimenez,chilexpress,TEST216,712090323103
+1501758,delivered,delivered,15/3/2020 9:32:55,15/3/2020,Shipit1218,Rafael Moreno,starken,TEST217,929609330
+1501757,delivered,delivered,15/3/2020 9:32:54,15/3/2020,Shipit1219,Miguel Angel Muñoz,starken,TEST218,929609312
+1501756,delivered,delivered,15/3/2020 9:32:53,15/3/2020,Shipit1220,Pedro Vazquez,starken,TEST219,929609329
+1501755,delivered,delivered,15/3/2020 9:32:53,15/3/2020,Shipit1221,Angel Gil,starken,TEST220,929609311
+1501754,delivered,delivered,15/3/2020 9:32:52,15/3/2020,Shipit1222,Antonio Dominguez,starken,TEST221,929609328
+1501753,delivered,delivered,15/3/2020 9:32:51,15/3/2020,Shipit1223,Jose Castro,starken,TEST222,929609327
+1501752,delivered,delivered,15/3/2020 9:32:50,15/3/2020,Shipit1224,Manuel Ramos,starken,TEST223,929609306
+1501751,delivered,delivered,15/3/2020 9:32:49,15/3/2020,Shipit1225,Francisco Garcia,starken,TEST224,929609305
+1501750,delivered,delivered,15/3/2020 9:32:48,15/3/2020,Shipit1226,David Gonzalez,starken,TEST225,929609304
+1501749,delivered,delivered,15/3/2020 9:32:47,15/3/2020,Shipit1227,Juan Fernandez,starken,TEST226,929609310
+1501748,delivered,delivered,15/3/2020 9:32:46,15/3/2020,Shipit1228,Jose Antonio Perez,starken,TEST227,929609309
+1501747,delivered,delivered,15/3/2020 9:32:46,15/3/2020,Shipit1229,Javier Lopez,starken,TEST228,929609307
+1501746,delivered,delivered,15/3/2020 9:32:45,15/3/2020,Shipit1230,Daniel Rodriguez,starken,TEST229,929609303
+1501745,delivered,delivered,15/3/2020 9:32:44,15/3/2020,Shipit1231,Jose Luis Martinez,starken,TEST230,929609302
+1501744,delivered,delivered,14/3/2020 9:32:44,14/3/2020,Shipit1232,Francisco Javier Sanchez,starken,TEST231,929609286
+1501743,delivered,delivered,14/3/2020 9:32:43,14/3/2020,Shipit1233,Carlos Gomez,starken,TEST232,929609301
+1501742,delivered,delivered,14/3/2020 9:32:42,14/3/2020,Shipit1234,Jesus Alvarez,starken,TEST233,929609300
+1501741,delivered,delivered,14/3/2020 9:32:41,14/3/2020,Shipit1235,Alejandro Martin,starken,TEST234,929609299
+1501740,delivered,delivered,14/3/2020 9:32:40,14/3/2020,Shipit1236,Miguel Diaz,starken,TEST235,929609298
+1501739,delivered,delivered,14/3/2020 9:32:40,14/3/2020,Shipit1237,Jose Manuel Alonso,starken,TEST236,929609285
+1501738,delivered,delivered,14/3/2020 9:32:39,14/3/2020,Shipit1238,Rafael Ruiz,starken,TEST237,929609297
+1501737,delivered,delivered,14/3/2020 9:32:38,14/3/2020,Shipit1239,Miguel Angel Hernandez,starken,TEST238,929609284
+1501736,delivered,delivered,14/3/2020 9:32:37,14/3/2020,Shipit1240,Pedro Gutierrez,starken,TEST239,929609281
+1501735,delivered,delivered,14/3/2020 9:32:36,14/3/2020,Shipit1241,Angel Blanco,starken,TEST240,929609280
+1501734,delivered,delivered,14/3/2020 9:32:35,14/3/2020,Shipit1242,Antonio Jimenez,starken,TEST241,929609296
+1501733,delivered,delivered,14/3/2020 9:32:34,14/3/2020,Shipit1243,Jose Moreno,starken,TEST242,929609295
+1501732,delivered,delivered,14/3/2020 9:32:34,14/3/2020,Shipit1244,Manuel Muñoz,starken,TEST243,929609294
+1501731,delivered,delivered,14/3/2020 9:32:33,14/3/2020,Shipit1245,Francisco Vazquez,starken,TEST244,929609279
+1501730,delivered,delivered,14/3/2020 9:32:32,14/3/2020,Shipit1246,David Gil,starken,TEST245,929609278
+1501729,delivered,delivered,14/3/2020 9:32:31,14/3/2020,Shipit1247,Juan Dominguez,starken,TEST246,929609293
+1501728,delivered,delivered,14/3/2020 9:32:30,14/3/2020,Shipit1248,Jose Antonio Castro,starken,TEST247,929609277
+1501727,delivered,delivered,14/3/2020 9:32:29,14/3/2020,Shipit1249,Javier Ramos,starken,TEST248,929609276
+1501726,delivered,delivered,14/3/2020 9:32:28,14/3/2020,Shipit1250,Daniel Garcia,starken,TEST249,929609292
+1501725,delivered,delivered,14/3/2020 9:32:27,14/3/2020,Shipit1251,Jose Luis Gonzalez,starken,TEST250,929609291
+1501724,delivered,delivered,14/3/2020 9:32:27,14/3/2020,Shipit1252,Francisco Javier Fernandez,starken,TEST251,929609290
+1501723,delivered,delivered,14/3/2020 9:32:26,14/3/2020,Shipit1253,Carlos Perez,starken,TEST252,929609289
+1501722,delivered,delivered,14/3/2020 9:32:25,14/3/2020,Shipit1254,Jesus Lopez,starken,TEST253,929609275
+1501721,delivered,delivered,14/3/2020 9:32:24,14/3/2020,Shipit1255,Alejandro Rodriguez,starken,TEST254,929609288
+1501720,delivered,delivered,14/3/2020 9:32:23,14/3/2020,Shipit1256,Miguel Martinez,starken,TEST255,929609274
+1501719,delivered,delivered,14/3/2020 9:32:22,14/3/2020,Shipit1257,Jose Manuel Sanchez,starken,TEST256,929609287
+1501718,delivered,delivered,14/3/2020 9:32:21,14/3/2020,Shipit1258,Rafael Gomez,starken,TEST257,929609266
+1501717,delivered,delivered,14/3/2020 9:32:21,14/3/2020,Shipit1259,Miguel Angel Alvarez,starken,TEST258,929609273
+1501716,delivered,delivered,14/3/2020 9:32:20,14/3/2020,Shipit1260,Pedro Martin,starken,TEST259,929609272
+1501715,delivered,delivered,14/3/2020 9:32:19,14/3/2020,Shipit1261,Angel Diaz,starken,TEST260,929609265
+1501714,delivered,delivered,14/3/2020 9:32:18,14/3/2020,Shipit1262,Antonio Alonso,starken,TEST261,929609282
+1501713,delivered,delivered,14/3/2020 9:32:17,14/3/2020,Shipit1263,Jose Ruiz,starken,TEST262,929609264
+1501712,delivered,delivered,14/3/2020 9:32:16,14/3/2020,Shipit1264,Manuel Hernandez,starken,TEST263,929609269
+1501711,delivered,delivered,14/3/2020 9:32:15,14/3/2020,Shipit1265,Francisco Gutierrez,starken,TEST264,929609263
+1501710,delivered,delivered,14/3/2020 9:32:14,14/3/2020,Shipit1266,David Blanco,starken,TEST265,929609268
+1501709,delivered,delivered,14/3/2020 9:32:14,14/3/2020,Shipit1267,Juan Jimenez,starken,TEST266,929609267
+1501708,delivered,delivered,14/3/2020 9:32:13,14/3/2020,Shipit1268,Jose Antonio Moreno,starken,TEST267,929609262
+1501707,delivered,delivered,14/3/2020 9:32:12,14/3/2020,Shipit1269,Javier Muñoz,starken,TEST268,929609261
+1501706,delivered,delivered,14/3/2020 9:32:11,14/3/2020,Shipit1270,Daniel Vazquez,starken,TEST269,929609260
+1501705,delivered,delivered,14/3/2020 9:32:10,14/3/2020,Shipit1271,Jose Luis Gil,starken,TEST270,929609246
+1501704,delivered,delivered,14/3/2020 9:32:09,14/3/2020,Shipit1272,Francisco Javier Dominguez,starken,TEST271,929609259
+1501703,delivered,delivered,14/3/2020 9:32:08,14/3/2020,Shipit1273,Carlos Castro,starken,TEST272,929609245
+1501702,delivered,delivered,14/3/2020 9:32:08,14/3/2020,Shipit1274,Jesus Ramos,starken,TEST273,929609244
+1501701,delivered,delivered,14/3/2020 9:32:07,14/3/2020,Shipit1275,Alejandro Garcia,starken,TEST274,929609243
+1501700,delivered,delivered,14/3/2020 9:32:06,14/3/2020,Shipit1276,Miguel Gonzalez,starken,TEST275,929609343
+1501699,delivered,delivered,14/3/2020 9:32:05,14/3/2020,Shipit1277,Jose Manuel Fernandez,starken,TEST276,929609258
+1501698,delivered,delivered,14/3/2020 9:32:04,14/3/2020,Shipit1278,Rafael Perez,starken,TEST277,929609242
+1501697,delivered,delivered,14/3/2020 9:32:03,14/3/2020,Shipit1279,Miguel Angel Lopez,starken,TEST278,929609257
+1501696,delivered,delivered,14/3/2020 9:32:02,14/3/2020,Shipit1280,Pedro Rodriguez,starken,TEST279,929609256
+1501694,delivered,delivered,14/3/2020 9:32:02,14/3/2020,Shipit1281,Angel Martinez,starken,TEST280,929609241
+1501693,delivered,delivered,14/3/2020 9:32:01,14/3/2020,Shipit1282,Antonio Sanchez,starken,TEST281,929609255
+1501692,delivered,delivered,14/3/2020 9:32:00,14/3/2020,Shipit1283,Jose Gomez,starken,TEST282,929609254
+1501691,delivered,delivered,14/3/2020 9:31:59,14/3/2020,Shipit1284,Manuel Alvarez,starken,TEST283,929609240
+1501690,delivered,delivered,14/3/2020 9:31:58,14/3/2020,Shipit1285,Francisco Martin,starken,TEST284,929609253
+1501689,delivered,delivered,14/3/2020 9:31:57,14/3/2020,Shipit1286,David Diaz,starken,TEST285,929609252
+1501688,delivered,delivered,14/3/2020 9:31:56,14/3/2020,Shipit1287,Juan Alonso,starken,TEST286,929609251
+1501687,delivered,delivered,14/3/2020 9:31:55,14/3/2020,Shipit1288,Jose Antonio Ruiz,starken,TEST287,929609250
+1501686,delivered,delivered,14/3/2020 9:31:55,14/3/2020,Shipit1289,Javier Hernandez,starken,TEST288,929609239
+1501685,delivered,delivered,14/3/2020 9:31:54,14/3/2020,Shipit1290,Daniel Gutierrez,starken,TEST289,929609238
+1501684,delivered,delivered,14/3/2020 9:31:53,14/3/2020,Shipit1291,Jose Luis Blanco,starken,TEST290,929609249
+1501683,delivered,delivered,14/3/2020 9:31:52,14/3/2020,Shipit1292,Francisco Javier Jimenez,starken,TEST291,929609237
+1501682,delivered,delivered,14/3/2020 9:31:51,14/3/2020,Shipit1293,Carlos Moreno,starken,TEST292,929609236
+1501681,delivered,delivered,14/3/2020 9:31:50,14/3/2020,Shipit1294,Jesus Muñoz,starken,TEST293,929609235
+1501680,delivered,delivered,14/3/2020 9:31:49,14/3/2020,Shipit1295,Alejandro Vazquez,starken,TEST294,929609247
+1501679,delivered,delivered,14/3/2020 9:31:49,14/3/2020,Shipit1296,Miguel Gil,starken,TEST295,929609225
+1501678,delivered,delivered,14/3/2020 9:31:48,14/3/2020,Shipit1297,Jose Manuel Dominguez,starken,TEST296,929609226
+1501677,delivered,delivered,14/3/2020 9:31:47,14/3/2020,Shipit1298,Rafael Castro,starken,TEST297,929609234
+1501676,delivered,delivered,14/3/2020 9:31:46,14/3/2020,Shipit1299,Miguel Angel Ramos,starken,TEST298,929609233
+1501675,delivered,delivered,14/3/2020 9:31:45,14/3/2020,Shipit1300,Pedro Garcia,starken,TEST299,929609223
+1501674,delivered,delivered,14/3/2020 9:31:44,14/3/2020,Shipit1301,Angel Gonzalez,starken,TEST300,929609231
+1501673,delivered,delivered,14/3/2020 9:31:43,14/3/2020,Shipit1302,Antonio Fernandez,starken,TEST301,929609222
+1501672,delivered,delivered,14/3/2020 9:31:43,14/3/2020,Shipit1303,Jose Perez,starken,TEST302,929609230
+1501671,delivered,delivered,14/3/2020 9:31:42,14/3/2020,Shipit1304,Manuel Lopez,starken,TEST303,929609221
+1501670,delivered,delivered,14/3/2020 9:31:41,14/3/2020,Shipit1305,Francisco Rodriguez,starken,TEST304,929609220
+1501669,delivered,delivered,14/3/2020 9:31:40,14/3/2020,Shipit1306,David Martinez,starken,TEST305,929609229
+1501668,delivered,delivered,14/3/2020 9:31:39,14/3/2020,Shipit1307,Juan Sanchez,starken,TEST306,929609219
+1501667,delivered,delivered,14/3/2020 9:31:38,14/3/2020,Shipit1308,Jose Antonio Gomez,starken,TEST307,929609228
+1501666,delivered,delivered,14/3/2020 9:31:37,14/3/2020,Shipit1309,Javier Alvarez,starken,TEST308,929609218
+1501665,delivered,delivered,14/3/2020 9:31:36,14/3/2020,Shipit1310,Daniel Martin,starken,TEST309,929609217
+1501664,delivered,delivered,14/3/2020 9:31:36,14/3/2020,Shipit1311,Jose Luis Diaz,starken,TEST310,929609227
+1501663,delivered,delivered,14/3/2020 9:31:35,14/3/2020,Shipit1312,Francisco Javier Alonso,starken,TEST311,929609206
+1501662,delivered,delivered,14/3/2020 9:31:34,14/3/2020,Shipit1313,Carlos Ruiz,starken,TEST312,929609216
+1501661,delivered,delivered,14/3/2020 9:31:25,14/3/2020,Shipit1314,Jesus Hernandez,starken,TEST313,929609204
+1501660,delivered,delivered,14/3/2020 9:31:24,14/3/2020,Shipit1315,Alejandro Gutierrez,starken,TEST314,929609203
+1501659,delivered,delivered,14/3/2020 9:31:24,14/3/2020,Shipit1316,Miguel Blanco,starken,TEST315,929609202
+1501658,delivered,delivered,14/3/2020 9:31:23,14/3/2020,Shipit1317,Jose Manuel Jimenez,starken,TEST316,929609201
+1501656,delivered,delivered,14/3/2020 9:31:14,14/3/2020,Shipit1318,Rafael Moreno,starken,TEST317,929609200
+1501655,delivered,delivered,14/3/2020 9:31:13,14/3/2020,Shipit1319,Miguel Angel Muñoz,starken,TEST318,929609215
+1501654,delivered,delivered,14/3/2020 9:31:12,14/3/2020,Shipit1320,Pedro Vazquez,starken,TEST319,929609199
+1501653,delivered,delivered,14/3/2020 9:31:11,14/3/2020,Shipit1321,Angel Gil,starken,TEST320,929609214
+1501652,delivered,delivered,14/3/2020 9:31:11,14/3/2020,Shipit1322,Antonio Dominguez,starken,TEST321,929609197
+1501651,delivered,delivered,14/3/2020 9:31:10,14/3/2020,Shipit1323,Jose Castro,starken,TEST322,929609322
+1501650,delivered,delivered,14/3/2020 9:31:09,14/3/2020,Shipit1324,Manuel Ramos,starken,TEST323,929609313
+1501649,delivered,delivered,14/3/2020 9:31:08,14/3/2020,Shipit1325,Francisco Garcia,starken,TEST324,929609314
+1501648,delivered,delivered,14/3/2020 9:31:07,14/3/2020,Shipit1326,David Gonzalez,starken,TEST325,929609196
+1501647,delivered,delivered,13/3/2020 9:31:07,13/3/2020,Shipit1327,Juan Fernandez,starken,TEST326,929609213
+1501646,delivered,delivered,13/3/2020 9:31:06,13/3/2020,Shipit1328,Jose Antonio Perez,starken,TEST327,929609212
+1501645,delivered,delivered,13/3/2020 9:31:05,13/3/2020,Shipit1329,Javier Lopez,starken,TEST328,929609323
+1501644,delivered,delivered,13/3/2020 9:31:05,13/3/2020,Shipit1330,Daniel Rodriguez,starken,TEST329,929609211
+1501643,delivered,delivered,13/3/2020 9:31:04,13/3/2020,Shipit1331,Jose Luis Martinez,starken,TEST330,929609194
+1501642,delivered,delivered,13/3/2020 9:31:03,13/3/2020,Shipit1332,Francisco Javier Sanchez,starken,TEST331,929609342
+1501641,delivered,delivered,13/3/2020 9:31:02,13/3/2020,Shipit1333,Carlos Gomez,starken,TEST332,929609195
+1501640,delivered,delivered,13/3/2020 9:31:01,13/3/2020,Shipit1334,Jesus Alvarez,starken,TEST333,929609334
+1501639,delivered,delivered,13/3/2020 9:31:00,13/3/2020,Shipit1335,Alejandro Martin,starken,TEST334,929609321
+1501638,delivered,delivered,13/3/2020 9:30:59,13/3/2020,Shipit1336,Miguel Diaz,starken,TEST335,929609210
+1501637,delivered,delivered,13/3/2020 9:30:58,13/3/2020,Shipit1337,Jose Manuel Alonso,starken,TEST336,929609341
+1501636,delivered,delivered,13/3/2020 9:30:58,13/3/2020,Shipit1338,Rafael Ruiz,starken,TEST337,929609209
+1501635,delivered,delivered,13/3/2020 9:30:57,13/3/2020,Shipit1339,Miguel Angel Hernandez,starken,TEST338,929609340
+1501634,delivered,delivered,13/3/2020 9:30:56,13/3/2020,Shipit1340,Pedro Gutierrez,starken,TEST339,929609208
+1501633,delivered,delivered,13/3/2020 9:30:55,13/3/2020,Shipit1341,Angel Blanco,starken,TEST340,929609333
+1501632,delivered,delivered,13/3/2020 9:30:54,13/3/2020,Shipit1342,Antonio Jimenez,starken,TEST341,929609316
+1501631,delivered,delivered,13/3/2020 9:30:53,13/3/2020,Shipit1343,Jose Moreno,starken,TEST342,929609319
+1501630,delivered,delivered,13/3/2020 9:30:52,13/3/2020,Shipit1344,Manuel Muñoz,starken,TEST343,929609339
+1501629,delivered,delivered,13/3/2020 9:30:52,13/3/2020,Shipit1345,Francisco Vazquez,starken,TEST344,929609338
+1501628,delivered,delivered,13/3/2020 9:30:51,13/3/2020,Shipit1346,David Gil,starken,TEST345,929609337
+1501627,delivered,delivered,13/3/2020 9:30:50,13/3/2020,Shipit1347,Juan Dominguez,starken,TEST346,929609331
+1501626,delivered,delivered,13/3/2020 9:30:49,13/3/2020,Shipit1348,Jose Antonio Castro,starken,TEST347,929609193
+1501625,delivered,delivered,13/3/2020 9:30:48,13/3/2020,Shipit1349,Javier Ramos,starken,TEST348,929609332
+1501624,delivered,delivered,13/3/2020 9:30:47,13/3/2020,Shipit1350,Daniel Garcia,starken,TEST349,929609315
+1501623,delivered,delivered,13/3/2020 9:30:46,13/3/2020,Shipit1351,Jose Luis Gonzalez,starken,TEST350,929609318
+1501622,delivered,delivered,13/3/2020 9:30:46,13/3/2020,Shipit1352,Francisco Javier Fernandez,starken,TEST351,929609192
+1501621,delivered,delivered,13/3/2020 9:30:45,13/3/2020,Shipit1353,Carlos Perez,starken,TEST352,929609207
+1501620,delivered,delivered,13/3/2020 9:30:44,13/3/2020,Shipit1354,Jesus Lopez,starken,TEST353,929609317
+1501460,delivered,delivered,13/3/2020 9:30:43,13/3/2020,Shipit1355,Alejandro Rodriguez,starken,TEST354,929609028
+1499339,delivered,delivered,13/3/2020 9:30:42,13/3/2020,Shipit1356,Miguel Martinez,starken,TEST355,929606042
+1495125,delivered,delivered,13/3/2020 9:30:41,13/3/2020,Shipit1357,Jose Manuel Sanchez,starken,TEST356,929561004
+1493995,delivered,delivered,13/3/2020 9:30:40,13/3/2020,Shipit1358,Rafael Gomez,starken,TEST357,929555319
+1493994,delivered,delivered,13/3/2020 9:30:39,13/3/2020,Shipit1359,Miguel Angel Alvarez,starken,TEST358,929555317
+1493993,delivered,delivered,13/3/2020 9:30:39,13/3/2020,Shipit1360,Pedro Martin,starken,TEST359,929555299
+1493992,delivered,delivered,13/3/2020 9:30:38,13/3/2020,Shipit1361,Angel Diaz,starken,TEST360,929555316
+1493991,delivered,delivered,13/3/2020 9:30:37,13/3/2020,Shipit1362,Antonio Alonso,starken,TEST361,929555315
+1493990,delivered,delivered,13/3/2020 9:30:36,13/3/2020,Shipit1363,Jose Ruiz,starken,TEST362,929555318
+1493989,delivered,delivered,13/3/2020 9:30:35,13/3/2020,Shipit1364,Manuel Hernandez,starken,TEST363,929555298
+1493987,delivered,delivered,13/3/2020 9:30:34,13/3/2020,Shipit1365,Francisco Gutierrez,starken,TEST364,929555314
+1493986,delivered,delivered,13/3/2020 9:30:33,13/3/2020,Shipit1366,David Blanco,starken,TEST365,929555312
+1493985,delivered,delivered,13/3/2020 9:30:33,13/3/2020,Shipit1367,Juan Jimenez,starken,TEST366,929555297
+1493984,delivered,delivered,13/3/2020 9:30:32,13/3/2020,Shipit1368,Jose Antonio Moreno,starken,TEST367,929555313
+1493983,delivered,delivered,13/3/2020 9:30:31,13/3/2020,Shipit1369,Javier Muñoz,starken,TEST368,929555310
+1493982,delivered,delivered,13/3/2020 9:30:30,13/3/2020,Shipit1370,Daniel Vazquez,starken,TEST369,929555311
+1493981,delivered,delivered,13/3/2020 9:30:29,13/3/2020,Shipit1371,Jose Luis Gil,starken,TEST370,929555296
+1493695,delivered,delivered,13/3/2020 9:30:28,13/3/2020,Shipit1372,Francisco Javier Dominguez,chilexpress,TEST371,712089842181
+1493694,delivered,delivered,13/3/2020 9:30:27,13/3/2020,Shipit1373,Carlos Castro,chilexpress,TEST372,712089842170
+1493693,delivered,delivered,13/3/2020 9:30:26,13/3/2020,Shipit1374,Jesus Ramos,chilexpress,TEST373,712089842273
+1493692,delivered,delivered,13/3/2020 9:30:26,13/3/2020,Shipit1375,Alejandro Garcia,chilexpress,TEST374,712089842284
+1493691,delivered,delivered,13/3/2020 9:30:25,13/3/2020,Shipit1376,Miguel Gonzalez,chilexpress,TEST375,712089842074
+1493690,delivered,delivered,13/3/2020 9:30:24,13/3/2020,Shipit1377,Jose Manuel Fernandez,chilexpress,TEST376,712089842063
+1493689,delivered,delivered,13/3/2020 9:30:23,13/3/2020,Shipit1378,Rafael Perez,chilexpress,TEST377,712089842133
+1493688,delivered,delivered,13/3/2020 9:30:22,13/3/2020,Shipit1379,Miguel Angel Lopez,chilexpress,TEST378,712089842100
+1493687,delivered,delivered,13/3/2020 9:30:21,13/3/2020,Shipit1380,Pedro Rodriguez,chilexpress,TEST379,712089842214
+1493685,delivered,delivered,13/3/2020 9:30:20,13/3/2020,Shipit1381,Angel Martinez,chilexpress,TEST380,712089842122
+1493684,delivered,delivered,13/3/2020 9:30:20,13/3/2020,Shipit1382,Antonio Sanchez,chilexpress,TEST381,712089842192
+1493683,delivered,delivered,12/3/2020 9:30:20,12/3/2020,Shipit1383,Jose Gomez,chilexpress,TEST382,712089842096
+1493682,delivered,delivered,12/3/2020 9:30:19,12/3/2020,Shipit1384,Manuel Alvarez,chilexpress,TEST383,712089842004
+1493681,delivered,delivered,12/3/2020 9:30:18,12/3/2020,Shipit1385,Francisco Martin,chilexpress,TEST384,712089842111
+1493680,delivered,delivered,12/3/2020 9:30:17,12/3/2020,Shipit1386,David Diaz,chilexpress,TEST385,712089842144
+1493679,delivered,delivered,12/3/2020 9:30:08,12/3/2020,Shipit1387,Juan Alonso,chilexpress,TEST386,712089842052
+1493678,delivered,delivered,12/3/2020 9:30:07,12/3/2020,Shipit1388,Jose Antonio Ruiz,chilexpress,TEST387,712089842203
+1493677,delivered,delivered,12/3/2020 9:30:07,12/3/2020,Shipit1389,Javier Hernandez,chilexpress,TEST388,712089842041
+1493676,delivered,delivered,12/3/2020 9:30:06,12/3/2020,Shipit1390,Daniel Gutierrez,chilexpress,TEST389,712089842262
+1493675,delivered,delivered,12/3/2020 9:30:05,12/3/2020,Shipit1391,Jose Luis Blanco,chilexpress,TEST390,712089842030
+1493674,delivered,delivered,12/3/2020 9:30:04,12/3/2020,Shipit1392,Francisco Javier Jimenez,chilexpress,TEST391,712089842026
+1493673,delivered,delivered,12/3/2020 9:30:03,12/3/2020,Shipit1393,Carlos Moreno,chilexpress,TEST392,712089842015
+1493672,delivered,delivered,12/3/2020 9:30:02,12/3/2020,Shipit1394,Jesus Muñoz,chilexpress,TEST393,712089842251
+1493671,delivered,delivered,12/3/2020 9:30:01,12/3/2020,Shipit1395,Alejandro Vazquez,chilexpress,TEST394,712089842166
+1493670,delivered,delivered,12/3/2020 9:30:01,12/3/2020,Shipit1396,Miguel Gil,chilexpress,TEST395,712089841982
+1493669,delivered,delivered,12/3/2020 9:30:00,12/3/2020,Shipit1397,Jose Manuel Dominguez,chilexpress,TEST396,712089841960
+1493668,delivered,delivered,12/3/2020 9:29:59,12/3/2020,Shipit1398,Rafael Garcia,chilexpress,TEST397,712089841993
+1493667,delivered,delivered,12/3/2020 9:29:58,12/3/2020,Shipit1399,Miguel Angel Gonzalez,chilexpress,TEST398,712089841945
+1493666,delivered,delivered,12/3/2020 9:29:57,12/3/2020,Shipit1400,Pedro Fernandez,chilexpress,TEST399,712089841971
+1493665,delivered,delivered,12/3/2020 9:29:56,12/3/2020,Shipit1401,Angel Perez,chilexpress,TEST400,712089841956
+1489523,delivered,delivered,12/3/2020 9:29:55,12/3/2020,Shipit1402,Antonio Lopez,starken,TEST401,929543289
+1489522,delivered,delivered,12/3/2020 9:29:55,12/3/2020,Shipit1403,Jose Rodriguez,starken,TEST402,929543288
+1489521,delivered,delivered,12/3/2020 9:29:54,12/3/2020,Shipit1404,Manuel Martinez,starken,TEST403,929543287
+1489520,delivered,delivered,12/3/2020 9:29:53,12/3/2020,Shipit1405,Francisco Sanchez,starken,TEST404,929543272
+1489519,delivered,delivered,12/3/2020 9:29:52,12/3/2020,Shipit1406,David Gomez,starken,TEST405,929543273
+1489518,delivered,delivered,12/3/2020 9:29:51,12/3/2020,Shipit1407,Juan Alvarez,starken,TEST406,929543266
+1489517,delivered,delivered,12/3/2020 9:29:50,12/3/2020,Shipit1408,Jose Antonio Martin,starken,TEST407,929543269
+1489516,delivered,delivered,12/3/2020 9:29:49,12/3/2020,Shipit1409,Javier Diaz,starken,TEST408,929543270
+1489515,delivered,delivered,12/3/2020 9:29:48,12/3/2020,Shipit1410,Daniel Alonso,starken,TEST409,929543265
+1489514,delivered,delivered,12/3/2020 9:29:48,12/3/2020,Shipit1411,Jose Luis Ruiz,starken,TEST410,929543268
+1489513,delivered,delivered,12/3/2020 9:29:47,12/3/2020,Shipit1412,Francisco Javier Hernandez,starken,TEST411,929543264
+1489512,delivered,delivered,12/3/2020 9:29:46,12/3/2020,Shipit1413,Carlos Gutierrez,starken,TEST412,929543262
+1489511,delivered,delivered,12/3/2020 9:29:45,12/3/2020,Shipit1414,Jesus Blanco,starken,TEST413,929543261
+1489510,delivered,delivered,12/3/2020 9:29:44,12/3/2020,Shipit1415,Alejandro Jimenez,starken,TEST414,929543246
+1489509,delivered,delivered,12/3/2020 9:29:43,12/3/2020,Shipit1416,Miguel Moreno,starken,TEST415,929543244
+1489508,delivered,delivered,12/3/2020 9:29:42,12/3/2020,Shipit1417,Jose Manuel Muñoz,starken,TEST416,929543260
+1489507,delivered,delivered,12/3/2020 9:29:42,12/3/2020,Shipit1418,Rafael Vazquez,starken,TEST417,929543243
+1489506,delivered,delivered,12/3/2020 9:29:41,12/3/2020,Shipit1419,Miguel Angel Gil,starken,TEST418,929543245
+1489505,delivered,delivered,12/3/2020 9:29:40,12/3/2020,Shipit1420,Pedro Dominguez,starken,TEST419,929543259
+1489504,delivered,delivered,12/3/2020 9:29:39,12/3/2020,Shipit1421,Angel Castro,starken,TEST420,929543258
+1489503,delivered,delivered,12/3/2020 9:29:38,12/3/2020,Shipit1422,Antonio Ramos,starken,TEST421,929543241
+1489502,delivered,delivered,12/3/2020 9:29:37,12/3/2020,Shipit1423,Jose Garcia,starken,TEST422,929543240
+1489501,delivered,delivered,12/3/2020 9:29:36,12/3/2020,Shipit1424,Manuel Gonzalez,starken,TEST423,929543242
+1489500,delivered,delivered,12/3/2020 9:29:36,12/3/2020,Shipit1425,Francisco Fernandez,starken,TEST424,929543257
+1489499,delivered,delivered,12/3/2020 9:29:35,12/3/2020,Shipit1426,David Perez,starken,TEST425,929543239
+1489498,delivered,delivered,12/3/2020 9:29:26,12/3/2020,Shipit1427,Juan Lopez,starken,TEST426,929543238
+1489497,delivered,delivered,12/3/2020 9:29:25,12/3/2020,Shipit1428,Jose Antonio Rodriguez,starken,TEST427,929543256
+1489496,delivered,delivered,12/3/2020 9:29:24,12/3/2020,Shipit1429,Javier Martinez,starken,TEST428,929543255
+1489495,delivered,delivered,12/3/2020 9:29:23,12/3/2020,Shipit1430,Daniel Sanchez,starken,TEST429,929543254
+1489494,delivered,delivered,12/3/2020 9:29:23,12/3/2020,Shipit1431,Jose Luis Gomez,starken,TEST430,929543237
+1489493,delivered,delivered,12/3/2020 9:29:22,12/3/2020,Shipit1432,Francisco Javier Alvarez,starken,TEST431,929543236
+1489492,delivered,delivered,12/3/2020 9:29:21,12/3/2020,Shipit1433,Carlos Martin,starken,TEST432,929543235
+1489491,delivered,delivered,12/3/2020 9:29:20,12/3/2020,Shipit1434,Jesus Diaz,starken,TEST433,929543251
+1489490,delivered,delivered,12/3/2020 9:29:19,12/3/2020,Shipit1435,Alejandro Alonso,starken,TEST434,929543253
+1489489,delivered,delivered,12/3/2020 9:29:18,12/3/2020,Shipit1436,Miguel Ruiz,starken,TEST435,929543252
+1489488,delivered,delivered,12/3/2020 9:29:17,12/3/2020,Shipit1437,Jose Manuel Hernandez,starken,TEST436,929543234
+1489487,delivered,delivered,12/3/2020 9:29:17,12/3/2020,Shipit1438,Rafael Gutierrez,starken,TEST437,929543233
+1489486,delivered,delivered,12/3/2020 9:29:16,12/3/2020,Shipit1439,Miguel Angel Blanco,starken,TEST438,929543250
+1489485,delivered,delivered,12/3/2020 9:29:15,12/3/2020,Shipit1440,Pedro Jimenez,starken,TEST439,929543248
+1489484,delivered,delivered,12/3/2020 9:29:14,12/3/2020,Shipit1441,Angel Moreno,starken,TEST440,929543226
+1489483,delivered,delivered,12/3/2020 9:29:13,12/3/2020,Shipit1442,Antonio Muñoz,starken,TEST441,929543227
+1489482,delivered,delivered,12/3/2020 9:29:12,12/3/2020,Shipit1443,Jose Vazquez,starken,TEST442,929543228
+1489481,delivered,delivered,12/3/2020 9:29:11,12/3/2020,Shipit1444,Manuel Gil,starken,TEST443,929543222
+1489480,delivered,delivered,12/3/2020 9:29:10,12/3/2020,Shipit1445,Francisco Dominguez,starken,TEST444,929543221
+1489479,delivered,delivered,12/3/2020 9:29:10,12/3/2020,Shipit1446,David Castro,starken,TEST445,929543218
+1489478,delivered,delivered,12/3/2020 9:29:09,12/3/2020,Shipit1447,Juan Ramos,starken,TEST446,929543220
+1489477,delivered,delivered,11/3/2020 9:29:09,11/3/2020,Shipit1448,Jose Antonio Garcia,starken,TEST447,929543205
+1489476,delivered,delivered,11/3/2020 9:29:08,11/3/2020,Shipit1449,Javier Gonzalez,starken,TEST448,929543216
+1489475,delivered,delivered,11/3/2020 9:29:07,11/3/2020,Shipit1450,Daniel Fernandez,starken,TEST449,929543203
+1489474,delivered,delivered,11/3/2020 9:29:06,11/3/2020,Shipit1451,Jose Luis Perez,starken,TEST450,929543206
+1489473,delivered,delivered,11/3/2020 9:29:05,11/3/2020,Shipit1452,Francisco Javier Lopez,starken,TEST451,929543199
+1489472,delivered,delivered,11/3/2020 9:29:04,11/3/2020,Shipit1453,Carlos Rodriguez,starken,TEST452,929543201
+1489471,delivered,delivered,11/3/2020 9:29:04,11/3/2020,Shipit1454,Jesus Martinez,starken,TEST453,929543217
+1489470,delivered,delivered,11/3/2020 9:29:03,11/3/2020,Shipit1455,Alejandro Sanchez,starken,TEST454,929543212
+1489469,delivered,delivered,11/3/2020 9:29:02,11/3/2020,Shipit1456,Miguel Gomez,starken,TEST455,929543204
+1489468,delivered,delivered,11/3/2020 9:29:01,11/3/2020,Shipit1457,Jose Manuel Alvarez,starken,TEST456,929543196
+1489467,delivered,delivered,11/3/2020 9:29:00,11/3/2020,Shipit1458,Rafael Martin,starken,TEST457,929543198
+1489466,delivered,delivered,11/3/2020 9:28:59,11/3/2020,Shipit1459,Miguel Angel Diaz,starken,TEST458,929543219
+1489465,delivered,delivered,11/3/2020 9:28:58,11/3/2020,Shipit1460,Pedro Alonso,starken,TEST459,929543211
+1489464,delivered,delivered,11/3/2020 9:28:58,11/3/2020,Shipit1461,Angel Ruiz,starken,TEST460,929543197
+1489463,delivered,delivered,11/3/2020 9:28:57,11/3/2020,Shipit1462,Antonio Hernandez,starken,TEST461,929543195
+1489462,delivered,delivered,11/3/2020 9:28:56,11/3/2020,Shipit1463,Jose Gutierrez,starken,TEST462,929543194
+1489461,delivered,delivered,11/3/2020 9:28:55,11/3/2020,Shipit1464,Manuel Blanco,starken,TEST463,929543186
+1489460,delivered,delivered,11/3/2020 9:28:54,11/3/2020,Shipit1465,Francisco Jimenez,starken,TEST464,929543184
+1489459,delivered,delivered,11/3/2020 9:28:53,11/3/2020,Shipit1466,David Moreno,starken,TEST465,929543193
+1489458,delivered,delivered,11/3/2020 9:28:52,11/3/2020,Shipit1467,Juan Muñoz,starken,TEST466,929543210
+1489457,delivered,delivered,11/3/2020 9:28:51,11/3/2020,Shipit1468,Jose Antonio Vazquez,starken,TEST467,929543209
+1489456,delivered,delivered,11/3/2020 9:28:43,11/3/2020,Shipit1469,Javier Gil,starken,TEST468,929543208
+1489455,delivered,delivered,11/3/2020 9:28:42,11/3/2020,Shipit1470,Daniel Dominguez,starken,TEST469,929543207
+1489454,delivered,delivered,11/3/2020 9:28:41,11/3/2020,Shipit1471,Jose Luis Castro,starken,TEST470,929543191
+1489453,delivered,delivered,11/3/2020 9:28:40,11/3/2020,Shipit1472,Francisco Javier Ramos,starken,TEST471,929543185
+1489452,delivered,delivered,11/3/2020 9:28:39,11/3/2020,Shipit1473,Carlos Garcia,starken,TEST472,929543192
+1489432,delivered,delivered,11/3/2020 9:28:38,11/3/2020,Shipit1474,Jesus Gonzalez,chilexpress,TEST473,712089606966
+1489431,delivered,delivered,11/3/2020 9:28:38,11/3/2020,Shipit1475,Alejandro Fernandez,chilexpress,TEST474,712089606885
+1489430,delivered,delivered,11/3/2020 9:28:37,11/3/2020,Shipit1476,Miguel Perez,chilexpress,TEST475,712089606933
+1489429,delivered,delivered,11/3/2020 9:28:36,11/3/2020,Shipit1477,Jose Manuel Lopez,chilexpress,TEST476,712089606852
+1489428,delivered,delivered,11/3/2020 9:28:35,11/3/2020,Shipit1478,Rafael Rodriguez,chilexpress,TEST477,712089606900
+1489427,delivered,delivered,11/3/2020 9:28:34,11/3/2020,Shipit1479,Miguel Angel Martinez,chilexpress,TEST478,712089606896
+1489426,delivered,delivered,11/3/2020 9:28:33,11/3/2020,Shipit1480,Pedro Sanchez,chilexpress,TEST479,712089606830
+1489425,delivered,delivered,11/3/2020 9:28:32,11/3/2020,Shipit1481,Angel Gomez,chilexpress,TEST480,712089606863
+1489424,delivered,delivered,11/3/2020 9:28:32,11/3/2020,Shipit1482,Antonio Alvarez,chilexpress,TEST481,712089606826
+1489423,delivered,delivered,11/3/2020 9:28:31,11/3/2020,Shipit1483,Jose Martin,chilexpress,TEST482,712089606874
+1489422,delivered,delivered,11/3/2020 9:28:30,11/3/2020,Shipit1484,Manuel Diaz,chilexpress,TEST483,712089606815
+1489421,delivered,delivered,11/3/2020 9:28:29,11/3/2020,Shipit1485,Francisco Alonso,chilexpress,TEST484,712089606841
+1489419,delivered,delivered,11/3/2020 9:28:28,11/3/2020,Shipit1486,David Ruiz,chilexpress,TEST485,712089608484
+1489418,delivered,delivered,11/3/2020 9:28:27,11/3/2020,Shipit1487,Juan Hernandez,chilexpress,TEST486,712089608473
+1489417,delivered,delivered,11/3/2020 9:28:26,11/3/2020,Shipit1488,Jose Antonio Gutierrez,chilexpress,TEST487,712089608436
+1489416,delivered,delivered,11/3/2020 9:28:26,11/3/2020,Shipit1489,Javier Blanco,chilexpress,TEST488,712089608462
+1489415,delivered,delivered,11/3/2020 9:28:25,11/3/2020,Shipit1490,Daniel Jimenez,chilexpress,TEST489,712089608440
+1489414,delivered,delivered,11/3/2020 9:28:24,11/3/2020,Shipit1491,Jose Luis Moreno,chilexpress,TEST490,712089608403
+1489413,delivered,delivered,11/3/2020 9:28:23,11/3/2020,Shipit1492,Francisco Javier Muñoz,chilexpress,TEST491,712089608495
+1489412,delivered,delivered,11/3/2020 9:28:22,11/3/2020,Shipit1493,Carlos Vazquez,chilexpress,TEST492,712089608425
+1489411,delivered,delivered,11/3/2020 9:28:21,11/3/2020,Shipit1494,Jesus Gil,chilexpress,TEST493,712089608580
+1489410,delivered,delivered,11/3/2020 9:28:20,11/3/2020,Shipit1495,Alejandro Dominguez,chilexpress,TEST494,712089608414
+1489409,delivered,delivered,11/3/2020 9:28:19,11/3/2020,Shipit1496,Miguel Castro,chilexpress,TEST495,712089608381
+1489408,delivered,delivered,11/3/2020 9:28:19,11/3/2020,Shipit1497,Jose Manuel Ramos,chilexpress,TEST496,712089608392
+1489407,delivered,delivered,11/3/2020 9:28:18,11/3/2020,Shipit1498,Rafael Garcia,chilexpress,TEST497,712089608366
+1489406,delivered,delivered,11/3/2020 9:28:17,11/3/2020,Shipit1499,Miguel Angel Gonzalez,chilexpress,TEST498,712089608370
+1489404,delivered,delivered,11/3/2020 9:28:16,11/3/2020,Shipit1500,Pedro Fernandez,chilexpress,TEST499,712089608355
+1489403,delivered,delivered,11/3/2020 9:28:15,11/3/2020,Shipit1501,Angel Perez,chilexpress,TEST500,712089608333

@@ -1,0 +1,129 @@
+script id='packageCheckoutModal.html' type='text/ng-template'
+  .modal-header
+    div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' ng-repeat='alert in alerts' uib-alert=''
+      | {{ alert.msg }}
+    h2 Resumen envío
+  .modal-body.mb-1 
+    .row
+      .container-fluid
+        .col-lg-12.col-sm-12
+          .card
+            .card-block
+              .p-t-2.p-b-2.clearfix
+                h2 Detalle del Envío
+                p.m-b-0.pull-right = Time.current.strftime('%d-%m-%Y %H:%M')
+                table.table.table-striped
+                  tr
+                    td.fw-900 #{I18n.t('activerecord.attributes.package.full_name')}:
+                    td
+                      | {{package.full_name}}
+                  tr
+                    td.fw-900 #{I18n.t('activerecord.attributes.package.email')}:
+                    td
+                      | {{package.email}}
+                  tr
+                    td.fw-900 #{I18n.t('activerecord.attributes.package.cellphone')}:
+                    td
+                      | {{package.cellphone}}
+                  tr
+                    td.fw-900 #{I18n.t('activerecord.attributes.address.name')}:
+                    td
+                      | {{package.address_attributes.full}}
+                  - if rollout(:general)
+                    tr
+                      td.fw-900 #{I18n.t('activerecord.attributes.package.purchase.max_insurance')}:
+                      td
+                        | {{ package.insurance.maxSecure || 0 | currency:'$':0 }}
+                    tr  
+                      td.fw-900 #{I18n.t('activerecord.attributes.package.purchase.insurance_price')}:
+                      td
+                        | {{ package.insurance.price || 0 | currency:'$':0 }}
+    .row
+      .container-fluid
+        .col-lg-12.col-sm-12
+          .card
+            .table-responsive
+              table.table.table-bordered.m-b-0
+                thead
+                  tr
+                    th #{I18n.t('activerecord.attributes.package.reference')}
+                    th #{I18n.t('activerecord.attributes.package.packing')}
+                    th.text-center #{I18n.t('activerecord.attributes.package.items_count')}
+                    th #{I18n.t('activerecord.attributes.package.shipping_type')}
+                    th #{I18n.t('activerecord.attributes.package.destiny')}
+                tbody
+                  tr
+                    td 
+                      | {{ package.reference }}
+                    td 
+                      | {{ package.packing }}
+                    td.text-center 
+                      | {{ package.items_count }}
+                    td 
+                      | {{ package.shipping_type }}
+                    td 
+                      | {{ package.destiny }}
+    .row ng-if='hasFulfillment'
+      .container-fluid
+        .col-lg-12.col-sm-12
+          .card
+            .card-block ng-if='hasFulfillment'
+              h2
+                | SKU’s Agregados
+              table.table.table-bordered.m-b-0
+                thead
+                  tr
+                    th
+                      | #
+                    th = I18n.t('activerecord.attributes.package.inventory_activity.inventory_activity_orders_attributes.sku_id')
+                    th = I18n.t('activerecord.attributes.package.inventory_activity.inventory_activity_orders_attributes.amount')
+                tbody
+                  tr ng-repeat='sku in skus track by $index'
+                    td
+                      | {{ ($index + 1) }}
+                    td
+                      | {{ sku.name }}
+                    td
+                      | {{ sku.qty }}
+    .row ng-if='objectPrices.prices.length > 0' ng-hide='loading'
+      .container-fluid
+        .col-lg-12.col-sm-12
+          .card
+            .card-block
+              .table-responsive ng-show="objectPrices.prices.length"
+                table.table.table-striped
+                  thead
+                    tr
+                      th 
+                      th = I18n.t("calculator.attributes.courier")
+                      th = I18n.t("calculator.attributes.delivery_time")
+                      th = I18n.t("calculator.attributes.pv")
+                      th = I18n.t("calculator.attributes.total")
+                  tbody
+                    tr ng-repeat="priceAvaliables in objectPrices.prices"
+                      td ng-init='selectedPrice(priceAvaliables, objectPrices.minPrice, package.courier_for_client)'
+                        input type='radio' ng-change='updateCourierForClient(priceAvaliables, objectPrices.prices)' ng-checked='priceAvaliables.selected' name='courier_for_client' ng-value='{{priceAvaliables.courier.name}}' ng-model='package.courier_for_client'
+                      td
+                        img class="courier-logo" alt="{{priceAvaliables.courier.name}}" ng-src="/{{priceAvaliables.courier.name}}.png"
+                      td
+                        | {{ priceAvaliables.days }} {{ (priceAvaliables.days == 1) ? "día" : "días" }}
+                      td
+                        | {{ priceAvaliables.volumetric_weight }}
+                      td
+                        | {{ priceAvaliables.price | currency:'$':0 }}
+              p
+                | * Esta elección está dada por la configuración predeterminada que tienes en tu cuenta. Para cambiarla, ingresa a 
+                a style="color:#00C2DE" href="/settings#general" Configuraciones > General > Regla de elección de Courier Predeterminada
+                |.
+
+  .modal-footer
+    .row 
+      .container-fluid
+        .col-lg-12.col-sm-12
+          - if action_name == 'new' 
+            button.btn.btn-primary.btn-block.pull-right ladda='loading' ng-click='generatePackage()' Confirmar envío
+          - if action_name == 'return'
+            button.btn.btn-primary.btn-block.pull-right ladda='loading' ng-click='generateReturnPackage()' Confirmar devolución
+          - if action_name == 'edit'
+            button.btn.btn-primary.btn-block.pull-right ladda='loading' ng-click='editPackage()' Aceptar
+          

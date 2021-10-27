@@ -1,0 +1,50 @@
+- breadcrumb :charges_fulfillment
+.row
+  .col-md-12
+    .card
+      .card-block
+        .row.mb-20
+          .col-md-6
+            h2.card-title = I18n.t('activerecord.attributes.charges.fulfillment.title')
+          .col-md-4
+          .col-md-2
+            button.btn.btn-success.dropdown-toggle.btn-block type='button' data-toggle='dropdown' aria-expanded='false'
+              | Opciones
+              span.caret
+            .dropdown-menu role='menu'
+              = link_to 'Descargar Cobros', fulfillment_year_xls_charges_path((params[:year].present? ? params[:year] : Date.current.year)), class: 'dropdown-item', target: '_blank'
+              span.divider
+              = link_to 'Volver', root_path, class: 'dropdown-item'
+        hr
+        .row
+          .col-md-3.offset-md-9.text-right
+            = navigation_ff_by_year(@date)
+        .row.mb-20
+        - if @charges_by_month.empty?
+          p.alert.alert-danger = I18n.t('activerecord.attributes.charges.fulfillment.empty')
+        - else
+          table.table.table-hover.table-striped
+            thead
+              tr
+                th = I18n.t('activerecord.attributes.charges.fulfillment.month')
+                th = I18n.t('activerecord.attributes.charges.fulfillment.in')
+                th = I18n.t('activerecord.attributes.charges.fulfillment.stock')
+                th = I18n.t('activerecord.attributes.charges.fulfillment.out')
+                th = I18n.t('activerecord.attributes.charges.fulfillment.other_services')
+                th = I18n.t('activerecord.attributes.charges.fulfillment.premium')
+                th = I18n.t('activerecord.attributes.charges.fulfillment.recurrent_charge')
+                th = I18n.t('activerecord.attributes.charges.fulfillment.shipping_cost')
+                th = I18n.t('activerecord.attributes.charges.fulfillment.total')
+            tbody
+              - @charges_by_month.each do |month_charge|
+                tr
+                  td = link_to l(Date.parse(month_charge[0]), format: '%B %Y'), fullfilment_by_month_charges_path(Date.parse(month_charge[0]).year, Date.parse(month_charge[0]).month)
+                  td = number_to_currency(month_charge[1][:in].try(:round))
+                  td = number_to_currency(month_charge[1][:stock].try(:round))
+                  td = number_to_currency(month_charge[1][:out].try(:round))
+                  td = number_to_currency(month_charge[1][:others].try(:round))
+                  td = number_to_currency(month_charge[1][:premium].try(:round))
+                  td = number_to_currency(month_charge[1][:recurrent_charge].try(:round))
+                  td = link_to number_to_currency(sum_shipments(month_charge[1])), fulfillment_month_packages_charges_path(Date.parse(month_charge[0]).year, Date.parse(month_charge[0]).month)
+                  td
+                    strong = number_to_currency(sum_charges(month_charge[1][:stock], month_charge[1]))

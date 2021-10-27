@@ -1,0 +1,79 @@
+- breadcrumb :labels
+div ng-controller='LabelsIndexController' ng-init='setDate("#{@from_date}", "#{@to_date}"); getLabels()'
+  div uib-alert='' ng-repeat='alert in alerts track by $index' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='6000' close="closeAlert($index)" {{alert.message}}
+  .card
+    .card-block
+      .row
+        .col-md-6
+          h2.card-title
+            = I18n.t('labels.index.title')
+            i#operation-help.ml-20.fas.fa-info-circle.pointer data-container='body' data-toggle='popover' title='Indicaciones Importantes!' data-placement='right' data-content='{{helpMessage}}'
+        .col-md-2.text-center
+          div ng-if='countPackages >= 1' ng-hide='countPackages < 1 || (countPackages > 200 && printer.format == "zpl" && printer.kind_of_print == "download") || (countPackages > 200 && printer.format == "zpl" && printer.kind_of_print == "print_node")'
+            button.btn.btn-success.btn-sm.animated.fadeIn.mr-10.fs-18 ng-click='printLabels()' tooltip-placement='top' uib-tooltip="#{I18n.t('labels.index.tooltips.print')}" tooltip-popup-delay='500'
+              i.fas.fa-print
+        - if rollout(:pack)
+          .col-md-2
+            = link_to pack_labels_path, class: 'btn btn-success pull-right', data: { turbolinks: :false } do
+              i.far.fa-scanner.mr-10
+              | Impresión por código
+        .col-md-2
+          button.btn.btn-success.pull-right ng-click='lunchXlsxOrderModal()'
+            i.fas.fa-sort-amount-down.mr-10
+            | Ordenar e Imprimir
+      hr
+        .col-md-12
+          = render 'search'
+  .card
+    .card-block
+      .row
+        .col-md-12
+          .table-sizes-container
+            table.table.table-labels
+              thead
+                tr
+                  th
+                    label.custom-control.custom-checkbox tooltip-placement='top' uib-tooltip="#{I18n.t('labels.index.tooltips.select_all')}" tooltip-popup-delay='100'
+                      = check_box_tag 'all', true, false, class: 'custom-control-input', 'ng-click' => 'addAll()'
+                      span.custom-control-indicator
+                      span.custom-control-description
+                  th = I18n.t('labels.index.table.reference')
+                  th = I18n.t('labels.index.table.full_name')
+                  th = I18n.t('labels.index.table.commune')
+                  th = I18n.t('labels.index.table.destiny')
+                  th = I18n.t('labels.index.table.courier_for_client')
+                  th = I18n.t('labels.index.table.tracking_number')
+                  th = I18n.t('labels.index.table.created_at')
+                  th = I18n.t('labels.index.table.label_printed')
+                  th
+              tbody
+                tr ng-repeat='package in packages'
+                  td
+                    label.custom-control.custom-checkbox
+                      = check_box_tag "packages[{{package.id}}][package[check]]", true, false, class: 'custom-control-input', 'ng-model' => 'package.check', 'ng-change' => 'count(package.check)'
+                      span.custom-control-indicator
+                      span.custom-control-description
+                  td
+                    | {{package.reference}}
+                  td 
+                    span.pointer tooltip-placement='top' uib-tooltip='{{package.full_name}}'
+                      | {{ package.full_name | limitTo:15 }}
+                    span ng-if='package.full_name.length > 15' ...
+                  td
+                    | {{package.commune_name | titleize}}
+                  td
+                    | {{package.destiny | titleize}}
+                  td
+                    img.courier-labels-logo alt="{{package.courier}}" ng-src="{{getIcon(package.courier)}}"
+                  td
+                    | {{package.tracking_number}}
+                  td
+                    | {{package.created_at | date }}
+                  td.text-center
+                    span.label class='{{statusColor(package.label_printed)}}'
+                      | {{package.label_printed | parseBoolean  }}
+        .row.mt-20
+          .col-md-12.col-sm-12.text-center
+            ul.pagination ng-change='getLabels()' total-items='totalLabels' items-per-page='search.per' ng-model='search.page' max-size='5' boundary-link-numbers='true' first-text='Primera' last-text='Última' previous-text='Anterior' next-text='Siguiente' uib-pagination='' template-url='pagination.html'
+= render 'shared/pagination'
+= render 'xlsx_modal'

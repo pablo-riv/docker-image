@@ -1,0 +1,87 @@
+.row
+  .col-md-5
+    .card
+      .card-block
+        h2 = I18n.t('dashboard.titles.welcome')
+        h4 = I18n.t('dashboard.subtitles.save_time')
+        .row
+          .col-md-5.col-sm-6
+            i.i-retiro
+          .col-md-7.col-sm-6
+            button.btn.btn-success.dropdown-toggle type='button' data-toggle='dropdown' aria-expanded='false'
+              | Solicita tu retiro
+              span.caret
+            .dropdown-menu role='menu'
+              = link_to t('packages.new.add_request'), new_headquarter_package_path, class: 'dropdown-item', target: '_blank', data: { turbolinks: :false }
+              .dropdown-divider
+              = link_to t('packages.new.google_sheet'), current_account.entity_specific.google_sheet_link, class: 'dropdown-item', target: '_blank', data: { turbolinks: :false }
+              
+  .col-md-7
+    .card
+      .card-block.kpi
+        .row.text-center
+          .col-md-4.col-sm-4
+            i.ahorro
+            h4.b
+              = @report[:total_saved_time]
+              |  Minutos
+            h5.hidden-sm-down.hidden-xs-down = I18n.t('dashboard.indicators.total_time_saved')
+          .col-md-4.col-sm-4
+            i.dias
+            h4.b = week_day(@report[:best_day_of_week]) || 'Sin Información'
+            h5.hidden-sm-down.hidden-xs-down = I18n.t('dashboard.indicators.day_with_more_shipments')
+          .col-md-4.col-sm-4
+            i.region
+            h4.b = @report[:most_region_package] || 'Sin Información'
+            h5.hidden-sm-down.hidden-xs-down = I18n.t('dashboard.indicators.region_with_more_shipments')
+
+.row
+  .col-md-12.col-sm-12
+    .card
+      .card-block
+        h2.card-title = I18n.t('dashboard.titles.total_shipments')
+        .row.text-center.pt-20
+          .col-md-3.col-sm-6
+            = link_to(headquarter_packages_path, { by_status: 'in_preparation' })
+              span.process.estado = @states[:in_preparation]
+              h5 = I18n.t('dashboard.indicators.statuses.in_preparation')
+          .col-md-3.col-sm-6
+            = link_to(headquarter_packages_path, { by_status: 'in_route' })
+              span.route.estado = @states[:in_route]
+              h5 = I18n.t('dashboard.indicators.statuses.in_route')
+          .col-md-3.col-sm-6
+            = link_to(headquarter_packages_path, { by_status: 'delivered' })
+              span.delivery.estado  = @states[:delivered]
+              h5 = I18n.t('dashboard.indicators.statuses.delivered')
+          .col-md-3.col-sm-6
+            = link_to(headquarter_packages_path, { by_status: 'failed' })
+              span.fail.estado = @states[:failed]
+              h5 = I18n.t('dashboard.indicators.statuses.failed')
+
+.row
+  .col-md-12
+    .card
+      .card-block
+        .row
+          .col-md-12.table-responsive
+            h2 = I18n.t('dashboard.titles.last_shipments')
+            table.table.table-striped
+              thead
+                tr
+                  th = I18n.t('activerecord.attributes.package.id')
+                  th = I18n.t('activerecord.attributes.package.created_at')
+                  th = I18n.t('activerecord.attributes.package.full_name')
+                  th = I18n.t('activerecord.attributes.commune.name')
+                  th = I18n.t('activerecord.attributes.package.tracking_number')
+                  th = I18n.t('activerecord.attributes.package.status')
+              tbody
+                - @report[:prices_by_package].each_with_index do |package, index|
+                  tr
+                    td
+                      a href='/headquarter/packages/#{package.id}' data-turbolinks='false'
+                        = package.reference
+                    td = package.created_at.strftime('%d/%m/%Y %H:%M')
+                    td = package.try(:full_name).try(:titleize) || 'Sin Nombre'
+                    td = package.commune.try(:name).try(:titleize) || 'Sin Comuna'
+                    td = courier_tracking_link(package)
+                    td = current_status_for(package)

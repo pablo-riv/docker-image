@@ -1,0 +1,1 @@
+json.extract! insurance, :id, :ticket_amount, :ticket_number, :extra, :price, :detail, :package_id, :created_at, :updated_at, :active

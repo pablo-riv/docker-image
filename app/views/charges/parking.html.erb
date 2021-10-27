@@ -1,0 +1,38 @@
+<% breadcrumb :charges_parking_fines %>
+
+<div class="card">
+  <div class="card-block">
+    <h2>Estacionamiento </h2>
+    <hr>
+
+    <% if @parking_fines.empty? %>
+      <p class="alert alert-danger">No existen registros de pagos por estacionamiento</p>
+    <% else %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Héroe</th>
+            <th>Monto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @parking_fines.each do |fine| %>
+            <tr>
+              <td>
+                <%= l fine.date, format: '%d %B %Y' %>
+              </td>
+              <td>
+                <%= fine.comment %>
+              </td>
+              <td>
+                <%= number_to_currency(fine.amount) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+    <%= link_to 'Volver', pickandpack_charges_path, class: 'btn btn-default pull-right' %>
+  </div>
+</div>

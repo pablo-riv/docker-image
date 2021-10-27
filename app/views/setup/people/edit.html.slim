@@ -1,0 +1,44 @@
+.layout-md
+  .layout-column-md
+    .tsf-wizard.tsf-wizard-1.top data-step-index="0"
+      = render 'shared/wizard_steps'
+      .tsf-container
+        = semantic_form_for(@person, url: setup_person_path) do |f|
+          .tsf-content.card style="height: auto; overflow-y: auto;"
+            .tsf-step.step-3.active
+              fieldset
+                legend Ingresa la información necesaria para el servicio logístico.
+                h4 A esta persona le enviaremos los números de seguimiento, notificaciones, alertas, etc.
+                legend Datos Personales
+                .row
+                  .form-group.col-md-3
+                    = f.input :first_name, autofocus: true, class: 'form-control', placeholder: 'Nelson Patricio', label: 'Nombres', input_html: { required: true }
+                  .form-group.col-md-3
+                    = f.input :last_name, autofocus: true, class: 'form-control', placeholder: 'Jimenez', label: 'Apellidos', input_html: { required: true }
+                  .form-group.col-md-3
+                    = f.input :phone, autofocus: true, class: 'form-control', placeholder: '+569 123456789', label: 'Número de contacto', input_html: { required: true, pattern: '.{8,}', title: 'Debes ingresar un número de teléfono válido' }
+                .row
+                =semantic_fields_for :emails do |e|
+                  .form-group.col-md-6
+                    = e.input :email_notification, autofocus: true, class: 'form-control', label: 'Correo para Notificaciones', input_html: { required: true, class: 'emails', value: @email }
+                legend Dirección de Retiro
+                .row
+                fieldset
+                  = content_tag :div, id: 'retirement-address' do
+                    = f.semantic_fields_for :retirement_address do |a|
+                      .col-md-3
+                        = a.input :commune_id, autofocus: true, label: 'Comuna', class: 'form-select', as: :select, collection: @communes, input_html: { required: true }
+                      .col-md-3
+                        = a.input :street, autofocus: true, placeholder: 'Ej: Asturias', label: 'Calle', input_html: { required: true }
+                      .col-md-3
+                        = a.input :number, autofocus: true, placeholder: 'Ej: 103', label: 'Número', input_html: { min: 0, required: true }
+                      .col-md-3
+                        = a.input :complement, autofocus: true, placeholder: 'Depto 220', label: 'Complemento';
+                      .col-md-3
+                        =a.input :parking_isreachable, as: :select, collection: option_parking, label: 'Estacionamiento', input_html: { required: true }
+                      .col-md-3
+                        =a.input :get_to_parking, label: 'Indicación breve para llegar al lugar', input_html: { required: true }
+            hr.spaces
+            .tsf-controls
+              = f.submit 'Guardar y Continuar', class: 'btn tsf-wizard-btn', id: 'btn-setup-company'
+              = link_to 'Volver atras', setup_company_path, class: 'btn'

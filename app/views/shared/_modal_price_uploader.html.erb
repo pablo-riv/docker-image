@@ -1,0 +1,46 @@
+<%= form_tag(service_setting_import_path(@service.id, @setting.id), method: :post, multipart: true, id: "import-price") do %>
+  <input type="hidden" name="setting[courier_id]" id="courier-id">
+  <div class="modal fade modal-prices" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-prices">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">Subir CSV <i id="modal-title-prices"></i></h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-12 col-sm-12">
+              <span class="btn btn-warning btn-icon fileinput-button m-b-1 hidden" id="csv-cxp">
+                <i class="fas fa-plus"></i>
+                <span>Selecciona CSV con precios de Chilexpress...</span>
+                <%= file_field_tag :CXP_prices, id: "CXP_prices" %>
+              </span>
+
+              <span class="btn btn-success btn-icon fileinput-button m-b-1 hidden" id="csv-stk">
+                <i class="fas fa-plus"></i>
+                <span>Selecciona CSV con precios de Starken...</span>
+                <%= file_field_tag :STK_prices, id: "STK_prices" %>
+              </span>
+
+              <span class="btn btn-danger btn-icon fileinput-button m-b-1 hidden" id="csv-cc">
+                <i class="fas fa-plus"></i>
+                <span>Selecciona CSV con precios de Correos de Chile...</span>
+                <%= file_field_tag :CC_prices, id: "CC_prices" %>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-sm-12 table-container">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary m-r-xs m-b-xs" data-dismiss="modal">Cancelar</button>
+          <%= submit_tag "Guardar y Confirmar", class: "btn btn-outline-primary m-r-xs m-b-xs" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,62 @@
+.row ng-controller='PackagesReturnsActivesController' ng-init='loadReturns()'
+  .col-md-12
+    .col-xl-10.col-lg-8.col-md-8.col-sm-5.col-xs-1.pt-20.pb-40
+      .fl-r
+        -if rollout(:self_management) && !@company.fulfillment?
+          .tooltip-wrapper title="{{countPackageChecked() == 0 ? '#{I18n.t('returns.actives.buttons.no_packages')}' : countPackageChecked() + ' ' + '#{I18n.t('returns.actives.buttons.selected')}' }}"
+            = button_tag I18n.t('returns.actives.buttons.return'), class: 'btn btn-danger btn-sm absolute', 'ng-click' => 'openReturnConfirmation()', 'ng-disabled' => 'countPackageChecked() == 0'
+  .col-md-12
+    .table-sizes-container
+      .text-center ng-if='countPackages() == 0'
+        label = I18n.t('returns.actives.no_returns')
+      table.table.table-labels ng-if='countPackages() > 0'
+        thead
+          -if rollout(:self_management) && !@company.fulfillment?
+            th.text-center.w-20
+              label.custom-control.custom-checkbox tooltip-placement='top' uib-tooltip="#{I18n.t('labels.index.tooltips.select_all')}" tooltip-popup-delay='100' 
+                = check_box_tag 'all', true, false, class: 'custom-control-input', 'ng-click' => 'addAll()'
+                span.custom-control-indicator
+                span.custom-control-description
+          th.text-center.w-300 ng-click='sort("created_at")'
+            = I18n.t('returns.actives.table.headers.return_created_at')
+            i.ml-20.fas.fa-caret-down aria-hidden='true' ng-class='{"fa-caret-up": reverse == false && property == "created_at" }'
+          th.text-center ng-click='sort("id")'
+            = I18n.t('returns.actives.table.headers.reference')
+            i.ml-20.fas.fa-caret-down aria-hidden='true' ng-class='{"fa-caret-up": reverse == false && property == "id" }'
+          th.text-center = I18n.t('returns.actives.table.headers.full_name')
+          th.text-center = I18n.t('returns.actives.table.headers.status')
+          th.text-center ng-click='sort("comments")'
+            = I18n.t('returns.actives.table.headers.comments')
+            i.ml-20.fas.fa-caret-down aria-hidden='true' ng-class='{"fa-caret-up": reverse == false && property == "comments" }'
+          - if rollout(:self_management) && !@company.fulfillment?
+            th.text-center = I18n.t('returns.actives.table.headers.return')
+        tbody
+          tr.h-20 ng-repeat='package in packages | filter:search.reference |  orderBy:property:reverse'
+            - if rollout(:self_management) && !@company.fulfillment?
+              td.text-center.w-20
+                label.custom-control.custom-checkbox
+                  = check_box_tag "packages[{{package.id}}][package[check]]", true, false, class: 'custom-control-input', 'ng-model' => 'package.check', 'ng-disabled' => 'countPackageChecked() == 20 && !package.check'
+                  span.custom-control-indicator
+                  span.custom-control-description
+            td.text-center
+              | {{ package.return_created_at | date:'dd-MM-yyyy HH:mm' }}
+            td.text-center
+              a ng-href='/packages/{{package.id}}' data-turbolinks='false' target='_blank'
+                | {{ package.reference }}
+            td.text-center
+              | {{ package.full_name }}
+            td.text-center ng-init='getStatus(package)'
+              span.label class='{{package.statusKlass}}'
+                | {{ package.statusName }}
+            td.text-center
+              a.btn-outline-primary.br-5.btn-sm.p-0 ng-if='package.comments.length > 0' popover-trigger="'mouseenter'" uib-popover='{{package.comments}}' popover-title='Comentarios' data-turbolinks='false' Ver 
+              span ng-if='package.comments == null'
+                = I18n.t('returns.actives.no_coments')
+            -if rollout(:self_management) && !@company.fulfillment?
+              td.text-center
+                a.fas.fa-undo.mr-10 ng-href='/returns/packages/new/{{package.id}}' data-turbolinks='false'
+    .row.mt-20
+      .col-md-12.col-sm-12.text-center
+        ul.pagination ng-change='loadReturns()' total-items='totalReturns' items-per-page='search.per' ng-model='search.page' max-size='5' boundary-link-numbers='true' first-text='Primera' last-text='Última' previous-text='Anterior' next-text='Siguiente' uib-pagination='' template-url='pagination.html'
+= render 'shared/pagination'
+= render 'shared/modal_return_confirmation'

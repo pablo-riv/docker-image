@@ -1,0 +1,3 @@
+fastgroup:
+  classes: ManifestWorker
+  workers: 4 # add to base configuration

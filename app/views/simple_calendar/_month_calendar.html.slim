@@ -1,0 +1,39 @@
+.simple-calendar
+  .calendar-heading
+    .col-md-2
+      h2.calendar-title.pt-10
+        = link_to calendar.url_for_previous_view, data: { turbolinks: false } do
+          i.fas.fa-angle-left
+        | &nbsp;
+        = "#{t('date.month_names')[start_date.month]} #{start_date.year}"
+        | &nbsp;
+        = link_to calendar.url_for_next_view, data: { turbolinks: false } do
+          i.fas.fa-angle-right
+    .col-md-10.calendar-filters
+      = form_tag monitor_packages_path, method: 'GET', class: 'row form-inline' do
+        = hidden_field_tag :start_date, params[:start_date] || Date.current
+        .form-group.col-md-3
+          = select_tag :from_courier, options_for_select((Package::COURIERS + [['Todos los couriers', '']]), (params[:from_courier] || '')), class: 'form-control'
+        .form-group.col-md-3
+          button.btn.btn-primary.pt-10 type='submit'
+            i.fas.fa-search
+          | &nbsp;
+          | &nbsp;
+          = link_to monitor_packages_path, class: 'btn btn-info pt-10' do
+            i.fas.fa-broom
+
+        
+  table.table.table-striped
+    thead
+      tr
+        - date_range.slice(0, 7).each do |day|
+          th= t('date.abbr_day_names')[day.wday]
+    tbody
+      - date_range.each_slice(7) do |week|
+        tr
+          - week.each do |day|
+            = content_tag :td, class: calendar.td_classes_for(day) do
+              - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block)
+                - capture_haml(day, sorted_events.fetch(day, []), &block)
+              - else
+                - block.call day, sorted_events.fetch(day, [])

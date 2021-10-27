@@ -1,0 +1,17 @@
+script id='emails_base_format.html' type='text/ng-template'
+  .modal-header
+    div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' ng-repeat='alert in alerts' uib-alert=''
+      | {{ alert.message }}
+    h2 = I18n.t('notifications.modals.security_stock.title')
+  .modal-body
+    .row
+      .col-md-6
+
+      .col-md-6
+
+  .modal-footer
+    .row
+      .col-md-6
+      .col-md-6
+        button.btn.btn-danger.btn-sm.mr-20 ng-click='cancel()' = I18n.t('notifications.modals.security_stock.button.cancel')
+        button.btn.btn-success.btn-sm ng-click='updateMinStock(skus)' = I18n.t('notifications.modals.security_stock.button.success')

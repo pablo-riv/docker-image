@@ -1,0 +1,24 @@
+.col-md-12
+  .table-responsive
+    table.table.table-striped.table-white-color
+      thead
+        tr
+          th = I18n.t('activerecord.attributes.package.id')
+          th = I18n.t('activerecord.attributes.package.created_at')
+          th = I18n.t('activerecord.attributes.package.full_name')
+          th = I18n.t('activerecord.attributes.package.shipping_price')
+          th = I18n.t('activerecord.attributes.package.material_extra')
+          th = I18n.t('activerecord.attributes.package.total_is_payable')
+          th = I18n.t('activerecord.attributes.package.total_price')
+          th
+      tbody
+        - packages.each do |package|
+          tr
+            td = link_to package.reference, package_path(package)
+            td = l package.created_at, format: '%d/%m/%Y %H:%M'
+            td = package.try(:full_name).try(:titleize)
+            td = number_to_currency(price_for_client(package, package.shipping_price).to_i)
+            td = number_to_currency(price_for_client(package, package.material_extra).to_i)
+            td = number_to_currency(price_for_client(package, package.total_is_payable).to_i)
+            td = number_to_currency(price_for_client(package, sum_attrs(package.shipping_price, package.material_extra, package.total_is_payable)).to_i)
+            td = link_to('<i class="fas fa-info-circle" aria-hidden="true"></i>'.html_safe, '#', data: { toggle: 'tooltip', title: 'Pagado por shipit' }) if package.is_paid_shipit

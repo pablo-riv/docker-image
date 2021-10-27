@@ -1,0 +1,59 @@
+.col-md-12
+  .text-center.wp-100
+    h3
+      | Cómo integrar Prestashop
+    p
+      |  Debes descargar el siguiente plugin: 
+      = link_to 'Prestashop', download_plugin_integrations_path(store: 'prestashop'), class: 'underlined'
+    p 
+      span 
+        | Descarga esta pequeña
+        = " "
+        = link_to 'guía', download_pdf_integrations_path(store: 'prestashop'), class: 'underlined'
+        = " "
+        | o se despliega un paso a paso de como integrar tu tienda Prestashop
+    p
+      a data-toggle="collapse" data-target="#prestashop-steps"
+        | Ver imágenes...
+    br /
+    #prestashop-steps.collapse
+      h5
+        | ¿Dónde está el Store Key de Prestashop?
+      p
+        | 1.- Descargar el plugin en tu cuenta de Shipit
+      = image_tag asset_path('prestashop-instructions/1.PNG'), class: 'w-500'
+      p
+        | 2.- Ingresa a tu cuenta de Prestashop y selecciona módulos
+      = image_tag asset_path('prestashop-instructions/2.PNG'), class: 'w-500'
+      p
+        | 3.- Selecciona subir un módulo
+      = image_tag asset_path('prestashop-instructions/3.PNG'), class: 'w-500'
+      p
+        | 4.- Arrastra el plugin que descargaste en Shipit e instálalo
+      = image_tag asset_path('prestashop-instructions/4.PNG'), class: 'w-500'
+      br /
+      hr /
+      h5
+        | ¿Dónde poner la Store Key en Shipit?
+      p
+        | 1.- Ingresa a tu cuenta de Shipit y selecciona integraciones
+      = image_tag asset_path('prestashop-instructions/5.PNG'), class: 'w-500'
+      p
+        | 2.- Seleccionar configurar en Prestashop
+      = image_tag asset_path('prestashop-instructions/6.PNG'), class: 'w-500'
+      p
+        | 3.- Pega tu Store key, el url de tu tienda y haz click en guardar
+      = image_tag asset_path('prestashop-instructions/7.PNG'), class: 'w-500'
+  hr
+    h5 Resumen
+    ul
+      li 1. Ingresa a tu panel de administración Prestashop.
+      li 2. Debes ir a la pestaña "module" y presionar "Add a new module”
+      li 3. En la caja “Module file” haz click en el botón "Browse".
+      li 4. Selecciona el plugin que descargaste.
+      li 5. Completa el proceso presionando el botón "Upload this module".
+      li 6. Instala el módulo.
+      li 7. Después de eso obtendrás un "Store key" que tendrás que introducir en este formulario. 
+    p
+      | NOTA: Posiblemente debas hacer cambios a nivel de servidor para que este plugin pueda actuar como debe. Los permisos son 755 para la carpeta y 644 para los archivos contenidos.
+    = render '/shared/integration_guides/api2cart'

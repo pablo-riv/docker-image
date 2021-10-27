@@ -1,0 +1,1 @@
+json.extract! notification, :id, :text, :tags, :color, :tracking, :valid_format, :created_at, :updated_at

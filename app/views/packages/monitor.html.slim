@@ -1,0 +1,33 @@
+- breadcrumb :monitor
+
+.row
+  .col-md-12
+    .card
+      .card-block
+        .row
+          .col-md-12.col-sm-12.col-xs-12
+            h2.card-title 
+              = t('monitor.base')
+            p
+              = t('monitor.explication')
+.row
+  .col-md-12
+    .card
+      .card-block
+        .row
+          = month_calendar(events: @packages) do |date, packages|
+            b = date.day
+            .calendar-links
+              - grouped_packages_by_status(packages).each do |status, pps|
+                - next if pps.count.zero?
+                .row
+                  .col-xs-12.col-md-12.col-xl-12
+                    = link_to "#{pps.count} - #{status_name(status)[:message]}", packages_path(from_calendar: true, from_date: date, to_date: date, by_status: status, from_courier: params[:from_courier], from_service: params[:from_service]), class: "label #{status}", target: :_blank , data: { turbolinks: false }
+.row
+  .col-md-12
+    .card
+      .card-block
+        .row
+          .col-md-12.col-sm-12.col-xs-12
+            p.fs-12.mt-10
+              = t('monitor.feedback')

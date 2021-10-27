@@ -1,0 +1,54 @@
+<% if account_signed_in? %>
+  <p class='breadcrumb'>
+      <a href='<%= @doc[:doc_url] %><%= @doc[:link_extension] %>'><%= @doc[:name] %> <%= @resource[:version] %></a>
+      <span class='divider'>/</span>
+
+      <a href='<%= @resource[:doc_url] %><%= @doc[:link_extension] %>'>
+        <%= @resource[:name] %>
+        <% if @resource[:version] %><% end %>
+      </a>
+      <span class='divider'>/</span>
+
+  <%= @method[:name] %>
+    <%= render(:partial => "languages", :locals => {:doc_url => @method[:doc_url]}) %>
+  </p>
+  <%= render 'layouts/credentials' %>
+<% end %>
+<div class="main-content">
+  <div class="content-view">
+    <div class="layout-md b-b">
+      <div class="layout-column-md">
+        <div class="card">
+          <div class="card-block">
+
+            <% @method[:apis].each do |api| %>
+              <div class='page-header'>
+                <h3>
+                  <%= api[:http_method] %> <%= api[:api_url] %>
+                  <% if api[:deprecated] %>
+                    <code>DEPRECATED</code>
+                  <% end %>
+                  <br>
+                  <small><%= raw api[:short_description] %></small>
+                </h3>
+              </div>
+            <% end %>
+
+            <div>
+              <% unless @method[:see].empty? %>
+                Also see <%= @method[:see].map { |s| link_to(s[:description], "#{s[:link]}#{@doc[:link_extension]}") }.to_sentence.html_safe %>.
+              <% end %>
+
+              <%= render(:partial => "method_detail", :locals => {:method => @method, :h_level => 2}) %>
+            </div>
+
+            <% unless content_for(:apipie_footer) == @doc[:copyright] %>
+              <%= content_for :apipie_footer, raw(@doc[:copyright]) %>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

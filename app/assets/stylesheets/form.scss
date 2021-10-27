@@ -1,0 +1,32 @@
+.has-success {
+  .form-control,
+  .select2-container--default .select2-selection--single {
+    border-color: #7fc35c;
+  }
+  .form-control-success,
+  .select2-container--default .select2-selection--single {
+    background-image: url("");
+  }
+}
+
+.has-danger {
+  .form-control,
+  .select2-container--default .select2-selection--single {
+    border-color: #d26d54;
+  }
+  .form-control-danger,
+  .select2-container--default .select2-selection--single {
+    background-image: url("");
+  }
+}
+
+.has-warning {
+  .form-control,
+  .select2-container--default .select2-selection--single {
+    border-color: #f0c54c;
+  }
+  .form-control-warning,
+  .select2-container--default .select2-selection--single {
+    background-image: url("");
+  }
+}

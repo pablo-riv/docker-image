@@ -1,0 +1,59 @@
+es:
+  returns:
+    index:
+      title: Devoluciones
+      tabs:
+        register: Registrar
+        actives: Activas
+        processed: Procesadas
+      table:
+        headers:
+          created_at: Fecha creación
+          company: Cliente
+          id: ID
+          tracking_number: Nº seguimiento
+          full_name: Destinatario
+          reference: Referencia
+          status: Estado
+          comments: Comentarios
+          return_created_at: Fecha devolución
+          courier_for_client: Courier
+          ubication: Ubicación
+          check:
+            in: Check-in
+          options:
+            retry: Reintentar
+            return: Cliente
+      register:
+        search: Presiona enter para buscar
+        add: Ingresar
+        package:
+          created_at: Fecha creación
+          company: Cliente
+          id: ID
+          tracking_number: Nº seguimiento
+          full_name: Destinatario
+          buyer_name: Destinatario
+          reference: Referencia
+          status: Estado
+          comments: Comentarios
+          width: Ancho
+          height: Alto
+          length: Largo
+          weight: Peso
+    new:
+      title: Crear Devolución
+      deliver:
+        title: Envío
+        card:
+          titles:
+            general: Información General
+            secure: Seguro
+            address: Dirección Entrega
+            fulfillment: Productos a enviar
+            sku_list: SKU's Agregados
+        buttons:
+          create: Crear devolución
+      statuses:
+        waiting: En espera
+        return: Devolver

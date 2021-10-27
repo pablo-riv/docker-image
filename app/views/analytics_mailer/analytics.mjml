@@ -1,0 +1,417 @@
+<mjml>
+  <mj-head>
+    <mj-style>
+      .box-shadow {
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+      }
+
+      .border {
+        border: .8px solid #ddd;
+      }
+
+      .background {
+        background-color: #fff
+      }
+
+      .margin {
+        margin: 20px;
+      }
+
+      .header {
+        background-color: #4caad8;
+        margin-top: -40px;
+      }
+
+      .footer { 
+        background-color: #4caad8;
+        margin-bottom: -40px;
+        padding: 20px 0 20px 0;
+      }
+
+      .font {
+        font-family: "Roboto, Helvetica, sans-serif";
+      }
+
+      .height {
+        height: 150px;
+      }
+
+      .small {
+        height: 20px;
+      }
+
+      .width {
+      }
+    </mj-style>
+    <mj-attributes>
+      <mj-section padding-top="0"/>
+      <mj-text font-family="Roboto, Open Sans, Helvetica, Arial, sans-serif"/>
+      <mj-wrapper css-class="font border box-shadow background"></mj-wrapper>
+      <mj-column css-class="font"/>
+      <mj-navbar-link font-family="Roboto, Open Sans, Helvetica, Arial, sans-serif"/>
+    </mj-attributes>
+  </mj-head>
+  <mj-body css-class="margin">
+    <mj-wrapper>
+     <mj-section>
+        <mj-column css-class="header" background-color="#4caad8">
+          <mj-image href="http://www.shipit.cl" alt="Logo Shipit" align="center" width="150px" src="https://gallery.mailchimp.com/6b0fb8f94fe60790779653b12/images/4768b3c5-6dd8-4ff5-9532-4bb0ac890a63.png"></mj-image>
+        </mj-column>
+      </mj-section>
+
+      <mj-section>
+        <mj-column>
+          <mj-text>
+            <h1 style="color: #484A7D; font-size: 22px; float: left; position: absolute;">
+              Analíticas: Reporte Programado
+            </h1>
+          </mj-text>
+        </mj-column>
+        <mj-column>
+          <mj-text>
+            <h3 style="color: rgba(0,0,0,0.7); float: right; margin-top: 5px;">
+              <%= @data[:dates][:from_date] %> - <%= @data[:dates][:to_date] %>
+            <h3>
+          </mj-text>
+        </mj-column>
+        <mj-raw>
+          <hr>
+        </mj-raw>
+      </mj-section>
+
+      <mj-section>
+        <mj-column>
+          <mj-text css-class="small">
+            <h1 style="color: #484A7D; font-size: 22px;">
+              <%= I18n.t('analytics.index.titles.packages') %>
+            </h1>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column css-class="border" width="31%">  
+          <mj-text css-class="height">
+            <span style="vertical-align: top; background-color: #fafafa; padding-right: 10px; color: rgba(0,0,0,0.7); font-size: 14px; margin-top: 10px; margin-bottom: 10px;">
+              <strong><%= I18n.t('analytics.packages.period') %></strong>
+            </span>
+            <h2 style="text-align: center; color: #484A7D">
+              <%= format_number(count_quantity(@data[:packages][:current_period_packages]), '') %>
+            </h2>
+            <% if count_quantity(@data[:packages][:current_period_packages]) > count_quantity(@data[:packages][:last_period_packages]) %>
+              <p style="text-align: center; color: green;">
+            <% else %>
+              <p style="text-align: center; color: red;">
+            <% end %>
+              <%= calculate_percent(count_quantity(@data[:packages][:current_period_packages]).to_f, count_quantity(@data[:packages][:last_period_packages]).to_f).to_s + '%' %>
+            </p>
+            <p style="text-align: center; ">
+              <strong><%= count_quantity(@data[:packages][:last_period_packages]) %></strong>
+              <%= I18n.t('analytics.last_period') %>
+            </p>
+          </mj-text>
+        </mj-column>
+        <mj-column css-class="border" width="31%">
+          <mj-text css-class="height">
+            <span style="vertical-align: top; background-color: #fafafa; color: rgba(0,0,0,0.7); font-size: 14px">
+              <strong>SLA <%= @data[:company].name %></strong>
+            </span>
+            <h2 style="text-align: center; color: #484A7D">
+              <%= calculate_sla(@data[:packages][:current_period_packages]) %>
+            </h2>
+            <% if calculate_sla(@data[:packages][:current_period_packages]) > calculate_sla(@data[:packages][:last_period_packages]) %>
+              <p style="text-align: center; color: green;">
+            <% else %>
+              <p style="text-align: center; color: red;">
+            <% end %>
+              <%= calculate_percent(calculate_sla(@data[:packages][:current_period_packages]), calculate_sla(@data[:packages][:last_period_packages])).to_s + '%' %>
+            </p>
+            <p style="text-align: center; ">
+              <strong><%= calculate_sla(@data[:packages][:last_period_packages]) %></strong>
+              <%= I18n.t('analytics.last_period') %>
+            </p>
+          </mj-text>
+        </mj-column>
+        <mj-column css-class="border" width="31%">  
+          <mj-text css-class="height">
+            <span style="vertical-align: top; background-color: #fafafa; color: rgba(0,0,0,0.7); font-size: 14px">
+              <strong><%= I18n.t('analytics.packages.sla_global') %></strong>
+            </span>
+            <h2 style="text-align: center; color: #484A7D">
+              <%= shipit_sla(@data[:all_packages][:all_current_packages]) %>
+            </h2>
+            <% if shipit_sla(@data[:all_packages][:all_current_packages]) > shipit_sla(@data[:all_packages][:all_last_packages]) %>
+              <p style="text-align: center; color: green;">
+            <% else %>
+              <p style="text-align: center; color: red;">
+            <% end %>
+              <%= calculate_percent(shipit_sla(@data[:all_packages][:all_current_packages]), shipit_sla(@data[:all_packages][:all_last_packages])).to_s + '%' %>
+            </p>
+            <p style="text-align: center; ">
+              <strong><%= shipit_sla(@data[:all_packages][:all_last_packages]) %></strong>
+              <%= I18n.t('analytics.last_period') %>
+            </p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section>
+        <mj-column>
+          <mj-table>
+            <%= I18n.t('analytics.packages.table.commune') %>
+            <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
+              <th style="padding: 0 25px; width: 240px;">Comuna</th>
+              <th style="padding: 0 15px; width: 110px;"><%= I18n.t('analytics.packages.table.packages') %></th>
+              <th style="padding: 0 0 0 15px;">SLA</th>
+            </tr>
+            <% ordered_communes(@data[:packages][:current_period_packages]).first(10).each_with_index do |package| %> 
+              <tr>
+                <td style="padding: 0 25px;"> <%= name_element('commune', package) %> </td>
+                <td style="padding: 0 15px;"> <%= package[1].count %> </td>
+                <td style="padding: 0 0 0 15px;"> <%= calculate_sla(package[1]) %>% </td>
+              </tr>
+            <% end %>
+          </mj-table>
+        </mj-column>
+      </mj-section>
+
+      <mj-section>
+        <mj-column>
+          <mj-table>
+            <%= I18n.t('analytics.packages.table.title.top_courier') %>
+            <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
+              <th style="padding: 0 25px; width:240px">Courier</th>
+              <th style="padding: 0 15px; width: 110px;"><%= I18n.t('analytics.packages.table.packages') %></th>
+              <th style="padding: 0 0 0 15px;">SLA</th>
+            </tr>
+            <% ordered_couriers(@data[:packages][:current_period_packages]).first(10).each_with_index do |package| %>
+              <tr>
+                <td style="padding: 0 25px;"> <%= name_element('courier', package) %> </td>
+                <td style="padding: 0 15px;"> <%= package[1].count %> </td>
+                <td style="padding: 0 0 0 15px;"> <%= calculate_sla(package[1]) %>% </td>
+              </tr>
+            <% end %>
+          </mj-table>
+        </mj-column>
+      </mj-section>
+
+      <mj-section>
+        <mj-column>
+          <mj-text>
+            <h1 style="color: #484A7D; font-size: 22px;">
+              <%= I18n.t('analytics.index.titles.sales') %>
+            </h1>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section>
+        <mj-column css-class="border" width="31%">  
+          <mj-text css-class="height">
+            <span style="vertical-align: top; background-color: #fafafa; color: rgba(0,0,0,0.7); font-size: 14px">
+              <strong><%= I18n.t('analytics.sales.total_sales') %></strong>
+            </span>
+            <h2 style="text-align: center; color: #484A7D">
+              <%= format_number(current_total_orders(@data[:orders][:current_period_orders]), '$') %>
+            </h2>
+            <% if current_total_orders(@data[:orders][:current_period_orders]) > last_total_orders(@data[:orders][:last_period_orders]) %>
+              <p style="text-align: center; color: green;">
+            <% else %>
+              <p style="text-align: center; color: red;">
+            <% end %>
+              <%= calculate_percent(current_total_orders(@data[:orders][:current_period_orders]), (last_total_orders(@data[:orders][:last_period_orders]))).to_s + '%' %>
+            </p>
+            <p style="text-align: center; ">
+              <strong><%= format_number(last_total_orders(@data[:orders][:last_period_orders]), '$') %></strong>
+              <%= I18n.t('analytics.last_period') %>
+            </p>
+          </mj-text>
+        </mj-column>
+        <mj-column css-class="border" width="31%">  
+          <mj-text css-class="height">
+            <span style="vertical-align: top; background-color: #fafafa; color: rgba(0,0,0,0.7); font-size: 14px">
+              <strong><%= I18n.t('analytics.sales.average_tickets') %></strong>
+            </span>
+            <h2 style="text-align: center; color: #484A7D">
+              <%= format_number(current_average_orders(@data[:orders][:current_period_orders]), '$') %>
+            </h2>
+            <% if current_average_orders(@data[:orders][:current_period_orders]) > last_average_orders(@data[:orders][:last_period_orders]) %>
+              <p style="text-align: center; color: green;">
+            <% else %>
+              <p style="text-align: center; color: red;">
+            <% end %>
+              <%= calculate_percent(current_average_orders(@data[:orders][:current_period_orders]), last_average_orders(@data[:orders][:last_period_orders])).to_s + '%' %>
+            </p>
+            <p style="text-align: center; ">
+              <strong><%= format_number(last_average_orders(@data[:orders][:last_period_orders]), '$') %></strong>
+              <%= I18n.t('analytics.last_period') %>
+            </p>
+          </mj-text>
+        </mj-column>
+        <mj-column css-class="border" width="31%">  
+          <mj-text css-class="height">
+            <span style="vertical-align: top; background-color: #fafafa; color: rgba(0,0,0,0.7); font-size: 14px">
+              <strong><%= I18n.t('analytics.sales.daily_tickets') %></strong>
+            </span>
+            <h2 style="text-align: center; color: #484A7D">
+              <%= average_orders(@data[:orders][:current_period_orders]) %>
+            </h2>
+            <% if average_orders(@data[:orders][:current_period_orders]) >average_orders(@data[:orders][:last_period_orders]) %>
+              <p style="text-align: center; color: green;">
+            <% else %>
+              <p style="text-align: center; color: red;">
+            <% end %>
+              <%= calculate_percent(average_orders(@data[:orders][:current_period_orders]), average_orders(@data[:orders][:last_period_orders])).to_s + '%' %>
+            </p>
+            <p style="text-align: center; ">
+              <strong><%= average_orders(@data[:orders][:last_period_orders]) %></strong>
+              <%= I18n.t('analytics.last_period') %>
+            </p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <!-- <mj-section>
+        <mj-column>
+          <mj-text>
+            <h1 style="color: #484A7D; font-size: 22px;">
+              <%= I18n.t('analytics.index.titles.platform_use') %>
+            </h1>
+          </mj-text>
+        </mj-column>
+      </mj-section> -->
+      <!-- <mj-section>
+        <mj-column css-class="border" width="31%">  
+          <mj-text css-class="height">
+            <span style="vertical-align: top; background-color: #fafafa; color: rgba(0,0,0,0.7); font-size: 14px">
+              <strong><%= I18n.t('analytics.platform_use.use_time') %></strong>
+            </span>
+            <h2 style="text-align: center; color: #484A7D">
+              <%= format_number(0, '%') %>
+            </h2>
+          </mj-text>
+        </mj-column>
+        <mj-column css-class="border" width="31%">
+          <mj-text css-class="height">
+            <span style="vertical-align: top; background-color: #fafafa; color: rgba(0,0,0,0.7); font-size: 14px">
+              <strong><%= I18n.t('analytics.platform_use.sessions') %></strong>
+            </span>
+            <h2 style="text-align: center; color: #484A7D">
+              <%= format_number(0, '') %>
+            </h2>
+          </mj-text>
+        </mj-column>
+      </mj-section> -->
+
+      <mj-section>
+        <mj-column>
+          <mj-text>
+            <h1 style="color: #484A7D; font-size: 22px;">
+              <%= I18n.t('analytics.index.titles.notifications') %>
+            </h1>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column css-class="border" width="31%">  
+          <mj-text css-class="height">
+            <span style="vertical-align: top; background-color: #fafafa; color: rgba(0,0,0,0.7); font-size: 14px">
+              <strong><%= I18n.t('analytics.notifications.notification_number') %></strong>
+            </span>
+            <h2 style="text-align: center; color: #484A7D">
+              <%= alerts_quantity(@data[:notifications][:current_period_notifications]) %>
+            </h2>
+            <% if alerts_quantity(@data[:notifications][:current_period_notifications]) > alerts_quantity(@data[:notifications][:last_period_notifications]) %>
+              <p style="text-align: center; color: green;">
+            <% else %>
+              <p style="text-align: center; color: red;">
+            <% end %>
+              <%= calculate_percent(alerts_quantity(@data[:notifications][:current_period_notifications]), alerts_quantity(@data[:notifications][:last_period_notifications])).to_s + '%' %>
+            </p>
+            <p style="text-align: center; ">
+              <strong><%= alerts_quantity(@data[:notifications][:last_period_notifications]) %></strong>
+              <%= I18n.t('analytics.last_period') %>
+            </p>
+          </mj-text css-class="height">
+        </mj-column>
+        <mj-column css-class="border" width="31%">  
+          <mj-text css-class="height">
+            <span style="vertical-align: top; background-color: #fafafa; color: rgba(0,0,0,0.7); font-size: 14px">
+              <strong><%= I18n.t('analytics.notifications.average_notifications') %></strong>
+            </span>
+            <h2 style="text-align: center; color: #484A7D">
+              <%= average_alerts(@data[:notifications][:current_period_notifications], @data[:packages][:current_period_packages]) %>
+            </h2>
+            <% if average_alerts(@data[:notifications][:current_period_notifications], @data[:packages][:current_period_packages]) > average_alerts(@data[:notifications][:last_period_notifications], @data[:packages][:last_period_packages]) %>
+              <p style="text-align: center; color: green;">
+            <% else %>
+              <p style="text-align: center; color: red;">
+            <% end %>
+              <%= calculate_percent( average_alerts(@data[:notifications][:current_period_notifications], @data[:packages][:current_period_packages]), average_alerts(@data[:notifications][:last_period_notifications], @data[:packages][:last_period_packages])).to_s + '%' %>
+            </p>
+            <p style="text-align: center; ">
+              <strong><%= average_alerts(@data[:notifications][:last_period_notifications], @data[:packages][:last_period_packages]) %></strong>
+              <%= I18n.t('analytics.last_period') %>
+            </p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section>
+        <mj-column>
+          <mj-text>
+            <h1 style="color: #484A7D; font-size: 22px;">
+              <%= I18n.t('analytics.index.titles.support') %>
+            </h1>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column css-class="border" width="31%">  
+          <mj-text css-class="height">
+            <span style="vertical-align: top; background-color: #fafafa; color: rgba(0,0,0,0.7); font-size: 14px">
+              <strong><%= I18n.t('analytics.support.period_tickets') %></strong>
+            </span>
+            <h2 style="text-align: center; color: #484A7D">
+              <%= count_quantity(@data[:supports][:current_period_supports]) %>
+            </h2>
+            <% if count_quantity(@data[:supports][:current_period_supports]) > count_quantity(@data[:supports][:last_period_supports]) %>
+              <p style="text-align: center; color: green;">
+            <% else %>
+              <p style="text-align: center; color: red;">
+            <% end %>
+              <%= calculate_percent(count_quantity(@data[:supports][:current_period_supports]), count_quantity(@data[:supports][:last_period_supports])).to_s + '%' %>
+            </p>
+            <p style="text-align: center; ">
+              <strong><%= count_quantity(@data[:supports][:last_period_supports]) %></strong>
+              <%= I18n.t('analytics.last_period') %>
+            </p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section>
+        <mj-column>
+          <mj-button href="https://clientes.shipit.cl" background-color="#04c878" color="#FFFFFF" font-size="18px" border-radius="5px" font-family="Roboto, Helvetica, sans-serif" padding-bottom="10px" padding-top="40px" width="200px">
+            Ir a Shipit
+          </mj-button>
+         </mj-column>
+         <mj-column>
+          <mj-button href="https://clientes.shipit.cl/analytics" background-color="#FFFFFF" color="#04c878" font-size="18px" border-radius="5px" border="1px solid #04c878" font-family="Roboto, Helvetica, sans-serif" padding-bottom="10px" padding-top="40px"  width="200px">
+            Ir a Analíticas
+          </mj-button>
+         </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#4caad8">
+        <mj-column css-class="footer">
+          <mj-text align="center" font-weight="300" font-size="14px" color="#ffffff" font-family="Roboto, Helvetica, sans-serif">
+            <%= I18n.t('email.footer.title') %>
+          </mj-text>
+          <mj-text align="center" font-weight="300" font-size="14px" color="#ffffff" font-family="Roboto, Helvetica, sans-serif">
+            <%= I18n.t('email.footer.copyright', year: Time.current.year) %><br> &#160;
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>

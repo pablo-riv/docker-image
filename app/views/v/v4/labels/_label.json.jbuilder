@@ -1,0 +1,1 @@
+json.extract! label, :id, :company_id, :configuration

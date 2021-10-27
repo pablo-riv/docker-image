@@ -1,0 +1,144 @@
+<mjml>
+  <mj-head>
+    <mj-style>
+      .box-shadow {
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.6);
+      }
+
+      .margin {
+        margin: 20px;
+      }
+
+      .header {
+        margin-top: -40px;
+      }
+
+      .footer { 
+        background-color: #4caad8;
+        margin-bottom: -40px;
+        padding: 20px 0 20px 0;
+      }
+
+      .font {
+        font-family: "Roboto, Helvetica, sans-serif";
+      }
+    </mj-style>
+    <mj-attributes>
+      <mj-text font-family="Roboto, Helvetica, sans-serif"/>
+      <mj-wrapper css-class="font box-shadow"></mj-wrapper>
+      <mj-column css-class="font" />
+      <mj-section css-class="font" />
+      <mj-navbar-link font-family="Roboto, Helvetica, sans-serif"/>
+    </mj-attributes>
+  </mj-head>
+  <mj-body css-class="margin">
+    <mj-wrapper>
+      <mj-section>
+        <mj-column css-class="header" background-color="#4caad8">
+          <mj-image href="http://www.shipit.cl" alt="Logo Shipit" align="center" width="150px" src="https://gallery.mailchimp.com/6b0fb8f94fe60790779653b12/images/4768b3c5-6dd8-4ff5-9532-4bb0ac890a63.png"></mj-image>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-text font-weight="300" align="left" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif">Estimados <b>
+              <%= @company_name.upcase %></b>,</mj-text>
+          <mj-text font-weight="300" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif">Según nuestra información lamentamos informarte que el envío <b>
+              <%= @package.reference %></b> para <b>
+              <%= @package.full_name.split(" ").map(&:capitalize).join(" ") %></b> no se logró entregar y su último estado es <b>
+              <%= @package.courier_status %></b>. </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-text font-weight="300" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif"><b>Información de envío:</b></mj-text>
+          <mj-text font-weight="300" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif">
+            <b>Nombre: </b>
+            <%= @package.full_name.split(" ").map(&:capitalize).join(" ") %>
+          </mj-text>
+          <mj-text font-weight="300" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif">
+            <b>Dirección: </b>
+            <%= @package.address.full %>
+          </mj-text>
+          <mj-text font-weight="300" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif">
+            <b>Teléfono Contacto: </b>
+            <%= @package.cellphone %>
+          </mj-text>
+          <mj-text font-weight="300" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif">
+            <b>Correo electrónico: </b>
+            <%= @package.email %>
+          </mj-text>
+          <mj-text font-weight="300" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif">
+            <b>Referencia pedido: </b>
+            <%= @package.reference %>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section border="5px solid #000000">
+        <mj-column>
+          <mj-text align="center" font-weight="300" font-size="16px" color="#ffffff" font-family="Roboto, Helvetica, sans-serif">
+            <mj-text font-weight="300" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif">
+              <b>Estado: </b>
+            </mj-text>
+            <mj-text align="center" font-weight="300" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif">
+              <b>
+                <%= @package.courier_status %></b>
+            </mj-text>
+            <mj-text align="center" font-weight="300" border="1px" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif">
+              <b>
+                <%= @package.courier_for_client.upcase %>(
+                <%= @package.tracking_number %>)</b>
+            </mj-text>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding-bottom="5px">
+        <mj-column>
+          <mj-text height="10px"></mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#808080">
+        <mj-column>
+          <mj-text align="center" font-weight="300" font-size="16px" color="#ffffff" font-family="Roboto, Helvetica, sans-serif">
+            Indicanos como proceder escribiendo a ayuda@shipit.cl para gestionar el envío lo antes posible.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+
+      <mj-section>
+        <mj-column>
+          <mj-text font-weight="300" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif">
+            Si quieres hacer seguimiento del estado de tus envío o ver información más detalla puedes
+            <%= link_to "revisar el pedido en shipit", package_path(@package.id) %>.
+          </mj-text>
+          <mj-button href="https://clientes.shipit.cl" background-color="#00d8ad" color="#FFFFFF" font-size="20px" align="center" vertical-align="top" border="none" padding="25px 50px" border-radius="5px" font-family="Roboto, Helvetica, sans-serif" font-weight="500px" padding-left="25px" padding-right="25px" padding-bottom="10px" padding-top="40px">
+            Ingresar a Shipit
+          </mj-button>
+        </mj-column>
+      </mj-section>
+
+      <mj-section>
+        <mj-column>
+          <mj-image align="center" width="80px" src="https://gallery.mailchimp.com/6b0fb8f94fe60790779653b12/images/97e7c2ea-ad91-4321-98c2-659895beaf6d.png"></mj-image>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#4caad8">
+        <mj-column css-class="footer">
+          <mj-text align="center" font-weight="300" font-size="14px" color="#ffffff" font-family="Roboto, Helvetica, sans-serif">
+            <%= I18n.t('email.footer.title') %>
+          </mj-text>
+          <mj-text align="center" font-weight="300" font-size="14px" color="#ffffff" font-family="Roboto, Helvetica, sans-serif">
+            <%= I18n.t('email.footer.copyright', year: Time.current.year) %><br> &#160;
+          </mj-text>
+          <mj-text align="center" font-weight="300" font-size="11px" color="#ffffff" font-family="Roboto, Helvetica, sans-serif">
+            Si quieres desactivar este correo entra a tu panel de
+            <%= link_to "configuraciones", settings_path %>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>

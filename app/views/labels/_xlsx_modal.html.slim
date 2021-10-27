@@ -1,0 +1,54 @@
+script id='order_xlsx_modal.html' type='text/ng-template'
+  .modal-header
+    div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='6000' ng-repeat='alert in alerts' uib-alert=''
+      | {{ alert.message }}
+    h2 Reordenar impresión de etiquetas
+  .modal-body
+    .row.mb-10
+      .col-lg-12.col-sm-12
+        p.text-secondary
+          | Carga un archivo .XLSX 
+          a.underlined ng-href='https://s3-us-west-2.amazonaws.com/shipit-platform/plantilla-orden-impresion-ejemplo.xlsx' target='_blank' Descargar Plantilla Ejemplo 
+          | de una sola columna con el ID de Envío para imprimir las etiquetas en el orden que requieras. El sistema tomará los valores desde la celda A2 hacia abajo.
+    .row.mb-30
+      .col-lg-7.col-sm-7
+        .form-group
+          input type='file' ng-model='xls' id='select-xlsx' name='file' class='form-control' placeholder=' ' title='Seleccionar Excel' onchange='angular.element(this).scope().loadFile(this)'
+    .row
+      .col-md-12 ng-if='packages.length > 0 && ready'
+        table.table.table-stiped
+          thead
+            tr
+              th #
+              th ID Envío
+              th Nombre destinatario
+              th Courier
+              th Fecha Creación
+          tbody
+            tr ng-repeat='package in packages track by $index' 
+              td
+                | {{ $index + 1 }}
+              td
+                | {{ package.reference }}
+              td
+                | {{ package.full_name }}
+              td
+                | {{ package.courier_for_client }}
+              td
+                | {{ package.created_at | date:'dd/MM/yyyy H:mm:ss' }}
+      .col-md-12 ng-if='packages.length === 0 && ready'
+        span No se encontraron envios con los datos ingresados, favor revisar que:
+        ul
+          li Debes tener los pedidos ingresados
+          li La fecha de creación no puede superar 10 días atras
+  .modal-footer
+    .row
+      .col-md-6
+      .col-md-6
+        .row
+          .col-md-6
+            button.btn.btn-warning.btn-sm ng-click='cancel()'
+              | Cancelar
+          .col-md-6
+            button.btn.btn-success.btn-sm data-style='expand-left' data-spinner-size='20' ladda='loading' ng-click='print(packages)' ng-disabled='packages.length <= 0 && !ready'
+              | Imprimir Etiquetas

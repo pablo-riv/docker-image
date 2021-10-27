@@ -1,0 +1,32 @@
+.row
+  .col-md-9
+    h2.card-title = I18n.t('analytics.index.titles.analitycs') + @data[:company].name
+  .col-md-3
+    button.btn.btn-primary.btn-block ng-click="showProgramAnalyticsModal()"
+      i.fas.fa-calendar
+      = I18n.t('analytics.buttons.program')
+hr
+.row
+  .pt-20
+    .col-md-6
+      label = I18n.t('analytics.search.select_period')
+      .form-group
+        .col-md-6
+          label.form-label = I18n.t('analytics.search.from_date')
+          input.form-control.wp-100.datepicker-input.date-format.text-center.fs-18 ng-model='search.from' readonly='true' ng-required='true'
+        .col-md-6
+          label.form-label = I18n.t('analytics.search.to_date')
+          input.form-control.wp-100.datepicker-input.date-format.text-center.fs-18 ng-model='search.to' readonly='true' ng-required='true'
+    .col-md-1 style="padding-top: 27px"
+      .form-group
+        button.btn.btn-primary.btn-block.btn-success.mt-30 ng-click='searchByDate()' ng-disabled="loading"
+          i.fas.fa-filter
+  .pt-20
+    .form-group
+      .col-md-3.offset-md-1
+        label.from-label Período por defecto
+        select#periods.select.form-control ng-required='true' ng-model='selectedPeriod'
+          option.fs-15 ng-repeat='period in periods' value='{{ period.id }}' {{ period.name }}
+      .col-md-1.pt-35
+        button.btn.btn-primary.btn-block.btn-success ng-click='searchByPeriod($event)' ng-disabled="loading"
+          i.fas.fa-search

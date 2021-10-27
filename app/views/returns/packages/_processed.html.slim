@@ -1,0 +1,32 @@
+.row ng-controller='PackagesReturnsProcessedController'
+  .col-md-12
+    table.table.table-striped.mt-60 ng-init='loadReturns()' ng-if='activePane == "processed"'
+      thead
+        th.text-center.w-200 = I18n.t('returns.processed.table.headers.created_at')
+        th.text-center.w-400 = I18n.t('returns.processed.table.headers.reference')
+        th.text-center.w-200 = I18n.t('returns.processed.table.headers.full_name')
+        th.text-center ng-click='sort("status")'
+          = I18n.t('returns.processed.table.headers.status')
+          i.ml-20.fas.fa-caret-down aria-hidden='true' ng-class='{"fa-caret-up": reverse == false && property == "status" }'
+        th.text-center  ng-click='sort("courier_for_client")'
+          = I18n.t('returns.processed.table.headers.courier_for_client')
+          i.ml-20.fas.fa-caret-down aria-hidden='true' ng-class='{"fa-caret-up": reverse == false && property == "courier_for_client" }'
+      tbody
+        tr ng-repeat='package in packages | orderBy:property:reverse'
+          td.text-center
+            | {{ package.created_at | date:'dd/MM/yyyy HH:MM' }}
+          td.text-center
+            a ng-href='/packages/{{package.id}}' data-turbolinks='false' target='_blank'
+              | {{ package.reference }}
+          td.text-center
+            | {{ package.full_name }}
+          td.text-center
+            span.label class='{{statusColor(package.status)}}'
+              | {{ statusText(package.status) }}
+          td.text-center
+            .col-md-12
+              .w-100.h-30.courier-icon.center class='{{getIcon(package.courier_for_client)}}' alt='package.courier_for_client'
+    .row.mt-20
+      .col-md-12.col-sm-12.text-center
+        ul.pagination ng-change='loadReturns()' total-items='totalReturns' items-per-page='search.per' ng-model='search.page' max-size='5' boundary-link-numbers='true' first-text='Primera' last-text='Última' previous-text='Anterior' next-text='Siguiente' uib-pagination='' template-url='pagination.html'
+= render 'shared/pagination'

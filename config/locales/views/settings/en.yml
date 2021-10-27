@@ -1,0 +1,9 @@
+en:
+  settings:
+    title: Configuration
+    tabs:
+      services: Services
+      general: Generals
+      printers: Printers
+      products: Products
+      packings: Packings

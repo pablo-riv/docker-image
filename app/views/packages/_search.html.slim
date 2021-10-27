@@ -1,0 +1,44 @@
+= form_tag packages_path, method: 'GET', id: 'searching-packages', class: 'form-inline' do
+  .row.mb-12
+    .form-group.mt-3.col-sm-12.col-md-2.p-20
+      p.text-center.m-0.mb-8
+        = label_tag :by_status, 'Estado', class: 'fw-b'
+      = select_tag :by_status, options_for_select(statuses_format, params[:by_status]), class: 'form-control fs-17 wp-100'
+      
+    .form-group.mt-3.col-sm-12.col-md-1.col-sm-2.p-20
+      p.text-center.m-0.mb-8
+        = label_tag :from_courier, 'Courier', class: 'fw-b'
+      = select_tag :from_courier, options_for_select(Package::COURIERS, params[:from_courier]), prompt: 'Todos' , class: 'form-control fs-17 wp-100'
+
+    .form-group.col-sm-12.col-md-2.p-20
+      p.text-center.m-0
+        = label_tag :from_date, 'Desde', class: 'fw-b'
+      = text_field_tag :from_date, @from_date, class: 'form-control wp-100 datepicker-input date-format text-center fs-18', readonly: true
+
+    .form-group.col-md-2.p-20
+      p.text-center.m-0
+        = label_tag :to_date, 'Hasta', class: 'fw-b'
+      = text_field_tag :to_date, @to_date, class: 'form-control wp-100 datepicker-input date-format text-center fs-18', readonly: true
+    
+    .form-group.col-md-2.p-20
+      p.text-center.m-0
+        = label_tag :email_to, 'Email para', class: 'fw-b'
+      = text_field_tag :email_to, params[:email_to], class: 'form-control wp-100 text-center fs-18'
+
+    .form-group.col-md-1.p-20
+      p.text-center
+        = label_tag :returned, 'Devoluciones', class: 'fw-b'
+      p.text-center.ml-20
+        label.custom-control.custom-checkbox
+          = check_box_tag :returned, true, params[:returned], class: 'custom-control-input'
+          span.custom-control-indicator
+
+      = hidden_field_tag :with_series, @with_series
+    .col-md-2.pl-20.text-right.pt-10
+      = button_tag(type: "submit", class: 'btn btn-primary btn-sm btn-block btn-filter') do
+        i.fas.fa-search
+        = ' ' + t('buttons_filter.search')
+
+      = link_to packages_path, class: 'btn btn-info btn-sm btn-block btn-filter', data: { turbolinks: :false } do
+        i.fas.fa-broom
+        = ' ' + t('buttons_filter.clean')

@@ -1,0 +1,44 @@
+- breadcrumb :inventory_activity, named_inventory_activity_type(@activity['inventory_activity_type_id']), l(@activity_created_at, format: '%d/%m/%Y')
+.card
+  .card-block
+    = link_to 'Volver', request.referrer, class: 'btn btn-default pull-right', data: { turbolinks: false }
+    h2.card-title Movimiento de inventario
+    hr
+    .row
+      - if @activity.blank?
+        .col-md-12
+          h3 Sin información
+      - else
+        .table-responsive
+          table.table.table-striped
+            tbody
+              tr
+                td Descripción
+                td = @activity['description'] || 'Sin descripción'
+              tr
+                td Tipo
+                td = named_inventory_activity_type(@activity['inventory_activity_type_id'])
+              tr
+                td Fecha
+                td = l @activity_created_at, format: :long
+.card
+  .card-block
+    h2.card-title SKUs
+    hr
+    .row
+      .table-responsive
+        table.table.table-striped
+          thead
+            tr
+              th SKU
+              th Cantidad
+          tbody
+            - if !@activity.blank? || @activity['inventory_activity_orders'].count > 0
+              - @activity['inventory_activity_orders'].each do |order|
+                tr
+                  td = order['sku'] ? order['sku']['name'] : 'Sin información de SKU'
+                  td = order['amount']
+            - else
+              tr
+                td colspan='2'
+                  h3 Sin Registros

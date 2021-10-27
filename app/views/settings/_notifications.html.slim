@@ -1,0 +1,107 @@
+.card ng-controller="SettingsController" ng-init="current(6)"
+  div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' ng-repeat='alert in alerts' uib-alert=''
+    | {{ alert.msg }}
+  .card-block.col-md-12
+    .col-md-6
+      h2.card-title = I18n.t('setting.notifications.pickup.title')
+      p = I18n.t('setting.notifications.pickup.message')
+      p
+        b.underlined
+          | Ejemplo:
+        = " #{notification_emails(current_account)}"
+
+    .col-md-6.text-center
+      label.switch
+        input.cxp name="" ng-checked='"true"' type="checkbox" ng-disabled='true'
+        .slider.round
+
+  .card-block.col-md-12
+    .col-md-6
+      h2.card-title = I18n.t('setting.notifications.tracking.title')
+      p = I18n.t('setting.notifications.tracking.message')
+      p
+        b.underlined
+          | Ejemplo:
+        span
+          | &#32;
+          = I18n.t('setting.notifications.tracking.example')
+
+
+    .col-md-6.text-center
+      label.switch
+        input.cxp name="" ng-model='settings.configuration.notification.to_buyer' ng-checked='settings.configuration.notification.to_buyer == "true"' type="checkbox"
+        .slider.round
+
+  .card-block.col-md-12
+    .col-md-6
+      h2.card-title = I18n.t('setting.notifications.failed.title')
+      p = I18n.t('setting.notifications.failed.message')
+      p
+        b.underlined
+          | Ejemplo:
+        = " #{notification_emails(current_account)}"
+    .col-md-6.text-center
+      label.switch
+        input.cxp name="" ng-model='settings.configuration.notification.failed' ng-checked='settings.configuration.notification.failed == "true"' type="checkbox"
+        .slider.round
+
+  -if rollout(:order_to_high)
+    .card-block.col-md-12
+      .col-md-6
+        h2.card-title = I18n.t('setting.notifications.order_to_high.title')
+        p = I18n.t('setting.notifications.order_to_high.message')
+        p
+          b.underlined
+            | Ejemplo:
+          = " #{notification_emails(current_account)}"
+      .col-md-6
+        .col-md-12.text-center
+          .m-b-1
+            label.switch
+              input name="order_to_high.enable" ng-model='settings.configuration.notification.order_to_high.enable' type="checkbox"
+              .slider.round
+        .col-md-12.text-center
+          .m-b-1
+            input.form-control ng-show='settings.configuration.notification.order_to_high.enable' ng-value='settings.configuration.notification.order_to_high.amount' ng_model='settings.configuration.notification.order_to_high.amount' placeholder="50000"
+
+  - if @fulfillment
+    .card-block.col-md-12
+      .col-md-6
+        h2.card-title = I18n.t('setting.notifications.broke_stock.title')
+        p = I18n.t('setting.notifications.broke_stock.message')
+        p
+          b.underlined
+            | Ejemplo:
+          = " #{notification_emails(current_account)}"
+      .col-md-6
+        .col-md-12.text-center
+          .m-b-1
+            label.switch
+              input name="fulfillment.broke_stock" ng-model='settings.configuration.notification.fulfillment.broke_stock' type='checkbox' ng-disabled='true'
+              .slider.round
+        .col-md-12.form-group
+          label.fw-900 = I18n.t('setting.notifications.broke_stock.email')
+          input.form-control type='text' ng-model='settings.configuration.notification.fulfillment.email'
+
+    .card-block.col-md-12
+      .col-md-6
+        h2.card-title = I18n.t('setting.notifications.security_stock.title')
+        p = I18n.t('setting.notifications.security_stock.message')
+        p
+          b.underlined
+            | Ejemplo:
+          = " #{notification_emails(current_account)}"
+      .col-md-6
+        .col-md-12.text-center
+          .m-b-1
+            label.switch
+              input name="fulfillment.security_stock" ng-model='settings.configuration.notification.fulfillment.security_stock' type='checkbox'
+              .slider.round
+        .col-md-12.text-center.pt-20 ng-if='settings.configuration.notification.fulfillment.security_stock'
+          button.btn.btn-link ng-click='loadModalSkus()' = I18n.t('setting.notifications.security_stock.link')
+
+  .card-block
+    .col-md-12
+      button.btn.btn-primary.pull-right ng-click='update()' = I18n.t('setting.notifications.button')
+
+  = render 'shared/modal_security_stock'

@@ -1,0 +1,59 @@
+div
+  - if @packages.empty?
+    .row
+      .col-md-12
+        p.alert.alert-danger No se han encontrado envíos que calcen con la búsqueda
+  - else
+    .column-equal
+      .col
+      .col
+        strong.bold = I18n.t('activerecord.attributes.package.id')
+      - if current_account.current_company.any_integrations?
+        .col
+          strong.bold = I18n.t('activerecord.attributes.package.mongo_order_id')
+      .col
+        strong.bold = I18n.t('activerecord.attributes.package.created_at')
+      .col
+        strong.bold = I18n.t('activerecord.attributes.package.full_name')
+      .col
+        strong.bold = I18n.t('activerecord.attributes.commune.name')
+      .col
+        strong.bold = I18n.t('activerecord.attributes.package.courier_for_client')
+      .col
+        strong.bold = I18n.t('activerecord.attributes.package.tracking_number')
+      .col
+        strong.bold = I18n.t('activerecord.attributes.package.status')
+    - @packages.each_with_index do |package, index|
+      .column-equal data-toggle="collapse" data-target="##{package.id}" aria-expanded="false" aria-controls=package.id
+        .col
+          .row
+            .col-xs-6
+              = sent_email?(package)
+
+            .col-xs-6
+              a.float-left.support_icon.h-20.w-30 ng-controller='HelpIndexController' ng-click="create('#{package.id}', '#{package.reference}')"
+        .col = link_to package.reference, package_path(package), data: { turbolinks: :false }
+        - if current_account.current_company.any_integrations?
+          .col
+            - unless package.integration_reference.blank?
+              .pull-left.orders_icon class="#{package.mongo_order_seller}"
+            = package.integration_reference || ''
+        .col = package.decorate.created_at
+        .col = package.try(:full_name).try(:titleize) || 'Sin Nombre'
+        .col = package.address.try(:commune).try(:name).try(:titleize) || 'Sin Comuna'
+        .col = courier_icon(package.courier_for_client)
+        .col = courier_tracking_link(package)
+        .col = current_status_for(package)
+      
+      - unless package.ff_series.size.zero?
+        div.collapse id=package.id
+          .column-equal
+            .col
+              strong.bold Serie
+            .col
+              strong.bold Sku
+          - package.ff_series.each_with_index do |serie, index|
+            .column-equal
+              .col = serie['name']
+              .col = serie['sku']['name']
+= render 'shared/modal_create_support'

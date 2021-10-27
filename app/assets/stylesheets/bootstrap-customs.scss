@@ -1,0 +1,140 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+html{
+	body{
+		padding-top: $navbar-height + 30px;
+	}
+  .ngn-dismiss {
+    border-radius: 5px;
+  }
+  .ngn-info {
+    background-color: #9F86FF;
+  }
+  .ngn-error {
+    background-color: #E64759;
+  }
+  .ngn-success {
+    background-color: #1BC98E;
+  }
+  .ngn-warn {
+    background-color: #E4D836;
+  }
+}
+
+.default-container{
+	@include make-xs-column(12);
+	@include make-sm-column(10);
+	@include make-sm-column-offset(1);
+}
+
+
+.default-login-container{
+	@include make-xs-column(12);
+	@include make-sm-column(8);
+	@include make-sm-column-offset(2);
+}
+
+.full-container{
+	@include make-xs-column(12);
+}
+
+.navbar > .container-fluid .navbar-logo{
+	margin-left: 0;
+	padding: 5px;
+	img{
+		max-height: 40px;
+	}
+}
+header > .alert{
+	margin-top: -30px;
+}
+
+.panel-error{
+	.panel-heading{
+		border: 1px solid transparent;
+		background-color: #f2dede;
+		border-color: #ebccd1;
+		color: #a94442;
+	}
+}
+
+.panel-success{
+	.panel-heading{
+		border: 1px solid transparent;
+		background-color: #dff0d8;
+		border-color: #d6e9c6;
+		color: #3c763d;
+	}
+}
+
+hr{
+	border: 0;
+	height: 1px;
+	background-image: linear-gradient(to right, lighten($brand-primary, 60%), $brand-primary, lighten($brand-primary, 60%));
+}
+
+.custom-gp{
+	margin-top: 0.7em;
+}
+
+.custom-dpt{
+	color: #333333 !important;
+	font-weight: 400;
+	&:hover{
+		color: white !important;
+	}
+}
+
+.fix-margin-left {
+	margin-left: -15px;
+}
+
+.modal-body {
+  .form-inline {
+    .form-control {
+      width: 77%;
+    }
+  }
+}
+
+.input-group {
+  $border-color: #bdc3c7;
+  $background-color: #ffffff;
+  $border-left: 0;
+  .input-group-addon {
+    border-color: $border-color;
+    background-color: $background-color;
+  }
+  .form-control {
+    border: 1px solid $border-color;
+    background-color: $background-color;
+    border-left: $border-left;
+    &:focus {
+      background-color: $background-color;
+      border: 1px solid $border-color;
+      border-left: $border-left;
+    }
+  }
+}
+
+th.header {
+  $border-color: #bdc3c7;
+  $background-color: #ffffff;
+  $font-size: 12px;
+  .control-label {
+    font-size: $font-size;
+  }
+  .input-group-addon {
+    border-color: $border-color;
+    background-color: $background-color;
+  }
+  .form-control {
+    border: 1px solid $border-color;
+    background-color: $background-color;
+    &:focus {
+      background-color: $background-color;
+      border: 1px solid $border-color;
+    }
+  }
+}

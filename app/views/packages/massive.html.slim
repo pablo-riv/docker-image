@@ -1,0 +1,79 @@
+- breadcrumb :package
+div ng-controller='MassiveController'
+  .card ng-init='init()'
+    .card-block
+      .row ng-init=""
+        .col-md-8
+          h1.card-title
+            | Carga tus envíos masivos
+        .col-md-4
+          .row
+            .col-md-4
+              button.btn.btn-success.pull-right ladda='loading' ng-click='sendPackages()'
+                | Enviar
+            .col-md-2
+            .col-md-4
+              button.btn.btn-info.pull-right ng-click='showLoadModal()'
+                | Añadir pedidos
+            .col-md-2
+              button.btn.btn-warning.pull-right ng-click='undo()'
+                i.fas.fa-undo-alt
+
+      hr
+      .row
+        table.table.table-striped.table-responsive style='overflow-x:auto;'
+          thead
+            tr
+              th
+                | #
+              th.text-center = I18n.t('activerecord.attributes.package.full_name')
+              th.text-center = I18n.t('activerecord.attributes.package.email')
+              th.text-center = I18n.t('activerecord.attributes.package.reference')
+              th.text-center = I18n.t('activerecord.attributes.package.cellphone')
+              th.text-center = I18n.t('activerecord.attributes.package.courier_for_client')
+              th.text-center = I18n.t('activerecord.attributes.package.destiny')
+              th.text-center = I18n.t('activerecord.attributes.address.street')
+              th.text-center = I18n.t('activerecord.attributes.address.number')
+              th.text-center = I18n.t('activerecord.attributes.address.complement')
+              th.text-center = I18n.t('activerecord.attributes.commune.name')
+              - if rollout(:general) 
+                th.text-center = I18n.t('activerecord.attributes.package.with_purchase_insurance')
+                th.text-center = I18n.t('activerecord.attributes.package.purchase.max_insurance')
+                th.text-center = I18n.t('activerecord.attributes.package.purchase.insurance_price')
+              th.text-center ng-if='hasFulfillment' = I18n.t('activerecord.attributes.package.inventory_activity.inventory_activity_orders_attributes.mix')
+          tbody
+            tr ng-repeat='package in packages track by $index'
+              td
+                | {{ ($index + 1) }}
+              td
+                | {{ package.full_name }}
+              td
+                | {{ package.email }}
+              td
+                | {{ package.reference }}
+              td
+                | {{ package.cellphone }}
+              td
+                | {{ package.courier_for_client }}
+              td
+                | {{ package.destiny }}
+              td
+                | {{ package.address_attributes.street }}
+              td
+                | {{ package.address_attributes.number }}
+              td
+                | {{ package.address_attributes.complement }}
+              td
+                | {{ package.address_attributes.commune }}
+              - if rollout(:general) 
+                td
+                  | {{ package.with_purchase_insurance ? 'Si' : 'No' }}
+                td
+                  | {{ package.insurance.maxSecure || 0 | currency:'$':0 }}
+                td
+                  | {{ package.insurance.price || 0 | currency:'$':0 }}
+              td ng-if='hasFulfillment'
+                p ng-repeat='ia in package.inventory_activity.inventory_activity_orders_attributes track by $index'
+                  | {{ ia.name }} {{ia.amount}}
+
+= render 'shared/modal_massive_packages'

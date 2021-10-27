@@ -1,0 +1,19 @@
+script id='returnConfirmation.html' type='text/ng-template'
+  .modal-header
+    h2 = I18n.t('returns.actives.modal.title')
+  .modal-body.mb-1 
+    .row
+      .container-fluid
+        .col-md-12
+          .text-center 
+            p. 
+              | {{ packagesCount }} 
+              label.form-label ng-if='packagesCount == 1' = I18n.t('returns.actives.modal.package')
+              label.form-label ng-if='packagesCount > 1' = I18n.t('returns.actives.modal.packages')
+  .modal-footer
+    .row 
+      .container-fluid
+        .col-md-3.offset-md-4
+          button.btn.btn-link.btn-block.pull-right.text-red type="submit" ladda='loading' ng-click='cancel()' Cancelar
+        .col-md-5
+          button.btn.btn-success.btn-block.pull-right type="submit" ladda='loading' ng-click='returnToClient()' ng-disabled='packagesCount == 0' Confirmar devolución

@@ -1,0 +1,29 @@
+<div class="col-md-6 col-lg-6 pull-left hero-sign">
+  <%= inline_svg 'hero.svg', height: '470' %>
+</div>
+<div class="col-md-6 col-lg-6 pull-right">
+  <div class="card card-block form-layout">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, id: 'reset_password' }) do |f| %>
+      <%= f.hidden_field :reset_password_token %>
+      <div class="text-xs-center">
+        <%= inline_svg 'svg/logo-shipit.svg', height: '100' %>
+        <h1>Cambia tu contraseña</h1>
+      </div>
+      <%= devise_error_messages! %>
+      <fieldset class="form-group">
+        <%= f.label :password, 'Nueva contraseña' %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
+        <% end %>
+        <%= f.password_field :password, autofocus: true, autocomplete: 'off', class: 'form-control form-control-lg', required: true %>
+      </fieldset>
+      <div class="form-group">
+        <%= f.label :password_confirmation, 'Confirma nueva contraseña' %>
+        <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control form-control-lg', required: true %>
+      </div>
+      <div class="actions text-center">
+        <%= f.submit 'Cambiar mi contraseña', class: 'btn btn-primary text-center' %>
+      </div>
+    <% end %>
+  </div>
+</div>

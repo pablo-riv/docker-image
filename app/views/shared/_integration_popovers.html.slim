@@ -1,0 +1,53 @@
+script class='w-200' type='text/ng-template' id='orders_popover.html' 
+  .row.scroll-infinite
+    .col-md-12
+      .row style='padding: 10px;' 
+        h4.popover-subtitle
+          | INFORMACIÓN DEL ENVÍO
+      .row style='padding: 10px;' 
+        p
+          span.popover-item
+            | Destinatario:
+          span
+            |  {{ order.customer_name }}
+        p ng-if="order.seller == 'woocommerce'"
+          span.popover-item
+            | Tienda:
+          span
+            |  {{ order.store_name }}
+        p
+          span.popover-item
+            | Dirección:
+          span
+            |  {{ order.shipping_data.street }} {{ order.shipping_data.number }} {{ order.shipping_data_complement }} - {{ order.commune.name }}
+        p
+          span.popover-item
+            | Email:
+          span
+            |  {{ order.customer_email }}
+        p
+          span.popover-item
+            | Teléfono:
+          span
+            |  {{ order.customer_phone }}
+        p.popover-item
+          | Items:
+        ul ng-if="order.seller == 'dafiti'"
+          li ng-if="order.itemsKindOfArray == false"
+            span
+              | {{ order.items.order_item.name }}
+          li ng-if="order.itemsKindOfArray" ng-repeat='item in order.items.order_item'
+            span
+              | {{ item.name }}
+        ul ng-if="order.seller == 'bootic'"
+          li ng-repeat='item in order.items'
+            span
+              | {{ item.product_title }} - {{ item.product_type_name }}
+        ul ng-if="order.seller == 'shopify'"
+          li ng-repeat='item in order.items'
+            span
+              | {{ item.name }} - {{ item.sku }}
+        ul ng-if="order.seller == 'woocommerce' || order.seller == 'prestashop'"
+          li ng-repeat='item in order.items[0].product'
+            span
+              | {{ item.name }} - {{ item.model }}

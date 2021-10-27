@@ -1,0 +1,36 @@
+.row
+  .col-md-12
+    .text-center.wp-100
+      h3
+        | Cómo integrar Dafiti
+      p 
+        span 
+          | Descarga esta pequeña
+          = " "
+          = link_to 'guía', download_pdf_integrations_path(store: 'dafiti'), class: 'underlined'
+          = " "
+          | o se despliega un paso a paso de como integrar tu tienda Dafiti
+      p
+        a data-toggle="collapse" data-target="#dafiti-steps"
+          | Ver más...
+      br /
+      #dafiti-steps.collapse
+        h5
+          | ¿Dónde está el Secret Key de Dafiti?
+        p
+          | 1.- Ingresa a tu sellercenter y selecciona la pestaña settings, opción manage users
+        = image_tag asset_path('dafiti-instructions/1.PNG'), class: 'w-500'
+        p
+          | 2.- Copia tu API Key (esta será la Secret Key)
+        = image_tag asset_path('dafiti-instructions/2.PNG'), class: 'w-500'
+        br /
+        hr /
+        h5
+          | ¿Dónde poner la Secret Key en Shipit?
+        p
+          | 1.- Ingresa a tu cuenta de shipit y selecciona integraciones, selecciona Dafiti para desplegar la ventana de configuración
+        = image_tag asset_path('dafiti-instructions/3.PNG'), class: 'w-500'
+        p
+          | 2.- Ingresa tu Client ID (usuario, casi siempre correo, con el que accedes al sellercenter) y tu Secret Key
+        = image_tag asset_path('dafiti-instructions/4.PNG'), class: 'w-500'             
+hr

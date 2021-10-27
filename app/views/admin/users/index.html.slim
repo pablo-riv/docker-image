@@ -1,0 +1,34 @@
+.card
+  .card-block
+    .col-md-7
+      = paginate @accounts
+    .col-md-5
+      = form_tag(admin_users_index_path, method: :get)
+        .row
+          .col-md-6
+            .form-group
+              = label(:company, 'Email Cliente', class: 'control-label')
+              i.fas.fa-arrow-down.ml-10
+              = select_tag(:id, options_from_collection_for_select(@all, :id, :email), class: 'form-control', prompt: 'Buscar Cliente', id: :company)
+          .col-md-6.pt-20
+            = link_to admin_users_index_path, class: 'btn btn-info btn-sm', data: { turbolinks: :false } do
+              i.fas.fa-broom.mr-10 
+              | Limpiar Filtro
+  .card-block
+    .col-md-12
+      table.table.table-striped.table.bordered
+        head
+          tr
+            th ID Compañia 
+            th Fecha creación
+            th Nombre Compañia
+            th Correo de Cuenta
+            th
+        body
+          -@accounts.each_with_index do |account, index|
+            tr
+              td = account.entity_specific.id
+              td = account.created_at.strftime('%d-%m-%Y %H:%M')
+              td = account.entity_specific.name
+              td = account.email
+              td = link_to "Hack", masquerade_path(account), class: 'btn btn-success'

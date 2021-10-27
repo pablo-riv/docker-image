@@ -1,0 +1,20 @@
+body{
+  padding-top: 40px !important;
+}
+
+.form-control, .form-control:focus {
+  box-shadow: none;
+  border: 0px;
+}
+
+.form-control{
+  background-color: #bdc3c7;
+}
+
+.form-control:focus {
+  background-color: #ecf0f1;
+}
+
+.dashhead{
+  margin-top: 1.4em;
+}

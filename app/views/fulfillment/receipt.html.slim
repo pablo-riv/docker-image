@@ -1,0 +1,61 @@
+div ng-controller='FulfillmentController'
+  - breadcrumb :fulfillment_receipts
+  div uib-alert='' ng-repeat='alert in alerts track by $index' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' close="closeAlert($index)" {{alert.message}}
+  .card ng-init='index("receipts", #{params[:inventory_activity_type_ids]})'
+    .card-block
+      .row
+        h2.col-md-7.card-title Fulfillment
+        .col-md-4.pull-right
+          = render 'navbar'
+      hr
+      #one.tab-pane role='tabpanel'
+        .row
+          .col-md-6
+            .input-group.mb-2.mr-sm-2.mb-sm-0
+              input.form-control type='search' placeholder='Buscar....' ng-model='search.$'
+              .input-group-addon.secondary
+                input type='checkbox' ng-model='strict'
+            label.form-text.text-muted.pull-right
+              | Activa para búsquedas de contenido exacto.
+        .table-sizes-container
+          table.table.table-striped.table-white-color
+            thead ng-hide='receipts.length == 0'
+              tr
+                th.pointer ng-click='sort("id")'
+                  | #
+                  i.ml-20.fas.fa-caret-down aria-hidden='true' ng-class='{"fa-caret-up": reverse == false && property == "id" }'
+                th.pointer ng-click='sort("description")'
+                  | Descripción
+                  i.ml-20.fas.fa-caret-down aria-hidden='true' ng-class='{"fa-caret-up": reverse == false && property == "description" }'
+                th.pointer ng-click='sort("orders")'
+                  | Cantidad de items
+                  i.ml-20.fas.fa-caret-down aria-hidden='true' ng-class='{"fa-caret-up": reverse == false && property == "orders" }'
+                th Tipo
+                th.pointer ng-click='sort("created_at")'
+                  | Fecha
+                  i.ml-20.fas.fa-caret-down aria-hidden='true' ng-class='{"fa-caret-up": reverse == false && property == "orders" }'
+                th -
+            tbody
+              tr ng-show='receipts.length > 0' ng-repeat='receipt in (filteredActivities = (receipts | filter:search:strict | orderBy:property:reverse))'
+                td
+                  | {{ receipt.id }}
+                td
+                  | {{ receipt.description }}
+                td.text-center ng-init='sumOrders(receipt)'
+                  | {{ receipt.orders }}
+                td Ingresos
+                td
+                 | {{ receipt.created_at | date:'dd/MM/yyyy H:mm:ss' }}
+                td
+                  a ng-href='/ff_activity/{{ receipt.id }}' Ficha Completa
+              tr ng-hide='receipts.length > 0'
+                td colspan='6'
+                  h2.text-center.mt-20 Todavía no existen ingresos registrados
+
+        div.text-center
+          nav
+            ul.pagination
+              li.page-item
+                button.page-link ng-click='changeMovements("receipts", #{params[:inventory_activity_type_ids]}, -1)' rel="next"  < Atrás
+              li.page-item
+                button.page-link ng-click='changeMovements("receipts", #{params[:inventory_activity_type_ids]}, 1)'  Siguiente >

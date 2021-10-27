@@ -1,0 +1,22 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: "./docker/app/development/Dockerfile"
+    environment: 
+      - "RAILS_ENV=production"
+    volumes:
+      - .:/orders
+    ports:
+      - '3000:3000'
+  web:
+    build:
+      context: .
+      dockerfile: ./docker/web/Dockerfile
+    depends_on: 
+      - app
+    ports:
+      - '80:80'
+    links:
+      - "app"

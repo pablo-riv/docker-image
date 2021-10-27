@@ -1,0 +1,15 @@
+.row
+  .col-md-6.col-sm-12
+    h2.card-title
+      = I18n.t('settings.packings.title')
+  .col-md-6.col-sm-12
+    = link_to I18n.t('settings.packings.actions.new'), new_packing_path, class: 'btn btn-primary fl-r'
+    
+.row
+  .col-md-12
+    - if @packings.size.zero?
+      p
+        = I18n.t('settings.packings.messages.no_packings')
+        
+    - else
+      = render '/packings/table', packings: @packings

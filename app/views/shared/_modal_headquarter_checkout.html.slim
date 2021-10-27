@@ -1,0 +1,79 @@
+script id='checkout.html' type='text/ng-template'
+  .modal-header
+    h2.modal-title Resumen Envío
+  .modal-body.mb-1 
+    .row
+      .container-fluid
+        .col-lg-12.col-sm-12
+          .card
+            .card-block
+              .p-t-2.p-b-2.clearfix
+                h2 Detalle del Envío
+                p.m-b-0.pull-right = Time.current.strftime('%d-%m-%Y %H:%M')
+                table.table.table-striped
+                  tr
+                    td.fw-900 #{I18n.t('activerecord.attributes.package.full_name')}:
+                    td
+                      | {{model.full_name}}
+                  tr
+                    td.fw-900 #{I18n.t('activerecord.attributes.package.email')}:
+                    td
+                      | {{model.email}}
+                  tr
+                    td.fw-900 #{I18n.t('activerecord.attributes.package.cellphone')}:
+                    td
+                      | {{model.cellphone}}
+                  tr
+                    td.fw-900 #{I18n.t('activerecord.attributes.address.name')}:
+                    td
+                      | {{model.address_attributes.full}}
+                  - if rollout(:general)
+                    tr
+                      td.fw-900 #{I18n.t('activerecord.attributes.package.purchase.max_insurance')}:
+                      td
+                        | {{ model.insurance.maxSecure || 0 | currency:'$':0 }}
+                    tr  
+                      td.fw-900 #{I18n.t('activerecord.attributes.package.purchase.insurance_price')}:
+                      td
+                        | {{ model.insurance.price || 0 | currency:'$':0 }}
+
+          .table-responsive.p-t-2.p-b-2
+            table.table.table-bordered.m-b-0
+              thead
+                tr
+                  th #{I18n.t('activerecord.attributes.package.reference')}
+                  th #{I18n.t('activerecord.attributes.package.packing')}
+                  th.text-center #{I18n.t('activerecord.attributes.package.items_count')}
+                  th #{I18n.t('activerecord.attributes.package.shipping_type')}
+                  th #{I18n.t('activerecord.attributes.package.destiny')}
+              tbody
+                tr
+                  td 
+                    | {{ model.reference }}
+                  td 
+                    | {{ model.packing }}
+                  td.text-center 
+                    | {{ model.items_count }}
+                  td 
+                    | {{ model.shipping_type }}
+                  td 
+                    | {{ model.destiny }}
+        / hr ng-if='cost != undefined'
+        / .card-block  ng-if='cost != undefined'
+        /   .row
+        /     .col-md-12.text-left
+        /       h2 Precio Aproximado
+            
+        /     .col-md-12
+        /       span.text-help.text-left
+        /         | Nota: este precio es calculado considerando un pedido con medidas ({{model.width}} x {{model.height}} x {{model.length}} x {{model.weight}}) con tiempo estimado de entrega de: {{cost.delivery_time}} día(s)
+              
+        /       h3.text-right.mt-20
+        /         | {{price.total | currency:'CLP': 0 }}
+
+  .modal-footer
+    .row 
+      .col-md-6
+      .col-md-3
+      .col-md-3
+        button.btn.btn-primary.btn-block data-style='expand-left' ladda='loading' ng-click='createPackage(model)' Confirmar Envío

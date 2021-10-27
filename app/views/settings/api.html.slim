@@ -1,0 +1,46 @@
+- breadcrumb :settings_api
+.main-content ng-controller="ApiController" 
+  .content-view
+    .layout-md.b-b
+      .layout-column-md
+        .card
+          .card-block
+            h2.card-title = I18n.t('settings.api.credentials')
+            hr/
+            p
+              = I18n.t('settings.api.link_description') + ": "
+              | #{ link_to I18n.t('settings.api.link'), 'https://developers.shipit.cl', style: 'text-decoration: underline'}
+            p 
+              = I18n.t('settings.api.base')+ ": api.shipit.cl"
+            .row
+              .col-lg-12.col-sm-12
+                .row
+                  .col-lg-4.col-sm-4
+                    fieldset.form-group
+                      label for="exampleInputEmail1"  = I18n.t('settings.api.email')
+                      input.form-control readonly="readonly" type="text" value="#{current_account.email}" /
+                  .col-lg-6.col-sm-6
+                    fieldset.form-group
+                      label for="exampleInputEmail1"  = I18n.t('settings.api.token')
+                      input.form-control readonly="readonly" type="text" value="#{current_account.authentication_token}" /
+                  .col-lg-2.col-md-2.text-center
+                    label = I18n.t('settings.api.test_environment')
+                    label.switch
+                      input.automatic name="sandbox" ng-checked="activeSandbox" ng-disabled="true" ng-init="loadSandbox(#{@company.sandbox?})" type="checkbox" /
+                      .slider.round
+                .row
+                  .col-md-12
+                    p 
+        .card
+          .card-block
+            h2.card-title Webhooks
+            hr/
+            p = I18n.t('settings.api.card_description')
+            .row
+              .col-lg-12.col-sm-12.col-md-12
+                = form_tag(webhooks_settings_path, method: :put) do
+                  - @settings.each do |setting|
+                    = fields_for "settings[]", setting do |f|
+                      = render 'fields', f: f, setting: setting
+                      hr/
+                  = submit_tag 'Guardar', class: 'btn btn-primary', style: 'float: right'

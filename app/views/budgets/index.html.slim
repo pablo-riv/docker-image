@@ -1,0 +1,88 @@
+- breadcrumb :budgets
+div ng-controller="BudgetsController" ng-init='loadCommunes("packages")'
+  .row
+    .col-md-12
+      form class="card card-block" ng-submit="submitForm(package)"
+        i.i-precios
+        h2.card-title=I18n.t("calculator.title")
+        hr
+        .row.mb-30
+          .col-md-6
+            label.required.control-label for="package_width"
+              =I18n.t("calculator.commune")
+            select#communes.select.form-control ng-disabled='!isReady' ng-model='package.address_attributes.commune_id' required='required'
+              option ng-value='{{ commune.id }}' ng-repeat='commune in communes' {{ commune.name }}
+
+        .row.mb-30
+          .col-md-3
+            .form-group.string.required.package_width
+              label.required.control-label for="package_width"
+                =I18n.t("calculator.width")
+              input.string.required.form-control ng-keyup="validateNumber(package.width, 'width')" ng-model="package.width" type="text" name="package[width]" id="package_width" placeholder="20"
+              p.text-red.text-form.text-help ng-show="package.width == ''" Debes ingresar ancho del envío
+
+          .col-md-3
+            .form-group.string.required.package_height
+              label.required.control-label for="package_height"
+                =I18n.t("calculator.height")
+              input.required.form-control ng-keyup="validateNumber(package.height, 'height')" ng-model="package.height" type="text" name="package[height]" id="package_height" placeholder="20"
+              p.text-red.text-form.text-help ng-show="package.height == ''" Debes ingresar alto del envío
+
+          .col-md-3
+            .form-group.string.required.package_length
+              label.required.control-label for="package_length"
+                =I18n.t("calculator.length")
+              input.required.form-control ng-keyup="validateNumber(package.length, 'length')" ng-model="package.length" type="text" name="package[length]" id="package_length" placeholder="20"
+              p.text-red.text-form.text-help ng-show="package.length == ''" Debes ingresar largo del envío
+
+          .col-md-3
+            .form-group.string.required.package_weight
+              label.required.control-label for="package_weight"
+                =I18n.t("calculator.weight")
+              input.required.form-control ng-keyup="validateNumber(package.weight, 'weight')" ng-model="package.weight" type="text" name="package[weight]" id="package_weight" placeholder="20"
+              p.text-red.text-form.text-help ng-show="package.weight == ''" Debes ingresar peso del envío
+          .col-md-12
+              p.text-secondary.text-form.text-help * Para números decimales debes utilizar puntos. Ejemplo: (13.3)
+
+        .col-md-12
+          input type="submit" ladda="loading" ng-disabled="validShip(package)" name="commit" value="#{I18n.t("calculator.button")}" class="btn btn btn-success"
+
+  .col-md-12
+    .card.card-block ng-hide="hide"
+      h2.mb-3=I18n.t("calculator.result_title")
+      .table-responsive
+        table.table.table-striped
+          thead
+            tr
+              th =I18n.t("calculator.attributes.courier")
+              th =I18n.t("calculator.attributes.delivery_time")
+              th =I18n.t("calculator.attributes.pv")
+              th =I18n.t("calculator.attributes.total")
+
+          tbody
+
+            tr ng-repeat="price in prices"
+              td
+                img class="courier-logo" alt="{{price.courier}}" ng-src="{{price.courier}}.png"
+              td
+                | {{ price.delivery_time }}
+              td
+                | {{ price.pv }}
+              td
+                | ${{ price.total }}
+
+        hr /
+        br /
+        h2.mb-3 =I18n.t("calculator.result_subtitle")
+        .row ng-class="{ 'border-top bold':true }" style="padding: 15px;"
+          .col-md-3
+            img class="courier-logo" alt="{{cost.courier}}" ng-src="{{cost.courier}}.png"
+          .col-md-3
+            | {{ cost.delivery_time }}
+          .col-md-3
+            | {{ cost.pv }}
+          .col-md-3
+            | ${{ price.total }} *
+        br /
+        p
+          | *La elección de courier y tarifa de envío por defecto, considera las siguientes variables en el orden a continuación: cobertura de los Couriers al destino seleccionado, cumplimiento del menor tiempo de entrega y finalmente, según el peso y las medidas, se elige el menor precio. Es importante destacar que el courier elegido puede ser diferente al courier de la menor tarifa.

@@ -1,0 +1,72 @@
+@import "ng-tags-input/ng-tags-input";
+@import "ng-tags-input/ng-tags-input.bootstrap";
+.s-1,
+.s-2,
+.s-3,
+.s-4,
+.s-1-off,
+.s-2-off,
+.s-3-off,
+.s-4-off {
+  width: 3.6em;
+  height: 3.6em;
+}
+
+.white {
+  background-color: #ffffff;
+}
+
+ul {
+  margin-bottom: 0px !important;
+}
+
+.first-li {
+  margin-left: 30% !important;
+}
+
+.main-panel {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+hr.spaces {
+  height: 15px;
+}
+
+#form-setup {
+  float: right !important;
+  color: white !important;
+  background-color: #484a7d !important;
+  border-color: #fff !important;
+  box-shadow: none !important;
+}
+
+input,
+textarea,
+select {
+  font-size: 14px !important;
+  border-radius: 4px !important;
+  padding: 5px 15px !important;
+}
+
+select {
+  height: 34px !important;
+  line-height: 32px !important;
+}
+
+button.btn {
+  border-radius: 3px;
+  line-height: 0.25;
+}
+
+.select2-selection__rendered {
+  line-height: 32px !important;
+}
+
+.select2-selection {
+  height: 34px !important;
+}
+
+tags-input .tags .input {
+  padding: 5px 4px !important;
+}

@@ -1,0 +1,124 @@
+script id='editOrderFormatConfigModal.html' type='text/ng-template'
+  .modal-header
+    div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' ng-repeat='alert in alerts' uib-alert='' 
+      | {{ alert.msg }}
+    h2 Configuración de formato para ordenes {{ seller.capitalize() }}
+    .row.text-center
+      button.btn.btn-success.mr-20 ng-click='changeOrder(-1)'
+        i.fas.fa-arrow-left aria-hidden='true'
+        |  Órden anterior
+      |  {{ orderIndex + 1 }}/{{ orders.length }} 
+      button.btn.btn-success.ml-20 ng-click='changeOrder(1)'
+        | Órden siguiente 
+        i.fas.fa-arrow-right aria-hidden='true'
+  .modal-body ng-init='loadFields()'
+    .card-block
+      div.form-group
+        .row.no-margin
+          .col-sm-6.col-md-6.pannel-left
+            h3 
+              b Campos arrastrables
+            p
+              | Los campos están mostrados tal como se rescatan de tu tienda. Indícanos en qué campo se encuentra la información requerida por la columna de la derecha, arrastrando los campos.
+            br/
+            .row.no-margin ng-repeat='key in fields(order) track by $index'
+              div ng-if="kindOf(order[key]) == 'array' && order[key] != undefined && order[key] != null"
+                h3
+                  | {{ key }}
+                .row.no-margin ng-repeat='key2 in fields(order[key][0])'
+                  div ng-if="kindOf(order[key][0][key2]) == 'object' && order[key][0][key2] != undefined && order[key][0][key2] != null"
+                    h4
+                      | {{ key }} - {{ key2 }}
+                    .row.no-margin ng-repeat='key3 in fields(order[key][0][key2])'
+                      .col-sm-12.col-md-12.no-padding ng-if="order[key][0][key2][key3] != null && order[key][0][key2][key3] != ''" 
+                          label.form-label
+                            | {{ key3 }}
+                          .row.no-margin
+                            div.btn.btn-default.draggable.wp-80 ng-value='order[key][0][key2][key3]' data-prop="{{key}}&{{key2}}&{{key3}}"
+                              | {{ order[key][0][key2][key3] || 'vacío' }} 
+                              i.fas.fa-hand-rock aria-hidden='true'
+                    br/
+                    hr/
+                  div ng-if="kindOf(order[key][0][key2]) != 'array' && kindOf(order[key][0][key2]) != 'object'  && order[key][0][key2] != undefined && order[key][0][key2] != null"      
+                    .col-sm-12.col-md-12.no-padding ng-if="order[key][0][key2] != null && order[key][0][key2] != ''"
+                        label.form-label
+                          | {{ key2 }}
+                        .row.no-margin
+                          div.btn.btn-default.draggable ng-value='order[key][0][key2]' data-prop="{{key}}&{{key2}}"
+                            | {{ order[key][0][key2] || 'vacío' }} 
+                            i.fas.fa-hand-rock aria-hidden='true' style='font-size: 10px;'
+                br/
+                hr/
+
+              div ng-if="kindOf(order[key]) == 'object' && order[key] != undefined && order[key] != null"
+                h3
+                  | {{ key }}
+                .row.no-margin ng-repeat='key4 in fields(order[key])'
+                  .col-sm-12.col-md-12.no-padding ng-if="order[key][key4] != null && order[key][key4] != ''"
+                      label.form-label
+                        | {{ key4 }}
+                      .row.no-margin
+                        div.btn.btn-default.draggable ng-value='order[key][key4]' data-prop="{{key}}&{{key4}}"
+                          | {{ order[key][key4] || 'vacío' }} 
+                          i.fas.fa-hand-rock aria-hidden='true'
+                br/
+                hr/
+
+              div ng-if="kindOf(order[key]) != 'array' && kindOf(order[key]) != 'object' && order[key] != undefined && order[key] != null"
+                  .col-sm-12.col-md-12.no-padding ng-if="order[key] != null && order[key] != ''"
+                      label.form-label
+                        | {{ key }}
+                      .row.no-margin
+                        div.btn.btn-default.draggable ng-value='order[key]' data-prop="{{key}}"
+                          | {{ order[key] || 'vacío' }} 
+                          i.fas.fa-hand-rock aria-hidden='true'
+          .col-sm-6.col-md-6.pannel-right.bordered-left
+            h3 
+              b Arrastra aquí
+            p Puedes arrastrar más de un campo, estos serán tomados en el órden en que se agregaron.
+            .droppable data-field='commune'
+              h4 Comuna
+              .fields-box
+                button.btn.btn-default ng-repeat='field in properties.commune' ng-click="removeFieldValue('commune', field)"
+                  | {{ field }} 
+                  i.fas.fa-times aria-hidden='true'
+              br/
+              p
+                | En el ejemplo: {{ communePartial }}
+              br/
+              hr/
+            .droppable data-field='street'
+              h4 Dirección
+              .fields-box
+                button.btn.btn-default ng-repeat='field in properties.street' ng-click="removeFieldValue('street', field)"
+                  | {{ field }} 
+                  i.fas.fa-times aria-hidden='true'
+              br/
+              p
+                | En el ejemplo: {{ streetPartial }}
+              br/
+              hr/
+            .droppable data-field='number'
+              h4 Número
+              .fields-box
+                button.btn.btn-default ng-repeat='field in properties.number' ng-click="removeFieldValue('number', field)"
+                  | {{ field }} 
+                  i.fas.fa-times aria-hidden='true'
+              br/
+              p
+                | En el ejemplo: {{ numberPartial }}
+              br/
+              hr/
+            .droppable data-field='complement'
+              h4 Complemento
+              .fields-box
+                button.btn.btn-default ng-repeat='field in properties.complement' ng-click="removeFieldValue('complement', field)"
+                  | {{ field }} 
+                  i.fas.fa-times aria-hidden='true'
+              br/
+              p
+                | En el ejemplo: {{ complementPartial }}
+
+  .modal-footer
+    button.btn.btn-primary ng-click='saveFieldsStructure()'
+      | Confirmar

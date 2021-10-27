@@ -1,0 +1,168 @@
+- breadcrumb :edit_notification
+
+div ng-controller='MailNoticationController' ng-init='loadCurrentMail("#{@mail.id}"); activeColorPicker();'
+  div uib-alert='' ng-repeat='alert in alerts track by $index' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' close="closeAlert($index)" {{alert.message}}
+  .card
+    .card-block
+      .row
+        .col-md-8
+          h2.card-title
+            = I18n.t('notifications.card.titles.mail')
+        .col-md-1
+        .col-md-3.text-right
+          button.btn.btn-primary.btn-block popover-class='w-500' uib-popover-template='testEmailTemplate' popover-title='Correo de Prueba' popover-placement='left' tabindex='0' Correo de Prueba
+      hr
+      .row
+        .col-md-6.col-sm-6
+          .row.mb-20
+            .col-md-12
+              label data-original-title='Este campo edita el asunto del correo' title='Este campo edita el asunto del correo' data-placement='top' data-toggle='tooltip'
+                = I18n.t('activerecord.attributes.mail_notification.text.subject.base')
+              input.form-control.fs-16 type='text' multiline='true' ng-model='mail.text.subject'
+          .row
+            .col-md-12.col-sm-12
+              .form-group
+                label data-original-title='Este campo edita el titulo estado del email' title='Este campo edita el titulo estado del email' data-placement='top' data-toggle='tooltip'
+                  = I18n.t('activerecord.attributes.mail_notification.text.title')
+                input.form-control.fs-16 type='text' multiline='true' ng-model='mail.text.title_text'
+          .row
+            .col-md-6.col-sm-6.pt-20
+              label data-original-title='Este campo edita el color de fondo del titulo estado' title='Este campo edita el color de fondo del titulo estado' data-placement='top' data-toggle='tooltip'
+                = I18n.t('activerecord.attributes.mail_notification.color.title')
+            .col-md-4.col-sm-4.text-center
+              .input-group#colorpicker-title.colorpicker-component.mb-2.mr-sm-2.mb-sm-0.pt-10
+                input.form-control.fs-16 type="text" ng-value='mail.color.title_color' ng-model='mail.color.title_color' ng-show='true'
+                span.input-group-addon.border-left.special-padding
+                  i ng-style='{ "background-color": mail.color.title_color }'
+            .col-md-2.col-sm-2
+          .row.mb-20
+            .col-md-6.col-sm-6.pt-20
+              label data-original-title='Este campo edita el color de fuente del titulo estado' title='Este campo edita el color de fuente del titulo estado' data-placement='top' data-toggle='tooltip'
+                = I18n.t('activerecord.attributes.mail_notification.color.title_font_color')
+            .col-md-4.col-sm-4.text-center
+              .input-group#colorpicker-title-font.colorpicker-component.mb-2.mr-sm-2.mb-sm-0.pt-10
+                input.form-control.fs-16 type="text" ng-value='mail.color.title_font_color' ng-model='mail.color.title_font_color' ng-show='true'
+                span.input-group-addon.border-left.special-padding
+                  i ng-style='{ "background-color": mail.color.title_font_color }'
+            .col-md-2.col-sm-2
+          .row.mb-20 ng-if='mail.text.one.customizable'
+            .col-md-12
+              .form-group
+                label.mb-20 data-original-title='Este campo edita el texto superior del correo' title='Este campo edita el texto superior del correo' data-placement='top' data-toggle='tooltip'
+                  = I18n.t('activerecord.attributes.mail_notification.text.one.base')
+                trix-editor angular-trix='' ng-model='mail.text.one.content'
+              .form-group
+                label.mb-10 data-original-title='Al pasar por encima indica la palabra clave para agregar al correo' title='Al pasar por encima indica la palabra clave para agregar al correo' data-placement='top' data-toggle='tooltip' Tags disponibles para agregar a tu correo
+              - @mail.tags.each do |tag, value|
+                - if value
+                  span.tag.tag-pill.process.p-10.mr-10.pointer data-original-title='{#{tag}}' title='{#{tag}}' ng-click='copy("#{I18n.t("activerecord.attributes.mail_notification.tags.#{tag}")}", "#{tag}", "one")' data-placement= 'bottom' data-toggle='tooltip'
+                    = I18n.t("activerecord.attributes.mail_notification.tags.#{tag}")
+          .row
+            .col-md-12
+              .row
+                .form-group.col-md-6.col-sm-6.pt-10
+                  label data-original-title='Este campo habilita el botón de Nº de seguimiento' title='Este campo habilita el botón de Nº de seguimiento' data-placement='top' data-toggle='tooltip'
+                    = I18n.t('activerecord.attributes.mail_notification.tracking')
+                .col-md-6.col-sm-6.text-left
+                  .m-b-1
+                    label.switch
+                      input.cxp ng-model='mail.tracking' type='checkbox'
+                      .slider.round
+          .row ng-show='mail.tracking'
+            .col-md-12
+              .form-group
+                label data-original-title='Este campo edita texto del botón Nº de seguimiento' title='Este campo edita texto del botón Nº de seguimiento' data-placement='top' data-toggle='tooltip'
+                  = I18n.t('activerecord.attributes.mail_notification.text.tracking')
+                input.form-control.fs-16 type='text' ng-model='mail.text.tracking_text'
+          .row ng-show='mail.tracking' ng-init='activeColorPicker()'
+            .col-md-6.col-sm-6.pt-20
+              label data-original-title='Este campo edita color de fondo botón de Nº de seguimiento' title='Este campo edita color de fondo botón de Nº de seguimiento' data-placement='top' data-toggle='tooltip'
+                = I18n.t('activerecord.attributes.mail_notification.color.button')
+            .col-md-4.col-sm-4.text-center
+              .input-group#colorpicker-tracking-button.colorpicker-component.mb-2.mr-sm-2.mb-sm-0.pt-10
+                input.form-control.fs-16 type="text" ng-value='mail.color.tracking_button' ng-model='mail.color.tracking_button' ng-show='true'
+                span.input-group-addon.border-left.special-padding
+                  i ng-style='{ "background-color": mail.color.tracking_button }'
+            .col-md-2.col-sm-2
+          .row.mb-20 ng-show='mail.tracking' ng-init='activeColorPicker()'
+            .col-md-6.col-sm-6.pt-20
+              label data-original-title='Este campo edita color de fuente botón de Nº de seguimiento' title='Este campo edita color de fuente botón de Nº de seguimiento' data-placement='top' data-toggle='tooltip'
+                = I18n.t('activerecord.attributes.mail_notification.color.tracking_font')
+            .col-md-4.col-sm-4.text-center
+              .input-group#colorpicker-tracking-font.colorpicker-component.mb-2.mr-sm-2.mb-sm-0.pt-10
+                input.form-control.fs-16 type="text" ng-value='mail.color.tracking_text_color' ng-model='mail.color.tracking_text_color' ng-show='true'
+                span.input-group-addon.border-left.special-padding
+                  i ng-style='{ "background-color": mail.color.tracking_text_color }'
+            .col-md-2.col-sm-2
+
+          .row.mb-30 ng-if="mail.text.two.customizable "
+            .col-md-12
+              .form-group.mb-20
+                label.mb-10 data-original-title='Este campo edita el texto medio del correo' title='Este campo edita el texto medio del correo' data-placement='top' data-toggle='tooltip'
+                  = I18n.t('activerecord.attributes.mail_notification.text.two.base')
+                trix-editor angular-trix='' ng-model='mail.text.two.content'
+
+              .form-group
+                label.mb-10 data-original-title='Al pasar por encima indica la palabra clave para agregar al correo' title='Al pasar por encima indica la palabra clave para agregar al correo' data-placement='top' data-toggle='tooltip' Tags disponibles para agregar a tu correo
+
+              - @mail.tags.each do |tag, value|
+                - if value
+                  span.tag.tag-pill.process.p-10.mr-10.pointer data-original-title='{#{tag}}' title='{#{tag}}' ng-click='copy("#{I18n.t("activerecord.attributes.mail_notification.tags.#{tag}")}", "#{tag}", "one")' data-placement= 'bottom' data-toggle='tooltip'
+                    = I18n.t("activerecord.attributes.mail_notification.tags.#{tag}")
+          
+          .row.mb-30 ng-if="mail.text.three.customizable"
+            .col-md-12
+              .form-group.mb-20
+                label.mb-10 data-original-title='Este campo edita el texto inferior del correo' title='Este campo edita el texto inferior del correo' data-placement='top' data-toggle='tooltip'
+                  = I18n.t('activerecord.attributes.mail_notification.text.three.base')
+                trix-editor angular-trix='' ng-model='mail.text.three.content'
+
+              .form-group
+                label.mb-10 data-original-title='Al pasar por encima indica la palabra clave para agregar al correo' title='Al pasar por encima indica la palabra clave para agregar al correo' data-placement='top' data-toggle='tooltip' Tags disponibles para agregar a tu correo
+
+              - @mail.tags.each do |tag, value|
+                - if value
+                  span.tag.tag-pill.process.p-10.mr-10.pointer data-original-title='{#{tag}}' title='{#{tag}}' ng-click='copy("#{I18n.t("activerecord.attributes.mail_notification.tags.#{tag}")}", "#{tag}", "one")' data-placement= 'bottom' data-toggle='tooltip'
+                    = I18n.t("activerecord.attributes.mail_notification.tags.#{tag}")
+
+          .row ng-init='activeMethods()'
+            .col-md-6
+              button.btn.btn-success.btn-block ng-click='updateCurrentMail(mail)' Guardar
+            .col-md-6
+              = link_to 'Cancelar', request.referrer, class: 'btn btn-link btn-block', data: { turbolinks: :false }
+
+        .col-md-6.col-sm-6
+          .row
+            .col-md-12.h-70.pt-15 ng-style='{ "background-color": company.preferences.email.color.background_header }'
+              img.pointer height='40' width='80' ng-src='{{company.logo}}' uib-popover-html='helpLogo' popover-title='Información' popover-placement='bottom' tabindex='0'
+            .col-md-12.pt-30.pb-30
+              .row.mb-20 ng-style='{ "background-color": mail.color.title_color }'
+                .col-md-12.pt-10.overflow-x
+                  h2 ng-style='{ "color": mail.color.title_font_color }'
+                    | {{mail.text.title_text}}
+              .row.mb-20
+                .col-md-12.overflow-x
+                  p ng-bind-html='sanitizeText(mail.text.one.content)'
+              .row.mb-40 ng-if='mail.tracking'
+                .col-md-12.text-center
+                  button.btn ng-style='{ "background-color": mail.color.tracking_button, color: mail.color.tracking_text_color }'
+                    | {{mail.text.tracking_text}}
+              .row.mb-30 style='border: 5px solid #000000' ng-if='mail.state == "failed"'
+                .col-md-12.text-center
+                  i.help.ml-10.mt-10.fas.fa-info-circle.pointer.pull-left uib-popover-html="'Package Status = Rechazado. <br />Courier Status = Motivo por el cual falló entrega (ejemplo: Primer Intento - Domicilio Cerrado)'" popover-title='Información' popover-placement='bottom' tabindex='0'
+                  p.mb-30.pt-30
+                    | {package_status} - {courier_status}
+              .row
+                .col-md-12.overflow-x
+                  p ng-bind-html='sanitizeText(mail.text.two.content)'
+              .row
+                .col-md-12.overflow-x
+                  p ng-bind-html='sanitizeText(mail.text.three.content)'
+              .row.mb-30.p-10.text-center.text-white.fw-600 style='background-color: #808080;' ng-if='mail.state != "failed"'
+                p.pt-10
+                  | Recuerda que <strong>el tiempo de entrega depende de la distancia</strong> entre el lugar de origen y el lugar de destino.
+            .col-md-12.min-h-150 ng-style='{ "background-color": company.preferences.email.color.background_footer, "color": company.preferences.email.color.font_color_footer }'
+              p.text-center.mb-10.p-30 ng-style='{ "color": company.preferences.email.color.font_color_footer }'
+                | {{company.name}} - {{company.website}}. Si no quieres recibir los números de seguimiento de tus compras, contacta directamente a la tienda.
+              p.text-center.mb-30 = I18n.t('email.footer.copyright', year: Time.current.year)
+  = render 'shared/popover_email_test'

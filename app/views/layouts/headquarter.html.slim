@@ -1,0 +1,93 @@
+doctype html
+html ng-app='client-app' ng-strict-di=''
+  head
+    meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
+    title
+      = t 'title'
+    = csrf_meta_tags
+    script async='' src="https://www.googletagmanager.com/gtag/js?id=UA-136725524-1"
+    script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDtSxLdKCMEbcWU2lS5pm1q9HVxhDkI2Dw&libraries=places'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    link href='https://fonts.googleapis.com/css?family=Raleway:500,900,200' rel='stylesheet' type='text/css'
+    link href="#{asset_path('favicon.png')}" rel='icon' sizes='16x16' type='image/png'
+  body
+    .app#app
+      .off-canvas-overlay data-toggle='sidebar' ng-controller='WelcomeController' ng-click='toggleSidebar()'
+      .sidebar-panel ng-controller='WelcomeController'
+        .brand
+          button.btn.btn-link.mt-10.text-white.toggle-offscreen.hidden-lg-up data-toggle='sidebar' ng-click='toggleSidebar()'
+            i.fas.fa-bars.fa-2 aria-hidden='true'
+          a.brand-logo
+            = inline_svg 'svg/logo-shipit-light.svg', height: '55'
+        nav
+          p.nav-title
+          ul.nav
+            li
+              = link_to headquarter_dashboard_path, class: "#{active_class_for('headquarter_dashboard')}", data: { turbolinks: :false }
+                i.i-inicio
+                span Inicio
+            li
+              = link_to headquarter_packages_path, class: "#{active_class_for('headquarter_packages')}", data: { turbolinks: :false }
+                i.i-envios
+                span Historial de envíos
+      .main-panel
+        nav.header.navbar ng-controller='WelcomeController'
+          .header-inner
+            .navbar-item.brand.hidden-lg-up
+              button.btn.btn-link.mt-10.text-white.toggle-offscreen.hidden-lg-up data-toggle='sidebar' ng-click='toggleSidebar()'
+                i.fas.fa-bars.fa-2 aria-hidden='true'
+              a.brand-logo.hidden-xs-down href=root_path
+                = inline_svg('svg/logo-shipit-light.svg', height: '35')
+            .navbar-item.navbar-spacer-right.navbar-heading.navbar-right
+            .nav-item.nav-link.uib-dropdown.dropdown
+              .nav-profile
+                a.dropdown-toggle data-toggle='dropdown' href='javascript:;'
+                  .i-user
+                  .user-info.expanding-hidden
+                    | Hola 
+                    small.bold= get_full_name
+                .dropdown-menu.navbar-dropdown
+                  = link_to 'Instrucciones', headquarter_instructions_path, class: 'dropdown-item', data: { turbolinks: :false }
+                  .dropdown-divider
+                  = link_to 'Cerrar Sesión', destroy_account_session_path, method: :delete, class: 'dropdown-item'
+        .main-content
+          .content-view
+            - flash.each do |key, values|
+              - if values.class == String
+                div class=("alert alert-#{key} alert-success") role="alert" 
+                  button.close aria-label="Close" data-dismiss="alert" type="button" 
+                    span aria-hidden="true"  ×
+                  strong.fw-b= values
+              - else
+                - values.each do |value|
+                  div class=("alert alert-#{key == 'alert' ? 'danger' : key} alert-dismissible") role="alert" 
+                    button.close aria-label="Close" data-dismiss="alert" type="button" 
+                      span aria-hidden="true"  ×
+                    strong.fw-b= value
+            - unless params[:action].include?('dashboard') || params[:controller].include?('apipie/apipies')
+              .row
+                .col-md-12
+                  .card
+                    .card-block
+                      - breadcrumbs.tap do |links|
+                        - if links.any?
+                          - links.each_with_index do |link, index|
+                            = link_to link.text, link.url, data: { turbolinks: :false }, class: (link.current? ? 'current' : nil)
+                            - if links.count > (index + 1)
+                              | ›
+
+            = yield
+          .content-footer
+            nav.footer-left
+              ul.nav
+                li.hidden-md-down
+                  a
+                    span Copyright &copy; #{Time.current.year} Shipit
+                li.hidden-md-down
+                  a href='http://shipit.cl/terminos-y-condiciones/' target='_blank' Términos y condiciones
+                li.hidden-md-down
+                  a href='http://shipit.cl/faq/' target='_blank' FAQ
+                li.hidden-md-down
+                  = link_to 'Instrucciones', headquarter_instructions_path, data: { turbolinks: :false }

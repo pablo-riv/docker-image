@@ -1,0 +1,35 @@
+table.table.table-striped ng-init='init("#{status}")' ng-if='activePane == "#{status}"'
+  theader
+    tr
+      th.w-120 = I18n.t('helps.index.tabs.table.headers.support_id')
+      th.w-100 = I18n.t('helps.index.tabs.table.headers.package')
+      th.w-135 = I18n.t('helps.index.tabs.table.headers.created_at')
+      th = I18n.t('helps.index.tabs.table.headers.subject')
+      th = I18n.t('helps.index.tabs.table.headers.last_response_name')
+      th = I18n.t('helps.index.tabs.table.headers.last_response_date')
+      th.w-50
+  tbody
+    tr ng-repeat='support in supports' ng-if='supports.length > 0'
+      td.w-120
+        | {{ support.provider_id }}
+      td.w-100
+        div ng-if='support.package_id != null'
+          a ng-href='/packages/{{support.package_id}}' data-turbolinks='false'
+            | {{support.package_reference}}
+      td.w-135
+        span.pointer tooltip-placement='top' uib-tooltip='{{support.created_at | date: "HH:mm:ss" }}'
+          | {{ support.created_at | date:'dd-MM-yyyy' }}
+      td
+        span.pointer tooltip-placement='top' uib-tooltip='{{support.subject}}'
+          | {{ support.subject | limitTo:25 }}
+        span ng-if='support.subject.length > 25' ...
+      td
+        | {{ support.last_response_name }}
+      td
+        span.pointer tooltip-placement='top' uib-tooltip='{{support.last_response_date | date: "HH:mm:ss" }}'
+          | {{ support.last_response_date | date:'dd-MM-yyyy' }}
+      td.text-center.w-50
+        a ng-click='showDetail(support.provider_id)' href='#' data-turbolinks='false'
+          i.fas.fa-search.fs-18
+    tr ng-if='support.length <= 0'
+      td colspan='6' = I18n.t('helps.index.tabs.table.no_data')

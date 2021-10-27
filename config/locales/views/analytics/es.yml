@@ -1,0 +1,71 @@
+es:
+  analytics:
+    index:
+      titles:
+        analitycs: 'Analíticas '
+        packages: Envíos
+        sales: Ventas
+        platform_use: Uso de la plataforma
+        notifications: Notificaciones al comprador
+        support: Tickets de ayuda
+    search:
+      from_date: Desde
+      to_date: Hasta
+      current_period: Período actual
+      last_period: Período anterior
+      periodical_report: Reporte periódico por correo
+      select_period: Selecciona período para mostrar información
+      show_period: Mostrar reporte de
+    packages:
+      period: '# Envíos'
+      sla_global: SLA global de Shipit
+      table:
+        title:
+          top_commune: Top Comunas
+          top_courier: Top Couriers
+        commune: Comuna
+        courier: Courier
+        packages: Envíos
+        sla: SLA
+        without_courier: Envío sin courier
+      chart:
+        title: Gráfico de envíos de este período
+    sales:
+      total_sales: Ventas período
+      average_tickets: Tickets promedio
+      daily_tickets: Promedio de ventas por día
+      chart:
+        title: Gráfico de ventas de este período
+    platform_use: 
+      use_time: Tiempo conectado a la plataforma
+      sessions: Sesiones
+    notifications:
+      average_notifications: Notificaciones promedio por envío
+      notification_number: '# Notificaciones Enviadas'
+      rate_deliver: Tasa de entrega de las notificaciones
+    support:
+      period_tickets: Tickets de este período generados por la plataforma
+    last_period: ' durante período anterior'
+    buttons:
+      filter: ' Filtrar'
+      program: ' Programar reporte'
+    modal:
+      program: Programar reporte
+      contact_email: Correos de contacto
+      select_period: Seleccionar período del reporte
+      select_days: Seleccionar días a enviar reporte
+      select_send_period: Seleccionar período de envío
+      activate: Activar envío
+      buttons:
+        save: Guardar
+        close: Cerrar
+      invalid_option: Opcion no válida.
+    chart:
+      periods:
+        last_period_orders: Ventas acumuladas del periodo anterior
+        current_period_orders: Ventas acumuladas del periodo actual
+        last_period_packages: Envíos acumulados del periodo anterior
+        current_period_packages: Envíos acumulados del periodo actual
+        x_day: Día
+    warning:
+      integration_message: Debes integrar tu tienda para ver esta información.

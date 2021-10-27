@@ -1,0 +1,244 @@
+- breadcrumb @package
+.row
+  .col-md-12
+    .card.datos
+      .card-block
+        .row
+          .col-sm-6.col-md-6.col-lg-8.col-xl-8
+            h2.card-title #{I18n.t('packages.show.card.titles.general')} &nbsp;&nbsp; #{sent_email?(@package)}
+          .col-sm-6.col-md-6.col-lg-4.col-xl-4
+            .col-md-3.col-xs-6.text-center.fl-r ng-controller='LabelsIndexController'
+              - unless @package.in.present? && @package.status!='in_preparation'
+                button.btn.btn-success.btn-sm.fs-18.animated.fadeIn. ng-click='print("#{@package.id}")' tooltip-placement='top' uib-tooltip="#{I18n.t('labels.index.tooltips.print')}" tooltip-popup-delay='100'
+                  i.fas.fa-print
+            .col-md-3.col-xs-6.text-center.fl-r ng-controller='HelpIndexController'
+              a.btn.btn-info ng-click="create('#{@package.id}', '#{@package.reference}')" data-turbolinks='false' uib-tooltip="#{I18n.t('labels.index.tooltips.support')}" tooltip-popup-delay='100'
+                img.support_icon_light
+            - if rollout(:self_management)
+              - if @package.editable_by_client
+                .col-md-3.col-xs-6.text-center.fl-r ng-controller='HeadquarterPackageController'  tooltip-placement='top' uib-tooltip="#{I18n.t('labels.index.tooltips.edit')}"
+                  = link_to edit_package_path(@package.id), class: "btn btn-warning btn-sm fs-18 animated fadeIn", data: { turbolinks: :false }
+                    i.fas.fa-edit
+              - if @package.archivable_by_client
+                .col-md-3.col-xs-6.text-center.fl-r ng-controller='LabelsIndexController' tooltip-placement='top' uib-tooltip="#{I18n.t('labels.index.tooltips.delete')}"
+                  = link_to package_path(@package.id), method: :delete, class: 'btn btn-danger btn-sm fs-18 animated fadeIn', data: { confirm: '¿Estás seguro de querer eliminar este envío?', turbolinks: :false  }       
+                    i.fas.fa-trash
+              - if @package.returnable_by_client
+                .col-md-3.col-xs-6.text-center.fl-r tooltip-placement='top' uib-tooltip="#{I18n.t('labels.index.tooltips.return')}"
+                  = link_to new_returns_packages_path(@package.id), class: "btn btn-danger btn-sm fs-18 animated fadeIn", data: { turbolinks: :false }
+                    i.fas.fa-undo
+            .offset-md-4
+            = render 'shared/modal_create_support'
+        hr/
+        .text-center
+          .row.pb-20.pt-20.text-center
+            .col-md-4.col-sm-4.col-xs-6.mb-30
+              h4
+                b = I18n.t('activerecord.attributes.package.reference')
+              label = @package.reference
+            .col-md-4.col-sm-4.col-xs-6.mb-30
+              h4
+                b = I18n.t('activerecord.attributes.package.courier_for_client')
+              label = link_to courier_icon(@package.courier_for_client), @package.courier_url
+            .col-md-4.col-sm-4.mb-30
+              h4
+                b = I18n.t('activerecord.attributes.package.tracking_number')
+              label = courier_tracking_link(@package)
+          .row.pb-20.pt-20.text-center
+            - if rollout(:algorithm)
+              .col-md-4.col-sm-4.col-xs-4.mb-30
+                h4
+                  b = I18n.t('packages.new.card.titles.algorithm')
+                label = PackageService.algorithm_used(@package)
+              .col-md-4.col-sm-4.col-xs-4.mb-30
+                h4
+                  b = I18n.t('activerecord.attributes.package.created_at')
+                label = @package.created_at.strftime('%d-%m-%Y %H:%M')
+              .col-md-4.col-sm-4.col-xs-4.mb-30
+                h4
+                  b = I18n.t('activerecord.attributes.package.status')
+                label = current_status_for(@package)
+            - else
+              .col-md-6.col-sm-6.col-xs-6.mb-30
+                h4
+                  b = I18n.t('activerecord.attributes.package.created_at')
+                label = @package.created_at.strftime('%d-%m-%Y %H:%M')
+              .col-md-6.col-sm-6.col-xs-6.mb-30
+                h4
+                  b = I18n.t('activerecord.attributes.package.status')
+                label = current_status_for(@package)
+.row
+  .col-md-12
+    .card.datos
+      .card-block
+        h2.m-b-1 = I18n.t('packages.show.card.titles.information')
+        hr/
+        .row.pb-20.pt-20.text-center
+          .col-md-6.col-sm-6.col-xs-6.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.package.items_count')
+            label = @package.items_count
+          .col-md-6.col-sm-6.col-xs-6.mb-30
+            h4
+             b = I18n.t('activerecord.attributes.package.shipping_type')
+            label = @package.shipping_type
+        .row.pb-20.pt-20.text-center
+          .col-md-4.col-sm-4.col-xs-4.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.package.is_returned')
+            label = @package.is_returned ? 'Si' : 'No'
+          .col-md-4.col-sm-4.col-xs-4.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.package.is_paid_shipit')
+            label = @package.is_paid_shipit ? 'Si' : 'No'
+          .col-md-4.col-sm-4.col-xs-4.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.package.is_payable')
+            label = @package.is_payable ? 'Si' : 'No'
+
+- if @package.with_purchase_insurance
+  .row
+    .col-md-12
+      .card.datos
+        .card-block
+          h2.m-b-1 = I18n.t('activerecord.attributes.package.with_purchase_insurance')
+          hr/
+          .row.pb-20.pt-20.text-center
+            .col-md-4.col-sm-4
+              h4
+                b = I18n.t('activerecord.attributes.package.purchase.ticket_number')
+              label = @package.insurance.try(:ticket_number)
+            .col-md-4.col-sm-4
+              h4
+                b = I18n.t('activerecord.attributes.package.purchase.amount')
+              label = number_to_currency(@package.insurance.try(:ticket_amount) || 0)
+            .col-md-4.col-sm-4
+              h4
+                b = I18n.t('activerecord.attributes.package.purchase.detail')
+              label = @package.insurance.try(:detail) || 'Sin Información'
+          .row.pb-20.pt-20.text-center
+            .col-md-6.col-sm-6
+              h4
+                b = I18n.t('activerecord.attributes.package.purchase.max_insurance')
+              label = number_to_currency(@package.insurance_price)
+            .col-md-6.col-sm-6
+              h4
+                b = I18n.t('activerecord.attributes.package.purchase.extra_insurance')
+              label = @package.insurance.try(:extra).present? ? 'Si' : 'No'
+.row
+  .col-md-12
+    .card.datos
+      .card-block
+        h2.m-b-1 = I18n.t('packages.show.card.titles.delivery')
+        hr/
+        .row.pb-20.pt-20.text-center
+          .col-md-3.col-sm-6.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.package.full_name')
+            label = @package.try(:full_name)
+          .col-md-3.col-sm-6.col-xs-6.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.package.cellphone')
+            label = @package.try(:cellphone) || 'Sin Teléfono'
+          .col-md-3.col-sm-6.col-xs-6.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.package.email')
+            label = @package.email.blank? ? 'No Especificado' : @package.email
+          .col-md-3.col-sm-6.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.package.destiny')
+            label = @package.destiny
+        .row.pb-20.pt-20.text-center
+          .col-md-3.col-sm-3.col-xs-12.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.address.street')
+            label = @package.address.try(:street) || 'No Especificado'
+          .col-md-3.col-sm-3.col-xs-4.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.address.number')
+            label = @package.address.try(:number) || 'No Especificado'
+          .col-md-3.col-sm-3.col-xs-4.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.address.complement')
+            label = @package.address.try(:complement) || 'No Especificado'
+          .col-md-3.col-sm-3.col-xs-4.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.commune.name')
+            label = @package.commune.try(:name).try(:titleize) || 'Sin comuna'
+.row
+  .col-md-12
+    .card.datos
+      .card-block
+        h2.m-b-1 = I18n.t('packages.show.card.titles.price')
+        hr/
+        .row.pb-20.pt-20.text-center
+          .col-md-4.col-sm-6.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.package.volume_price')
+            label = @package.volume_price.blank? ? 'Sin Información' : @package.volume_price
+          .col-md-4.col-sm-6.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.package.material_extra')
+            label = @package.material_extra.blank? ? 'Sin Información' : number_to_currency(@package.material_extra)
+          .col-md-4.col-sm-6.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.package.packing')
+            label = @package.packing
+        .row.pb-20.pt-20.text-center
+          .col-md-4.col-sm-6.mb-30
+            h4
+              b = kind_of_price_label(@package, 'shipping_price')
+            label = @package.shipping_price.blank? ? 'Sin Información' : number_to_currency(@package.shipping_price)
+          .col-md-4.col-sm-6.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.package.total_is_payable')
+            label = @package.total_is_payable.blank? ? 'Sin Información' : number_to_currency(@package.total_is_payable)
+          .col-md-4.col-sm-6.mb-30
+            h4
+              b = I18n.t('activerecord.attributes.package.purchase.insurance_price')
+            label = number_to_currency(@package.insurance_price)
+        .row.pb-20.pt-20.text-center
+          .col-md-12.col-sm-12.mb-30
+            h4
+              b = kind_of_price_label(@package, 'total_price')
+            label = @package.total_price.blank? ? 'Sin Información' : number_to_currency(@package.total_price)
+          / - unless @package.sell_type.nil?
+          /   .col-md-4.col-sm-6.mb-30
+          /     h4
+          /       b = I18n.t('activerecord.attributes.package.sell_type')
+          /     label = @package.sell_type.blank? ? 'Sin Información' : @package.sell_type
+
+- unless @orders.blank?
+  .card.datos
+    .card-block
+      h2.m-b-1 = I18n.t('packages.show.card.titles.skus')
+      hr/
+      .row.text-center.table-responsive
+        table.table.table-striped
+          thead
+            tr
+              th.text-center
+                h4 = I18n.t('activerecord.attributes.package.inventory_activity.inventory_activity_orders_attributes.sku_id')
+              th.text-center
+                h4 = I18n.t('activerecord.attributes.package.inventory_activity.inventory_activity_orders_attributes.amount')
+              th.text-center
+                h4 = I18n.t('activerecord.attributes.package.inventory_activity.inventory_activity_orders_attributes.description')
+              th.text-center
+                h4 = I18n.t('activerecord.attributes.package.inventory_activity.inventory_activity_orders_attributes.created_at')
+          tbody
+            - if @orders.is_a?(Array)
+              - @orders.each do |order|
+                tr
+                  td
+                    label = order['sku'] ? order['sku']['name'] : 'Sin información de SKU'
+                  td
+                    label = order['amount']
+                  td
+                    label = order['sku'] ? order['sku']['description'] : 'Sin información de SKU'
+                  td
+                    label = order['created_at'].to_date.strftime('%d-%m-%Y')
+
+            - else
+              tr
+                td colspan='4'
+                  h4 Sin información

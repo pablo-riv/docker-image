@@ -1,0 +1,81 @@
+.row
+  .col-md-6.text-center
+    = inline_svg 'hero.svg', height: '410', class: 'login-logo'
+
+  .col-md-6
+    .card
+      .card-block
+        .container
+          = form_for resource, as: resource_name, url: registration_path(resource_name), id: 'validate' do |f|
+            .text-xs-center.m-b-3
+              h1 Crea tu cuenta
+
+            fieldset.form-group
+              = f.text_field :company_name, autofocus: true, class: 'form-control form-control-lg', placeholder: 'Nombre de tu tienda o empresa'
+              - @capture = ''
+              - if params[:capture].present?
+                - @capture = 'outbound' if params[:capture].include?('outbound')
+              - else
+                - @capture = 'inbound'
+              = f.hidden_field :company_capture, value: @capture
+              div#form-control-feedback-name.hidden.form-control-feedback
+                = t('forms.validations.sign_up.name')
+            fieldset.form-group
+              = f.email_field :email, autofocus: true, class: 'form-control form-control-lg', placeholder: 'Tu correo electrónico'
+              div#form-control-feedback-email.hidden.form-control-feedback
+                = t('forms.validations.sign_up.email')
+            fieldset.form-group
+              - if @minimum_password_length
+                em= "(#{@minimum_password_length}  caracteres mínimo)"
+              = f.password_field :password, autocomplete: 'off', class: 'form-control form-control-lg', placeholder: 'Crear contraseña'
+              div#form-control-feedback-password.hidden.form-control-feedback
+                = t('forms.validations.sign_up.password')
+            fieldset.form-group
+              = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control form-control-lg', placeholder: 'Repetir contraseña'
+              div#form-control-feedback-password-confirmation.hidden.form-control-feedback
+                = t('forms.validations.sign_up.password_confirmation')
+            fieldset
+              .row
+                .col-md-5
+                  .form-group.pl-5
+                    select#how_to_know_shipit_how.form-control.form-control-lg name='account[how_to_know_shipit[how_to_know]]'
+                      option value='¿Cómo llegaste a Shipit?' selected=''
+                        | ¿Cómo llegaste a Shipit?
+                      - @questions.each do |question|
+                        option value='#{question}' = question
+
+                    div#form-control-feedback-how-to-know.hidden.form-control-feedback
+                      = t('forms.validations.sign_up.how_to_know_shipit')
+                .col-md-7.hidden#others_field
+                  fieldset.form-group
+                    input.form-control.form-control-lg#how_to_know_shipit_from type='text' autofocus='true' placeholder='Ingresa como conociste Shipit' name='account[how_to_know_shipit[from]'
+                    div#form-control-feedback-how-to-know-from.hidden.form-control-feedback
+                      = t('forms.validations.sign_up.how_to_know_shipit_from')
+            fieldset.form-group
+              = check_box_tag :term_of_service, 'true', false, class: ''
+              label.control-label.mb-5 for='confirm'
+                | &nbsp;#{t('devise.registrations.accept_term')}&nbsp;
+                = link_to 'términos y condiciones', 'http://shipit.cl/terminos-y-condiciones/' , target: '_blank', class: 'underlined'
+              div#form-control-feedback-term.hidden.form-control-feedback 
+                = t('forms.validations.sign_up.accept_terms')
+            fieldset.form-group
+              = check_box_tag :know_base_charge, 'true', false, class: ''
+              label.control-label.mb-5 for='know_base_charge'
+                | &nbsp;#{raw t('devise.registrations.accept_base_charge_part_one', link: link_to('cobro base mensual de $24.990 + IVA si hago menos de 60 envíos al mes', 'https://shipitcl.zendesk.com/hc/es-419/articles/360007886753--C%C3%B3mo-se-cobra-Pick-Pack-', target: '_blank', class: 'underlined'))}
+              label.control-label.mb-5 for='know_base_charge'
+                | &nbsp;&nbsp;&nbsp;&nbsp; #{t('devise.registrations.accept_base_charge_part_two')}
+              div#form-control-feedback-charge.hidden.form-control-feedback 
+                = t('forms.validations.sign_up.accept_base_charge')
+            fieldset.form-group
+              = check_box_tag :know_size_restriction, 'true', false, class: ''
+              label.control-label.mb-5 for='know_size_restriction'
+                | &nbsp;#{link_to(t('devise.registrations.accept_size'), 'https://shipitcl.zendesk.com/hc/es-419/articles/360007646813--Env%C3%ADan-todo-tipo-de-productos-' , target: '_blank', class: 'underlined')}
+              div#form-control-feedback-size.hidden.form-control-feedback 
+                = t('forms.validations.sign_up.accept_size')
+
+            .actions
+              = f.submit 'Crear Cuenta', class: 'btn btn-primary btn-block'
+            br
+            .actions.text-center
+              | Si tienes cuenta puedes
+              = render 'devise/shared/links'

@@ -1,0 +1,77 @@
+- breadcrumb :product_on_settings
+.card
+  .card-block
+    .row
+      .col-md-12
+        h2.card-title
+          = I18n.t('settings.products.titles.detail')
+    hr
+    .row.text-center
+      .col-md-12
+        h2.card-title
+          = @product.name
+    .row.text-center
+      .col-md-12
+        = image_tag @product.image.url(:small)
+      .col-md-12
+        = @product.description
+    .container
+      hr
+    .row.text-center
+      .col-md-12
+        .row
+          .col-md-6
+            .fw-900
+              = I18n.t('settings.products.table.headers.sizes.base')
+          .col-md-6
+            = @product.short_measures
+      .col-md-12
+        .row
+          .col-md-6
+            .fw-900
+              = I18n.t('settings.products.table.headers.sizes.volumetric_weight')
+          .col-md-6
+            = @product.volumetric_weight.round(2)
+      .col-md-12
+        .row
+          .col-md-6
+            .fw-900
+              = I18n.t('settings.products.table.headers.weight')
+          .col-md-6
+            = @product.weight
+            | kg
+      .col-md-12
+        .row
+          .col-md-6
+            .fw-900
+              = I18n.t('settings.products.table.headers.sku')
+          .col-md-6
+            = @product.sku
+      .col-md-12
+        .row
+          .col-md-6
+            .fw-900
+              = I18n.t('settings.products.table.headers.stock')
+          .col-md-6
+            = @product.stock
+      .col-md-12
+        .row
+          .col-md-6
+            .fw-900
+              = I18n.t('settings.products.table.headers.price')
+          .col-md-6
+            = number_to_currency(@product.price)
+      .col-md-12
+        .row
+          .col-md-6
+            .fw-900
+              = I18n.t('settings.products.table.headers.created_at')
+          .col-md-6
+            = @product.created_at.strftime('%d/%m/%Y %H:%M')
+    
+    hr
+    .row
+      .col-md-12
+        = link_to I18n.t('settings.products.buttons.edit'), edit_product_path(@product), class: 'btn btn-primary fl-r'
+        = link_to I18n.t('settings.products.buttons.back'), settings_path, class: 'btn btn-default fl-r mr-10'
+      

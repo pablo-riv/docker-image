@@ -1,0 +1,66 @@
+es:
+  helps:
+    type:
+      problem: Problema
+      incident: Incidente
+      question: Pregunta
+      task: Tarea
+    index:
+      title: Centro de Ayuda
+      last_update_zendesk_date: Hora de última actualización
+      tabs:
+        base: Tickets
+        titles:
+          open: Abiertos
+          pendings: Pendientes
+          closed: Resueltos
+        table:
+          headers:
+            support_id: Nº de Ticket
+            subject: Motivo
+            via: Canal
+            priority: Prioridad
+            kind: Tipo
+            detail: Detalle
+            package: ID Envío
+            agent: Agente
+            created_at: Fecha creación
+            last_response_date: Fecha último mensaje
+            last_response_name: Último en responder
+          no_data: No tienes tickets activos
+          package_null: Sin información
+    show:
+      title: Detalle del Ticket
+      buttons:
+        cancel: Salir
+      attributes:
+        provider_id: Nº de Ticket
+        assignee_email: Email agente
+        assignee_id: Encargado
+        created_at: Fecha creación
+        status: Estado
+        subject: Motivo
+        priority: Prioridad
+        package_id: Nº Envío
+        package_reference: ID Envío
+        package_tracking: Nº seguimiento
+        messages: Mensajes
+        kind: Tipo ticket
+        updated_at: Última actualización
+
+    create:
+      title: Crear Ticket de Ayuda para el envío
+      buttons:
+        cancel: Cancelar
+        submit: Crear
+      fields:
+        subject: Motivo
+        other_subject: Submotivo
+        kind: Tipo
+        detail: ¿Cómo podemos ayudarte?
+        package: Envío
+        error: Error o Consulta
+        package_reference: ID Envío
+        package_tracking: Nº Seguimiento
+        select_subject: Seleccionar Motivo de ticket
+        select_other_subject: Seleccionar Submotivo

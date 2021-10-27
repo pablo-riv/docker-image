@@ -1,0 +1,42 @@
+<% breadcrumb :charges_fines %>
+
+<div class="card">
+  <div class="card-block">
+    <h2 class="card-title">Cobros por cancelación </h2>
+    <hr>
+
+    <% if @pickup_fines.empty? %>
+      <p class="alert alert-danger">No existen registros de cobros por cancelación</p>
+    <% else %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Causa</th>
+            <th>Monto</th>
+            <th>Comentarios</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @pickup_fines.each do |fine| %>
+            <tr>
+              <td>
+                <%= l fine.date, format: '%B %Y' %>
+              </td>
+              <td>
+                <%= fine.cause %>
+              </td>
+              <td>
+                <%= number_to_currency(fine.amount) %>
+              </td>
+              <td>
+                <%= fine.comment %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+    <%= link_to 'Volver', pickandpack_charges_path, class: 'btn btn-default pull-right' %>
+  </div>
+</div>

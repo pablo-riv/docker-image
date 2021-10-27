@@ -1,0 +1,101 @@
+script id='modal_edit_tcc.html' type='text/ng-template'
+  .modal-header
+    .modal-title 
+      h2
+        | Configuracion Courier: 
+        | {{courier.name}}
+  .modal-body
+    .row.mb-20
+      .col-md-12
+        h3.text-left.mb-10 Origen 
+        .row.mb-10
+          .col-md-6
+            .form-group
+              label.label-control Nombre de Empresa *
+              input.form-control ng-model='courier.company_name' id='company_name' name='company_name' type='text' ng-disabled='true'
+          .col-md-6
+            .form-group
+              label.label-control Comuna *
+              span.form-wrapper
+                input.form-control ng-model='courier.origin' id='origin' name='origin' type='text' ng-disabled='true'
+        .row.mb-10
+          .col-md-6
+            label.label-control Correo *
+            input.form-control ng-model='courier.email' id='courier_email' name='email' type='email' ng-disabled='true'
+          .col-md-6
+            label.label-control Teléfono *
+            input.form-control ng-model='courier.phone' id='phone' name='phone' type='text' ng-disabled='true'
+    .row
+      .col-md-12
+        h3.text-left.mb-10 Devolución
+        .row.mb-10
+          .col-md-8
+            label.label-control  Calle *
+            input.form-control ng-model='courier.return_street' id='return_street' name='return_street' type='text' ng-disabled='true'
+          .col-md-4
+            label.label-control  Número *
+            input.form-control ng-model='courier.return_number' id='return_number' name='return_number' type='text' ng-disabled='true'
+        .row.mb-10
+          .col-md-7
+            label.label-control  Complemento
+            input.form-control ng-model='courier.return_complement' id='return_complement' name='return_complement' type='text' ng-disabled='true'
+          .col-md-5
+            .form-group
+              label.label-control Comuna *
+              span.form-wrapper
+                input.form-control ng-model='courier.return_commune' name='return_commune' type='text' ng-disabled='true'
+    .row ng-if='courier.from == "client"'
+      .col-md-12
+        h3.text-left.mb-10 Tarjeta Cuenta Corriente
+        .row.mb-10 ng-if='courier.acronym == "cxp" || courier.acronym == "stk" || courier.acronym == "cc"'
+          .col-md-6
+            label.label-control Usuario *
+            input.form-control ng-model='courier.username' id='username' name='username' type='email' ng-disabled='true'
+          .col-md-6
+            label.label-control Contraseña *
+            input.form-control ng-model='courier.password' id='password' name='password' type='password' ng-disabled='true'
+        div ng-if='courier.acronym == "cxp"'
+          .row
+            .col-md-12
+              label.label-control Número Cuenta Corriente *
+              input.form-control ng-model='courier.tcc_number' id='tcc_number' name='tcc_number' type='text' ng-disabled='true'
+        div ng-if='courier.acronym == "stk"'
+          .row
+            .col-md-4
+              label.label-control ID Compañia Starken *
+              input.form-control ng-model='courier.company_id' id='company_id' name='company_id' type='text' ng-disabled='true'
+            .col-md-4
+              label.label-control Validador Compañia Starken *
+              input.form-control ng-model='courier.company_checker' id='company_checker' name='company_checker' type='text' ng-disabled='true'
+            .col-md-4
+              label.label-control Validador Cuenta Starken *
+              input.form-control ng-model='courier.checking_account' id='checking_account' name='checking_account' type='text' ng-disabled='true'
+            .col-md-4
+              label.label-control Dígito Verificador Starken *
+              input.form-control ng-model='courier.verification_digit' id='verification_digit' name='verification_digit' type='text' ng-disabled='true'
+            .col-md-4
+              label.label-control Centro de Costo Starken *
+              input.form-control ng-model='courier.cost_center' id='cost_center' name='cost_center' type='text' ng-disabled='true'
+        div ng-if='courier.acronym == "cc"'
+          .row
+            .col-md-12
+              label.label-control Código *
+              input.form-control ng-model='courier.code' id='code' name='code' type='text' ng-disabled='true'
+        div ng-if='courier.acronym == "muvsmart" || courier.acronym == "dhl" || courier.acronym == "motopartner" || courier.acronym == "bluexpress" || courier.acronym == "shippify"'
+          .row
+            .col-md-12
+              label.label-control API Key *
+              input.form-control ng-model='courier.api_key' id='api_key' name='api_key' type='text' ng-disabled='true'
+        div ng-if='courier.acronym == "chileparcels"'
+          .row
+            .col-md-6
+              label.label-control Token Número Seguimiento *
+              input.form-control ng-model='courier.token_tracking' id='token_tracking' name='token_tracking' type='text' ng-disabled='true'
+            .col-md-6
+              label.label-control Token Etiquetas *
+              input.form-control ng-model='courier.token_label' id='token_label' name='token_label' type='text' ng-disabled='true'
+  .modal-body
+    .row
+      .col-md-8
+      .col-md-4.text-right
+        button.btn.btn-success ng-click='cancel()' Continuar

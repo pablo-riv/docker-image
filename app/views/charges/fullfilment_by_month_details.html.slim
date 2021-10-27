@@ -1,0 +1,39 @@
+- breadcrumb :charges_fulfillment_by_month_details
+.card
+  .card-block
+    h2.card-title
+      | Detalle pagos #{l @date, format: '%B %Y'}
+    hr/
+    .row.form-inline
+      .form-group.col-md-3
+        = label_tag :charge_type, 'Mostrando'
+        = select_tag :charge_type, options_for_select(['IN', 'STOCK', 'OUT', 'OTHERS']), prompt: 'Todos', class: 'form-control form-control-sm'
+      .text-right
+        = date_navigation_links_with_details @date
+    br/
+    - if @charges.empty?
+      p.alert.alert-danger = I18n.t('activerecord.attributes.charges.fulfillment.empty')
+    - else
+      table#charges.table
+        thead
+          tr
+            th = I18n.t('activerecord.attributes.charges.fulfillment.date')
+            th = I18n.t('activerecord.attributes.charges.fulfillment.category')
+            th = I18n.t('activerecord.attributes.charges.fulfillment.kind')
+            th = I18n.t('activerecord.attributes.charges.fulfillment.amount')
+            th = I18n.t('activerecord.attributes.charges.fulfillment.description')
+        tbody
+          - @charges.each do |charge|
+            tr
+              td.table-active colspan="5"
+                = l charge.date, format: '%d/%m/%Y'
+            - ['in', 'stock', 'out', 'others'].each do |activity|
+              - charge.details[activity].each do |detail|
+                tr class=("charge #{activity.upcase}-charge")
+                  td
+                  td = activity.upcase
+                  td = detail['type']
+                  td
+                    | $ #{number_with_delimiter(detail['amount'], delimiter: ".")}
+                  td = detail['description']
+    = link_to 'Volver', fullfilment_charges_path, class: 'btn btn-default pull-right'

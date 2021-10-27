@@ -1,0 +1,26 @@
+
+.row
+  .col-md-12
+    = f.label :field, I18n.t('settings.packings.table.headers.name'), class: 'form-text'
+    = f.text_field :name, class: 'form-control'
+  .col-md-2.col-sm-4.col-xs-12
+    = f.label :field, I18n.t('settings.packings.table.headers.sizes.width'), class: 'form-text'
+    = f.text_field :width, class: 'form-control'
+  .col-md-2.col-sm-4.col-xs-12
+    = f.label :field, I18n.t('settings.packings.table.headers.sizes.length'), class: 'form-text'
+    = f.text_field :length, class: 'form-control'
+  .col-md-2.col-sm-4.col-xs-12
+    = f.label :field, I18n.t('settings.packings.table.headers.sizes.height'), class: 'form-text'
+    = f.text_field :height, class: 'form-control'
+  .col-md-2.col-sm-4.col-xs-12
+    = f.label :field, I18n.t('settings.packings.table.headers.weight'), class: 'form-text'
+    = f.text_field :weight, class: 'form-control'
+  .col-md-2.col-sm-4.col-xs-12
+    = f.label :field, I18n.t('settings.packings.table.headers.default'), class: 'form-text'
+    = f.check_box :default, class: 'mt-10'
+
+hr/
+.row
+  .col-md-12
+    = f.submit I18n.t('settings.packings.buttons.save'), class: 'btn btn-primary fl-r'
+    = link_to I18n.t('settings.packings.buttons.cancel'), settings_path, class: 'btn btn-default fl-r mr-10'

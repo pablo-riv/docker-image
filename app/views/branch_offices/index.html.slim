@@ -1,0 +1,55 @@
+- breadcrumb :branch_offices
+
+.card ng-controller='BranchOfficesController' ng-init='loadBranchOffices(#{current_account.entity_specific.id})'
+  .card-block
+    button.btn.btn-success.pull-right ng-click='lunchModal("request", {})' ng-if='false' Nueva Sucursal
+    .row
+      .col-md-8
+        .row
+          .col-lg-12.col-sm-12
+            h2.card-title Puntos de retiro Marketplace
+
+    .row
+      .col-md-8
+        .row
+          .col-lg-12.col-sm-12
+            .input-group style='font-size: 20px;'
+              span.input-group-addon
+                i.fas.fa-search
+              input ng-model='search' placeholder=' Buscar...' type='text'
+    hr
+    .row
+      .table-responsive
+        table.table.table-striped.table-hover
+          thead
+            tr
+              th #
+              th Nombre
+              th Correo cuenta
+              th Nombre de contacto
+              th Teléfono de contacto
+              th Link a planilla Google Sheets
+              th
+          tbody
+            tr ng-repeat='branchOffice in branchOffices | filter:search:strict track by $index'
+              td
+                | {{ $index + 1 }}
+              td
+                | {{ branchOffice.name }}
+              td
+                | {{ branchOffice.account.email !== '' ? branchOffice.account.email : 'Sin Cuentas Agregadas' }}
+              td
+                | {{ branchOffice.contact_name == null ? 'Sin Información' : branchOffice.contact_name  }}
+              td
+                | {{ branchOffice.phone == null ? 'Sin Información' : branchOffice.phone  }}
+              td
+                a.btn.btn-success ng-href='{{branchOffice.google_sheet_link}}' target='_blank' ng-show='branchOffice.google_sheet_link'
+                  i.far.fa-file-excel aria-hidden='true'
+                span ng-hide='branchOffice.google_sheet_link'
+              td ng-if='false'
+                button.btn.btn-warning.btn-sm ng-click='lunchModal("edit", branchOffice)' Editar
+            tr ng-if='branchOffices.length == 1'
+              td colspan='5'
+                h2 Sin sucursales agregadas.
+
+/ = render 'shared/modal_branch_offices'

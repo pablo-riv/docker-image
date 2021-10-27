@@ -1,0 +1,90 @@
+script id='LoadMassivePackagesModal.html' type='text/ng-template'
+  .modal-header
+    div close='' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' ng-repeat='alert in alerts' uib-alert=''
+      | {{ alert.msg }}
+    h2 Carga masiva
+  .modal-body
+    .row.mb-30
+      .col-md-12
+        .alert.alert-warning.alert-dismissible.alert-modal role="alert"
+          button.close type="button" data-dismiss="alert" aria-label="Close"
+            span aria-hidden="true"
+              | ×
+          strong
+            | Cantidad máxima de Pedidos que se podrán cargar es de 2000
+    .row.mb-30
+      .col-lg-5.col-sm-5
+        .form-group
+          input#uploadXls.form-control type="file" onchange='angular.element(this).scope().loadFile(this)' name="file" placeholder=" " title="Seleccionar Excel"
+      .col-lg-2.col-sm-2
+        button.btn.btn-primary.btn-sm ng-click='sumPackagesList()'
+          | Confirmar Pedidos
+      .col-lg-5.col-sm-5.text-center ng-if='hasFulfillment != null'
+        a.btn.btn-link href="https://s3-us-west-2.amazonaws.com/shipit-platform/Formato+Pedidos+Masivos+FF.xlsx" target="_blank"
+          | Descargar Plantilla Ejemplo
+      .col-lg-5.col-sm-5.text-center ng-if='hasFulfillment == null'
+        a.btn.btn-link href="https://s3-us-west-2.amazonaws.com/shipit-platform/Formato+Pedidos+Masivos.xlsx" target="_blank"
+          | Descargar Plantilla Ejemplo
+      table.table.table-bordered.table-striped.table-responsive style='overflow-x:auto;'
+        thead
+          tr
+            th
+              | #
+            th.text-center = I18n.t('activerecord.attributes.package.full_name')
+            th.text-center = I18n.t('activerecord.attributes.package.email')
+            th.text-center = I18n.t('activerecord.attributes.package.reference')
+            th.text-center = I18n.t('activerecord.attributes.package.cellphone')
+            th.text-center = I18n.t('activerecord.attributes.package.items_count')
+            th.text-center ng-if='(hasFulfillment != null && package.courier_for_client == "starken") || hasFulfillment == null'
+              = I18n.t('activerecord.attributes.package.is_payable')
+            th.text-center = I18n.t('activerecord.attributes.package.courier_for_client')
+            th.text-center = I18n.t('activerecord.attributes.package.destiny')
+            th.text-center = I18n.t('activerecord.attributes.address.street')
+            th.text-center = I18n.t('activerecord.attributes.address.number')
+            th.text-center = I18n.t('activerecord.attributes.address.complement')
+            th.text-center = I18n.t('activerecord.attributes.commune.name')
+            - if rollout(:general)
+              th.text-center = I18n.t('activerecord.attributes.package.with_purchase_insurance')
+              th.text-center = I18n.t('activerecord.attributes.package.purchase.max_insurance')
+              th.text-center = I18n.t('activerecord.attributes.package.purchase.insurance_price')
+            th.text-center ng-if='hasFulfillment != null' = I18n.t('activerecord.attributes.sku.id')
+            th.text-center ng-if='hasFulfillment != null' = I18n.t('activerecord.attributes.sku.amount')
+        tbody
+          tr ng-repeat='package in filePackages track by $index'
+            td
+              | {{ ($index + 1) }}
+            td
+              | {{ package.full_name }}
+            td
+              | {{ package.email }}
+            td
+              | {{ package.reference }}
+            td
+              | {{ package.cellphone }}
+            td
+              | {{ package.items_count }}
+            td ng-if='(hasFulfillment != null && package.courier_for_client == "starken") || hasFulfillment == null'
+              | {{ package.is_payable | parseBoolean }}
+            td
+              | {{ package.courier_for_client }}
+            td
+              | {{ package.destiny }}
+            td
+              | {{ package.address_attributes.street }}
+            td
+              | {{ package.address_attributes.number }}
+            td
+              | {{ package.address_attributes.complement }}
+            td
+              | {{ package.address_attributes.commune }}
+            - if rollout(:general)
+              td
+                | {{ package.with_purchase_insurance ? 'Si' : 'No' }}
+              td.text-center
+                | {{ package.insurance.maxSecure || 0 | currency:'$':0 }}
+              td.text-center
+                | {{ package.insurance.price || 0 | currency:'$':0 }}
+            td ng-if='hasFulfillment != null'
+              | {{ package.skus }}
+            td ng-if='hasFulfillment != null'
+              | {{ package.amount }}

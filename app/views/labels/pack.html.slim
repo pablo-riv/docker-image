@@ -1,0 +1,52 @@
+- breadcrumb :labels_pack
+.row ng-controller='PackController' ng-init='init()'
+  .col-md-12
+    div uib-alert='' ng-repeat='alert in alerts track by $index' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='6000' close="closeAlert($index)" {{alert.message}}    
+    .card
+      .card-block
+        .row
+          .col-md-9.pt-10
+            .row
+              .col-md-6.col-sm-6.col-xs-5
+                .form-group
+                  input#automatic-package-id.form-control autofocus='true' ng-disabled='packageLoaded' ng-model='model.reference' placeholder='Ingresar Package a empaquetar' type='text' ng-keyup='findPackage(model, $event)'
+                  p.text-form.text-help.text-secondary = I18n.t('labels.pack.text_help')
+              .col-md-3.col-sm-5.col-xs-5.pt-10
+                button.btn.btn-success.btn-icon.btn-block ng-click='findPackage(model, $event)' ng-disabled='packageLoaded'
+                  i.fas.fa-search
+                  span = I18n.t('labels.pack.buttons.search')
+        .row
+          .col-md-12 
+            table.table.table-bordered
+              thead 
+                tr
+                  th #
+                  th = I18n.t('labels.index.table.reference')
+                  th = I18n.t('labels.index.table.full_name')
+                  th = I18n.t('labels.index.table.commune')
+                  th = I18n.t('labels.index.table.courier_for_client')
+                  th = I18n.t('labels.index.table.tracking_number')
+                  th = I18n.t('labels.index.table.created_at')
+                  th = I18n.t('labels.index.table.label_printed')
+              tbody
+                tr ng-repeat='package in packages'
+                  td
+                    | {{package.id}}
+                  td
+                    | {{package.reference}}
+                  td 
+                    span.pointer tooltip-placement='top' uib-tooltip='{{package.full_name}}'
+                      | {{ package.full_name | limitTo:15 }}
+                    span ng-if='package.full_name.length > 15' ...
+                  td
+                    | {{package.commune_name | titleize}}
+                  td
+                    img.courier-labels-logo alt="{{package.courier_for_client}}" ng-src="{{getIcon(package.courier_for_client)}}"
+                  td
+                    | {{package.tracking_number}}
+                  td
+                    | {{package.created_at | date }}
+                  td.text-center
+                    span.label class='{{statusColor(package.label_printed)}}'
+                      | {{package.label_printed | parseBoolean  }}
+

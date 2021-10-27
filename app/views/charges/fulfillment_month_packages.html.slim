@@ -1,0 +1,45 @@
+- breadcrumb :charges_fulfillment_by_month_packages
+.row
+  .col-md-12
+    .card
+      .card-block
+        .row.mb-20
+          .col-md-8
+            h2.card-title
+              | Envíos de #{@company.name} (#{@packages.total_count})
+          .col-md-2
+          .col-md-2
+            button.btn.btn-success.dropdown-toggle.btn-block type='button' data-toggle='dropdown' aria-expanded='false'
+              | Opciones
+              span.caret
+            .dropdown-menu role='menu'
+              = link_to 'Descargar envíos', fulfillment_month_packages_xls_charges_path(params[:year], params[:month]), class: 'dropdown-item', target: '_blank'
+              span.divider
+              = link_to 'Volver', fullfilment_charges_path, class: 'dropdown-item'
+        .row.mb-20
+          .col-md-12
+            table.table
+              theader
+                tr
+                  th.text-center = I18n.t('activerecord.attributes.charges.fulfillment.totals.packages')
+                  th.text-center = I18n.t('activerecord.attributes.charges.fulfillment.totals.shippings')
+                  th.text-center = I18n.t('activerecord.attributes.charges.fulfillment.total_is_payable')
+                  th.text-center = I18n.t('activerecord.attributes.charges.fulfillment.totals.extras')
+                  th.text-center = I18n.t('activerecord.attributes.charges.fulfillment.totals.resume')
+              tbody
+                tr.text-center
+                  td = @total_packages.count
+                  td = number_to_currency(sum_packages_charges(@total_packages, :shipping_price))
+                  td = number_to_currency(sum_packages_charges(@total_packages, :total_is_payable))
+                  td = number_to_currency(sum_packages_charges(@total_packages, :material_extra))
+                  td = number_to_currency(sum_total_packages_charge(@total_packages))
+
+        .row
+          .col-md-12
+            - if @packages.empty?
+              p.alert.alert-danger = I18n.t('activerecord.attributes.charges.fulfillment.empty')
+            - else
+              = render 'charges_table', packages: @packages
+        .row.mb-20
+          .col-md-12.text-center
+            p = paginate @packages

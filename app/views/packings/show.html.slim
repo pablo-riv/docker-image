@@ -1,0 +1,51 @@
+- breadcrumb :packing_on_settings
+.card
+  .card-block
+    .row
+      .col-md-12
+        h2.card-title
+          = I18n.t('settings.packings.titles.detail')
+    hr
+    .row.text-center
+      .col-md-12
+        h2.card-title
+          = @packing.name
+    .container
+      hr
+    .row.text-center
+      .col-md-12
+        .row
+          .col-md-6
+            .fw-900
+              = I18n.t('settings.packings.table.headers.sizes.base')
+          .col-md-6
+            = @packing.short_measures
+      .col-md-12
+        .row
+          .col-md-6
+            .fw-900
+              = I18n.t('settings.packings.table.headers.weight')
+          .col-md-6
+            = @packing.weight
+            | kg
+      .col-md-12
+        .row
+          .col-md-6
+            .fw-900
+              = I18n.t('settings.packings.table.headers.default')
+          .col-md-6
+            = @packing.default ? 'Si' : 'No'
+      .col-md-12
+        .row
+          .col-md-6
+            .fw-900
+              = I18n.t('settings.packings.table.headers.created_at')
+          .col-md-6
+            = @packing.created_at.strftime('%d/%m/%Y %H:%M')
+    
+    hr
+    .row
+      .col-md-12
+        = link_to I18n.t('settings.packings.buttons.edit'), edit_packing_path(@packing), class: 'btn btn-primary fl-r'
+        = link_to I18n.t('settings.packings.buttons.back'), settings_path, class: 'btn btn-default fl-r mr-10'
+      

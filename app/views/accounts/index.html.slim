@@ -1,0 +1,121 @@
+.row ng-controller='AccountsController' ng-init='loadAccount(#{@account.to_json})'
+  .card
+    .card-block
+      .row
+        .col-md-12.col-sm-12
+          h2.card-title Datos de la cuenta
+          /  .col-md-6.col-sm-6
+          /    .col-md-8.col-xs-8
+          /    .col-md-4.col-xs-4
+          /      button.btn.btn-success.btn-block.btn-icon.m-r-xs.m-b-xs ng-click='lunchModal("account")' ng-if='false'
+          /        i.fas.fa-pen-square.fa-2x.pl-10.pr-10 aria-hidden='true'
+          /        | Editar
+      .row
+        .table-responsive
+          table.table
+            thead
+              tr
+                th Empresa
+                th Nombre
+                th Apellido
+                th Correo
+            tbody
+              tr
+                td
+                  | {{ account.company.name | titleize }}
+                td
+                  | {{ account.person.first_name | titleize }}
+                td
+                  | {{ account.person.last_name | titleize }}
+                td
+                  | {{ account.email }}
+        .table-responsive
+          table.table
+            thead
+              tr
+                th Teléfono
+                th Contacto
+                th Correo de contacto
+                th Sitio web
+            tbody
+              tr
+                td
+                  | {{ account.company.phone }}
+                td
+                  | {{ account.company.contact_name == null ? 'Sin información' : account.company.contact_name | titleize }}
+                td
+                  | {{ account.company.email_contact == null ? 'Sin información' : account.company.email_contact | titleize }}
+                td
+                  | {{ account.company.website }}
+
+  .card
+    .card-block
+      h2.card-title Servicios activados
+      .row
+        .table-responsive
+          table.table
+            thead
+              tr
+                th Nombre
+                th Correo de notificación
+                th ¿Alerta activada?
+                th Fecha de activación
+            tbody
+              tr ng-repeat='setting in account.company.settings track by $index'
+                td
+                  | {{ $index + 1 }} - {{ humanServiceName(setting.service.name) }}
+                td
+                  | {{ setting.email_notification == null ? 'Sin correo de notificación' : setting.email_notification }}
+                td
+                  | {{ setting.email_alert == true ? 'Si' : 'No' }}
+                td
+                  | {{ setting.created_at | date: 'dd-MM-yy HH:mm' }}
+
+  .card
+    .card-block
+      h2.card-title Dirección de retiro
+      .row
+        .table-responsive
+          table.table
+            thead
+              tr
+                th Calle
+                th Número
+                th Complemento
+                th Comuna
+            tbody
+              tr
+                td
+                  | {{ account.company.address.street | titleize }}
+                td
+                  | {{ account.company.address.street | titleize }}
+                td
+                  | {{ account.company.address.complement | titleize }}
+                td
+                  | {{ account.company.address.commune.name | titleize }}
+
+  .card
+    .card-block
+      h2.card-title Sucursales creadas
+      .row
+        .table-responsive
+          table.table
+            thead
+              tr
+                th Nombre
+                th Cuenta a cargo
+                th Contacto
+                th Dirección Retiro
+                th Héroe Asignado
+            tbody
+              tr ng-repeat='branchOffice in account.company.branch_offices track by $index'
+                td
+                  | {{ $index +  1  }} - {{ branchOffice.name }}
+                td
+                  | {{ branchOffice.account.email }}
+                td
+                  | {{ branchOffice.contact_name }}
+                td
+                  | {{ branchOffice.address.street | titleize }} {{ branchOffice.address.number }}, {{ branchOffice.address.commune.name | titleize }}
+                td
+                  | {{ branchOffice.hero.person.first_name }} {{ branchOffice.hero.person.last_name }}

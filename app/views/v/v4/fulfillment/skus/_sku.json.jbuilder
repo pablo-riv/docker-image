@@ -1,0 +1,31 @@
+json.id sku.id
+json.name sku.name
+json.company_id sku.company_id
+json.position sku.position
+json.description sku.description
+json.created_at sku.created_at
+json.updated_at sku.updated_at
+json.warehouse_id sku.warehouse_id
+json.width sku.width
+json.length sku.length
+json.height sku.height
+json.weight sku.weight
+json.barcode sku.barcode
+json.amount sku.amount
+json.min_amount sku.min_amount
+json.ftp_stock sku.ftp_stock
+json.ftp_updated_at sku.ftp_updated_at
+json.stock do
+  json.id sku.id
+  json.received sku.received
+  json.commited sku.commited
+  json.waste sku.waste
+  json.canceled sku.canceled
+  json.available sku.available
+  json.created_at sku.created_at
+  json.updated_at sku.updated_at
+  json.ftp_stock sku.ftp_stock
+  json.ftp_updated_at sku.ftp_updated_at
+  json.sku_id sku.sku_id
+  json.min_available sku.min_available
+end

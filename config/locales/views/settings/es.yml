@@ -1,0 +1,144 @@
+es:
+  settings:
+    index:
+      title: Configuraciones
+      tabs:
+        services: Servicios
+        general: Couriers
+        printers: Impresiones
+        products: Productos
+        packings: Empaques
+    printers:
+      title: Elige tu formato de impresión
+      sub_title_avery: Formato de impresion avery
+      sub_title_zpl: Formato de impresion etiqueta courier
+      labels: Etiquetas
+      buttons:
+        add_provider: Configurar proveedor
+      card:
+        labels:
+          id: ID impresión
+          provider: Metodo de impresión
+          type: Tipo
+          format: Formato
+          active: ¿Activo?
+          preview: Previsualización
+      table:
+        provider: Proveedor
+        type: Tipo
+        format: Formato
+        printer_id: ID de la impresora
+        kind_of_print: Tipo de impresión
+        activated: Activado
+        buttons:
+          save: Guardar
+      label_package_size: Tamaño por defecto etiqueta
+    api:
+      credentials: Credenciales Shipit
+      link_description: Conoce la documentación de nuestra API en el siguiente enlace 
+      link: Documentación de la API.
+      api_description: La API Shipit permitirá a desarrolladores conectar tu tienda online con el servicio de Shipit, automatizando la logística y haciendo todo más simple. Cualquier duda escríbenos a soporte@shipit.cl.
+      email: Correo
+      token: Token
+      test_environment: Ambiente de Pruebas
+      card_description: Aquí podrás configurar la acción de envío de información por modelo hacia una URL especificada para el mismo. Esta acción ocurrirá cada vez que se actualice o cree dicho modelo.
+      base: API base URL
+      fields:
+        model: Modelo
+    products:
+      title: Productos
+      titles:
+        new: Nuevo producto
+        update: Editar produto
+        detail: Detalles del producto
+      subtitles:
+        new: Sección para registrar un nuevo producto.
+        update: Sección para editar los atributos del producto incluída la imagen.
+      table:
+        headers:
+          name: Nombre
+          company_id: Cliente
+          image: Imagen
+          sizes:
+            base: Medidas
+            width: Ancho
+            length: Largo
+            height: Alto
+            volumetric_weight: Peso volumétrico
+          weight: Peso
+          sku: SKU
+          stock: Stock
+          price: Precio
+          description: Descripción
+          archive: Archivado
+          created_at: Fecha de creación
+          updated_at: Fecha de modificación
+      messages:
+        no_products: No hay productos
+        created: Producto creado exitosamente!
+        create_unprocesable_entity: Los datos del(los) producto(s) no se pudieron procesar correctamente, intente nuevamente.
+        created_error: Hubo un problema intentando crear el producto, favor contactar a soporte.
+        updated: Producto actualizado exitosamente!
+        update_unprocesable_entity: Los datos del producto no se pudieron procesar correctamente, intente nuevamente.
+        updated_error: Hubo un error al intentar actualizar el(los) producto(s), favor contactar a soporte.
+        destroyed: Producto eliminado exitosamente!
+        destroy_unprocesable_entity: El producto no se pudo eliminar correctamente, intente denuevo mas tarde.
+        destroyed_error: Hubo un error al intentar eliminar el(los) producto(s), favor contactar a soporte.
+      buttons:
+        edit: Editar
+        destroy: Eliminar
+        save: Guardar
+        cancel: Cancelar
+        back: Volver
+      actions:
+        update: Editar producto
+        new: Nuevo producto
+        image_upload: Agregar Imagen
+    packings:
+      title: Empaques
+      titles:
+        new: Nuevo empaque
+        update: Editar empaque
+        detail: Detalles del empaque
+      subtitles:
+        new: Sección para registrar un nuevo empaque.
+        update: Sección para editar los atributos del empaque.
+      table:
+        headers:
+          name: Nombre
+          company_id: Cliente
+          image: Imagen
+          default: Por defecto
+          sizes:
+            base: Medidas
+            width: Ancho
+            length: Largo
+            height: Alto
+            volumetric_weight: Peso volumétrico
+          weight: Peso
+          description: Descripción
+          archive: Archivado
+          created_at: Fecha de creación
+          updated_at: Fecha de modificación
+      messages:
+        no_products: No hay empaques
+        created: Empaque creado exitosamente!
+        create_unprocesable_entity: Los datos del(los) empaque(s) no se pudieron procesar correctamente, intente nuevamente.
+        created_error: Hubo un problema intentando crear el empaque, favor contactar a soporte.
+        updated: Empaque actualizado exitosamente!
+        update_unprocesable_entity: Los datos del empaque no se pudieron procesar correctamente, intente nuevamente.
+        updated_error: Hubo un error al intentar actualizar el(los) empaque(s), favor contactar a soporte.
+        destroyed: Empaque eliminado exitosamente!
+        destroy_unprocesable_entity: El empaque no se pudo eliminar correctamente, intente denuevo mas tarde.
+        destroyed_error: Hubo un error al intentar eliminar el(los) empaque(s), favor contactar a soporte.
+      buttons:
+        edit: Editar
+        destroy: Eliminar
+        save: Guardar
+        cancel: Cancelar
+        back: Volver
+      actions:
+        update: Editar empaque
+        new: Nuevo empaque
+        image_upload: Agregar Imagen
+        

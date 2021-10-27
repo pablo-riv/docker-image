@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= t 'title' %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_path('favicon.png') %>">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:500,900,200' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

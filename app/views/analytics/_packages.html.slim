@@ -1,0 +1,102 @@
+h2.card-title = I18n.t('analytics.index.titles.packages') 
+hr
+.row 
+  .col-xs-12.col-sm-12.col-md-4
+    div.analytics-card.center-block
+      br
+      p.title.text-black.bold = I18n.t('analytics.packages.period')
+      div ng-if='!loading'
+        h1.text-center
+          | {{ processedData.currentPackageQuantity }}
+        div ng-if='percentages.packageNumber >= 0'
+          p.last_period_information.text-green
+            span
+              | + {{ percentages.packageNumber }} %
+        div ng-if='percentages.packageNumber < 0'          
+          p.last_period_information.text-red 
+            span
+              | {{ percentages.packageNumber }} %
+        p.last_period_information.text-black
+          span.number
+            | {{ processedData.lastPackageQuantity }}
+          span = I18n.t('analytics.last_period')
+  .col-xs-12.col-sm-12.col-md-4
+    div.analytics-card.center-block
+      br
+      p.title.text-black.bold = 'SLA ' + @data[:account].entity_specific.name
+      div ng-if='!loading'
+        h1.text-center
+          | {{ processedData.currentSla }} %
+        div ng-if='percentages.companySla >= 0'
+          p.last_period_information.text-green
+            span
+              | + {{ percentages.companySla }} %
+        div ng-if='percentages.companySla < 0'          
+          p.last_period_information.text-red 
+            span
+              | {{ percentages.companySla }} %
+        p.last_period_information.text-black
+          span.number
+            | {{ processedData.lastSla }} %
+          span = I18n.t('analytics.last_period')
+  .col-xs-12.col-sm-12.col-md-4
+    div.analytics-card.center-block
+      br
+      p.title.text-black.bold = I18n.t('analytics.packages.sla_global')
+      div ng-if='!loading'
+        h1.text-center
+          | {{ processedData.currentGlobalSla }} %
+        div ng-if='percentages.globalSla >= 0'
+          p.last_period_information.text-green
+            span
+              | + {{ percentages.globalSla }} %
+        div ng-if='percentages.globalSla < 0'          
+          p.last_period_information.text-red 
+            span
+              | {{ percentages.globalSla }} %
+        p.last_period_information.text-black
+          span.number
+            | {{ processedData.lastGlobalSla }} %
+          span = I18n.t('analytics.last_period')
+div ng-if='processedData.currentPackageQuantity > 0 || processedData.lastPackageQuantity > 0 || !loading'
+  .row.mt-50
+    .mb-30.col-md-5.offset-md-1.col-sm-12.col-sx-12 
+      h2 = I18n.t('analytics.packages.table.title.top_commune')
+      br
+      .table-responsive
+        table.table.table-striped.table-white-color  
+          thead
+            tr
+              th = I18n.t('analytics.packages.table.commune')
+              th = I18n.t('analytics.packages.table.packages')
+              th % SLA
+          tbody 
+            tr ng-repeat="package in packageSortByCommune | limitTo:10"
+              td
+                | {{ package.name | capitalize }}
+              td
+                | {{ package.length }}
+              td
+                | {{ package.sla }} %
+    .mb-30.col-md-5.col-sm-12.col-sx-12
+      h2 = I18n.t('analytics.packages.table.title.top_courier')
+      br
+      .table-responsive
+        table.table.table-striped.table-white-color  
+          thead
+            tr
+              th = I18n.t('analytics.packages.table.courier')
+              th = I18n.t('analytics.packages.table.packages')
+              th % SLA
+          tbody 
+            tr ng-repeat="package in packageSortByCourier | limitTo:10"
+              td
+                | {{ package.name }}
+              td
+                | {{ package.length }}
+              td
+                | {{ package.sla }} %
+  .row.
+    .col-md-12.mb-40.mt-30
+      div#chart-package style='height: 30em;'
+      

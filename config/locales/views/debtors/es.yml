@@ -1,0 +1,6 @@
+es:
+  debtors:
+    title: ¡Atención!
+    bodyfl: Tu cuenta ha sido suspendida temporalmente porque según nuestros registros tienes un Pago Pendiente.
+    bodysl: 'Por favor regulariza tu situación para poder continuar usando Shipit. ¿Necesitas ayuda? Escríbenos a '
+    mail: cobranza@shipit.cl

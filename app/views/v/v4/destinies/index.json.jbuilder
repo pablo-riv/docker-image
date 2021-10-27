@@ -1,0 +1,1 @@
+json.array! @destinies, partial: 'v/v4/destinies/destiny', as: :destiny

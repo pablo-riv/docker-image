@@ -1,0 +1,20 @@
+table.table.table-hover
+  thead
+    tr
+      th = I18n.t('settings.packings.table.headers.name')
+      th = I18n.t('settings.packings.table.headers.sizes.base')
+      th = I18n.t('settings.packings.table.headers.weight')
+      th = I18n.t('settings.packings.table.headers.default')
+      th = I18n.t('settings.packings.table.headers.created_at')
+  tbody
+    - packings.each do |packing|
+      tr
+        td = packing.name
+        td = packing.short_measures
+        td 
+          = packing.weight
+          | kg
+        td = packing.default ? 'Si' : 'No'
+        td = packing.created_at.strftime('%d/%m/%Y %H:%M')
+        td = link_to I18n.t('settings.packings.buttons.edit'), edit_packing_path(packing)
+        td = link_to I18n.t('settings.packings.buttons.destroy'), packing_path(packing), method: :delete

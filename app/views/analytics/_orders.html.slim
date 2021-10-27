@@ -1,0 +1,70 @@
+h2.card-title  = I18n.t('analytics.index.titles.sales')
+hr
+-if integrated_seller
+  .row
+    .col-xs-12.col-sm-12.col-xl-4.col-lg-4.col-md-4.col-sm-4
+      div.analytics-card.center-block
+        br
+        p.title.text-black.bold = I18n.t('analytics.sales.total_sales')
+        div ng-if='!loading'
+          h1.text-center
+            | $ {{ withDelimiter(processedData.currentTotalPrice) }}
+          div ng-if='percentages.ordersNumber > 0'
+            p.last_period_information.text-green
+              span
+                | + {{ percentages.ordersNumber }} %
+          div ng-if='percentages.ordersNumber < 0'
+            p.last_period_information.text-red 
+              span
+                | {{ percentages.ordersNumber }} %
+          p.last_period_information.text-black
+            span.number
+              | $ {{ withDelimiter(processedData.lastTotalPrice) }}
+            span = I18n.t('analytics.last_period')
+    .col-xs-12.col-sm-12.col-xl-4.col-lg-4.col-md-4.col-sm-4
+      div.analytics-card.center-block
+        br
+        p.title.text-black.bold = I18n.t('analytics.sales.average_tickets')
+        div ng-if='!loading'
+          h1.text-center
+            | $ {{ withDelimiter(processedData.currentAverageOrders) }}
+          div ng-if='percentages.ordersNumber > 0'
+            p.last_period_information.text-green
+              span
+                | + {{ percentages.ordersAverage }} %
+          div ng-if='percentages.ordersNumber < 0'
+            p.last_period_information.text-red 
+              span
+                | {{ percentages.ordersAverage }} %
+          p.last_period_information.text-black
+            span.number
+              | $ {{ withDelimiter(processedData.lastAverageOrders) }}
+            span = I18n.t('analytics.last_period')
+    .col-xs-12.col-sm-12.col-xl-4.col-lg-4.col-md-4.col-sm-4
+      div.analytics-card.center-block
+        br
+        p.title.text-black.bold = I18n.t('analytics.sales.daily_tickets')
+        div ng-if='!loading'
+          h1.text-center
+            | {{ withDelimiter(processedData.currentDayAverageOrders) }}
+          div ng-if='percentages.ordersNumber > 0'
+            p.last_period_information.text-green
+              span
+                | + {{ percentages.ordersDayAverage }} %
+          div ng-if='percentages.ordersNumber < 0'
+            p.last_period_information.text-red 
+              span
+                | {{ percentages.ordersDayAverage }} %
+          p.last_period_information.text-black
+            span.number
+              | {{ withDelimiter(processedData.lastDayAverageOrders) }}
+            span = I18n.t('analytics.last_period')
+
+  div ng-if='processedData.currentOrdersQuantity > 0 || processedData.lastOrdersQuantity > 0'
+    .row
+      .col-md-12.mb-40.mt-30
+        div id='chart-order' style='height: 30em;'
+-else
+  = render partial: 'warning_box', locals: { position: 'col-xl-4 col-lg-4 col-md-4 col-sm-4', title: I18n.t('analytics.sales.total_sales'), message: I18n.t('analytics.warning.integration_message') }
+  = render partial: 'warning_box', locals: { position: 'col-xl-4 col-lg-4 col-md-4 col-sm-4', title: I18n.t('analytics.sales.average_tickets'), message: I18n.t('analytics.warning.integration_message') }
+  = render partial: 'warning_box', locals: { position: 'col-xl-4 col-lg-4 col-md-4 col-sm-4', title: I18n.t('analytics.sales.daily_tickets'), message: I18n.t('analytics.warning.integration_message') }

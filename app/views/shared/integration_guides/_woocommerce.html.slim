@@ -1,0 +1,65 @@
+.col-md-12
+  .text-center.wp-100
+    h3
+      | Cómo integrar Woocommerce
+    p
+      |  Debes descargar el siguiente plugin: 
+      = link_to 'Woocommerce', download_plugin_integrations_path(store: 'woocommerce'), class: 'underlined'
+    p 
+      span 
+        | Descarga esta pequeña
+        = " "
+        = link_to 'guía', download_pdf_integrations_path(store: 'woocommerce'), class: 'underlined'
+        = " "
+        | o se despliega un paso a paso de como integrar tu tienda Woocommerce
+    p
+      a.underlined data-toggle="collapse" data-target="#woocommerce-steps"
+        | Ver imágenes...
+    br /
+    #woocommerce-steps.collapse
+      h5
+        | ¿Dónde está el Store Key de Woocommerce?
+      p
+        | 1.- Ingresa al panel de administrador de wordpress y anda al menú “plugins”>add new
+      = image_tag asset_path('woocommerce-instructions/1.PNG'), class: 'w-500'
+      p
+        | 2.- Haz click en upload plugin luego haz click en seleccionar archivo y selecciona el archivo que descargamos bridge_connector.zip, finalmente haz click en install now
+      = image_tag asset_path('woocommerce-instructions/2.PNG'), class: 'w-500'
+      p
+        | 3.- Activa el plugin
+      = image_tag asset_path('woocommerce-instructions/4.PNG'), class: 'w-500'
+      p
+        | 4.- En el plugin bridge connector, haz click en setting
+      = image_tag asset_path('woocommerce-instructions/5.PNG'), class: 'w-500'
+      p
+        | 5.- Haz click en connect
+      = image_tag asset_path('woocommerce-instructions/6.PNG'), class: 'w-500'
+      p
+        | 6.- Se ha generado tu Store key
+      = image_tag asset_path('woocommerce-instructions/7.PNG'), class: 'w-500'
+      br /
+      hr /
+      h5
+        | ¿Dónde poner la Store Key en Shipit?
+      p
+        | 1.- En el menú integraciones haz click en Woocommerce
+      = image_tag asset_path('woocommerce-instructions/8.PNG'), class: 'w-500'
+      p
+        | 2.- En el menú integraciones haz click en Woocommerce ingresa el url de tu tienda y el store key copiado. luego haz click en guardar
+      = image_tag asset_path('woocommerce-instructions/9.PNG'), class: 'w-500'
+      br /
+      hr /
+      h5
+        | Extra
+      p
+        | Para descargar/actualizar tus ventas, ve al menú mis ventas y haz click en actualizar lista
+      = image_tag asset_path('woocommerce-instructions/10.PNG'), class: 'w-500'
+  hr
+    h5 Resumen
+    ul
+      li 1. Ve a tu panel de administración y presiona "Plugins" menu -> "Add New"
+      li 2. Escoje "Bridge Connector" y haz click en el botón "Install now".
+      li 3. Después de cargar el plugin que descargaste, click en “Activate Plugin” para ponerlo en funcionamiento.
+      li 4. Después de eso obtendrás un "Store key" que tendrás que introducir en este formulario.
+    p NOTA: Posiblemente debas hacer cambios a nivel de servidor para que este plugin pueda actuar como debe. Los permisos son 755 para la carpeta y 644 para los archivos contenidos.
+    = render '/shared/integration_guides/api2cart'

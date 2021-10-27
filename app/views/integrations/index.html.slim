@@ -1,0 +1,46 @@
+- breadcrumb :sellings
+div ng-controller='IndexIntegrationsController'
+  .card ng-init='setDate("#{@from_date}", "#{@to_date}"); getOrders()'
+    div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" style='margin-bottom: 0;' ng-repeat='alert in alerts track by $index' uib-alert=''
+      | {{ alert.msg }}
+    .card-block
+      .row
+        .col-md-12
+          h2.card-title 
+            | #{t('integrations.title')}
+      = render 'search'
+  .card
+    .card-block
+      .row
+        p.pull-right.mr-10 ng-show='lastDownloadTime' #{t('integrations.messages.last_update_time')} {{ lastDownloadTime | date:'yyyy/MM/dd HH:mm' }}
+        ul.nav.nav-tabs
+          li.nav-item
+            a.nav-link.active aria-expanded="true" data-toggle="tab" href="#current" role="tab"  
+              = t('integrations.tabs.pending')
+              span.bold.ml-5.badge.badge-secundary 
+                | ({{ newOrder.length }})
+          li.nav-item
+            a.nav-link aria-expanded="true" data-toggle="tab" href="#archived" role="tab"  
+              = t('integrations.tabs.archived')
+              span.bold.ml-5 
+                | ({{ archivedOrder.length }})
+          li.nav-item
+            a.nav-link aria-expanded="true" data-toggle="tab" href="#all" role="tab"
+              = t('integrations.tabs.all')
+              span.bold.ml-5 
+                | ({{ allOrder.length }})
+        .tab-content
+          #current.tab-pane.active role='tabpanel'  aria-expanded='true'
+            = render 'orders_board'
+          #archived.tab-pane role='tabpanel'  aria-expanded='true'
+            = render 'archived_orders_board'
+          #all.tab-pane role='tabpanel'  aria-expanded='true'
+            = render 'all_orders_board'
+
+= render 'shared/modal_integration_checkout'
+= render 'shared/integration_popovers'
+= render 'shared/modal_edit_order'
+= render 'shared/modal_edit_order_format_config'
+= render 'shared/pagination'
+= render 'modal_xlsx_create'
+

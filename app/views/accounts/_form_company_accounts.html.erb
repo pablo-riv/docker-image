@@ -1,0 +1,14 @@
+<% if action_name.include?("new") %>
+  <%= form_for([:company, @account], url: company_accounts_path(@company.id)) do |f| %>
+    <%= render "form_fields" %>
+    <button class="btn btn-primary btn-icon btn-left tsf-wizard-btn" data-type="prev" type="button" style="display: none;">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i> Prev</button>
+    <%= f.submit "Guardar", class: "btn btn-primary btn-right tsf-wizard-btn" %>
+  <% end %>
+<% else %>
+  <%= form_for(@account, url: account_path) do |f| %>
+    <%= render "form_fields" %>
+    <button class="btn btn-primary btn-icon btn-left tsf-wizard-btn" data-type="prev" type="button" style="display: none;"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev</button>
+    <%= f.submit "Guardar", class: "btn btn-primary btn-right tsf-wizard-btn" %>
+  <% end %>
+<% end %>

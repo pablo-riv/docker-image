@@ -1,0 +1,16 @@
+.row
+  .col-md-6.col-sm-12
+    h2.card-title
+      = I18n.t('settings.products.title')
+  .col-md-6.col-sm-12
+    = link_to I18n.t('settings.products.actions.new'), new_product_path, class: 'btn btn-primary fl-r'
+    
+  
+.row
+  .col-md-12
+    - if @products.size.zero?
+      p
+        = I18n.t('settings.products.messages.no_products')
+        
+    - else
+      = render '/products/table', products: @products

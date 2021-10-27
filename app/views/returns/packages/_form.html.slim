@@ -1,0 +1,213 @@
+.row ng-controller='PackageReturnsDeliverController' ng-init='findPackage(#{params[:id]})'
+  div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='4000' ng-repeat='alert in alerts' uib-alert=''
+    | {{ alert.msg }}
+  .card
+    .card-block
+      h2.card-title = I18n.t('returns.new.title')
+      br/
+  .card
+    .card-block
+      form name='form'
+        .row
+          .col-md-6.pull-left
+            h2 = I18n.t('returns.new.deliver.card.titles.general')
+          .col-md-6
+            .row
+              .col-md-6
+                input.ml-10 type='checkbox' ng-model='package.without_courier' ng-change='defaulAddress(package)' name='without_courier'&nbsp;&nbsp;
+                label.fw-800
+                  | ¿#{I18n.t('activerecord.attributes.package.without_courier')}?&nbsp;&nbsp;
+                  i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Esta opcion te permite realizar retiros por parte de tu cliente'
+              .col-md-6text-center
+                input.ml-10 type='checkbox' ng-change='checkPayable()' ng-model='package.is_payable' name='is_payable'&nbsp;&nbsp;
+                label.fw-800
+                  | ¿#{I18n.t('activerecord.attributes.package.is_payable')}?&nbsp;&nbsp;
+                  i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='¿Envío pagado por tu cliente? Esta opción tiene un sobrecargo adicional'
+        hr
+        .row
+          .col-md-3
+            .form-group ng-class='{ "has-danger": package.full_name.length < 3 && form.full_name.$dirty, "has-success": package.full_name.length >= 3 && form.full_name.$dirty }'
+              label.form-label
+                | #{I18n.t('activerecord.attributes.package.full_name')} *
+                | &nbsp;
+              i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Nombre de a quien va dirigido el pedido'
+              input.form-control.no-padding type="text" placeholder='Ej: Nelson Ramirez' ng-required='true' ng-model='package.full_name' name='full_name' ng-class='{ "form-control-danger": package.full_name.length < 3 && form.full_name.$dirty, "form-control-success": package.full_name.length >= 3 && form.full_name.$dirty }'
+            p.text-red.text-form.text-help ng-show='package.full_name == "" && package.error'
+              = I18n.t('packages.new.errors.blank.package.full_name')
+
+          .col-md-3
+            .form-group ng-class='{ "has-danger": form.email.$invalid, "has-success": form.email.$valid && form.email.$dirty && package.email != "" }'
+              label.form-label
+                | #{I18n.t('activerecord.attributes.package.email')} &nbsp;
+              i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Correo de contacto del destinatario'
+              input.form-control.no-padding ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' type="email" placeholder='Ej: destinatario@ejemplo.cl' ng-model='package.email' name='email' ng-class='{ "form-control-danger": form.email.$invalid, "form-control-success": form.email.$valid && form.email.$dirty && package.email != "" }'
+          .col-md-3
+            .form-group ng-class='{ "has-danger": form.reference.$invalid && form.reference.$dirty, "has-success": form.reference.$valid && form.reference.$dirty}'
+              label.form-label
+                | #{I18n.t('activerecord.attributes.package.reference')} * &nbsp;
+              i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Referencia interna de tu tienda para el pedido'
+              input.form-control.no-padding type="text" ng-required='true' ng-maxlength='15' placeholder='Hasta 15 caracteres' ng-model='package.reference' name='reference' ng-class='{ "form-control-danger": form.reference.$invalid && form.reference.$dirty, "form-control-success": form.reference.$valid && form.reference.$dirty }'
+            p.text-red.text-form.text-help ng-show='package.reference == "" && package.error'
+              = I18n.t('packages.new.errors.blank.package.reference')
+            p.text-red.text-form.text-help ng-show='package.reference.length > 15 && package.error'
+              = I18n.t('packages.new.errors.length.package.reference')
+
+          .col-md-3
+            .form-group ng-class='{ "has-danger": form.cellphone.$invalid, "has-success": form.cellphone.$valid && form.cellphone.$dirty && package.cellphone.toString().length > 0 }'
+              label.form-label
+                | #{I18n.t('activerecord.attributes.package.cellphone')} &nbsp;
+              i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Teléfono de contacto del destinatario'
+              input.form-control.no-padding type='number' ng-maxlength='11' placeholder='Sólo números' ng-model='package.cellphone' name='cellphone' ng-class='{ "form-control-danger": form.cellphone.$invalid, "form-control-success": form.cellphone.$valid && form.cellphone.$dirty && package.cellphone != "" }'
+        br
+        .row
+          .col-md-3 ng-show='false'
+            .form-group
+              label.form-label
+                | #{I18n.t('activerecord.attributes.package.shipping_type')} * &nbsp;
+              i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Solicitud de depacho especiales como: overnight'
+            input.form-control.no-padding type="text" ng-model='package.shipping_type' value='Normal' readonly='readonly' name='shipping_type'
+          .col-md-3 ng-if='!package.without_courier'
+            .form-group ng-class='{ "has-success": package.courier_for_client != "" && package.courier_for_client.length > 0 && form.courier_for_client.$dirty }'
+              label.form-label.mb-10
+                | #{I18n.t('activerecord.attributes.package.courier_for_client')} &nbsp;
+              i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Puedes seleccionar / forzar a que el pedido se despache por uno de estos couriers (predefinido: Mejor precio - Shipit)'
+              select.form-control ng-change='changeCourier()' ng-model='package.courier_for_client' name='courier_for_client' ng-class='{ "form-control-success": package.courier_for_client != "" && package.courier_for_client.toString().length > 0 && form.courier_for_client.$dirty }'
+                option ng-repeat='courier in couriers' value='{{ courier.system }}' {{ courier.name }}
+          .col-md-3 ng-if='!package.without_courier'
+            .form-group ng-class='{ "has-danger": package.destiny == "" && form.destiny.$dirty, "has-success": package.destiny != "" }'
+              label.form-label.mb-10
+                | #{I18n.t('activerecord.attributes.package.destiny')} &nbsp;
+              i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Puedes indicar si deseas enviar directo a domicilio o alguna sucursal cercana'
+              select#destiny.form-control ng-required='true' ng-change='changeDestiny()' ng-model='package.destiny' name='destiny' ng-class='{ "form-control-danger": package.destiny == "" && form.destiny.$dirty, "form-control-success": package.destiny != "" && form.destiny.$dirty }'
+                option ng-repeat='destiny in destinations' value='{{ destiny }}' {{ destiny }}
+
+              p.text-red.text-form.text-help ng-show='package.destiny == "" && package.error'
+                = I18n.t('packages.new.errors.blank.package.destiny')
+        .row
+          .col-md-3 ng-show='package.destiny != "Chilexpress"' ng-if='!package.without_courier && package.destiny != "Domicilio" && package.destiny != "" && package.destiny != "Chilexpress"'
+            .form-group
+              label.form-label
+                | #{I18n.t('activerecord.attributes.package.courier_branch_office')} &nbsp;
+              i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Puedes buscar la sucursal a la cual quieres despachar dentro de estas opciones'
+              select#cbos.form-control ng-model='cbo' ng-options='cbo as cbo.name for cbo in cbos' ng-change='changeCourierBranchOffice(cbo)'
+              p.text-red.text-form.text-help ng-show='package.destiny != "Domicilio" && package.destiny != "" && package.error'
+                = I18n.t('packages.new.errors.blank.package.courier_branch_office')
+          .col-md-3
+            .form-group ng-class='{ "has-danger" : package.items_count < 1, "has-success": package.items_count >= 1 }'
+              label.form-label
+                | #{I18n.t('activerecord.attributes.package.items_count')} * &nbsp;
+              i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Indicanos cuantos productos componen este pedido'
+              input.form-control.no-padding type="number" ng-model='package.items_count' name='items_count' ng-required='true' ng-min='1'  ng-class='{ "form-control-danger": package.items_count < 1, "form-control-success": package.items_count >= 1 }'
+            p.text-red.text-form.text-help ng-show='package.items_count == "" && package.error'
+              = I18n.t('packages.new.errors.blank.package.items_count')
+
+          .col-md-3
+            .form-group ng-class='{ "has-success": package.approx_size != "" && package.approx_size.toString().length > 0 }'
+              label.form-label.mb-12
+                | #{I18n.t('activerecord.attributes.package.approx_size')} * &nbsp;
+                i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='El tamaño aproximado ayudará a calcular un precio preliminar, antes de der medido y pesado'
+              select.form-control ng-required='true' ng-model='package.approx_size' name='approx_size' ng-class='{ "form-control-success": package.approx_size != "" && package.approx_size.toString().length > 0 }'
+                option ng-repeat='size in sizes' value='{{ size }}' {{ size }}
+              p.text-red.text-form.text-help ng-show='package.approx_size == "" && package.error'
+                = I18n.t('packages.new.errors.blank.package.approx_size')
+        div ng-if='!package.without_courier'
+          .row.mt-20
+            .pull-left.pl-10
+              h2 = I18n.t('returns.new.deliver.card.titles.secure')
+          hr
+          .row.mb-20
+            .col-md-3.pt-10
+              .form-check.mb-20
+                label.form-check-label
+                  input.form-check-input.mr-20 type='checkbox' ng-model='package.with_purchase_insurance' ng-change='calculateInsurance(package); validateInsurance();' name='with_purchase_insurance'
+                  | ¿#{I18n.t('activerecord.attributes.package.purchase.question')}? &nbsp;
+                i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Esta opción permite asegurar tu envío, debes agregar todos los detalles del envio'
+
+              .form-check ng-if='package.with_purchase_insurance' ng-init='validateInsurance()'
+                label.form-check-label
+                  input.form-check-input.mr-20 type='checkbox' ng-model='package.insurance_attributes.extra' ng-change='calculateInsurance(package)' name='extra'
+                  | ¿#{I18n.t('activerecord.attributes.package.purchase.extra_insurance')}? &nbsp;
+                i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Opcionalmente puedes asegurar tu envío por el 1% del total del precio declarado'
+
+            .col-md-3
+              .form-group ng-class='{ "has-danger": package.insurance_attributes.detail == "" && form.detail.$dirty, "has-success": package.insurance_attributes.detail != "" && form.detail.$dirty }'
+                label.mb-50
+                  | #{I18n.t('activerecord.attributes.package.purchase.detail')} &nbsp;
+                i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Tipo de productos a enviar'
+                select.form-control ng-model='package.insurance_attributes.detail' name='detail' ng-class='{ "form-control-danger": package.insurance_attributes.detail == "" && form.detail.$dirty, "form-control-success": package.insurance_attributes.detail != "" && form.detail.$dirty }'
+                  option ng-repeat='type in purchaseAvailables' ng-value='type' {{ type }}
+
+            .col-md-3.purchase
+              .form-group ng-class='{ "has-danger": package.insurance_attributes.ticket_number == "" && form.ticket_number.$dirty, "has-success": package.insurance_attributes.ticket_number != "" && form.ticket_number.$dirty }'
+                label.mb-30
+                  | #{I18n.t('activerecord.attributes.package.purchase.ticket_number')} &nbsp;
+                i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Boleta / Factura / Guía de Despacho / Nº orden de los productos a enviar'
+                input.form-control ng-model='package.insurance_attributes.ticket_number' placeholder='(Boleta / Factura / Guía de Despacho / Nº orden)' ng-blur='calculateInsurance(package)' type='number' name='ticket_number' ng-class='{ "form-control-danger": package.insurance_attributes.ticket_number == "" && form.ticket_number.$dirty, "form-control-success": package.insurance_attributes.ticket_number != "" && form.ticket_number.$dirty }'
+
+            .col-md-3.purchase
+              .form-group ng-class='{ "has-danger": package.insurance_attributes.ticket_amount <= 0 && package.insurance_attributes.ticket_amount > 1000000 && form.ticket_amount.$dirty, "has-success": package.insurance_attributes.ticket_amount >= 0 && form.ticket_amount.$dirty && package.insurance_attributes.ticket_amount <= 1000000 }'
+                label.mb-30
+                  | #{I18n.t('activerecord.attributes.package.purchase.insurance_attributes')} &nbsp;
+                i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Monto total de los productos a enviar'
+                input.form-control ng-model='package.insurance_attributes.ticket_amount' placeholder='Ej: 50000' ng-blur='calculateInsurance(package)' type='number' name='ticket_amount' ng-class='{ "form-control-danger": package.insurance_attributes.ticket_amount <= 0 && package.insurance_attributes.ticket_amount > 1000000, "form-control-success": package.insurance_attributes.ticket_amount >= 0 && form.ticket_amount.$dirty && package.insurance_attributes.ticket_amount < 1000000 }'
+                p.text-red.text-form.text-help ng-show='package.insurance_attributes.ticket_amount > 1000000'
+                  = I18n.t('packages.new.errors.length.package.purchase.amount')
+          .row
+            .col-md-6
+              h4
+                | El monto máximo ha asegurar será: {{ package.insurance.maxSecure || 0 | currency:'$':0 }}.
+            .col-md-6
+              h4
+                | El precio de tu seguro será: {{ package.insurance.price || 0 | currency:'$':0 }}.
+
+        br
+        div ng-if='!package.without_courier'
+          .row
+            .pull-left.pl-10
+              h2 = I18n.t('returns.new.deliver.card.titles.address')
+          hr
+          .row
+            .col-lg-6
+              #model_address_attributes_street_input.string.input.required.stringish.form-group ng-class='{ "has-danger": form.street.$dirty && form.street.$invalid, "has-success": form.street.$dirty && form.street.$valid }'
+                span.form-label
+                  label.control-label for='model_address_attributes_street' #{I18n.t('activerecord.attributes.address.street')} * &nbsp;
+                  i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Sólo debes indicar la calle a la cual va dirigido este pedido'
+                span.form-wrapper
+                  input#model_address_attributes_street.form-control type='text' ng-model='package.address_attributes.street' ng-required='true' name='street' ng-class='{ "form-control-danger": form.street.$dirty && form.street.$invalid, "form-control-success": form.street.$dirty && form.street.$valid }'
+                .text-danger ng-show='error.address_attributes.street' = I18n.t('packages.new.errors.blank.address.street')
+
+            .col-lg-6
+              #model_address_attributes_number_input.string.input.required.stringish.form-group ng-class='{ "has-danger": form.number.$dirty && form.number.$invalid, "has-success": form.number.$dirty && form.number.$valid }'
+                span.form-label
+                  label.control-label for='model_address_attributes_number' #{I18n.t('activerecord.attributes.address.number')} * &nbsp;
+                  i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='En este campo sólo debes indicar el número de la dirección. En caso de no tener, puedes rellenar este campo'
+                span.form-wrapper
+                  input#model_address_attributes_number.form-control type='text' ng-model='package.address_attributes.number' ng-required='true' name='number' ng-class='{ "form-control-danger": form.number.$dirty && form.number.$invalid, "form-control-success": form.number.$dirty && form.number.$valid }'
+                .text-danger ng-show='error.address_attributes.number' = I18n.t('packages.new.errors.blank.address.number')
+
+          .row
+            .col-lg-6
+              #model_address_attributes_complement_input.string.input.required.stringish.form-group ng-class='{ "has-success": package.address_attributes.complement != "" && form.complement.$dirty }'
+                span.form-label
+                  label.control-label.mb-30 for='model_address_attributes_complement' #{I18n.t('activerecord.attributes.address.complement')} &nbsp;
+                  i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Indicaciones especiales a tener en cuenta al momento del despacho, por ejemplo: nro de piso o dpto (1016 torre A)'
+                span.form-wrapper
+                  input#model_address_attributes_complement.form-control type='text' ng-model='package.address_attributes.complement' name='complement' ng-class='{ "form-control-success": package.address_attributes.complement != "" && form.complement.$dirty }'
+
+            .col-lg-6
+              #model_address_attributes_commune_id_input.select.input.required.form-group ng-class='{ "has-danger": package.address_attributes.commune_id == "" && form.commune_id.$dirty, "has-success": package.address_attributes.commune_id != "" }'
+                span.form-label
+                  label.control-label.mb-50 for='model_address_attributes_commune_id' #{I18n.t('activerecord.attributes.address.commune_id')} * &nbsp;
+                  i.fas.fa-info-circle.icon-info-circle tooltip-placement='top' uib-tooltip='Indica la comúna o localidad a la cual va dirigido este pedido'
+                span.form-wrapper
+                  select#communes.select.form-control ng-model='package.address_attributes.commune_id'  ng-required='true' name='commune_id' ng-class='{ "form-control-danger": package.address_attributes.commune_id == "" && form.commune_id.$dirty, "form-control-success": package.address_attributes.commune_id != "" }'
+                    option ng-value='{{ commune.id }}' ng-repeat='commune in communes' {{ commune.name }}
+                .text-danger ng-show='error.address_attributes.commune_id' = I18n.t('packages.new.errors.blank.address.commune')
+
+        hr
+        .row
+          .col-md-6
+          .col-md-3
+          .col-md-3.text-center
+            button.btn.btn-primary.btn-block.pull-right ng-click='checkoutPackage()' #{I18n.t('returns.new.deliver.buttons.create')}
+  = render 'shared/modal_checkout'

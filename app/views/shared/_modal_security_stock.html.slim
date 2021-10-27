@@ -1,0 +1,25 @@
+script id='security_stock.html' type='text/ng-template'
+  .modal-header
+    div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' ng-repeat='alert in alerts' uib-alert=''
+      | {{ alert.message }}
+    h2 = I18n.t('notifications.modals.security_stock.title')
+  .modal-body
+    .row ng-repeat='sku in skus | orderBy:amount:false'
+      .col-md-2.form-group
+        label = I18n.t('activerecord.attributes.sku.id')
+        input.form-control ng-model='sku.id' ng-readonly='true'
+      .col-md-4.form-group
+        label = I18n.t('activerecord.attributes.sku.name')
+        input.form-control ng-model='sku.name' ng-readonly='true'
+      .col-md-3.form-group
+        label = I18n.t('activerecord.attributes.sku.amount')
+        input.form-control ng-model='sku.amount' ng-readonly='true'
+      .col-md-3.form-group
+        label = I18n.t('activerecord.attributes.sku.min_amount')
+        input.form-control ng-model='sku.min_amount' ng-keyup="validateNumber(sku, sku.min_amount, 'min_amount')"
+  .modal-footer
+    .row
+      .col-md-6
+      .col-md-6
+        button.btn.btn-danger.btn-sm.mr-20 ng-click='cancel()' = I18n.t('notifications.modals.security_stock.button.cancel')
+        button.btn.btn-success.btn-sm ng-click='updateMinStock(skus)' = I18n.t('notifications.modals.security_stock.button.success')

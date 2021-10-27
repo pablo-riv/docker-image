@@ -1,0 +1,46 @@
+script id='programAnalyticsModal.html' type='text/ng-template' 
+  div ng-controler='AnalyticsModalInstanceController' ng-init='current(8)'
+    div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' ng-repeat='alert in alerts' uib-alert=''
+      | {{ alert.msg }}
+    .modal-header
+      h2.modal-title = I18n.t('analytics.modal.program')
+    .modal-body
+      .card-block 
+        .container-fluid
+          .row
+            .col-md-12
+              .form-group
+                label.form-label = I18n.t('analytics.modal.contact_email')
+                span.form-wrapper
+                  tags-input.bootstrap#email ng-model='emails.tags' display-property='email' min-tags='1' max-tags='3' add-on-blur='true' name='tags' placeholder='contacto@ejemplo.cl' allowed-tags-pattern='^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+                .text-form.text-help 
+                  | ** Puedes controlar con las flechas del 
+                  i.fas.fa-keyboard.mr-10.ml-10 aria-hidden='true'
+                  | y al menos debes tener 1 correo de contacto
+          .row
+            .col-md-12
+              .form-group
+                .col-md-12
+                  label.form-label = I18n.t('analytics.modal.select_period')
+                  select#periods.select.form-control ng-required='true' ng-model='setting.configuration.analytics.analytics_period'
+                    option.fs-15 ng-repeat='period in periods' value='{{ period.id }}' {{ period.name }}
+                  .text-danger.text-form ng-if='error.analytics_period' = I18n.t('analytics.modal.invalid_option')
+                .col-md-12.mt-50 
+                  label.form-label = I18n.t('analytics.modal.select_send_period')
+                  select#sends.select.form-control ng-required='true' ng-model='setting.configuration.analytics.send_period'
+                    option.fs-15 ng-repeat='send in send_period' value='{{ send.id }}' {{ send.name }}
+                  .text-danger.text-form ng-if='error.send_period' = I18n.t('analytics.modal.invalid_option')
+                .col-md-12.mt-50
+                  label.form-label = I18n.t('analytics.modal.select_days')
+                  select#days.select.form-control ng-required='true' ng-model='setting.configuration.analytics.days' selected="selected"
+                    option.fs-15 ng-repeat='day in send_day[setting.configuration.analytics.send_period]' value='{{ day.id }}' {{ day.name }}
+                  .text-danger.text-form ng-if='error.days' = I18n.t('analytics.modal.invalid_option')                  
+                .col-md-1.mt-50.mr-20
+                  label.form-label style="position: fixed" = I18n.t('analytics.modal.activate')
+                .col-md-1.mt-50
+                  label.switch.pl-30
+                    input. name="active" type='checkbox' ng-model='setting.configuration.analytics.active_mailer'
+                    .slider.round
+    .modal-footer
+      button.btn.btn-danger.btn-sm.mr-20 ng-click='cancel()' = I18n.t('analytics.modal.buttons.close')
+      button.btn.btn-success.btn-sm ng-click='update()' =  I18n.t('analytics.modal.buttons.save')

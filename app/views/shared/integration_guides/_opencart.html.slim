@@ -1,0 +1,10 @@
+.row
+  .col-md-12
+    .text-center.wp-100
+      h3
+        | Cómo integrar OpenCart
+      p
+        |  Debes descargar el siguiente plugin:
+        = link_to 'OpenCart', download_plugin_integrations_path(store: 'opencart')
+    = render '/shared/integration_guides/api2cart'
+hr

@@ -1,0 +1,43 @@
+<fieldset>
+  <legend><%= action_name == 'new' ? 'Nueva' : 'Editar' %> Cuenta</legend>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-6 col-sm-6">
+          <div class="form-group">
+            <label for="">Nombre</label>
+            <input type="text" name="account[person_attributes[first_name]]" class="form-control" placeholder="Juan" autofocus="true" value="<%= account_first_name(@account) %>">
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <div class="form-group">
+            <label for="">Apellido</label>
+            <input type="text" name="account[person_attributes[last_name]]" class="form-control" placeholder="Perez" autofocus="true" value="<%= account_last_name(@account) %>">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 col-sm-12">
+      <div class="form-group">
+        <label for="">Correo</label>
+        <input type="email" name="account[email]" class="form-control" placeholder="ejemplo@domio.cl" autofocus="true" value="<%= @account.email %>">
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-6 col-sm-6">
+          <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" name="account[password]" class="form-control" placeholder="*******" autofocus="true">
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <div class="form-group">
+            <label for="">Confirmar Password</label>
+            <input type="password" name="account[password_confirmation]" class="form-control" placeholder="*******" autofocus="true">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>

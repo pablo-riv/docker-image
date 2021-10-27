@@ -1,0 +1,70 @@
+div ng-controller="PrinterSettingsController" ng-init="current(7)"
+  div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' ng-repeat='alert in alerts' uib-alert=''
+    | {{ alert.msg }}
+  .row
+    .col-md-12
+      h2.card-title
+        = I18n.t('settings.printers.title')
+        i#operation-help.ml-20.fas.fa-info-circle.pointer data-container='body' data-toggle='popover' title='Indicaciones Importantes!' data-placement='right' data-content='Para poder editar la configuración de tu método de impresión comunicate con nuestro customer service a través de ayuda@shipit.cl'
+  - if rollout(:package_label_size)
+    .row
+      .col-md-3
+        label.form-label-control
+          = I18n.t('settings.printers.label_package_size')
+        select#package-label-size.form-control.fs-16 ng-model='setting.configuration.printers.label_package_size' ng-change='updateLabelSize(setting.configuration.printers.label_package_size)'
+          option ng-repeat='format in packagesLabelSizes' value='{{ format.system }}' {{format.name}}
+      / .offset-md-6.col-md-3
+      /   button.btn.btn-warning.btn-block ng-click='addProvider()' = I18n.t('settings.printers.buttons.add_provider')
+      .col-md-12
+        hr
+  .row.mb-10.pt-10
+    .col-md-12 ng-if='setting.configuration.printers.available_to_add_providers'
+      h4.m-0
+        strong = I18n.t('settings.printers.sub_title_zpl')
+    .col-md-12 ng-if='!setting.configuration.printers.available_to_add_providers'
+      h4.m-0
+        strong = I18n.t('settings.printers.sub_title_avery')
+  .row ng-if='setting.configuration.printers.available_to_add_providers'
+    .table-responsive
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th.w-200 = I18n.t('settings.printers.table.provider')
+            th.w-200 = I18n.t('settings.printers.table.type')
+            th.w-200 = I18n.t('settings.printers.table.format')
+            th.w-200 = I18n.t('settings.printers.table.kind_of_print')
+            th.w-200 ng-if='setting.configuration.printers.kind_of_print == "print_node"' = I18n.t('settings.printers.table.printer_id')
+            th.w-200 = I18n.t('settings.printers.table.activated')
+            th.w-200
+        tbody
+          tr
+            td
+              | {{ selectProvider(printer.kind_of_print) | titleize }}
+            td
+              | {{ formatAvailables[0].name }}
+            td
+              | {{ formatAvailables[0].format }}
+            td
+              | {{ translatePrint(setting.configuration.printers.kind_of_print) }}
+            
+            td ng-if='setting.configuration.printers.kind_of_print == "print_node"'
+              input.form-control.w-200.fs-16 type='text'  ng-blur="update(formatAvailables[0])" ng-value="'{{formatAvailables[0].id_printer}}'" ng-model='formatAvailables[0].id_printer' ng-required='true' name="printer_id" ng-disabled='true'
+            td
+              label.switch
+                input.cxp type="checkbox" ng-disabled="true" ng-checked="formatAvailables[0].active" ng-model="formatAvailables[0].active" ng-value='{{formatAvailables[0].active}}' name='active'
+                .slider.round
+            td ng-if='false'
+              button.btn.btn-success ng-click="update(formatAvailables[0])" = I18n.t('settings.printers.table.buttons.save')
+
+  .row ng-if='!setting.configuration.printers.available_to_add_providers'
+    .col-md-2.col-sm-2.hover ng-repeat='format in formatAvailables'
+      .card.text-center
+        img.card-img-top.img-fluid ng-src='{{format.img}}'
+        .card-block.text-center
+          h5.card-title.fw-900
+            | {{format.format}} - {{format.display}}
+          br
+          h5.card-title.fw-900
+            | {{format.quantity}} #{I18n.t('settings.printers.labels')}
+          p.card-text
+            input type='radio' name='{{format.format}}' ng-value='{{format.format}}' ng-change='update(format)' ng-model='setting.configuration.printers.availables[0].type'

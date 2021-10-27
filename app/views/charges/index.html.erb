@@ -1,0 +1,29 @@
+<% breadcrumb :charges %>
+
+<div class="card">
+  <div class="card-block">
+    <h2 class="card-title">Pagos</h2>
+    <hr>
+    <div class="row">
+      <% if !current_account.current_company.fulfillment? %>
+        <div class="col-md-6">
+          <div class="card card-outline-primary text-xs-center">
+            <div class="card-block">
+              <%= image_tag 'pp.png' %>
+              <%= link_to 'Pick & pack', pickandpack_charges_path, class: 'btn btn-primary' %>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="col-md-6">
+          <div class="card card-outline-primary text-xs-center">
+            <div class="card-block">
+              <%= image_tag 'fulfillment.png' %>
+              <%= link_to 'Fulfillment', fullfilment_charges_path, class: 'btn btn-primary' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

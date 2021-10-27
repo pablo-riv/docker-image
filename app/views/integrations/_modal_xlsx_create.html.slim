@@ -1,0 +1,79 @@
+script id='modal_xlsx_create.html' type='text/ng-template'
+  .modal-header
+    div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='6000' ng-repeat='alert in alerts' uib-alert=''
+      | {{ alert.message }}
+    h2 Reordenar creación de envíos
+  .modal-body
+    .row.mb-10
+      .col-lg-12.col-sm-12
+        p.text-secondary
+          | Carga un archivo .XLSX 
+          a.underlined ng-href='https://shipit-platform.s3-us-west-2.amazonaws.com/plantilla-order-creacion-ejemplo.xlsx' target='_blank' Descargar Plantilla Ejemplo
+          | de una sola columna con el ID de Envío y Nombre del canal de ventas (Prestashop, Shopify, Woocommerce, VTex, Jumpseller, Bootic) para imprimir las etiquetas en el orden que requieras. El sistema tomará los valores desde la celda A2 hacia abajo.
+    .row.mb-30
+      .col-lg-7.col-sm-7
+        .form-group
+          input type='file' ng-model='xls' id='select-xlsx' name='file' class='form-control' placeholder=' ' title='Seleccionar Excel' onchange='angular.element(this).scope().loadFile(this)'
+    .row
+      .col-md-12 ng-if='orders.length > 0 && ready'
+        table.table.table-stipped.table-responsive style='overflow-x:auto;'
+          thead
+            tr
+              th ID Envío
+              th Destinatario
+              th Correo
+              th Télefono
+              th Calle
+              th Número
+              th Complemento
+              th Comuna
+              th Destino
+              th Courier
+              th Fecha Creación
+              th colspan='2'
+          tbody
+            tr ng-repeat='order in orders track by $index' ng-class='{ "table-danger": orderError(order, "undetected_error"), "text-white": orderError(order, "undetected_error") }'
+              td
+                | {{ order.seller_reference }}
+              td ng-class='{ "table-danger": orderError(order, "customer_name_error"), "text-white": orderError(order, "customer_name_error") }'
+                | {{ order.customer_name }}
+              td
+                | {{ order.customer_email }}
+              td
+                | {{ order.customer_phone }}
+              td ng-class='{ "table-danger": orderError(order, "shipping_data_street_error"), "text-white": orderError(order, "shipping_data_street_error") }'
+                | {{ order.shipping_data.street }}
+              td ng-class='{ "table-danger": orderError(order, "shipping_data_number_error"), "text-white": orderError(order, "shipping_data_number_error") }'
+                | {{ order.shipping_data.number }}
+              td
+                | {{ order.shipping_data_complement }}
+              td ng-class='{ "table-danger": orderError(order, "commune_name_error"), "text-white": orderError(order, "commune_name_error") }'
+                | {{ order.commune.name }}
+              td
+                | {{ order.package_destiny }}
+              td
+                | {{ order.package_courier_for_client }}
+              td
+                | {{ order.day | date:'dd/MM/yyyy' }}
+              td colspan='2'
+                button.btn.btn-default ng-click='remove(order)'
+                  i.fas.fa-trash-alt aria-hidden='true'
+
+
+      .col-md-12 ng-if='orders.length === 0 && ready'
+        span No se encontraron ordenes con los datos ingresados, favor revisar que:
+        ul
+          li Existan las ordenes
+          li Tengan la información minima para crear un envío
+  .modal-footer
+    .row
+      .col-md-6
+      .col-md-6
+        .row
+          .col-md-6
+            button.btn.btn-warning.btn-sm ng-click='cancel()'
+              | Cancelar
+          .col-md-6
+            div ng-if='!errors'
+              button.btn.btn-success.btn-sm data-style='expand-left' data-spinner-size='20' ladda='loading' ng-click='createPackages(orders)' ng-disabled='orders.length <= 0 && !ready'
+                | Crear envíos

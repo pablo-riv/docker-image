@@ -1,0 +1,139 @@
+.row
+  .col-md-12
+    h2.text-center Empresa
+.row ng-controller='SetupController' ng-init='loadAccount(#{current_account.serialize_data!.to_json}, #{@communes.to_json})'
+  .card
+    .card-block
+      .container-fluid
+        .row.mb-30
+          .col-md-12
+            h2 Información Administrativa
+            h4 Ingresa la información para facturación y temas comerciales.
+        .row.mb-30
+          .col-md-4
+            .form-group
+              label.form-label Nombre de la Empresa *
+              span.form-wrapper
+                input.form-control ng-model='account.company.name' placeholder='Shipit SpA' ng-required='true' autofocus='true'
+                .text-danger.text-form ng-if='error.company.name' Debes ingresar nombre de la empresa.
+          .col-md-4
+            .form-group
+              label.form-label Rut de la Empresa *
+              span.form-wrapper
+                input.form-control ng-rut='' rut-format='live' ng-model='account.company.run' placeholder='12345678-9' ng-required='true' autofocus='true'
+                .text-danger.text-form ng-if='error.company.run' Debes ingresar rut valido de la empresa.
+          .col-md-4
+            .form-group
+              label.form-label Sitio Web
+              span.form-wrapper
+                input.form-control ng-model='account.company.website' placeholder='www.shipit.cl' ng-required='false' autofocus='true'
+        .row.mb-30
+          .col-md-3
+            .form-group
+              label.form-label Giro o actividad económica *
+              span.form-wrapper
+                input.form-control ng-model='account.company.business_name' placeholder='Giro o actividad económica' ng-required='true' autofocus='true'
+                .text-danger.text-form ng-if='error.company.business_name' Debes ingresar giro o actividad económica de la empresa.
+          .col-md-3
+            .form-group
+              label.form-label Razón social *
+              span.form-wrapper
+                input.form-control ng-model='account.company.business_turn' placeholder='Razón social' ng-required='true' autofocus='true'
+                .text-danger.text-form ng-if='error.company.business_turn' Debes ingresar razón social de la empresa.
+          .col-md-3
+            .form-group
+              label.form-label Correo electrónico para facturación *
+              span.form-wrapper
+                input.form-control ng-model='account.company.bill_email' placeholder='correo@factura.cl' ng-required='true' autofocus='true' type='email' pattern='^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+                .text-danger.text-form ng-if='error.company.bill_email' Debes ingresar correo electrónico para facturación de la empresa.
+          .col-md-3
+            .form-group
+              label.form-label Teléfono de contacto para facturación *
+              span.form-wrapper
+                input.form-control ng-model='account.company.bill_phone' pattern='.{8,}' placeholder='+569 123456789' ng-required='true' autofocus='true' title='Debes ingresar un número de teléfono válido'
+                .text-danger.text-form ng-if='error.company.bill_phone' Debes ingresar teléfono de contacto para facturación de la empresa.
+          .col-md-6
+            .form-group
+              label.form-label Dirección de facturación *
+              span.form-wrapper
+                input.form-control ng-model='account.company.bill_address' placeholder='Alonso de coordova 2222, Las condes' ng-required='true' autofocus='true'
+                .text-danger.text-form ng-if='error.company.bill_address'  Debes ingresar dirección de facturación de la empresa.
+        .row.mb-30
+          .col-md-12
+            h2 Información Operativa
+            h4 Ingresa la información necesaria para el servicio logístico.
+            h4 A esta persona le enviaremos los números de seguimiento, notificaciones, alertas, etc.
+        .row
+          .col-md-4
+            .form-group
+              label.form-label Nombres *
+              span.form-wrapper
+                input.form-control ng-model='account.person.first_name' placeholder='Nelson Patricio' ng-required='true' autofocus='true'
+                .text-danger.text-form ng-if='error.person.first_name' Debes ingresar tus nombres.
+          .col-md-4
+            .form-group
+              label.form-label Apellidos *
+              span.form-wrapper
+                input.form-control ng-model='account.person.last_name' placeholder='Jimenez' ng-required='true' autofocus='true'
+                .text-danger.text-form ng-if='error.person.last_name' Debes ingresar tus apellidos.
+          .col-md-4
+            .form-group
+              label.form-label Número de Contacto
+              span.form-wrapper
+                input.form-control ng-model='account.company.phone' pattern='.{8,}' placeholder='+569 123456789' ng-required='true' autofocus='true' title='Debes ingresar un número de teléfono válido'
+                .text-danger.text-form ng-if='error.person.last_name' Debes ingresar tu número de contacto.
+        .row
+          .col-md-8
+            .form-group
+              label.form-label Correos de Contacto *
+              span.form-wrapper
+                tags-input.bootstrap ng-model='account.tags' display-property='email' min-tags='1' max-tags='3' add-on-blur='true' name='tags' placeholder='contacto@ejemplo.cl' allowed-tags-pattern='^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+              .text-form.text-help 
+                | ** Puedes controlar con las flechas del 
+                i.fas.fa-keyboard.mr-10.ml-10 aria-hidden='true'
+                | y al menos debes tener 1 correo de contacto
+          .col-md-6
+        .row
+          .col-md-12
+            h4 Dirección de Retiro
+        .row
+          .col-md-3
+            .form-group
+              label.form-label Comuna *
+              select#communes.form-control ng-model='account.company.address.commune_id' ng-required='true'
+                option ng-repeat='commune in communes' ng-value='{{ commune.id }}' {{ commune.name }}
+              .text-danger.text-form ng-if='error.company.address.commune_id' Debes seleccionar comuna.
+          .col-md-3
+            .form-group
+              label.form-label Calle *
+              span.form-wrapper
+                input.form-control ng-model='account.company.address.street' placeholder='Ej: Asturias' ng-required='true' autofocus='true'
+                .text-danger.text-form ng-if='error.company.address.street' Debes ingresar calle.
+          .col-md-3
+            .form-group
+              label.form-label Número *
+              span.form-wrapper
+                input.form-control type='text' ng-model='account.company.address.number' placeholder='Ej: 103' ng-required='true' autofocus='true' min='0'
+                .text-danger.text-form ng-if='error.company.address.number' Debes ingresar número.
+          .col-md-3
+            .form-group
+              label.form-label Complemento
+              span.form-wrapper
+                input.form-control ng-model='account.company.address.complement' placeholder='Ej: Depto 220' ng-required='false' autofocus='true' min='0'
+        .row
+          .col-md-3
+            .form-group
+              label.form-label Estacionamiento *
+              select#parkings.form-control.h-30 ng-model='account.company.branch_office.parking_isreachable' ng-required='true' 
+                option ng-repeat='parking in parkings' value='{{ parking.name }}' {{ parking.name }}
+              .text-danger.text-form ng-if='error.company.branch_office.parking_isreachable' Debes seleccionar estacionamiento.
+          .col-md-6
+            .form-group
+              label.form-label Indicación breve para llegar al lugar
+              span.form-wrapper
+                input.form-control ng-model='account.company.branch_office.get_to_parking' ng-required='false' autofocus='true'
+          .col-md-3
+        hr.spaces
+        .row
+          .col-md-12.text-right
+            button.btn.btn-primary.btn-sm ng-click='updateCompanySetup(account)' Guardar y Continuar

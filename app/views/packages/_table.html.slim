@@ -1,0 +1,74 @@
+.row
+  .col-md-12
+    .table-responsive
+      - if @packages.empty?
+        .col-md-12
+          p.alert.alert-danger No se han encontrado envíos que calcen con la búsqueda
+      - else
+        table.table.table-striped
+          thead
+            tr
+              th colspan='2'
+              th = I18n.t('activerecord.attributes.package.id')
+              - if current_account.current_company.any_integrations?
+                th = I18n.t('activerecord.attributes.package.mongo_order_id')
+              th = I18n.t('activerecord.attributes.package.created_at')
+              th = I18n.t('activerecord.attributes.package.full_name')
+              th = I18n.t('activerecord.attributes.commune.name')
+              th = I18n.t('activerecord.attributes.package.courier_for_client')
+              th = I18n.t('activerecord.attributes.package.tracking_number')
+              th = I18n.t('activerecord.attributes.package.status')
+          tbody
+            - @packages.each_with_index do |package, index|
+              tr
+                td
+                  .row
+                    .col-xs-6
+                      = sent_email?(package)
+                td.text-center
+                  .dropdown.packages_dropdown
+                    a.package-cog.dropdown-toggle data-toggle="dropdown"
+                      i.fas.fa-cog
+                    ul.dropdown-menu
+                      - if rollout(:self_management)
+                        - if package.editable_by_client
+                          li
+                            = link_to edit_package_path(package.id), class: 'dropdown-item package-list', data: { turbolinks: :false }
+                              i.far.fa-edit
+                              span.pl-10 = I18n.t('activerecord.attributes.package.table.edit')                          
+                          - if package.archivable_by_client
+                            li
+                              = link_to package_path(package), method: :delete, class: 'dropdown-item package-list', data: { confirm: '¿Estás seguro de querer eliminar este envío?', turbolinks: :false  }
+                                i.far.fa-trash-alt
+                                span.pl-10 = I18n.t('activerecord.attributes.package.table.delete')                                    
+                          .dropdown-divider
+                        - if package.status == 'in_preparation'
+                          li ng-controller='LabelsIndexController'
+                            button class='dropdown-item package-list' data="{ turbolinks: :false }"  ng-click='print("#{package.id}")'
+                              i.fas.fa-print
+                              span.pl-10 = I18n.t('activerecord.attributes.package.table.print')
+                          .dropdown-divider
+                        - if package.status == 'at_shipit'
+                          li
+                            = link_to new_returns_packages_path(package.id), class: 'dropdown-item package-list', data: { turbolinks: :false }
+                              i.fas.fa-undo
+                              span.pl-10 = I18n.t('activerecord.attributes.package.table.refund')
+                          .dropdown-divider
+                      li
+                        button class='dropdown-item package-list' ng-controller='HelpIndexController' ng-click="create('#{package.id}', '#{package.reference}')"
+                          i.far.fa-comment-alt
+                          span.pl-10 = I18n.t('activerecord.attributes.package.table.support')
+                td = link_to package.reference, package_path(package), data: { turbolinks: :false }, target: '_blank'
+                - if current_account.current_company.any_integrations?
+                  td
+                    - unless package.integration_reference.blank?
+                      .pull-left.orders_icon class="#{package.mongo_order_seller}"
+                    = package.integration_reference || ''
+                td = package.decorate.created_at
+                td = package.try(:full_name).try(:titleize) || 'Sin Nombre'
+                td = package.address.try(:commune).try(:name).try(:titleize) || 'Sin Comuna'
+                td = link_to courier_icon(package.courier_for_client), package.courier_url
+                td = courier_tracking_link(package)
+                td = current_status_for(package)
+
+= render 'shared/modal_create_support'

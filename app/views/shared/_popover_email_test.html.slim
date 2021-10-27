@@ -1,0 +1,11 @@
+script type='text/ng-template' id='popover_email_test.html'
+  .row
+    .col-md-12.form-group
+      label ng-init='activeTooltip()'
+        | Correo
+        i.ml-20.fas.fa-info-circle.pointer data-original-title='Puedes agregar multiples correos separados con ", "' title='Puedes agregar multiples correos separados con ", "' data-placement='right' data-toggle='tooltip'
+      .input-group
+        input.form-control ng-model='testEmails' placeholder='tu@correo.cl, test@correo.cl, ejemplo@correo.cl' type='text'
+        .input-group-addon.btn-test-email
+          button.btn type='button' ng-click='sendEmailTest(testEmails)'
+            i.fas.fa-paper-plane

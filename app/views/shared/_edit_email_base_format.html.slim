@@ -1,0 +1,72 @@
+script id='base_format.html' type='text/ng-template'
+  .modal-header
+    div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='6000' ng-repeat='alert in alerts' uib-alert=''
+      | {{ alert.message }}
+    h2 = I18n.t('notifications.modals.base_format.title')
+    hr
+    .row ng-init='activeColorPicker()'
+      .col-md-6
+        .card
+          .card-block
+            .row.mb-20
+              .col-md-12.mb-20
+                label = I18n.t('activerecord.attributes.company.logo')
+                input.form-control type='file' ng-model='company.logo' fileread='company.logo'
+                span.text-help.text-muted.fs-12 Debes subir una imagen (PNG) cuadrada de mínimo 300px por 300px.
+              .col-md-12.mb-20
+                .row
+                  .col-md-6.col-sm-6.pt-10
+                    label = I18n.t('activerecord.attributes.company.preferences.email.color.background_header')
+                  .col-md-5.col-sm-5.text-center
+                    .input-group#colorpicker-header.colorpicker-component.mb-2.mr-sm-2.mb-sm-0
+                      input.form-control.fs-16 type="text" ng-value='company.preferences.email.color.background_header' ng-model='company.preferences.email.color.background_header' ng-show='true'
+                      span.input-group-addon.border-left.special-padding
+                        i ng-style='{ "background-color": company.preferences.email.color.background_header }'
+                  .col-md-1.col-sm-1
+              .col-md-12.mb-20
+                .row
+                  .col-md-6.col-sm-6.pt-10
+                    label = I18n.t('activerecord.attributes.company.preferences.email.color.background_footer')
+                  .col-md-5.col-sm-5.text-center
+                    .input-group#colorpicker-footer.colorpicker-component.mb-2.mr-sm-2.mb-sm-0
+                      input.form-control.fs-16 type="text" ng-value='company.preferences.email.color.background_footer' ng-model='company.preferences.email.color.background_footer' ng-show='true'
+                      span.input-group-addon.border-left.special-padding
+                        i ng-style='{ "background-color": company.preferences.email.color.background_footer }'
+                  .col-md-1.col-sm-1
+              .col-md-12.mb-20
+                .row
+                  .col-md-6.col-sm-6.pt-10
+                    label.mr-20 = I18n.t('activerecord.attributes.company.preferences.email.color.font_color_footer')
+                  .col-md-5.col-sm-5.text-center
+                    .input-group#colorpicker-font.colorpicker-component.mb-2.mr-sm-2.mb-sm-0
+                      input.form-control.fs-16 type="text" ng-value='company.preferences.email.color.font_color_footer' ng-model='company.preferences.email.color.font_color_footer' ng-show='true'
+                      span.input-group-addon.border-left.special-padding
+                        i ng-style='{ "background-color": company.preferences.email.color.font_color_footer }'
+                  .col-md-1.col-sm-1
+            .row
+              .col-md-12
+                button.btn.btn-link.pull-right ng-click='close()' = I18n.t('notifications.modals.emails_base_format.button.cancel')
+                button.btn.btn-success.pull-right.mr-20 ng-click='updateEmailPreference(company)' = I18n.t('notifications.modals.emails_base_format.button.success')
+      .col-md-6
+        .card
+          .card-block.min-h-750
+            .row
+              .col-md-12.h-70.pt-15 ng-style='{ "background-color": company.preferences.email.color.background_header }'
+                img ng-src='{{company.logo}}' height='40' width='80' ng-init='loadLogo("#{current_account.entity_specific.logo.url(:small).gsub('//s3', 'https://s3-us-west-2')}", company.logo)'
+              .col-md-12.pt-30.pb-30
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            .row.mb-40
+              .col-md-12.text-center
+                button.btn.btn-success
+                  | {package_courier} - {tracking_number}
+            .row.mb-20
+              .col-md-12
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+            .row.mb-30.p-10.text-center.text-white.fw-600 style='background-color: #808080;'
+              p.pt-10 Recuerda que <strong>el tiempo de entrega depende de la distancia</strong> entre el lugar de origen y el lugar de destino.
+            .row.mb-20
+              .col-md-12.min-h-150 ng-style='{ "background-color": company.preferences.email.color.background_footer, "color": company.preferences.email.color.font_color_footer }'
+                p.text-center.mb-10.p-30 ng-style='{ "color": company.preferences.email.color.font_color_footer }'
+                  | Por parte de {{company.name}} te damos las gracias por preferir nuestro servicio
+                p.text-center.mb-20 = I18n.t('email.footer.title')
+                p.text-center.mb-20 = I18n.t('email.footer.copyright', year: Time.current.year)

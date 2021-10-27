@@ -1,0 +1,36 @@
+.card
+  .card-block
+    .row ng-init='loadFullitConfiguration()'
+      .col-xs-12.col-sm-12.col-md-12.col-lg-12
+        h2.card-title
+          i.fas.fa-exchange-alt.mr-20 aria-hidden='true'
+          | Integraciones
+        hr
+        p
+          | ¡Conecta Shipit a tu tienda en solo 2 clicks! O consulta nuestra sección de 
+          a.underlined href='https://shipitcl.zendesk.com/hc/es-419/categories/360000118253-Integraciones-Tienda-y-API' Preguntas y Respuestas.
+
+.text-center.mt-30
+  .row
+    .col-xs-12.col-sm-12.col-md-4.col-lg-4 ng-repeat='seller in sellers' ng-class="{ 'hidden': inactiveSellers(seller) }"
+      .card.text-center.integration-card.wp-100
+        .integration-image-wrapper
+          .integration-card-image.bootic ng-class="{'{{ seller.name }}': true, 'gray': (seller.name == 'opencart' )}" ng-click='editIntegration(seller)'
+        .card-block
+          h4.card-title
+            | {{ seller.name | titleize }}
+          .row
+            p.mt-30 ng-if="((seller.client_id == null || seller.client_id == '') && seller.name != 'jumpseller' && seller.name != 'opencart' && seller.name != 'bootic') || (seller.name == 'bootic' && (seller.authorization_token == '' || seller.authorization_token == undefined))"
+              i.fas.fa-times.hidden-sm-down.mr-5 aria-hidden='true'
+              | Sin activar
+              span.tag.tag-pill.bg-warning.ml-10 Beta!
+            p.mt-30 ng-if="((seller.client_id != null && seller.client_id != '') && seller.name != 'opencart') || seller.name == 'bootic' && (seller.authorization_token != '' && seller.authorization_token != undefined)"
+              i.fas.fa-check.hidden-sm-down.mr-5 aria-hidden='true'
+              | Activado
+              span.tag.tag-pill.bg-warning.ml-10 Beta!
+          p.mt-30 ng-if="seller.name == 'opencart'"
+            | ¡Próximamente!
+          p.mt-30 ng-if="seller.name == 'jumpseller'"
+            span.tag.tag-pill.bg-warning.ml-10 Beta!
+
+= render 'shared/modal_integration_edit'

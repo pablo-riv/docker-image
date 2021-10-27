@@ -1,0 +1,29 @@
+- breadcrumb :analytics
+div ng-controller='AnalyticsController' ng-init="setDate(#{@data[:dates].to_json}, #{@data[:period_length]}); searchByDate();"
+  .row 
+    .col-md-12
+      .card.pb-40
+        .card-block
+          = render 'search'
+  .row
+    .col-md-12
+      .card
+        .card-block 
+          = render 'packages'
+  .row
+    .col-md-12
+      .card
+        .card-block
+          = render 'orders'
+  .row
+    .col-md-12
+      .card
+        .card-block
+          = render 'notifications'
+  .row
+    .col-md-12 
+      .card
+        .card-block
+          = render 'support'
+
+= render 'shared/modal_program_analytics'

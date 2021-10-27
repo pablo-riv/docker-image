@@ -1,0 +1,24 @@
+
+- breadcrumb :package
+
+.card
+  .card-block
+    .row
+      .col-md-12
+        h2.card-title
+          = I18n.t('returns.title')
+    hr 
+    .row
+      .col-md-12
+        ul.nav.nav-tabs
+          li.nav-item
+            a.nav-link.active href='#register' data-toggle='tab' role='tab' ng-click='activePane = "register"'
+              = I18n.t('returns.tabs.actives')
+          li.nav-item
+            a.nav-link href='#processed' data-toggle='tab' role='tab' ng-click='activePane = "processed"'
+              = I18n.t('returns.tabs.processed')
+        .tab-content
+          #register.tab-pane.active role='tabpanel'
+            = render 'actives'
+          #processed.tab-pane role='tabpanel'
+            = render 'processed'

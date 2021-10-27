@@ -1,0 +1,29 @@
+.row
+  .container-fluid
+    .col-lg-7.text-center
+      = inline_svg 'hero.svg', height: '410', class: 'login-logo'
+
+    .col-lg-5
+      .card
+        .card-block
+          .container
+            = form_for(resource, as: resource_name, url: session_path(resource_name), id: 'validate') do |f|
+              .text-xs-center.m-b-3
+                h1 Inicia sesión con tu cuenta
+
+              fieldset.form-group
+                = f.email_field :email, autofocus: true, class: 'form-control form-control-lg', placeholder: 'tu@correo.com', required: true
+              fieldset.form-group
+                = f.password_field :password, autocomplete: 'off', class: 'form-control form-control-lg', placeholder: 'Contraseña', required: true
+              .actions
+                = f.submit 'Iniciar sesión', class: "btn btn-primary btn-block"
+
+              br
+              label.custom-control.custom-checkbox.m-b-1
+                - if devise_mapping.rememberable?
+                  = f.check_box :remember_me, class: 'custom-control-input'
+                  span.custom-control-indicator
+                  span.custom-control-description Mantener sesión
+
+              .actions.text-center
+                = render 'devise/shared/links'

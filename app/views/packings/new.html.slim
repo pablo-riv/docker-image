@@ -1,0 +1,13 @@
+- breadcrumb :new_packing
+.card
+  .card-block
+    .row
+      .col-md-12
+        h2.card-title
+          = I18n.t('settings.packings.titles.new')
+          small
+            = I18n.t('settings.packings.subtitles.new')
+  .card-block
+    .input-group
+      = form_for(@packing, html: { multipart: true }) do |f|
+        = render 'form', f: f, packing: @packing

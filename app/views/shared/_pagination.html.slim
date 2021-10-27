@@ -1,0 +1,17 @@
+script id='pagination.html' type='text/ng-template'
+
+  li.page-item role='menuitem' ng-if='::boundaryLinks' ng-class='{ disabled: noPrevious() || ngDisabled}'
+    a.page-link href='#' ng-click='selectPage(1, $event)' ng-disabled='noPrevious()||ngDisabled' uib-tabindex-toggle=''
+      | {{::getText('first')}}
+  li.page-item role='menuitem' ng-if='::directionLinks' ng-class='{ disabled: noPrevious() || ngDisabled }'
+    a.page-link href='#' ng-click='selectPage(page - 1, $event)' ng-disabled='noPrevious() || ngDisabled' uib-tabindex-toggle=''
+      | {{::getText('previous')}}
+  li.page-item role='menuitem' ng-repeat='page in pages track by $index' ng-class='{ active: page.active, disabled: ngDisabled && !page.active }'
+    a.page-link href='#' ng-click='selectPage(page.number, $event)' ng-disabled='ngDisabled && !page.active' uib-tabindex-toggle=''
+      | {{page.text}}
+  li.page-item role='menuitem' ng-if='::directionLinks' ng-class='{ disabled: noNext() || ngDisabled }'
+    a.page-link href='#' ng-click='selectPage(page + 1, $event)' ng-disabled='noNext() || ngDisabled' uib-tabindex-toggle=''
+      | {{::getText('next')}}
+  li.page-item role='menuitem' ng-if='::boundaryLinks' ng-class='{ disabled: noNext() || ngDisabled }'
+    a.page-link href='#' ng-click='selectPage(totalPages, $event)' ng-disabled='noNext() || ngDisabled' uib-tabindex-toggle=''
+      | {{::getText('last')}}

@@ -1,0 +1,10 @@
+.navbar-item.navbar-spacer-right.navbar-heading
+  .navbar-search.navbar-item
+    .col-md-9
+      = form_for(:s, url: query_companies_path, method: 'GET') do |f|
+        .input-group
+          span.input-group-addon.searchbox-sidebar-panel
+            i.fas.fa-search
+          = f.text_field :q, class: 'form-control icon-searchbox-navbar searchbox-sidebar-panel' do
+            = f.submit 'Buscar', class: 'btn btn-success ftm fm col-md-2 col-md-offset-0 xs-block'
+  br/

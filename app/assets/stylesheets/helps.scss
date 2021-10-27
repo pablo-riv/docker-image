@@ -1,0 +1,34 @@
+.support_icon {
+  background-image: url('/assets/support.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 95%;
+  height: 41px;
+}
+
+.support_icon_light {
+  background-image: url('/assets/support_light.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+}
+
+.zendesk {
+  table {
+    table-layout: fixed;
+    th, td {
+      width: 180px;
+      height: 40px;
+    }
+    th {
+      font-size: 14px;
+    }
+    td {
+      font-size: 12px;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<% if action_name.include?("new") %>
+  <%= form_for([:company, :branch_office, @account], url: company_branch_office_accounts_path(@company.id, @branch_office)) do |f| %>
+    <%= render "form_fields" %>
+    <button class="btn btn-primary btn-icon btn-left tsf-wizard-btn" data-type="prev" type="button" style="display: none;">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i> Prev</button>
+    <%= f.submit "Guardar", class: "btn btn-primary btn-right tsf-wizard-btn" %>
+  <% end %>
+<% else %>
+  <%= form_for([:company, :branch_office, @account], url: company_branch_office_account_path(@company.id, @branch_office)) do |f| %>
+    <%= render "form_fields" %>
+    <button class="btn btn-primary btn-icon btn-left tsf-wizard-btn" data-type="prev" type="button" style="display: none;">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i> Prev</button>
+    <%= f.submit "Guardar", class: "btn btn-primary btn-right tsf-wizard-btn" %>
+  <% end %>
+<% end %>

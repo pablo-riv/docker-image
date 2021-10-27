@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html ng-app="client-app" ng-strict-di>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1"/>
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Shipit">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Shipit">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136725524-1"></script>
+
+  <title><%= t 'title' %></title>
+  <%= csrf_meta_tags %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtSxLdKCMEbcWU2lS5pm1q9HVxhDkI2Dw&libraries=places"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= action_cable_meta_tag %>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:500,900,200' rel='stylesheet' type='text/css'>
+  <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_path('favicon.png') %>">
+  <!-- Start of shipitcl Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=<%= @zendesk_token %>"></script>
+  <script type="text/javascript">
+    window.zESettings = {
+      webWidget: {
+        chat: { enabled: true },
+        helpCenter: {
+          contactButton: { '*': 'Contáctanos' },
+          chatButton: { '*': 'Contáctanos' }
+        },
+        contactOptions: {
+          enabled: true,
+          contactButton: { '*': 'Contáctanos' }
+        }
+      }
+    };
+    zE(function() {
+      zE.identify({
+        name: '<%= current_account.full_name %>',
+        email: '<%= current_account.email %>'
+      });
+      zE.setLocale('es');
+    });
+  </script>
+  <!-- End of shipitcl Zendesk Widget script -->
+</head>
+
+<body>
+  <div class="app" id="app">
+    <!--sidebar panel-->
+    <!--<div class="off-canvas-overlay" data-toggle="sidebar" ng-controller="WelcomeController" ng-click='toggleSidebar()'></div>-->
+    <% unless params[:controller].include?('setup/') %>
+      <%= render "shared/sidebar" %>
+      <!-- /sidebar panel -->
+    <% end %>
+    <!-- content panel -->
+    <div class="main-panel">
+      <!-- top header -->
+      <% unless params[:controller].include?('setup/') %>
+        <nav class="header navbar" ng-controller="WelcomeController">
+          <div class="header-inner">
+            <div class="brand-navbar" data-toggle="sidebar" ng-click='collapsibleSideBar()'>
+              <i class="fas fa-bars bar-navbar" aria-hidden="true"></i>
+            </div>
+            <div class="brand-navbar navbar-search" data-toggle="collapse" data-target="#search-form">
+              <i class="fas fa-search bar-navbar" aria-hidden="true"></i>
+            </div>
+            <div class="navbar-item navbar-spacer-right navbar-heading collapse">
+              <div class="navbar-search navbar-item">
+                <div class="col-md-12">
+                  <%= form_for(:s, url: query_companies_path, method: 'GET') do |f| %>
+                  <div class="input-group">
+                    <span class="input-group-addon searchbox-navbar"><i class="fas fa-search"></i></span>
+                    <%= f.text_field :q, class: 'form-control icon-searchbox-navbar searchbox-navbar' do %>
+                      <%= f.submit 'Buscar', class: 'btn btn-success ftm fm col-md-2 col-md-offset-0 xs-block' %>
+                    <% end %>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="nav-item nav-link uib-dropdown dropdown">
+              <div class="nav-profile">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                  <div class="i-user"></div>
+                  <div class="user-info expanding-hidden">Hola <small class="bold"><%= get_full_name %></small></div>
+                </a>
+                <!-- user dropmenu -->
+                <div class="dropdown-menu navbar-dropdown">
+                  <%= link_to 'Configuración de cuenta', setup_company_path, class: 'dropdown-item', data: { turbolinks: :false } %>
+                  <%= link_to 'Instrucciones', instructions_path, class: 'dropdown-item', data: { turbolinks: :false } %>
+                  <%= link_to 'Cerrar Sesión', destroy_account_session_path, method: :delete, class: 'dropdown-item' %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header-navbar" id="search-form">
+            <div class="col-md-12 input-search-mobile">
+              <%= form_for(:s, url: query_companies_path, method: 'GET') do |f| %>
+              <div class="input-group">
+                <%= f.text_field :q, class: 'form-control icon-searchbox-navbar searchbox-navbar', placeholder: "Busca aquí tus pedidos" do %>
+                <%= f.submit 'Buscar', class: 'btn btn-success ftm fm col-md-2 col-md-offset-0 xs-block' %>
+                <% end %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </nav>
+      <% end %>
+      <div class="main-content">
+        <div class="content-view">
+          <% flash.each do |key, values| %>
+            <% if values.class == String %>
+              <div class="alert alert-<%= key %> alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong class="fw-b"><%= values %></strong>
+              </div>
+            <% else %>
+              <% values.each do |value| %>
+                <div class="alert alert-<%= key == 'alert' ? 'danger' : key %> alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <strong class="fw-b"><%= value %></strong>
+                </div>
+              <% end%>
+            <% end %>
+          <% end %>
+          <% unless params[:action].include?('dashboard') || params[:controller].include?('apipie/apipies') %>
+            <div class="row">
+              <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-block">
+                      <% breadcrumbs.tap do |links| %>
+                        <% if links.any? %>
+                          <% links.each_with_index do |link, index| %>
+                            <%= link_to link.text, link.url, data: { turbolinks: :false }, class: (link.current? ? 'current' : nil) %>
+                            <% if links.count > (index + 1) %>
+                              &rsaquo;
+                            <% end %>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          <% end %>
+          <%= yield %>
+        </div>
+        <div class="content-footer">
+          <%= render 'layouts/footer' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- begin Wootric code -->
+  <script type="text/javascript">
+    window.wootricSettings = {
+      email: "<%= current_account.email %>",
+      account_token: 'NPS-cb214fcf',
+      survey_immediately: false
+    };
+  </script>
+  <script type="text/javascript" src="https://cdn.wootric.com/wootric-sdk.js"></script>
+  <script type="text/javascript">
+    window.wootric('run');
+  </script>
+  <!-- end Wootric code -->
+  <!-- Start of shipitcl Zendesk Widget script -->
+  <script>/*<![CDATA[*/window.zE||(function(e,t,s){var n=window.zE=window.zEmbed=function(){n._.push(arguments)}, a=n.s=e.createElement(t),r=e.getElementsByTagName(t)[0];n.set=function(e){ n.set._.push(e)},n._=[],n.set._=[],a.async=true,a.setAttribute("charset","utf-8"), a.src="https://static.zdassets.com/ekr/asset_composer.js?key="+s, n.t=+new Date,a.type="text/javascript",r.parentNode.insertBefore(a,r)})(document,"script","2a6b30db-a1f0-466b-a61a-91bc8c50a2e1");/*]]>*/</script>
+  <!-- End of shipitcl Zendesk Widget script -->
+</body>
+</html>

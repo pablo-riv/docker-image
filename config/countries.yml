@@ -1,0 +1,42 @@
+default: &default
+  base_tcc:
+    cl: {
+      destinies: [],
+      origin: 'LAS CONDES',
+      company_name: 'Shipit SpA',
+      email: '',
+      phone: '+56226170063',
+      return_commune: 'LAMPA',
+      return_street: 'El Roble',
+      return_number: '970',
+      return_complement: 'módulo 7',
+      rut: '76499449',
+      dv: '3',
+      from: 'shipit'
+    }
+    mx: {
+      destinies: [],
+      origin: 'SAN ANGEL - ALVARO OBREGON',
+      company_name: 'Shipit SpA',
+      email: '',
+      phone: '',
+      return_commune: 'SAN ANGEL - ALVARO OBREGON',
+      return_street: '',
+      return_number: '',
+      return_complement: '',
+      rut: '',
+      dv: '',
+      from: 'shipit'
+    }
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default

@@ -1,0 +1,177 @@
+# encoding: utf-8
+es:
+  devise:
+    confirmations:
+      confirmed: "Hemos confirmado tu cuenta en Shipit"
+      send_instructions: "Recibirás un correo electrónico en unos minutos con instrucciones sobre cómo confirmar tu email."
+      send_paranoid_instructions: "Si tu correo electrónico existe en nuestra base de datos, recibirás un correo electrónico en unos minutos con instrucciones sobre cómo confirmar tu email."
+      new:
+        header: Reenviar instrucciones de confirmacíón
+        submit_button: Enviar instrucciones
+      account:
+        confirmed: "Hemos confirmado tu cuenta en Shipit"
+        send_instructions: "Recibirás un correo electrónico en unos minutos con instrucciones sobre cómo confirmar tu email."
+        send_paranoid_instructions: "Si tu correo electrónico existe en nuestra base de datos, recibirás un correo electrónico en unos minutos con instrucciones sobre cómo confirmar tu email."
+        new:
+          header: Reenviar instrucciones de confirmacíón
+          submit_button: Enviar instrucciones
+    failure:
+      email_all_ready_exists: Ya existe una cuenta con este correo.
+      already_authenticated: "Ya estás logueado."
+      inactive: "Tu cuenta ha sido desactivada debido a un uso indebido de nuestro sitio, contácta con nosotros en shipit.chile@gmail.com para más información."
+      invalid: "Correo y/o contraseña inválidos."
+      invalid_token: "Tu token ya no es válido"
+      locked: "Tu cuenta ha sido bloqueada."
+      last_attempt: "Tienes un último intento o tu cuenta será bloqueada."
+      not_found_in_database: "Correo y/o contraseña inválidos."
+      timeout: "Tu sesión ha expirado, por favor identifícate de nuevo para continuar."
+      unauthenticated: "Necesitas iniciar sesión o registrarte para continuar."
+      unconfirmed: "Debes confirmar tu correo para continuar."
+      invited: "Tienes una invitación pendiente, aceptala para terminar de crear tu cuenta."
+      account:
+        already_authenticated: "Ya estás logueado."
+        inactive: "Tu cuenta ha sido desactivada debido a un uso indebido de nuestro sitio, contácta con nosotros en shipit.chile@gmail.com para más información."
+        invalid: "Correo y/o contraseña inválidos."
+        invalid_token: "Tu token ya no es válido"
+        locked: "Tu cuenta ha sido bloqueada."
+        last_attempt: "Tienes un último intento o tu cuenta será bloqueada."
+        not_found_in_database: "Correo y/o contraseña inválidos."
+        timeout: "Tu sesión ha expirado, por favor identifícate de nuevo para continuar."
+        unauthenticated: "Necesitas iniciar sesión o registrarte para continuar."
+        unconfirmed: "Debes confirmar tu correo para continuar."
+        invited: "Tienes una invitación pendiente, aceptala para terminar de crear tu cuenta."
+    mailer:
+      confirmation_instructions:
+        subject: "Instrucciones de confirmación"
+      reset_password_instructions:
+        subject: "Instrucciones para reestablecer tu contraseña"
+      unlock_instructions:
+        subject: "Instrucciones de desbloqueo"
+      invitation_instructions:
+        subject: "Instrucciones de invitación"
+        hello: "Hola %{email}"
+        someone_invited_you: "Alguien te ha enviado una invitación %{url}, puedes aceptarla en el siguiente link."
+        accept: "Aceptar invitación"
+        ignore: "Si no quieres aceptar esta invitación, por favor ignora este email, tu cuenta no será creada hasta que accedas al siguiente link y crees tu contraseña"
+      account:
+        confirmation_instructions:
+          subject: "Instrucciones de confirmación"
+        reset_password_instructions:
+          subject: "Instrucciones para reestablecer tu contraseña"
+        unlock_instructions:
+          subject: "Instrucciones de desbloqueo"
+        invitation_instructions:
+          subject: "Instrucciones de invitación"
+          hello: "Hola %{email}"
+          someone_invited_you: "Alguien te ha enviado una invitación %{url}, puedes aceptarla en el siguiente link."
+          accept: "Aceptar invitación"
+          ignore: "Si no quieres aceptar esta invitación, por favor ignora este email, tu cuenta no será creada hasta que accedas al siguiente link y crees tu contraseña"
+    omniauth_callbacks:
+      failure: "No pudimos autentificarte vía %{kind} debido a \"%{reason}\"."
+      success: "Te hemos autentificado correctamente vía %{kind}."
+      account:
+        failure: "No pudimos autentificarte vía %{kind} debido a \"%{reason}\"."
+        success: "Te hemos autentificado correctamente vía %{kind}."
+    passwords:
+      no_token: "No puedes acceder a esta página si no es por medio de un enlace para reestablecer contraseña envíado a tu correo. Si accediste desde el enlace para reestablecer la contraseña, asegúrate de que la URL esté completa."
+      send_instructions: "Recibirás un correo electrónico con instrucciones sobre cómo reestablecer tu contraseña en unos minutos."
+      send_paranoid_instructions: "Si tu correo electrónico existe en nuestra base de datos, recibirás un enlace para reestablecer la contraseña en unos minutos."
+      updated: "Tu contraseña se cambió correctamente. Has sido identificado."
+      updated_not_active: "Tu contraseña se cambió correctamente."
+      new:
+        header: ¿Olvidaste tu contraseña?
+        submit_button: Enviar instrucciones
+      edit:
+        header: Cambiar mi contraseña
+        submit_button: Cambiar mi contraseña
+        new_password: Nueva contraseña
+        new_password_confirmation: Confirmar nueva contraseña
+        how_to_know_shipit: ¿Cómo llegaste a Shipit?
+      account:
+        no_token: "No puedes acceder a esta página si no es por medio de un enlace para reestablecer contraseña envíado a tu correo. Si accediste desde el enlace para reestablecer la contraseña, asegúrate de que la URL esté completa."
+        send_instructions: "Recibirás un correo electrónico con instrucciones sobre cómo reestablecer tu contraseña en unos minutos."
+        send_paranoid_instructions: "Si tu correo electrónico existe en nuestra base de datos, recibirás un enlace para reestablecer la contraseña en unos minutos."
+        updated: "Tu contraseña se cambió correctamente. Has sido identificado."
+        updated_not_active: "Tu contraseña se cambió correctamente."
+        new:
+          header: ¿Olvidaste tu contraseña?
+          submit_button: Enviar instrucciones
+        edit:
+          header: Cambiar mi contraseña
+          submit_button: Cambiar mi contraseña
+          new_password: Nueva contraseña
+          new_password_confirmation: Confirmar nueva contraseña
+          how_to_know_shipit: ¿Cómo llegaste a Shipit?
+    registrations:
+      accept_term: He leído y acepto los
+      accept_base_charge_part_one: Entiendo que hay un %{link}
+      accept_base_charge_part_two: (No aplica para clientes con bodegaje)
+      accept_size: No envío productos con arista mayor a 60 cms por lado, ni productos frágiles
+      destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
+      signed_up: "¡Bienvenido! Te has logeado en Shipit."
+      signed_up_but_inactive: "Te has registrado correctamente. Pero no has podido iniciar sesión porque no has activado tu cuenta."
+      signed_up_but_locked: "Te has registrado correctamente. Pero no has podido iniciar sesión porque tu cuenta está bloqueada."
+      signed_up_but_unconfirmed: "Se te ha enviado un mensaje con un enlace de confirmación. Por favor visita el enlace para activar tu cuenta."
+      update_needs_confirmation: "Actualizaste tu cuenta correctamente, pero necesitamos verificar tu nueva cuenta de correo. Por favor revisa tu correo electrónico y visita el enlace para finalizar la confirmación de tu nueva dirección de correo electrónico."
+      updated: "Has actualizado tu cuenta correctamente."
+      account:
+        destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
+        signed_up: "¡Bienvenido! Te has logueado en Shipit."
+        signed_up_but_inactive: "Te has registrado correctamente. Pero no has podido iniciar sesión porque no has activado tu cuenta."
+        signed_up_but_locked: "Te has registrado correctamente. Pero no has podido iniciar sesión porque tu cuenta está bloqueada."
+        signed_up_but_unconfirmed: "Se te ha enviado un mensaje con un enlace de confirmación. Por favor visita el enlace para activar tu cuenta."
+        update_needs_confirmation: "Actualizaste tu cuenta correctamente, pero necesitamos verificar tu nueva cuenta de correo. Por favor revisa tu correo electrónico y visita el enlace para finalizar la confirmación de tu nueva dirección de correo electrónico."
+        updated: "Has actualizado tu cuenta correctamente."
+    sessions:
+      signed_in: "Has iniciado sesión en Shipit."
+      signed_out: "Has cerrado la sesión."
+      already_signed_out: "Has cerrado la sesión."
+      account:
+        signed_in: "Has iniciado sesión en Shipit."
+        signed_out: "Has cerrado la sesión."
+        already_signed_out: "Has cerrado la sesión."
+    unlocks:
+      send_instructions: "Recibirás un correo electrónico en unos minutos con instrucciones sobre cómo desbloquear tu cuenta."
+      send_paranoid_instructions: "Si tu cuenta existe, recibirás un correo electrónico en unos minutos con instrucciones sobre cómo desbloquear tu cuenta."
+      unlocked: "Tu cuenta ha sido desbloqueada. Por favor inicia sesión para continuar."
+      account:
+        send_instructions: "Recibirás un correo electrónico en unos minutos con instrucciones sobre cómo desbloquear tu cuenta."
+        send_paranoid_instructions: "Si tu cuenta existe, recibirás un correo electrónico en unos minutos con instrucciones sobre cómo desbloquear tu cuenta."
+        unlocked: "Tu cuenta ha sido desbloqueada. Por favor inicia sesión para continuar."
+    invitations:
+      send_instructions: "Se te ha enviado un email de invitación %{email}."
+      invitation_token_invalid: "El token de invitación no es válido"
+      updated: "Tu contraseña ha sido creada con éxito, has sido logeado."
+      updated_not_active: "Has creado tu contraseña con éxito."
+      no_invitations_remaining: "No hay invitaciones pendientes"
+      invitation_removed: "Tu invitación ha sido eliminada."
+      new:
+        header: "Enviar invitación"
+        submit_button: "Enviar invitación"
+      edit:
+        header: "Crear contraseña"
+        submit_button: "Crear mi contraseña"
+      account:
+        send_instructions: "Se te ha enviado un email de invitación %{email}."
+        invitation_token_invalid: "El token de invitación no es válido"
+        updated: "Tu contraseña ha sido creada con éxito, has sido logeado."
+        updated_not_active: "Has creado tu contraseña con éxito."
+        no_invitations_remaining: "No hay invitaciones pendientes"
+        invitation_removed: "Tu invitación ha sido eliminada."
+        new:
+          header: "Enviar invitación"
+          submit_button: "Enviar invitación"
+        edit:
+          header: "Crear contraseña"
+          submit_button: "Crear mi contraseña"
+  errors:
+    messages:
+      account:
+        already_confirmed: "ya ha sido confirmado, por favor intenta iniciar sesión"
+        confirmation_period_expired: "necesita ser confirmado en %{period}, por favor vuelve a solicitarla"
+        expired: "ha expirado, por favor vuelve a solicitarla"
+        not_found: "no se encontró"
+        not_locked: "no estaba bloqueado"
+        not_saved:
+          one: "1 error impidió que este %{resource} fuese guardado:"
+          other: "%{count} errores impidieron que este %{resource} fuese guardado:"

@@ -1,0 +1,48 @@
+.row
+  .col-md-11
+    form.row ng-submit='getLabels()'
+      .col-md-3.col-sm-3
+        .form-group
+          label.form-label = I18n.t('labels.search.reference')
+          input.form-control.fs-18 placeholder='Buscar envío' ng-model='search.reference'
+      .col-md-3.col-sm-3
+        .form-group
+          label.form-label.pb-12 = I18n.t('labels.search.courier')
+          select.form-control.filter ng-options='courier as courier.name for courier in couriers' ng-model='search.selected_courier' placeholder='Seleccionar Courier' data-placeholder='Seleccionar Courier' ng-change='setSelected("courier", search.selected_courier);getLabels()'
+      .col-md-3.col-sm-3
+        .form-group
+          label.form-label.pb-12 = I18n.t('labels.search.commune')
+          select.form-control.filter ng-options='commune as commune.name for commune in communes' ng-model='search.selected_commune' placeholder='Seleccionar Comuna' data-placeholder='Seleccionar Comuna' ng-change='setSelected("commune", search.selected_commune);getLabels()'
+      .col-md-3.col-sm-3 ng-if='sellers.length > 1'
+        .form-group
+          label.form-label.pb-12 = I18n.t('labels.search.seller')
+          select.form-control.filter ng-options='seller as seller.name for seller in sellers' ng-model='search.selected_seller' placeholder='Seleccionar Canal de Venta' data-placeholder='Seleccionar Canal de Venta' ng-change='setSelected("seller", search.selected_seller);getLabels()'
+      .col-md-2.col-sm-2.pt-25 ng-if='sellers.length == 1'
+        button.btn.btn-success.btn-sm.mb-10.mr-10 data-toggle='tooltip' data-placement='top' ng-click='getLabels()' ng-disabled='' data-title='Buscar'
+          i.fas.fa-search aria-hidden='true'
+  .col-md-1 ng-if='sellers.length > 1'
+    .row
+      .col-md-12.col-sm-12.pt-25
+        button.btn.btn-success.btn-sm.mb-10.mr-10.btn-block data-toggle='tooltip' type='submit' data-placement='top' ng-click='getLabels()' ng-disabled='' data-title='Buscar'
+          i.fas.fa-search aria-hidden='true'
+.row
+  .col-md-2.col-sm-2
+    .form-group
+      label.form-label = I18n.t('labels.search.from')
+      input.form-control.wp-100.datepicker-input.date-format.text-center.fs-18 ng-model='search.from' readonly='true' ng-change='getLabels()'
+  .col-md-2.col-sm-2
+    .form-group
+      label.form-label = I18n.t('labels.search.to')
+      input.form-control.wp-100.datepicker-input.date-format.text-center.fs-18 ng-model='search.to' readonly='true' ng-change='getLabels()'
+  .col-md-2.col-sm-2
+    .form-group
+      label.form-label.pb-12 = I18n.t('labels.search.payable')
+      select.form-control ng-options='payable.name for payable in payables' ng-model='search.selected_payable' placeholder='Seleccionar todos los envíos' data-placeholder='Seleccionar todos los envíos' ng-change='setSelected("payable", search.selected_payable);getLabels()'
+  .col-md-2.col-sm-2
+    .form-group
+      label.form-label.pb-12 = I18n.t('labels.search.destiny')
+      select.form-control.filter ng-options='destiny.name for destiny in destinies' ng-model='search.selected_destiny' placeholder='Seleccionar todos los envíos' data-placeholder='Seleccionar todos los envíos' ng-change='setSelected("destiny", search.selected_destiny);getLabels()'
+  .col-md-2.col-sm-2
+    .form-group
+      label.form-label.pb-12 = I18n.t('labels.search.per')
+      select.form-control.filter ng-options='per for per in [50, 100, 150, 200, 300]' ng-model='search.per' placeholder='Mostrar' data-placeholder='Cantidad a mostrar' ng-change='getLabels()'

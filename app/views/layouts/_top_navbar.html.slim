@@ -1,0 +1,5 @@
+nav.navbar.navbar-light.bg-faded
+  = link_to root_path, class: 'mb-30' do
+    = inline_svg 'svg/logo-shipit.svg', height: 50
+  .text-center
+    = link_to 'Cancelar', destroy_account_session_path, method: :delete if current_account.present?

@@ -1,0 +1,13 @@
+- breadcrumb :new_product
+.card
+  .card-block
+    .row
+      .col-md-12
+        h2.card-title
+          = I18n.t('settings.products.titles.new')
+          small
+            = I18n.t('settings.products.subtitles.new')
+  .card-block
+    .input-group
+      = form_for(@product, html: { multipart: true }) do |f|
+        = render 'form', f: f, product: @product

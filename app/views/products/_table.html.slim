@@ -1,0 +1,22 @@
+table.table.table-hover
+  thead
+    tr
+      th = I18n.t('settings.products.table.headers.image')
+      th = I18n.t('settings.products.table.headers.name')
+      th = I18n.t('settings.products.table.headers.sizes.base')
+      th = I18n.t('settings.products.table.headers.weight')
+      th = I18n.t('settings.products.table.headers.description')
+      th = I18n.t('settings.products.table.headers.created_at')
+  tbody
+    - products.each do |product|
+      tr
+        td = image_tag product.image.url(:medium), width: 100
+        td = product.name
+        td = product.short_measures
+        td 
+          = product.weight
+          | kg
+        td = product.description.to_s[0..50]
+        td = product.created_at.strftime('%d/%m/%Y %H:%M')
+        td = link_to I18n.t('settings.products.buttons.edit'), edit_product_path(product)
+        td = link_to I18n.t('settings.products.buttons.destroy'), product_path(product), method: :delete

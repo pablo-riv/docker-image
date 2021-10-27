@@ -1,0 +1,9 @@
+es:
+  proactive_monitoring:
+    error:
+      package_not_found: Envío no encontrado
+      unpermitted_courier: Courier no permitido
+      shipping_management_not_found: Paquete sin gestión de envío
+      keep_shipping_state: El envío no ha generado un cambio de estado de gestión
+      sub_status_not_mapped: Sub estado no mapeado
+      package_sub_status_not_found: Sub estado del envío no encontrado

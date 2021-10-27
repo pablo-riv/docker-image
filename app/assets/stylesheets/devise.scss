@@ -1,0 +1,87 @@
+$primary-color: #686daf;
+$placeholder-color: #a9a9a9;
+$primary-text-color: #000000;
+
+body {
+  font-size: 12px;
+}
+
+input:focus {
+  color: $primary-text-color !important;
+}
+
+input::-webkit-input-placeholder {
+  color: $placeholder-color !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+  color: $placeholder-color !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+  color: $placeholder-color !important;
+}
+
+input:-ms-input-placeholder {
+  color: $placeholder-color !important;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 800;
+}
+
+a {
+  &:hover{
+    color: $primary-color;
+  }
+}
+
+.alert {
+  position: relative;
+  border: 0px;
+  text-align: center;
+  font-size: 1.2em;
+
+  strong {
+    font-weight: 800;
+  }
+}
+
+.btn-primary {
+  border-radius: 0em;
+  box-shadow: none;
+  padding: 0.75em 0.5em;
+}
+
+.navbar {
+  padding: 0.7em 1em 0.2em 1em;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #ffffff;
+}
+
+.login-logo{
+  margin-top: 5em;
+}
+
+.form-control {
+  color: $primary-text-color;
+  font-size: 1.2em;
+  line-height: 1.75em;
+  border: 1px solid #ddd;
+  transition: border .5s ease-in-out;
+  &:focus {
+    border-color: $primary-color;
+  }
+}
+
+
+.link-pass{
+  text-align: center;
+  font-weight: 500;
+}
+
+.form-layout {
+  margin: 4em 0em 0em 3em;
+}

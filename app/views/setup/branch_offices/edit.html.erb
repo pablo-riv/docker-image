@@ -1,0 +1,58 @@
+<div class="main-content">
+  <div class="content-view">
+    <div class="layout-md b-b">
+      <div class="layout-column-md">
+        <div class="tsf-wizard tsf-wizard-1 top" data-step-index="0">
+          <%= render 'shared/wizard_steps'%>
+          <!-- BEGIN STEP CONTAINER -->
+          <div class="tsf-container">
+            <!-- BEGIN CONTENT-->
+            <%= form_for(@branch_office, url: setup_branch_office_path(@branch_office.id)) do |f| %>
+              <div class="tsf-content" style="height: auto; overflow-y: auto;">
+                <!-- BEGIN STEP 1-->
+                <div class="tsf-step step-1 active">
+                  <fieldset>
+                    <legend>Información Sucursal</legend>
+                    <div class="row">
+                      <!-- BEGIN STEP CONTENT-->
+                      <div class="tsf-step-content">
+                        <div class="col-lg-12">
+                          <div class="form-group">
+                            <%= f.label :name %>
+                            <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Local b-543" %>
+                          </div>
+                          <div class="form-group">
+                            <%= f.label :run %>
+                            <%= f.text_field :run, autofocus: true, class: "form-control", placeholder: "123456789-1" %>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- END STEP CONTENT-->
+                    </div>
+                  </fieldset>
+                </div>
+                <!-- END STEP 1-->
+              </div>
+              <!-- END CONTENT-->
+              <!-- BEGIN CONTROLS-->
+              <div class="tsf-controls " style="display: block;">
+                <!-- BEGIN PREV BUTTTON-->
+                <button class="btn btn-primary btn-icon btn-left tsf-wizard-btn" data-type="prev" type="button" style="display: none;"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev</button>
+                <!-- END PREV BUTTTON-->
+                <!-- BEGIN NEXT BUTTTON-->
+                <%= f.submit "Guardar y Continuar", class: "btn btn-primary btn-right tsf-wizard-btn" %>
+                <!-- END NEXT BUTTTON-->
+                <!-- BEGIN FINISH BUTTTON-->
+                <button class="btn btn- tsf-wizard-btn" data-type="finish" type="button" style="display: none;">Finish</button>
+                <!-- END FINISH BUTTTON-->
+                <br>
+              </div>
+              <!-- END CONTROLS-->
+            <% end %>
+          </div>
+          <!-- END STEP CONTAINER -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

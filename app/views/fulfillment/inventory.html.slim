@@ -1,0 +1,52 @@
+div ng-controller='FulfillmentController'
+  - breadcrumb :fulfillment_inventory
+  div uib-alert='' ng-repeat='alert in alerts track by $index' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' close="closeAlert($index)" {{alert.message}}
+  .card ng-init='index("inventories", #{params[:inventory_activity_type_ids]})'
+    .card-block
+      .row
+        h2.col-md-7.card-title Fulfillment
+        .col-md-4.pull-right
+          = render 'navbar'
+      hr
+      #one.tab-pane role='tabpanel'
+        .row
+          .col-md-6
+            .input-group.mb-2.mr-sm-2.mb-sm-0
+              input.form-control type='search' placeholder='Buscar....' ng-model='search.$'
+              .input-group-addon.secondary
+                input type='checkbox' ng-model='strict'
+            label.form-text.text-muted.pull-right
+              | Activa para búsquedas de contenido exacto.
+        .table-sizes-container
+          table.table.table-striped.table-white-color
+            thead ng-hide='inventories.length == 0'
+              tr
+                th.pointer ng-click='sort("id")'
+                  | #
+                  i.ml-20.fas.fa-caret-down aria-hidden='true' ng-class='{"fa-caret-up": reverse == false && property == "id" }'
+                th.pointer ng-click='sort("name")'
+                  | SKU
+                  i.ml-20.fas.fa-caret-down aria-hidden='true' ng-class='{"fa-caret-up": reverse == false && property == "name" }'
+                th.pointer ng-click='sort("description")'
+                  | Descripción
+                  i.ml-20.fas.fa-caret-down aria-hidden='true' ng-class='{"fa-caret-up": reverse == false && property == "description" }'
+                th.pointer ng-click='sort("amount")'
+                  | Stock
+                  i.ml-20.fas.fa-caret-down aria-hidden='true' ng-class='{"fa-caret-up": reverse == false && property == "amount" }'
+                th colspan='3' -
+            tbody
+              tr ng-show='inventories.length > 0' ng-repeat='inventory in (filteredInventory = (inventories | filter:search:strict | orderBy:property:reverse))'
+                td
+                  | {{ inventory.id }}
+                td
+                  | {{ inventory.name }}
+                td
+                  | {{ inventory.description }}
+                td
+                  | {{ inventory.amount }}
+                td
+                  a.mr-20 ng-href='/skus/{{ inventory.id }}' Ficha Completa
+
+              tr ng-hide='inventories.length > 0'
+                td colspan='6'
+                  h2.text-center.mt-20 Todavía no existen SKUs registrados

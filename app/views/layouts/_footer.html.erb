@@ -1,0 +1,17 @@
+<nav class="footer-left">
+  <ul class="nav">
+    <li class="hidden-md-down">
+      <a href="javascript:;" class="link-footer"><%= I18n.t('footer.copyright', year: Time.current.year) %></a>
+    </li>
+    <li class="hidden-md-down">
+      <a href="http://shipit.cl/terminos-y-condiciones/" target="_blank" class="link-footer"><%= I18n.t('footer.conditions') %></a>
+    </li>
+    <li class="hidden-md-down">
+      <a href="https://shipitcl.zendesk.com" target="_blank" class="link-footer"><%= I18n.t('footer.help_center') %></a>
+    </li>
+    <li class="hidden-md-down">
+      <%= link_to I18n.t('footer.instructions'), instructions_path, class: 'link-footer'  %>
+    </li>
+  </ul>
+</nav>
+

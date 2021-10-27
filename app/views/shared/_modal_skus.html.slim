@@ -1,0 +1,42 @@
+script id='massiveSkusModal.html' type='text/ng-template'
+  .modal-header
+    div close='' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' ng-repeat='alert in alerts' uib-alert='' 
+      | {{ alert.msg }}
+    h2 Carga masiva
+  .modal-body
+    .row.mb-30
+      .col-md-12
+        .alert.alert-warning.alert-dismissible.alert-modal role="alert"
+          button.close type="button" data-dismiss="alert" aria-label="Close"
+            span aria-hidden="true"
+              | ×
+          strong
+            | Cantidad máxima de SKU que se podrán cargar es de 5000
+    .row.mb-30
+      .col-lg-5.col-sm-5
+        .form-group
+          input#uploadXls.form-control type="file" onchange='angular.element(this).scope().loadFile(this)' name="file" placeholder=" " title="Seleccionar Excel"
+      .col-lg-2.col-sm-2
+        button.btn.btn-primary.btn-sm ng-click='sumSkuList()'
+          | Confirmar Skus
+      .col-lg-5.col-sm-5.text-center
+        a.btn.btn-link href="https://s3-us-west-2.amazonaws.com/shipit-platform/Plantilla-Ejemplo-Clientes.xlsx" target="_blank"
+          | Descargar Plantilla Ejemplo
+    .table-sizes-container
+      table#table-skus.table.table-bordered.table-striped
+        thead
+          tr
+            th
+              | #
+            th
+              | SKU   
+            th.text-center
+              | Cantidad
+        tbody
+          tr ng-repeat='sku in fileSkus track by $index'
+            td
+              | {{ ($index + 1) }}
+            td
+              | {{ sku.sku.name }}
+            td
+              | {{ sku.sku.amount }}

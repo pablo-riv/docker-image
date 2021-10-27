@@ -1,0 +1,142 @@
+<% breadcrumb :charges_pp_extras_by_month %>
+
+<div class="card">
+  <div class="card-block">
+    <h2 class="card-title">
+      Costos extras de <%= l @date, format: '%B %Y' %>
+    </h2>
+
+    <div class="pull-right">
+      <h2 class="card-title">Total: <%= number_to_currency(@extras) %></h2>
+    </div>
+    <hr>
+
+    <ul class="nav nav-tabs text-center" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" role="tab" href="#paid_by_shipit">
+          Pagados por Shipit <span class="text-info"> (<%= number_to_currency(@summary[:paid_by_shipit]) %>)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" role="tab" href="#material_extra">
+          Empaque <span class="text-info"> (<%= number_to_currency(@summary[:material_extra]) %>)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" role="tab" href="#returns">
+          Devoluciones <span class="text-info"> (<%= number_to_currency(@summary[:returns]) %>)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" role="tab" href="#fines">
+          Cobros por cancelación <span class="text-info"> (<%= number_to_currency(@summary[:fines]) %>)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" role="tab" href="#parking">
+          Estacionamientos <span class="text-info"> (<%= number_to_currency(@summary[:parking]) %>)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" role="tab" href="#discounts">
+          Reembolsos <span class="text-info"> (<%= number_to_currency(@summary[:discounts]) %>)</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="paid_by_shipit" role="tabpanel">
+        <% if @paid_by_shipit.empty? %>
+          <p class="alert alert-danger">No hay envíos pagados por Shipit</p>
+        <% else %>
+          <%= render 'charges_table', packages: @paid_by_shipit %>
+        <% end %>
+      </div>
+      <div class="tab-pane" id="material_extra" role="tabpanel">
+        <% if @with_material_extra.empty? %>
+          <p class="alert alert-danger">No hay envíos con costos por empaque</p>
+        <% else %>
+          <%= render 'charges_table', packages: @with_material_extra %>
+        <% end %>
+      </div>
+      <div class="tab-pane" id="returns" role="tabpanel">
+        <% if @returned.empty? %>
+          <p class="alert alert-danger">No hay costos por devoluciones</p>
+        <% else %>
+        <%= render 'charges_table', packages: @returned %>
+        <% end %>
+      </div>
+      <div class="tab-pane" id="fines" role="tabpanel">
+        <% if @pickup_fines.empty? %>
+          <p class="alert alert-danger">No existen registros de cobros por cancelación</p>
+        <% else %>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Motivo</th>
+                <th>Monto</th>
+                <th>Comentarios</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @pickup_fines.each do |fine| %>
+                <tr>
+                  <td><%= fine.cause %></td>
+                  <td><%= number_to_currency(fine.amount) %></td>
+                  <td><%= fine.comment %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+      <div class="tab-pane" id="parking" role="tabpanel">
+        <% if @parking_fines.empty? %>
+          <p class="alert alert-danger">No existen registros de pagos por estacionamiento</p>
+        <% else %>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Héroe</th>
+                <th>Monto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @parking_fines.each do |fine| %>
+                <tr>
+                  <td><%= fine.comment %></td>
+                  <td><%= number_to_currency(fine.amount) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+
+      <div class="tab-pane" id="discounts" role="tabpanel">
+        <% if @discounts.empty? %>
+          <p class="alert alert-danger">No existen registros de reembolsos</p>
+        <% else %>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Motivo</th>
+                <th>Monto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @discounts.each do |discount| %>
+                <tr>
+                  <td><%= discount.comment %></td>
+                  <td><%= number_to_currency(discount.amount) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+    </div>
+    <br>
+    <%= link_to 'Volver', pickandpack_by_month_charges_path(@date.year, @date.month), class: 'btn btn-default pull-right' %>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+- breadcrumb :helps
+div ng-controller='HelpIndexController' ng-init='init("open")'
+  div uib-alert='' ng-repeat='alert in alerts track by $index' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='5000' close="closeAlert($index)" {{alert.message}}
+  .card
+    .card-block
+      .row
+        .col-md-6
+          h2.card-title
+            = I18n.t('helps.index.title')
+        .col-md-6
+          .row
+            .col-lg-8.col-sm-6
+            .col-lg-4.col-sm-6
+              .row
+                .col-md-6
+                  button.btn.btn-info.mr-20.h-40.pull-left ng-click='lunchTicketModal()' tooltip-placement='top' uib-tooltip='¿Generar un nuevo ticket?'
+                    img.support_icon_light
+                .col-md-6
+                  button.btn.btn-success.fs-20.pull-right ng-click='syncronize()' tooltip-placement='top' uib-tooltip='¿Sincronizar tickets?'
+                    i.fas.fa-sync
+      hr
+      .row
+        .col-md-12
+          .pull-right
+            span.text-secondary #{I18n.t('helps.index.last_update_zendesk_date')}: #{current_account.last_update_zendesk_date.try(:strftime, '%d-%m-%Y %H:%M')}
+    .card-block.zendesk
+      ul.nav.nav-tabs
+        li.nav-item
+          = link_to I18n.t('helps.index.tabs.titles.open'), "#open", class: 'nav-link active', 'data-toggle': 'tab', 'aria-expanded': 'true', 'role': 'tab', 'ng-click' => 'activePane = "open"'
+        li.nav-item
+          =link_to I18n.t('helps.index.tabs.titles.pendings'), "#pendings", class: 'nav-link', 'data-toggle': 'tab', 'aria-expanded': 'true', 'role': 'tab', 'ng-click' => 'activePane = "pending"'
+        li.nav-item
+          = link_to I18n.t('helps.index.tabs.titles.closed'), '#closed', class: 'nav-link', 'data-toggle': 'tab', 'aria-expanded': 'true', 'role': 'tab', 'ng-click' => 'activePane = "closed,solved"'
+
+      .tab-content.h-500.overflow-y
+        #open.tab-pane.active role='tabpanel' aria-expanded='true'
+          = render 'table', status: 'open'
+        #pendings.tab-pane role='tabpanel' aria-expanded='true'
+          = render 'table', status: 'pending'
+        #closed.tab-pane role='tabpanel' aria-expanded='true'
+          = render 'table', status: 'closed,solved'
+= render 'shared/modal_support_detail'
+= render 'shared/modal_create_support'

@@ -1,0 +1,63 @@
+es:
+  integrations:
+    attributes:
+      id: ID Envío
+      full_name: Destinatario
+      created_at: Fecha Creación
+      price: Precio
+      sku: SKU’s
+      street: Dirección
+      number: Número
+      complement: Complemento
+      commune: Comuna
+      packing: Empaque
+    today_without_orders: No tienes órdenes descargadas
+    old_without_orders: Sin órdenes
+    title: Mis ventas
+    search:
+      from_date: Desde 
+      to_date: Hasta
+      per: Órdenes Por Página
+      filter: Filtro
+      find: Buscar orden
+    buttons:
+      update: Actualizar Ventas
+      order_format: Formato órdenes
+      actions:
+        self: Acciones
+        select_pendings: Seleccionar pendientes
+        select_archived: Seleccionar archivadas
+        archive_selected: Archivar seleccionadas
+        unarchive_selected: Desarchivar seleccionadas
+        undo: Deshacer selección
+      send: Enviar
+    tabs:
+      pending: Pendientes
+      archived: Archivadas
+      all: Todas
+    tooltips:
+      update: Descargarás las últimas órdenes de tus tiendas
+      download: Descarga un CSV con el detalle de las órdenes que estas despachando actualmente
+      help: Necesitas ayuda? Aquí encontrarás algunas respuestas a tus preguntas
+      order_format: Aquí podrás indicarnos como extraer la información de tus órdenes
+      actions: Menú de multiples acciones sobre las órdenes listadas
+      send: Envía las órdenes seleccionadas
+    messages:
+      last_update_time: 'Hora de última actualización:'
+      total_orders: 'Mostrando Órdenes:'
+    modal:
+      title: Editar orden {{ order.name }}
+      customer_name: Nombre del destinatiario
+      address: Calle
+      number: Número
+      email: Correo electrónico
+      phone: Teléfono
+      complement: Complemento
+      commune: Comuna
+      packing: Empaque
+      payable: Por pagar
+      courier_for_client: Courier
+      destiny: Domicilio / Sucursal
+      cbo: Sucursal de destino
+      buttons:
+        confirm: Confirmar

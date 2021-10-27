@@ -1,0 +1,58 @@
+<div class="modal fade in" id="request-fulfillment" tabindex="-1" role="dialog" aria-labelledby="request-fulfillment-label" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <br>
+        <h2>Servicio Fufillment</h2>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-30">
+          <div class="container">
+            <div class="col-md-12">
+              <h4>
+                Para poder configurar el servicio <b>Fulfillment</b> debes enviar una solicitud a nuestros agentes comerciales, para que te guíen en el proceso.
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="container">
+            <div class="col-lg-4 col-sm-4">
+              <div class="form-group">
+                <label for="full-name">Nombre Completo</label>
+                <input type="hidden" id="company-id" name="company-id" value="<%= current_account.entity_specific.id %>">
+                <input id="full-name" type="text" class="form-control" name="full-name" value="<%= current_account.full_name %>" autofocus required>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-4">
+              <div class="form-group">
+                <label for="email">Correo de Contacto</label>
+                <input id="email" type="text" class="form-control" name="email" value="<%= current_account.email %>" autofocus required>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-4">
+              <div class="form-group">
+                <label for="phone">Teléfono de Contacto</label>
+                <input id="phone" name="phone" type="text" class="form-control" value="<%= current_account.entity.phone %>" autofocus required>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="container">
+            <div class="col-lg-12 colsm-12">
+              <div class="form-group mb-30">
+                <label for="message">Mensaje</label>
+                <textarea class="form-control" id="message" name="message" rows="4" cols="40" autofocus required></textarea>
+              </div>
+              <button class="btn btn-primary btn-block" id="btn-send-request">Enviar Solicitud</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

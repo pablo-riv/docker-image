@@ -1,0 +1,49 @@
+
+.row
+  .col-md-3.col-sm-12
+    .row
+      .col-md-12
+        .avatar-upload
+          .avatar-edit
+            = f.file_field :image, class: 'image-upload', id: 'product_image', accept: '.png, .jpg, .jpeg'
+            label for="product_image"
+          .avatar-preview
+            .image-preview style=("background-image: url(#{product.image.url(:small)});") 
+
+  .col-md-9.col-sm-12
+    .row
+      .col-md-12
+        = f.label :field, I18n.t('settings.products.table.headers.name'), class: 'form-text'
+        = f.text_field :name, class: 'form-control'
+      .col-md-3
+        = f.label :field, I18n.t('settings.products.table.headers.sizes.width'), class: 'form-text'
+        = f.number_field :width, class: 'form-control', step: 'any'
+      .col-md-3
+        = f.label :field, I18n.t('settings.products.table.headers.sizes.length'), class: 'form-text'
+        = f.number_field :length, class: 'form-control', step: 'any'
+      .col-md-3
+        = f.label :field, I18n.t('settings.products.table.headers.sizes.height'), class: 'form-text'
+        = f.number_field :height, class: 'form-control', step: 'any'
+      .col-md-3
+        = f.label :field, I18n.t('settings.products.table.headers.weight'), class: 'form-text'
+        = f.number_field :weight, class: 'form-control', step: 'any'
+    .row
+      .col-md-3
+        = f.label :field, I18n.t('settings.products.table.headers.sku'), class: 'form-text'
+        = f.text_field :sku, class: 'form-control'
+      .col-md-3
+        = f.label :field, I18n.t('settings.products.table.headers.stock'), class: 'form-text'
+        = f.number_field :stock, class: 'form-control', step: 'any'
+      .col-md-3
+        = f.label :field, I18n.t('settings.products.table.headers.price'), class: 'form-text'
+        = f.number_field :price, class: 'form-control', step: 'any', placeholder: '$1000'
+    .row
+      .col-md-12
+        = f.label :field, I18n.t('settings.products.table.headers.description'), class: 'form-text'
+        = f.text_area :description, class: 'form-control'
+
+hr/
+.row
+  .col-md-12
+    = f.submit I18n.t('settings.products.buttons.save'), class: 'btn btn-primary fl-r'
+    = link_to I18n.t('settings.products.buttons.cancel'), settings_path, class: 'btn btn-default fl-r mr-10'

@@ -1,0 +1,22 @@
+.row
+  .col-md-12
+    h2.card-title Configura tu servicio
+    .row.text-center
+      - @services.reverse.each_with_index do |service, index|
+        .col-md-6
+          = form_tag service_assign_path(service.id), method: :post do
+            .card
+              .card-block
+                = image_tag "#{service.name}.png"
+                h3.card-title = get_name_for(service)
+                .row
+                  .col-md-12
+                    - if service.fulfillment?
+                      button#btn-fulfillment.btn.btn-primary.m-r-xs.m-b-xs data-target="#request-fulfillment" data-toggle="modal" type="button" Configurar
+                      p.purple
+                        | Almacenamos tus productos en nuestra bodega y, cada vez que vendas, nos haremos cargo de preparar y enviar tus productos a tus clientes.
+                    - elsif service.pp?
+                      = link_to "Configurar", setup_company_path, class: "btn btn-primary m-r-xs m-b-xs", data: { turbolinks: :false }
+                      p.purple Retiramos tus productos en tu tienda, oficina o bodega para despacharlos el mismo día. Olvídate de empaquetar e ir al correo.
+
+= render 'shared/configure_fulfillment'

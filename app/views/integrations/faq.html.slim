@@ -1,0 +1,158 @@
+.card
+  .card-block
+    .row
+      .container
+
+        h2
+          | Preguntas Frecuentes Integraciones
+        br
+
+        h4 Preguntas Generales
+        br
+
+        #accordion aria-multiselectable="true" role="tablist" 
+          .card
+            #headingOne.card-header role="tab" 
+              h5.mb-0
+                a aria-controls="collapseOne" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#collapseOne" 
+                  | ¿Para qué sirve la integración?
+            #collapseOne.collapse aria-labelledby="headingOne" role="tabpanel" 
+              .card-block
+                | Esto facilitará la comunicación entre las ventas por despachar de tu tienda con Shipit, de manera tal que las mismas se desplegarán en una tabla para que puedas seleccionar cuales despachar a disposición.
+          .card
+            #headingTwo.card-header role="tab" 
+              h5.mb-0
+                a.collapsed aria-controls="collapseTwo" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo" 
+                  | ¿Para qué no sirve la integración? (Por ahora...)
+            #collapseTwo.collapse aria-labelledby="headingTwo" role="tabpanel" 
+              .card-block
+                | Las integraciones en ningún caso incluye algún tipo de cotización de envío. 
+                br
+                | En el caso de Prestashop, WooCommerce y en un futuro Bsale, no incluye actualización automática de estados.
+          .card
+            #hd2.card-header role="tab" 
+              h5.mb-0
+                a.collapsed aria-controls="cp2" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#cp2" 
+                  | ¿Cómo integrar mi tienda?
+            #cp2.collapse aria-labelledby="hd2" role="tabpanel" 
+              .card-block
+                | Una vez creada su cuenta en Shipit, vas al módulo Integraciones y ahí está el paso a paso para integrar su eCommerce. Con esa integración podrán ver todas las ventas de su eCommerce en la plataforma de Shipit y olvidarte de tipear información.
+          .card
+            #headingThree.card-header role="tab" 
+              h5.mb-0
+                a.collapsed aria-controls="collapseThree" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#collapseThree" 
+                  | ¿Cómo el comprador sabe el precio de despacho?
+            #collapseThree.collapse aria-labelledby="headingThree" role="tabpanel" 
+              .card-block
+                | Hay 2 opciones:
+                br
+                | Cargar la tabla de precios (van adjuntas) de Shipit a su plataforma con 1 intervalo de peso para todos sus productos. 
+                br
+                | Desarrollar la integración con nuestra API para consultar el costo de cada producto según sus dimensiones.
+          .card
+            #hd4.card-header role="tab" 
+              h5.mb-0
+                a.collapsed aria-controls="cl4" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#cl4" 
+                  | ¿Donde puedo ver las ventas de mi tienda?
+            #cl4.collapse aria-labelledby="hd4" role="tabpanel" 
+              .card-block
+                | Puedes acceder a tu cuenta Shipit, al costado izquierdo de tu pantalla o en el menú desplegable para dispositivos móviles, seleccionar la opción Mis Ventas
+          .card
+            #hd5.card-header role="tab" 
+              h5.mb-0
+                a.collapsed aria-controls="cl5" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#cl5" 
+                  | ¿Por qué no me aparecen las órdenes en Mis Ventas?
+            #cl5.collapse aria-labelledby="hd5" role="tabpanel" 
+              .card-block
+                | Esto se puede dar por las siguientes razones:
+                ul
+                  li Puede existir la posibilidad de que no estés integrado a Shipit, para confirmar esto puedes dirigirte al módulo de Integraciones y ver si la Tienda tiene el check de activación bajo ella.
+                  li Si ingresas a Mis Ventas justo después de haber integrado en Shipit y no aparecen las ventas solo debes actualizar la página y luego esperar unos pocos segundos.
+                  li Siempre puedes navegar entre 2 pestañas: 'De hoy', 'Días anteriores' que separa por tiempo tus órdenes
+                  li Si no ves alguna orden específica, puedes hacer click en Actualizar lista y esperar unos segundos para refrescar la página.
+                  li En caso de que el problema persista, puedes ponerte en contacto con soporte@shipit.cl ya que puede que necesites asistencia técnica.
+
+        hr
+        br
+
+        h4 Shopify
+        #accordion2 aria-multiselectable="true" role="tablist" 
+          .card
+            #hd21.card-header role="tab" 
+              h5.mb-0
+                a aria-controls="cp21" aria-expanded="false" data-parent="#accordion2" data-toggle="collapse" href="#cp21" 
+                  | Los campos de mis ventas no aparecen correctamente
+            #cp21.collapse aria-labelledby="hd21" role="tabpanel" 
+              .card-block
+                | Asegurate de haber seguido al pie de la letra la guía que se muestra en la ventana de integración de Shopify, Allí encontrarás información sobre como darle el formato correcto a las ventas que llegan a Shipit.
+          .card
+            #hd22.card-header role="tab" 
+              h5.mb-0
+                a aria-controls="cp22" aria-expanded="false" data-parent="#accordion2" data-toggle="collapse" href="#cp22" 
+                  | ¿Por que no se actualizan los estados de mis órdenes?
+            #cp22.collapse aria-labelledby="hd22" role="tabpanel" 
+              .card-block
+                | Esto puede deberse a que no posees el servicio que te permite recibir actualizaciones de tus ventas por parte de Shipit. En la mayoría de los casos, los clientes con servicio Fulfillment de Shopify son los que pueden recibir estas actualizaciones.
+          .card
+            #hd23.card-header role="tab" 
+              h5.mb-0
+                a aria-controls="cp23" aria-expanded="false" data-parent="#accordion2" data-toggle="collapse" href="#cp23" 
+                  | Las órdenes pagadas no aparecen en la lista
+            #cp23.collapse aria-labelledby="hd23" role="tabpanel" 
+              .card-block
+                | Shipit filtra las órdenes pendientes de despacho por su estado fulfillment, que tiene que ser igual a 'pending' y su estado de pago, que tiene que ser 'paid'.
+
+        br
+
+        h4 WooCommerce
+        #accordion3 aria-multiselectable="true" role="tablist" 
+          .card
+            #hd31.card-header role="tab" 
+              h5.mb-0
+                a aria-controls="cp31" aria-expanded="false" data-parent="#accordion3" data-toggle="collapse" href="#cp31" 
+                  | ¿Por que no se actualizan las ventas en mi tienda?
+            #cp31.collapse aria-labelledby="hd31" role="tabpanel" 
+              .card-block
+                | La actualización automática de las ventas para Prestashop y WooCommerce no esta disponible por el momento.
+          .card
+            #hd32.card-header role="tab" 
+              h5.mb-0
+                a aria-controls="cp32" aria-expanded="false" data-parent="#accordion3" data-toggle="collapse" href="#cp32" 
+                  | Tengo órdenes pagadas ¿Por que no aparecen?
+            #cp32.collapse aria-labelledby="hd32" role="tabpanel" 
+              .card-block
+                | Shipit filtra las Ventas de tu tienda WooCommerce, solo los que cumplen con los siguientes estados: 'completed', 'processing', 'completado', 'procesando' se mostrarán en Shipit.
+        
+        br
+
+        h4 Prestashop
+        #accordion4 aria-multiselectable="true" role="tablist" 
+          .card
+            #hd41.card-header role="tab" 
+              h5.mb-0
+                a aria-controls="cp41" aria-expanded="false" data-parent="#accordion4" data-toggle="collapse" href="#cp41" 
+                  | ¿Por que no se actualizan las ventas en mi tienda?
+            #cp41.collapse aria-labelledby="hd41" role="tabpanel" 
+              .card-block
+                | La actualización automática de las ventas para Prestashop y WooCommerce no esta disponible por el momento.
+          .card
+            #hd42.card-header role="tab" 
+              h5.mb-0
+                a aria-controls="cp42" aria-expanded="false" data-parent="#accordion4" data-toggle="collapse" href="#cp42" 
+                  | Tengo órdenes pagadas ¿Por que no aparecen?
+            #cp42.collapse aria-labelledby="hd42" role="tabpanel" 
+              .card-block
+                | A pesar de estar pagada, la órden no se muestra dado que el estado de dicha órden interno en tu sitio es distinto al que nosotros buscamos para mostrarte. Independiente de como se llame el estado, Shipit siempre mostrará las órdenes con Status ID igual a 2 (que para algunos sitios es el por defecto de "pago confirmado").
+        br
+
+        h4 Opencart y Jumpseller
+        #accordion5 aria-multiselectable="true" role="tablist" 
+          .card
+            #hd51.card-header role="tab" 
+              h5.mb-0
+                a aria-controls="cp51" aria-expanded="false" data-parent="#accordion5" data-toggle="collapse" href="#cp51" 
+                  | ¿Cuando estará disponible la integración?
+            #cp51.collapse aria-labelledby="hd51" role="tabpanel" 
+              .card-block
+                | Por el momento no existe una fecha tentativa para la liberación de esta integración. En el momento que la tengamos construida, enviaremos un mail masivo con el propósito de unirlos a nuestra fase de pruebas abiertas.
+

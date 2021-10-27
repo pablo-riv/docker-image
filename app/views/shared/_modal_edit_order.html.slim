@@ -1,0 +1,77 @@
+script id='editOrder.html' type='text/ng-template'
+  .modal-header
+    div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='4000' ng-repeat='alert in alerts' uib-alert=''
+      | {{ alert.msg }}
+    h2 = I18n.t('integrations.modal.title')
+  .modal-body ng-init='loadInfo()'
+    .card-block
+      form name='form'
+        .row
+          .col-xs-12.col-sm-5.col-md-6.col-lg-4
+            p
+              label.form-label = I18n.t('integrations.modal.customer_name')
+            input.form-control.w-200.fs-12 type="text" ng-value="'{{ order.customer_name }}'" ng-model='order.customer_name' /
+          .col-xs-12.col-sm-4.col-md-6.col-lg-4
+            p
+              label.form-label = I18n.t('integrations.modal.address')
+            input.form-control.w-200.fs-12 type="text" ng-value="'{{ order.shipping_data.street }}'" ng-model='order.shipping_data.street' /
+          .col-xs-12.col-sm-4.col-md-6.col-lg-4
+            p
+              label.form-label = I18n.t('integrations.modal.number')
+            input.form-control.fs-12 style='width: 100px !important;' type="text" ng-value="'{{ order.shipping_data.number }}'" ng-model='order.shipping_data.number' /
+        br
+        .row
+          .col-xs-12.col-sm-5.col-md-5.col-lg-4.form-group
+            p
+              label.form-label = I18n.t('integrations.modal.email')
+            input.form-control.w-200.fs-12 type="email" ng-value="'{{ order.customer_email }}'" ng-model='order.customer_email' ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'
+          .col-xs-12.col-sm-5.col-md-5.col-lg-8
+            p
+              label.form-label = I18n.t('integrations.modal.phone')
+            input.form-control.w-200.fs-12 type="text" ng-value="'{{ order.customer_phone }}'" ng-model='order.customer_phone' /
+        br
+        .row
+          .col-xs-12.col-sm-5.col-md-6-.col-lg-4
+            p
+              label.form-label = I18n.t('integrations.modal.complement')
+            input.form-control.w-200.fs-12 type="text" ng-value="'{{ order.shipping_data_complement }}'" ng-model='order.shipping_data_complement' /
+          .col-xs-12.col-sm-4.col-md-6.col-lg-4
+            p
+              label.form-label style="margin-bottom: 13px !important" = I18n.t('integrations.modal.commune')
+            select.select.form-control.commune-select style='width: 200px !important; font-size: 14px !important;' ng-model='order.commune.name'
+              option ng-repeat='commune in communes' ng-value="'{{ commune.name }}'"
+                | {{ commune.name }}
+        br
+        .row
+          .col-xs-12.col-sm-2.col-md-2.col-lg-2
+            p
+              label.form-label = I18n.t('integrations.modal.payable')
+            label.switch
+              input.cxp name="order.package_payable" ng-model='order.package_payable' type="checkbox" ng-change='validateCourier(order)'
+              .slider.round
+          .col-xs-12.col-sm-5.col-md-5.col-lg-3
+            p
+              label.form-label = I18n.t('integrations.modal.courier_for_client')
+            select#package_courier_for_client.select.form-control.fs-12 style='width: 200px !important; font-size: 14px !important;' ng-model='order.package_courier_for_client' ng-change='validateCourier(order)'
+              - if rollout(:correoschile)
+                option ng-repeat='courier in couriers' value='{{ courier.value }}' {{ courier.name }}
+              - else
+                option ng-repeat='courier in old_couriers' value='{{ courier.value }}' {{ courier.name }}
+          .col-xs-12.col-sm-5.col-md-5.col-lg-3
+            p
+              label.form-label = I18n.t('integrations.modal.destiny')
+            select#package_destiny.select.form-control.fs-12 style='width: 200px !important; font-size: 14px !important;' ng-model='order.package_destiny' ng-change='validateCourier(order)'
+              - if rollout(:correoschile)
+                option ng-repeat='destiny in destinations' value='{{ destiny }}' {{ destiny }}
+              - else
+                option ng-repeat='destiny in old_destinations' value='{{ destiny }}' {{ destiny }}
+          .col-xs-12.col-sm-5.col-md-5.col-lg-3 ng-show='order.package_destiny == "Starken-Turbus"'
+            p
+              label.form-label = I18n.t('integrations.modal.cbo')
+            select.select.form-control.fs-12 style='width: 200px !important; font-size: 14px !important;' ng-model='order.package_cbo' ng-change='addressCbo(order.package_cbo)'
+              option ng-repeat='cbo in cbos' ng-value="'{{ cbo.id }}'"
+                | {{ cbo.name }}
+
+  .modal-footer
+    button.btn.btn-primary type="submit" ng-click='updateData(order)'
+      | #{I18n.t('integrations.modal.buttons.confirm')}

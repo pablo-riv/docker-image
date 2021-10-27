@@ -1,0 +1,24 @@
+Metrics/MethodLength:
+  Max: 199
+Metrics/AbcSize:
+  Max: 100
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+Style/Documentation:
+  Enabled: false
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - db/**
+    - config/**
+    - script/**
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true

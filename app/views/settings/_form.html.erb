@@ -1,0 +1,31 @@
+<% if @service.name.include?('fullit') %>
+  <%= render 'integrations' %>
+<% else %>
+  <%= form_for([:service, @setting], url: service_setting_path) do |f| %>
+    <div class="card">
+      <div class="card-block">
+        <h5 class="card-title pull-left"><%= action_name == 'new' ? 'Nueva' : 'Editar' %> Configuración básica</h5>
+        <div class="row">
+          <div class="col-lg-12 col-sm-12">
+            <fieldset class="form-group">
+              <label for="exampleInputEmail1">Correo de notificación</label>
+              <%= f.email_field :email_notification, class: 'form-control', placeholder: 'ejemplo@dominio.cl', autofocus: true %>
+            </fieldset>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-sm-12">
+            <div class="checkbox m-b-1 pull-left">
+              <label>
+                <p><%=@setting.email_alert%></p>
+                <input type="checkbox" value="true" name="setting[email_alert]" autofocus="true" <%= 'checked=true' if @setting.email_alert %> > ¿Enviar correo de alerta?
+              </label>
+            </div>
+          </div>
+        </div>
+        <%= render 'opit_form' if @service.name.include?('opit') %>
+        <%= submit_tag 'Guardar', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

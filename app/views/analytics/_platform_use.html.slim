@@ -1,0 +1,5 @@
+h2.card-title = I18n.t('analytics.index.titles.platform_use')
+hr
+.row
+  = render partial: 'information_box', locals: { position: 'col-md-4 offset-md-2', title: I18n.t('analytics.platform_use.use_time'), current_period: count_time(@data[:sessions][:current_period_sessions]), last_period: count_time(@data[:sessions][:last_period_sessions]), concat_var: 'hrs'}
+  = render partial: 'information_box', locals: { position: 'col-md-4', title: I18n.t('analytics.platform_use.sessions'), current_period: "countQuantity(#{@data[:sessions][:current_period_sessions]})", last_period: count_quantity(@data[:sessions][:last_period_sessions]), concat_var: ''}

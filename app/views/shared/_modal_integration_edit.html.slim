@@ -1,0 +1,97 @@
+script id='integrationEdit.html' type='text/ng-template'
+  .modal-header ng-init='loadInfo()'
+    div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' ng-repeat='alert in alerts' uib-alert=''
+      | {{ alert.msg }}
+    h2.modal-integration ng-model='configTitle'
+      | {{ configTitle }}
+      a.pull-right.btn.btn-success ng-show="helpUrl" target="_blank" href="{{ helpUrl }}"="¿Cómo conectar mi tienda?"
+  .modal-body
+    .row
+      input#setting-id type="hidden" /
+      /.bootic-guide ng-class="{'hidden': seller.name != 'bootic'}"
+      /  = render '/shared/integration_guides/bootic'
+      /.shopify-guide ng-class="{'hidden': seller.name != 'shopify'}"
+      /  = render '/shared/integration_guides/shopify'
+      /.bsale-guide ng-class="{'hidden': seller.name != 'bsale'}"
+      /  = render '/shared/integration_guides/bsale'
+      /.dafiti-guide ng-class="{'hidden': seller.name != 'dafiti'}"
+      /  = render '/shared/integration_guides/dafiti'
+      /.woocommerce-guide ng-class="{'hidden': seller.name != 'woocommerce'}"
+      /  = render '/shared/integration_guides/woocommerce'
+      /.prestashop-guide ng-class="{'hidden': seller.name != 'prestashop'}"
+      /  = render '/shared/integration_guides/prestashop'
+      /.opencart-guide ng-class="{'hidden': seller.name != 'opencart'}"
+      /  = render '/shared/integration_guides/opencart'
+      .row
+        .col-lg-12.col-sm-12
+          .card
+            .card-block
+              .row
+                .col-lg-6.col-sm-6
+                  fieldset.form-group
+                    label.else-client-id ng-class="{'hidden': seller.name == 'opencart' || seller.name == 'prestashop' || seller.name == 'bootic' }"  ID cliente
+                    label.api2cart-client-id ng-class="{'hidden': seller.name == 'woocommerce' && seller.name != 'opencart' && seller.name != 'prestashop' || seller.name == 'vtex'}" URL Tienda (no incluir http://)
+                    div ng-if="seller.name !== 'bootic'"
+                      input#integration_key.form-control.client-id ng-model='seller.clientId' name="integration_key" placeholder="4dc9a2543f423ada31740a2a281ac41c" type="text" value="" ng-disabled='validateSeller(seller)' /
+                .col-lg-6.col-sm-6.client-secret-wrapper
+                  fieldset.form-group
+                    label.else-client-secret ng-class="{'hidden': seller.name == 'woocommerce' || seller.name == 'opencart' || seller.name == 'prestashop' || seller.name == 'bootic'}" Llave secreta
+                    label.api2cart-client-secret ng-class="{'hidden': seller.name != 'woocommerce' && seller.name != 'opencart' && seller.name != 'prestashop'}"  Llave tienda
+                    div ng-if="seller.name !== 'bootic'"
+                      input#integration_secret.form-control.client-secret ng-model='seller.clientSecret' name="integration_secret" placeholder="5dc3a2543f423ada31740a2a281ac21c" type="password" value="" ng-disabled='validateSeller(seller)' /
+              .row ng-class="{'hidden': seller.name != 'shopify' && seller.name != 'vtex' }"
+                .col-lg-12.col-sm-12.store-name-wrapper
+                  fieldset.form-group
+                    label Nombre de tienda
+                    input#integration_store_name.form-control.store_name ng-model='seller.storeName' name="integration_store_name" placeholder="my-store-name-url" type="text" value="" /
+              .row ng-if="seller.name == 'bootic' && (seller.authorization_token === '' || seller.authorization_token === undefined)"
+                .col-md-12.text-center
+                  = link_to 'Autorizar Shipit', oauth_bridge_settings_path, class: 'btn bnt-lg btn-vimeo text-white'
+              .row ng-if="seller.name == 'bootic' && seller.authorization_token !== '' && seller.authorization_token != undefined"
+                .col-md-12.text-center
+                  h4 Servicio ya autorizado!
+              .row.mt-20 ng-if='seller.name == "woocommerce" || seller.name == "shopify" || seller.name == "prestashop"'
+                .col-lg-6.col-sm-6.pt-10
+                  fieldset.form-group
+                    label ¿Activar generación de envíos automáticos?
+                    br
+                    br
+                    fieldset.form-group
+                    label ¿Mostrar checkout de Shipit en tú tienda?
+                .col-lg-6.col-sm-6.pt-5
+                  fieldset.form-group
+                    label.switch
+                      input.cxp name='automatic_delivery' ng-model='seller.automaticDelivery' type='checkbox'
+                      .slider.round
+                    br
+                    br
+                    label.switch
+                      input.cxp name='show_shipit_checkout' ng-model='seller.showShipitCheckout' type='checkbox'
+                      .slider.round
+              hr/
+              #automatic-config
+                .row
+                  .col-lg-12.col-sm-12
+                    p
+                      | De lunes a viernes, ésta será considerada como la hora a la que enviarán las órdenes de esta tienda que hayan hasta este punto,
+                      strong siempre que el envío automático se encuentre activado
+                .row ng-if='false'
+                  .col-lg-4.col-sm-4
+                    fieldset.form-group
+                      label Hora
+                      input#integration_automatic_hour.form-control.automatic-hour ng-model='hour' type="text" name="integration_automatic_hour" placeholder="ej: 13:00" value="" /
+                  .col-lg-4.col-sm-4
+                    fieldset.form-group
+                      label Tipo empaque
+                      select.select.form-control.fs-12.mt-20 ng-model='package'
+                        option ng-repeat='packing in availablePackings' ng-value="'{{ packing }}'"
+                          | {{ packing }}
+                  .col-lg-4.col-sm-4
+                    fieldset.form-group
+                      label Envío automático
+                      label.switch
+                        input#integration_automatic.automatic ng-model='automatic' name="integration_automatic" type="checkbox" /
+                        .slider.round
+  .modal-footer
+    button#btn-seller.btn.btn-primary.m-r-xs.m-b-xs.pull-right ng-click="integrateSeller()"
+      | Conectar

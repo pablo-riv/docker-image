@@ -1,0 +1,57 @@
+.row ng-controller="SettingsController" ng-init="current(1)"
+  div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' ng-repeat='alert in alerts' uib-alert=''
+    | {{ alert.msg }}
+
+  .col-md-12
+    h2.card-title= I18n.t("send_couriers.title")
+    p= I18n.t("send_couriers.subtitle")
+  .col-md-12
+    table.table.table-striped
+      thead
+        tr
+          th 
+          th Courier
+          th Conexión
+          th Configuración
+      tbody
+        tr ng-repeat='courier in settings.configuration.opit.couriers track by $index'
+          td
+            img ng-src='{{getIcon(courier)}}' alt='courier' width='130' height='30' 
+          td
+            | {{getName(courier)}}
+          td
+            label.switch
+              input.cxp name="sandbox" ng-disabled='true' ng-model='settings.configuration.opit.couriers[$index][getAcronym(courier)].available' type='checkbox'
+              .slider.round
+          td 
+            a ng-click='modalTcc(settings, settings.configuration.opit.couriers[$index][getAcronym(courier)])' Ver configuración
+    br
+    .col-md-12.alert.alert-info= I18n.t("send_couriers.modify_couriers")
+    br
+    br    
+    br
+    br
+    div.col-md-12
+      br
+      h2.card-title= I18n.t('algorithm.title')
+      p= I18n.t("algorithm.subtitle")
+      .row
+        .col-md-5
+          label.required.control-label= I18n.t("algorithm.global_explain") 
+          select.select.form-control ng-model='settings.configuration.opit.algorithm' ng-required='true' ng-change="selectAlgorithmDays()"
+            option value="1"= I18n.t("algorithm.default_option")
+            option ng-repeat='algorithm in algorithms' value='{{ algorithm.id }}' {{ algorithm.name }}
+        .col-md-2.form-group.string.required ng-show="displayAlgorithmDays"
+          label.required.control-label= I18n.t("algorithm.days_quantity")
+          br
+          input id="algorithm_days" name="algorithm_days" type="number" min="2" max="31" step="1" oninput="this.value=(this.value != '' && Math.abs(this.value) == 0 || this.value == '' || this.value < 2) ? 2 : Math.abs(this.value)" ng-model='settings.configuration.opit.algorithm_days' style="text-align:center" required="required"
+
+      br
+      p ng-show="cc_enabled == false" style="color:#e84c4c"= I18n.t("algorithm.alert_option_two")
+
+  .col-md-12
+    .row
+    br
+    button.btn.btn-primary.pull-right ng-click='update()'= I18n.t("algorithm.save")
+  
+  = render 'shared/modal_edit_tcc'

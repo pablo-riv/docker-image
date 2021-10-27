@@ -1,0 +1,2 @@
+class ShopifyApiVersion < ApplicationRecord
+end

@@ -1,0 +1,22 @@
+h2.card-title = I18n.t('analytics.index.titles.support')
+hr
+.row
+  .col-xs-12.col-sm-12.col-xl-4.offset-xl-4.col-lg-4.offset-md-4.col-md-4
+    div.analytics-card.center-block
+      br
+      p.title.text-black.bold = I18n.t('analytics.support.period_tickets')
+      div ng-if='!loading'
+        h1.text-center
+          | {{ processedData.currentSupportQuantity }}
+        div ng-if='percentages.supportNumber > 0'
+          p.last_period_information.text-red
+            span
+              | + {{ percentages.supportNumber }} %
+        div ng-if='percentages.supportNumber < 0'
+          p.last_period_information.text-green
+            span
+              | {{ percentages.supportNumber }} %
+        p.last_period_information.text-black
+          span.number
+            | {{ processedData.lastSupportQuantity }}
+          span = I18n.t('analytics.last_period')

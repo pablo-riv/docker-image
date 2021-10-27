@@ -1,0 +1,51 @@
+script id='support_create.html' type='text/ng-template'
+  .modal-header
+    span.pull-right type='button' class='close' data-dismiss='modal' ng-click='cancel()'
+      span &times;
+    h2
+      = I18n.t('helps.create.title')
+      | : {{support.package_reference}}
+  .modal-body ng-init='activateSelect2()'
+    .row
+      div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='5000' ng-repeat='alert in alerts' uib-alert=''
+        | {{ alert.message }}
+    .row
+      .col-md-6.form-group
+        label.control-label for='subject'
+          = I18n.t('helps.create.fields.subject')
+          | *
+        select.form-control ng-model='support.subject' ng-change='loadOtherSubjects(support.subject)'
+          option value='' = I18n.t('helps.create.fields.select_subject')
+          option ng-value='subject.subject' ng-repeat='subject in subjects' {{subject.subject}}
+
+      .col-md-6.form-group
+        label.control-label for='other_subject'
+          = I18n.t('helps.create.fields.other_subject')
+          | *
+        select.form-control ng-model='support.other_subject'
+          option value='' = I18n.t('helps.create.fields.select_other_subject')
+          option ng-value='otherSubject.subject' ng-repeat='otherSubject in otherSubjects' {{otherSubject.subject}}
+
+    .row ng-if='support.need_package_data'
+      .col-md-6.form-group
+        label.control-label for='package_reference'
+          = I18n.t('helps.create.fields.package_reference')
+          | *
+        input.form-control ng-model='support.package_reference' type='text' placeholder='cc-11111111'
+
+      .col-md-6.form-group
+        label.control-label for='package_tracking' = I18n.t('helps.create.fields.package_tracking')
+        input.form-control ng-model='support.package_tracking' type='text' placeholder='999999999999'
+    .row
+      .col-md-12.form-group
+        label.control-label for='subject'
+          = I18n.t('helps.create.fields.detail')
+          | *
+        textarea.form-control ng-model='support.messages[0]["message"]'
+
+  .modal-footer
+    .row
+      .col-md-6
+      .col-md-6
+        button.btn.btn-link.btn-sm.mr-20 ng-click='cancel()' Salir
+        button.btn.btn-success.btn-sm ng-disabled='loading' ng-click='create(support)' = I18n.t('helps.create.buttons.submit')

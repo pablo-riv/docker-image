@@ -1,0 +1,203 @@
+.component {
+  font-family: "Arial";
+
+  .shipit-logo {
+    height: 60px;
+    float: right;
+    margin-bottom: 20px;
+  }
+
+  p {
+    align-content: center;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #070017;
+  }
+  
+  h1 {
+    text-align: center;
+    // text-decoration: underline;
+  }
+
+  .manifest-info {
+    text-align: justify;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+  }
+
+  .black {
+    font-weight: bold;
+  }
+
+  .data-table {
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    table {
+      border-collapse: collapse;
+      tr {
+        td {
+          align-content: right;
+          .courier-logo {
+            width: 250px;
+            align-content: center;
+            padding-right: 30px;
+          }
+          .fields {
+            width: 600px;
+            padding-left: 30px;
+          }
+          .values {
+            width: 400px;
+          }
+          .items {
+            width: 250px;
+            text-align: center;
+            h1 {
+              margin: 0 0 0 0;
+              padding: 0 0 0 0;
+              font-size: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .sign-table {
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    table {
+      border-collapse: collapse;
+      tr {
+        th {
+          .empty {
+            width: 100px;
+          }
+          .divide {
+            width: 330px;
+          }
+        }
+        
+        td {
+          .right {
+            text-align: right;
+            padding-right: 10px;
+          }
+          .height-sign {
+            height: 100px;
+          }
+        }
+      }
+    }
+  }
+
+  .shipment-table {
+    margin-top: 50px;
+    .page-break {
+      display:block; clear:both; page-break-before:always;
+    }
+    table {
+      page-break-inside:auto;
+      border-collapse: collapse;
+      tr {
+        text-align: center;
+        page-break-inside:avoid;
+        page-break-after:auto;
+        thead { display:table-header-group }
+        tfoot { display:table-footer-group }
+        th {
+          text-align: center;
+          .divide {
+            width: 150px;
+          }
+          .divide-items {
+            width: 100px;
+          }
+          .tracking {
+            margin-left: 20px;
+            width: 400px;
+          }
+        }
+        td {
+          p {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.border {
+  td, th {
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+  }
+}
+
+th.no-border, td.no-border {
+  border-style: solid;
+  border-width: 0px;
+  border-color: white;
+  text-align: end;
+}
+
+th.no-cell-border, td.no-cell-border {
+  border-style: solid;
+  border-width: 0px;
+  border-color: white;
+}
+
+th.no-left-border, td.no-left-border {
+  border-left-style: solid;
+  border-left-width: 0px;
+  border-left-color: white;
+}
+
+th.no-right-border, td.no-right-border {
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: white;
+}
+
+.title {
+  width: auto;
+  text-align: center;
+  align-content: center;
+}
+
+.height-40 {
+  height: 40px;
+}
+
+.height-70 {
+  height: 70px;
+}
+
+.height-100 {
+  height: 96px;
+}
+
+.width-1000 {
+  width: 1000px;
+}
+
+.pt-10 {
+  padding-top: 10px;
+}
+
+table.barby-barcode { border-spacing: 0; margin-left: 20px; margin-right: 20px; margin-top: -10px; margin-bottom: -2px;}
+tr.barby-row {}
+td.barby-cell { width: 3px; height: 50px; border-top: 0; border-bottom: 0;}
+.barby-barcode{padding-top: 0px;padding-bottom: 0px; padding-left: 150px;}
+td.barby-cell.on { background: #000; }

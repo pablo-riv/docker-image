@@ -1,0 +1,132 @@
+- breadcrumb :budgets
+div ng-controller="BudgetsV2Controller" ng-init='loadCommunes("packages")'
+  .row
+    .col-md-12
+      form class="card card-block" ng-submit="submitForm(package)"
+        i.i-precios
+        h2.card-title=I18n.t("calculator.title")
+        hr
+        .row.mb-30
+          .col-md-6.hidden
+            label.required.control-label for="package_width"
+              =I18n.t("calculator.select_origin")
+            select#communes.select.form-control ng-disabled='true' ng-model='package.commune_from_id' required='required'
+              option ng-value="{{ commune.id }}" ng-repeat='commune in communes' {{ commune.name }}
+        .row.mb-30
+          .col-md-6
+            label.required.control-label for="package_width"
+              =I18n.t("calculator.select_destination")
+            select#communes.select.form-control ng-disabled='!isReady' ng-model='package.commune_to_id' required='required'
+              option ng-value="{{ commune.id }}" ng-repeat='commune in communes' {{ commune.name }}
+
+        .row.mb-30
+          .col-md-3
+            .form-group.string.required.package_width
+              label.required.control-label for="package_width"
+                =I18n.t("calculator.width")
+              input.string.required.form-control ng-keyup="validateNumber(package.width, 'width')" ng-model="package.width" type="text" name="package[width]" id="package_width" placeholder="20"
+              p.text-red.text-form.text-help ng-show="package.width == ''" Debes ingresar ancho del envío
+
+          .col-md-3
+            .form-group.string.required.package_height
+              label.required.control-label for="package_height"
+                =I18n.t("calculator.height")
+              input.required.form-control ng-keyup="validateNumber(package.height, 'height')" ng-model="package.height" type="text" name="package[height]" id="package_height" placeholder="20"
+              p.text-red.text-form.text-help ng-show="package.height == ''" Debes ingresar alto del envío
+
+          .col-md-3
+            .form-group.string.required.package_length
+              label.required.control-label for="package_length"
+                =I18n.t("calculator.length")
+              input.required.form-control ng-keyup="validateNumber(package.length, 'length')" ng-model="package.length" type="text" name="package[length]" id="package_length" placeholder="20"
+              p.text-red.text-form.text-help ng-show="package.length == ''" Debes ingresar largo del envío
+
+          .col-md-3
+            .form-group.string.required.package_weight
+              label.required.control-label for="package_weight"
+                =I18n.t("calculator.weight")
+              input.required.form-control ng-keyup="validateNumber(package.weight, 'weight')" ng-model="package.weight" type="text" name="package[weight]" id="package_weight" placeholder="20"
+              p.text-red.text-form.text-help ng-show="package.weight == ''" Debes ingresar peso del envío
+          .col-md-12
+              p.text-secondary.text-form.text-help * Para números decimales debes utilizar puntos. Ejemplo: (13.3)
+
+        .col-md-12
+          input type="submit" ladda="loading" ng-disabled="validShip(package)" name="commit" value="#{I18n.t("calculator.button")}" class="btn btn btn-success"
+
+  .row
+    .col-md-12
+      .card.card-block ng-hide="hide"
+        h2.mb-3
+          =I18n.t("calculator.result_title")
+        p.alert.alert-danger ng-hide="min_price"
+          = "El envío con destino a "
+          | {{ commune_name }}
+          = " no se pudo asignar a ningún Courier debido a que no cumple con las reglas predefinidas en la configuración de tu cuenta. Para ingresar la solicitud de despacho " 
+          a href='/packages/new'
+            u= "hazlo a través del formulario manual."
+        .table-responsive ng-show="prices.length"
+          table.table.table-striped ng-show="min_price"
+            thead
+              tr
+                th =I18n.t("calculator.attributes.courier")
+                th =I18n.t("activerecord.attributes.package.shipping_type")
+                th =I18n.t("calculator.attributes.delivery_time")
+                th =I18n.t("calculator.attributes.pv")
+                th =I18n.t("calculator.attributes.total")
+
+            tbody
+
+              tr ng-repeat="price in prices"
+                td
+                  img class="courier-logo" alt="{{price.courier.name}}" ng-src="{{getIcon(price.courier.name)}}"
+                td
+                  | 
+                  = I18n.t("calculator.home")
+                td
+                  | {{ price.days }} {{ (price.days == 1) ? "día" : "días" }}
+                td
+                  | {{ price.volumetric_weight }}
+                td
+                  | {{ price.price | currency:'$':0 }}
+
+          hr /
+          br /
+          - if rollout(:algorithm)
+            h2.mb-3
+              = "Courier seleccionado según"
+              = " "
+              a style="text-decoration:underline;font-size:13px;" href="/settings" Configuración predeterminada
+          - else
+            h2.mb-3
+              =I18n.t("calculator.result_subtitle")
+          .row ng-show="min_price" ng-class="{ 'border-top bold':true }" style="padding: 15px;background-color:#daf6e9;border-color:#20c67b !important"
+            .col-md-3
+              img class="courier-logo" alt="{{min_price.courier.name}}" ng-src="{{getIcon(min_price.courier.name)}}"
+            .col-md-3
+              | Domicilio
+            .col-md-3
+              | {{ min_price.days }} {{ (min_price.days == 1) ? "día" : "días" }}
+            .col-md-3
+              | {{ min_price.price | currency:'$':0 }} *
+          br /
+          p
+            - if !rollout(:algorithm)
+              | * 
+              = I18n.t("calculator.courier_election_with_variables")
+              |.
+            - else
+              ' * Esta elección está dada por la configuración predeterminada que tienes en tu cuenta. Para cambiarla, ingresa a 
+              a style="color:#00C2DE" href="/settings#general" Configuraciones > General > Regla de elección de Courier Predeterminada
+              |.
+          p
+           | * 
+           = I18n.t("calculator.prices_before_calculated")
+           |
+           = " "
+           | 
+           = I18n.localize(Time.zone.now.to_date, format: :long)
+           |.
+          p
+            | * 
+            = I18n.t("calculator.prices_without_weekend")
+            |.

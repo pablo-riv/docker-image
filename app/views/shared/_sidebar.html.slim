@@ -1,0 +1,251 @@
+// NEW MENU
+
+- if true
+  .sidebar-panel-2 ng-controller="WelcomeController"
+    nav#sidebar ng-class="{'active' : collapse}"
+      .sidebar-header
+        a.sidebar-logo
+          = inline_svg 'svg/logo-shipit-light.svg', height: '55', data: { 'ng-click' => 'collapsibleSideBar()' }
+        a.sidebar-logo-small
+          = image_tag 'logo-shipit-ala.png', height: '40', data: { 'ng-click' => 'collapsibleSideBar()' }
+      ul.nav.sidebar-ul
+        li class="#{active_class_for('dashboard')}"
+          = link_to dashboard_path, data: { turbolinks: :false }
+            i.fas.fa-home
+            span.pl-10 = I18n.t('menu.home')
+        - if fulfillment?(current_account)
+          li class="#{active_class_for('fulfillment')}"
+            = link_to inventory_fulfillment_index_path(inventory_activity_type_ids: [0]), data: { turbolinks: :false }
+              i.fas.fa-pallet aria-hidden="true"
+              span.pl-10 = I18n.t('menu.fulfillment')
+        li class="#{active_class_for('integrations')}"
+          = link_to integrations_path, data: { turbolinks: :false }
+            i.fas.fa-shopping-bag aria-hidden="true"
+            span.pl-10 = I18n.t('menu.sells')
+        li
+          a aria-expanded="false" data-toggle="collapse" href="#pageSubmenu" ng-click="closeDropdown($event)"
+            i.fas.fa-cube
+            span.pl-10  = I18n.t('menu.packages.base')
+          ul#pageSubmenu.collapse.list-unstyled
+            li.liSubmenu class="#{active_class_for('packages')}"
+              = link_to packages_path, data: { turbolinks: :false }
+                i.fas.fa-history
+                span.pl-10 = I18n.t('menu.history')
+            li.liSubmenu class="#{active_class_for('labels')}"
+              = link_to labels_path, data: { turbolinks: :false }
+                i.fas.fa-tags aria-hidden="true"
+                span.pl-10 = I18n.t('menu.labels')
+                i.tag.tag-pill.bg-success.ml-5.fs-8.p-0 Nuevo!
+            li.liSubmenu class="#{active_class_for('budgets')}"
+              - if current_account.is_new_courier_price_enabled?
+                = link_to budgets_path + "/v2", data: { turbolinks: :false }
+                  i.fas.fa-calculator aria-hidden="true"
+                  span.pl-10= I18n.t('menu.budgets')
+              - else
+                = link_to budgets_path, data: { turbolinks: :false }
+                  i.fas.fa-calculator aria-hidden="true"
+                  span.pl-10= I18n.t('menu.budgets')
+            - unless fulfillment?(current_account)
+              li.liSubmenu class="#{active_class_for('returns')}"
+                = link_to returns_packages_path, data: { turbolinks: :false }
+                  i.fas.fa-retweet
+                  span.pl-10  = I18n.t('menu.returns')
+        li
+          a aria-expanded="false" data-toggle="collapse" href="#appsSubmenu" ng-click="closeDropdown($event)"
+            i.fas.fa-rocket
+            span.pl-10  = I18n.t('menu.apps')
+          ul#appsSubmenu.collapse.list-unstyled
+            li.liSubmenu class="#{active_class_for('monitor')}"
+              = link_to monitor_packages_path, data: { turbolinks: :false }
+                i.fa.fa-calendar-alt
+                span.pl-10  = I18n.t('menu.packages.monitor')
+                i.tag.tag-pill.bg-success.ml-5.fs-8.p-0 Beta
+            li.liSubmenu class="#{active_class_for('notifications')}"
+              = link_to notifications_path, data: { turbolinks: :false }
+                i.far.fa-bell aria-hidden="true"
+                span.pl-10 = I18n.t('menu.notification')
+            - if rollout(:analytics)
+              li.liSubmenu class="#{active_class_for('analytics')}"
+                = link_to analytics_path, data: { turbolinks: :false }
+                  i.fas.fa-chart-line aria-hidden="true"
+                  span.pl-10= I18n.t('menu.analytics')
+                  i.tag.tag-pill.bg-success.ml-5.fs-8.p-0 Nuevo!
+        li
+          a aria-expanded="false" data-toggle="collapse" href="#supportSubmenu" ng-click="closeDropdown($event)"
+            i.fas.fa-life-ring
+            span.pl-10  = I18n.t('menu.support')
+          ul#supportSubmenu.collapse.list-unstyled
+            li.liSubmenu class="#{active_class_for('support')}"
+              = link_to helps_path, data: { turbolinks: :false } do
+                i.fas.fa-ticket-alt.mr-10.text-primary aria-hidden="true"
+                span = I18n.t('menu.support_management')
+                i.tag.tag-pill.bg-success.ml-5.fs-8.p-0 Nuevo!
+            li.liSubmenu
+              = link_to 'https://shipitcl.zendesk.com/hc/es-419', target: :blank, data: { turbolinks: :false } do
+                i.fas.fa-external-link-alt.mr-10.text-primary aria-hidden="true"
+                span = I18n.t('menu.help_center')
+        li
+          a aria-expanded="false" data-toggle="collapse" href="#configurationSubmenu" ng-click="closeDropdown($event)"
+            i.fas.fa-cogs
+            span.pl-10  = I18n.t('menu.configuration')
+          ul#configurationSubmenu.collapse.list-unstyled
+            li.liSubmenu class="#{active_class_for('settings')}"
+              = link_to settings_path, data: { turbolinks: :false }
+                i.fas.fa-wrench aria-hidden="true"
+                span.pl-10= I18n.t('menu.services')
+            li.liSubmenu class="#{active_class_for('charges')}"
+              = link_to charges_link_type, data: { turbolinks: :false }
+                i.fas.fa-dollar-sign aria-hidden="true"
+                span.pl-10 = I18n.t('menu.payments')
+            / - if fulfillment?(current_account)
+            /   li.liSubmenu class="#{active_class_for('fulfillment')}"
+            /     = link_to inventory_fulfillment_index_path(inventory_activity_type_ids: [0]), data: { turbolinks: :false }
+            /       i.fas.fa-pallet aria-hidden="true"
+            /       span.pl-10 = I18n.t('menu.fulfillment')
+            - if fullit?(current_account)
+              li.liSubmenu class="#{active_class_for('config_integrations')}"
+                = link_to my_integrations_settings_path, data: { turbolinks: :false }
+                  i.fas.fa-exchange-alt aria-hidden="true"
+                  span.pl-10 = I18n.t('menu.integrations')
+            li.liSubmenu class="#{active_class_for('api')}"
+              = link_to api_settings_path, data: { turbolinks: :false }
+                i.fas.fa-cloud
+                span.pl-10 = I18n.t('menu.api')
+            li.liSubmenu class="#{active_class_for('config_couriers')}"
+              = link_to config_couriers_settings_path, data: { turbolinks: :false }
+                i.fas.fa-truck-loading
+                span.pl-10 = I18n.t('menu.config_couriers')
+            li.liSubmenu class="#{active_class_for('config_printers')}"
+              = link_to config_printers_settings_path, data: { turbolinks: :false }
+                i.fas.fa-print
+                span.pl-10 = I18n.t('menu.config_printers')
+            - if current_account.current_company.branch_offices.count > 1 && !current_account.current_company.fulfillment?
+              li.liSubmenu class="#{active_class_for('branch_offices')}"
+                = link_to branch_offices_path, data: { turbolinks: :false }
+                  i.fas.fa-map-marker-alt aria-hidden="true"
+                  span.pl-10 = I18n.t('menu.marketplaces')
+        - if avaliable_switch_suite(current_account)
+          li
+            = link_to enable_suite_path, class: 'secondary', data: { turbolinks: :false }, method: :post
+              span Prueba el nuevo Shipit
+
+// OLD MENU
+-else
+  .sidebar-panel-2 ng-controller="WelcomeController"
+    nav#sidebar ng-class="{'active' : collapse}"
+      .sidebar-header
+        a.sidebar-logo
+          = inline_svg 'svg/logo-shipit-light.svg', height: '55', data: { 'ng-click' => 'collapsibleSideBar()' }
+        a.sidebar-logo-small
+          = image_tag 'logo-shipit-ala.png', height: '40', data: { 'ng-click' => 'collapsibleSideBar()' }
+      ul.nav.sidebar-ul
+        li
+          = link_to dashboard_path, class: "#{active_class_for('dashboard')}", data: { turbolinks: :false }
+            i.fas.fa-home
+            span.pl-10 = I18n.t('menu.home')
+        li
+          a aria-expanded="false" data-toggle="collapse" href="#pageSubmenu" ng-click="closeDropdown($event)"
+            i.fas.fa-cube
+            span.pl-10  = I18n.t('menu.packages.base')
+          ul#pageSubmenu.collapse.list-unstyled
+            li.liSubmenu
+              = link_to packages_path, class: "#{active_class_for('packages')}", data: { turbolinks: :false }
+                i.fas.fa-history
+                span.pl-10 = I18n.t('menu.history')
+            - if rollout(:self_management)
+              li.liSubmenu
+                = link_to returns_packages_path, data: { turbolinks: :false }, class: "#{active_class_for('returns')}"
+                  i.fas.fa-retweet
+                  span.pl-10  = I18n.t('menu.returns')
+        - if rollout(:packages_monitor)
+          li
+            ///////////  DEPRECATED
+            - if false
+              a aria-expanded="false" data-toggle="collapse" href="#pageSubmenu" ng-click="closeDropdown($event)"
+                i.fas.fa-cube
+                span.pl-10  = I18n.t('menu.packages.base')
+              ul#pageSubmenu.collapse.list-unstyled
+                li.liSubmenu
+                  = link_to packages_path, class: "#{active_class_for('packages')}", data: { turbolinks: :false }
+                    i.fas.fa-history
+                    span.pl-10 = I18n.t('menu.packages.history')
+                li.liSubmenu
+                  = link_to monitor_packages_path, data: { turbolinks: :false }, class: "#{active_class_for('monitor')}"
+                    i.fa.fa-calendar-alt
+                    span.pl-10  = I18n.t('menu.packages.monitor')
+                    i.tag.tag-pill.bg-success.ml-5.fs-8.p-0 Beta
+            /////////// SHOWING THIS WAY UNTIL JT SAYS OPPOSIT
+            - else
+              li
+                = link_to monitor_packages_path, data: { turbolinks: :false }, class: "#{active_class_for('monitor')}"
+                  i.fa.fa-calendar-alt
+                  span.pl-10  = I18n.t('menu.packages.monitor')
+                  i.tag.tag-pill.bg-success.ml-5.fs-8.p-0 Beta
+        li
+          = link_to integrations_path, class: "#{active_class_for('integrations')}", data: { turbolinks: :false }
+            i.fas.fa-shopping-bag aria-hidden="true"
+            span.pl-10 = I18n.t('menu.sells')
+        li
+          - if current_account.is_new_courier_price_enabled?
+            = link_to budgets_path + "/v2", class: "#{active_class_for('budgets')}", data: { turbolinks: :false }
+              i.fas.fa-calculator aria-hidden="true"
+              span.pl-10= I18n.t('menu.budgets')
+          - else
+            = link_to budgets_path, class: "#{active_class_for('budgets')}", data: { turbolinks: :false }
+              i.fas.fa-calculator aria-hidden="true"
+              span.pl-10= I18n.t('menu.budgets')
+        li
+          = link_to notifications_path, class: "#{active_class_for('notifications')}", data: { turbolinks: :false }
+            i.far.fa-bell aria-hidden="true"
+            span.pl-10 = I18n.t('menu.notification')
+        li
+          = link_to charges_link_type, class: "#{active_class_for('charges')}", data: { turbolinks: :false }
+            i.fas.fa-dollar-sign aria-hidden="true"
+            span.pl-10 = I18n.t('menu.payments')
+        - if rollout(:analytics)
+          li
+            = link_to analytics_path, class: "#{active_class_for('analytics')}", data: { turbolinks: :false }
+              i.fas.fa-chart-line aria-hidden="true"
+              span.pl-10= I18n.t('menu.analytics')
+              i.tag.tag-pill.bg-success.ml-5.fs-8.p-0 Nuevo!
+        - if current_account.current_company.branch_offices.count > 1 && !current_account.current_company.fulfillment?
+          li
+            = link_to branch_offices_path, class: "#{active_class_for('branch_offices')}", data: { turbolinks: :false }
+              i.fas.fa-map-marker-alt aria-hidden="true"
+              span.pl-10 = I18n.t('menu.marketplaces')
+        li
+          = link_to api_settings_path, class: "#{active_class_for('api')}", data: { turbolinks: :false }
+            i.fas.fa-cloud
+            span.pl-10 = I18n.t('menu.api')
+        - if fulfillment?(current_account)
+          li
+            = link_to inventory_fulfillment_index_path(inventory_activity_type_ids: [0]), class: "#{active_class_for('fulfillment')}", data: { turbolinks: :false }
+              i.fas.fa-pallet aria-hidden="true"
+              span.pl-10 = I18n.t('menu.fulfillment')
+        - if fullit?(current_account)
+          li
+            = link_to my_integrations_settings_path, class: "#{active_class_for('config_integrations')}", data: { turbolinks: :false }
+              i.fas.fa-exchange-alt aria-hidden="true"
+              span.pl-10 = I18n.t('menu.integrations')
+        li
+          = link_to labels_path, class: "#{active_class_for('labels')}", data: { turbolinks: :false }
+            i.fas.fa-tags aria-hidden="true"
+            span.pl-10 = I18n.t('menu.labels')
+            i.tag.tag-pill.bg-success.ml-5.fs-8.p-0 Nuevo!
+        li
+          = link_to helps_path, class: "#{active_class_for('support')}", data: { turbolinks: :false } do
+            i.fas.fa-inbox.mr-10.text-primary aria-hidden="true"
+            span = I18n.t('menu.support')
+            i.tag.tag-pill.bg-success.ml-5.fs-8.p-0 Nuevo!
+        li
+          = link_to 'https://shipitcl.zendesk.com/hc/es-419', target: :blank, data: { turbolinks: :false } do
+            i.fas.fa-external-link-alt.mr-10.text-primary aria-hidden="true"
+            span = I18n.t('menu.help_center')
+        li
+          = link_to settings_path, class: "#{active_class_for('settings')}", data: { turbolinks: :false }
+            i.fas.fa-cogs aria-hidden="true"
+            span.pl-10= I18n.t('menu.configuration')
+        - if avaliable_switch_suite(current_account)
+          li
+            = link_to enable_suite_path, class: 'secondary', data: { turbolinks: :false }, method: :post
+              span Prueba el nuevo Shipit

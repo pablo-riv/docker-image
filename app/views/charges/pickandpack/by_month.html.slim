@@ -1,0 +1,39 @@
+- breadcrumb :charges_pp_by_month
+.row
+  .col-md-12
+    .card
+      .card-block
+        .pull-right
+          = link_to '<i class="fas fa-file-alt"></i> Descargar CSV'.html_safe, pickandpack_by_month_csv_charges_url(@date.year, @date.month), class: 'btn btn-primary', target: '_blank'
+        h2.card-title
+          | Detalle Pick & Pack #{l @date, format: '%B %Y'}
+        hr
+          table.table.text-center
+            thead
+              tr
+                th.text-center = I18n.t('activerecord.attributes.charges.pick_and_pack.totals.base')
+                th.text-center = I18n.t('activerecord.attributes.charges.pick_and_pack.totals.packages')
+                th.text-center = I18n.t('activerecord.attributes.charges.pick_and_pack.totals.shippings')
+                th.text-center = I18n.t('activerecord.attributes.charges.pick_and_pack.totals.total_is_payable')
+                th.text-center = I18n.t('activerecord.attributes.charges.pick_and_pack.totals.extras')
+                th.text-center = I18n.t('activerecord.attributes.charges.pick_and_pack.totals.premium')
+                th.text-center = I18n.t('activerecord.attributes.charges.pick_and_pack.totals.total_recurrent_charge')
+                th.text-center = I18n.t('activerecord.attributes.charges.pick_and_pack.totals.resume')
+            tbody
+              tr
+                td= number_to_currency(@summary[:base])
+                td= @summary[:packages_count]
+                td= number_to_currency(@summary[:shipments])
+                td= number_to_currency(@summary[:total_is_payable])
+                td= link_to number_to_currency(@extras), pickandpack_extras_by_month_charges_path(@date.year, @date.month)
+                td= number_to_currency(@summary[:premium])
+                td= number_to_currency(@summary[:recurrent_charge])
+                td= number_to_currency(@summary[:total_amount])
+          - if @packages.empty?
+            p.alert.alert-danger = I18n.t('activerecord.attributes.charges.pick_and_pack.empty')
+          - else
+            .row
+              = render 'charges_table', packages: @packages
+          .text-center
+            = paginate @packages
+          = link_to 'Volver', pickandpack_charges_path, class: 'btn btn-default pull-right'

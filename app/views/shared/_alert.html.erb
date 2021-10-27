@@ -1,0 +1,19 @@
+<% flash.each do |key, values| %>
+  <% if values.class == String %>
+    <div class="alert alert-<%= key %> alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <span class="scape-sensitive">
+        <strong class=""><%= values %></strong>
+      </span>
+    </div>
+  <% else %>
+    <% values.each do |value| %>
+      <div class="alert alert-<%= key == 'alert' ? 'danger' : key %> alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <span class="scape-sensitive">
+          <strong class=""><%= value %></strong>
+        </span>
+      </div>
+    <% end%>
+  <% end %>
+<% end %>

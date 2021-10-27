@@ -1,0 +1,137 @@
+script id='marketplace_request.html' type='text/ng-template'
+  .modal-header
+    h2.modal-title Nueva Sucursal
+  .modal-body.mb-1 ng-init='loadAccountData(#{current_account.serialize_data!.to_json})'
+    .row
+      .container-fluid
+        p.text-center Para poder configurar <b>Marketplace</b> debes enviar una solicitud a nuestros agentes comerciales, para que te guíen en el proceso. 
+    .row
+      .container-fluid
+        fieldset
+          legend Información Sucursal
+          .row
+            .container-fluid
+              .col-lg-4.col-sm-4
+                .form-group
+                  label Nombre Completo
+                  input.form-control type='text' ng-model='request.full_name' focus='true'
+              .col-lg-4.col-sm-4
+                .form-group
+                  label Correo de Contacto
+                  input.form-control type='text' ng-model='request.email' focus='true'
+              .col-lg-4.col-sm-4
+                .form-group
+                  label Teléfono Contacto
+                  input.form-control type='text' ng-model='request.phone' focus='true'
+          .row
+            .container-fluid
+              .col-md-12.col-sm-12
+                .form-group.mb-30
+                  label Mensaje
+                  textarea.form-control#message name="message" rows="4" cols="40" autofocus='true' required='true' ng-model='request.message'
+                button.btn.btn-primary.btn-block ng-click='sendMarketPlaceRequest(request)' Enviar Solicitud
+    
+script id='branch_offices.html' type='text/ng-template'
+  .modal-header
+    h2.modal-title Nueva Sucursal
+  .modal-body.mb-1 ng-init='loadCommunes("branch_offices")'
+    .row
+      .container-fluid
+        fieldset
+          legend Información Sucursal
+          .row
+            .container-fluid
+              .col-lg-4.col-sm-4
+                .form-group
+                  label Nombre Sucursal
+                  input.form-control type='text' ng-model='branchOffice.name' focus='true'
+              .col-lg-4.col-sm-4
+                .form-group
+                  label Nombre Contacto
+                  input.form-control type='text' ng-model='branchOffice.contact_name' focus='true'
+              .col-lg-4.col-sm-4
+                .form-group
+                  label Teléfono Contacto
+                  input.form-control type='text' ng-model='branchOffice.phone' focus='true'
+    .row
+      .container-fluid
+        fieldset
+          legend Información de Retiro
+          .row
+            .container-fluid
+              .col-md-3
+                .select.input.form-group
+                  span.form-label
+                    label.control-label.mb-30 for='' Comuna
+                  span.form-wrapper
+                    select#communes.select.form-control ng-model='branchOffice.address.commune_id'  name='company[address][commune_id]' required='required'
+                      option ng-value='{{ commune.id }}' ng-repeat='commune in communes' {{ commune.name }}
+              .col-md-3
+                .string.input.required.form-group
+                  span.form-label
+                    label.control-label for='' Calle
+                  span.form-wrapper
+                    input.form-control ng-model='branchOffice.address.street' placeholder='Ej: Asturias' required='required' type='text'
+              .col-md-3
+                .string.input.required.form-group
+                  span.form-label
+                    label.control-label for='' Número 
+                  span.form-wrapper
+                    input.form-control ng-model='branchOffice.address.number' placeholder='Ej: 103' required='required' type='text'
+              .col-md-3
+                .string.input.required.form-group
+                  span.form-label
+                    label.control-label for='' Complemento 
+                  span.form-wrapper
+                    input.form-control ng-model='branchOffice.address.complement' placeholder='Ej: Casa D' required='required' type='text'
+    .row
+      .container-fluid
+        fieldset
+          legend Información de Cuenta
+          .row
+            .container-fluid
+              .col-md-4
+                .string.input.required.form-group
+                  span.form-label
+                    label.control-label for='' Correo
+                  span.form-wrapper
+                    input.form-control ng-readonly='type == "edit"' ng-model='branchOffice.account.email' placeholder='Ej:  hola@dominio.cl' required='required' type='email'
+              .col-md-4
+                .string.input.required.form-group
+                  span.form-label
+                    label.control-label for='' Contraseña
+                  span.form-wrapper
+                    input.form-control ng-model='branchOffice.account.password' placeholder='*********' required='required' type='password'
+                  p.text-form.text-help.text-warning 
+                    | ('Mínimo 6 caracteres')
+              .col-md-4
+                .string.input.required.form-group
+                  span.form-label
+                    label.control-label for='' Confirmar Contraseña
+                  span.form-wrapper
+                    input.form-control ng-model='branchOffice.account.password_confirmation' placeholder='*********' required='required' type='password'
+                  p.text-form.text-help.text-warning 
+                    | ('Mínimo 6 caracteres')
+          .row
+            .container-fluid
+              .col-md-4
+                .string.input.required.form-group
+                  span.form-label
+                    label.control-label for='' Nombre
+                  span.form-wrapper
+                    input.form-control ng-model='branchOffice.account.person.first_name' placeholder='Ej: Juan' required='required' type='text'
+              .col-md-4
+                .string.input.required.form-group
+                  span.form-label
+                    label.control-label for='' Apellido
+                  span.form-wrapper
+                    input.form-control ng-model='branchOffice.account.person.last_name' placeholder='Ej: Perez' required='required' type='text'
+            
+    .row.pt-30
+      .container-fluid
+        .col-md-6.col-sm-6
+          h2 
+            | ** Todos los campos son obligatorios
+        .col-md-6.col-sm-6.text-right
+          button.btn.btn-primary.btn-sm ng-if='type == "new"' ng-click='createBranchOffice(branchOffice)' Crear Sucursal
+          button.btn.btn-primary.btn-sm ng-if='type == "edit"' ng-click='updateBranchOffice(branchOffice)' Actualizar Sucursal

@@ -1,0 +1,49 @@
+.row
+  .col-md-12
+    .card
+      .card-block
+        a data-turbolinks="false" href="/" Inicio
+        | &rsaquo; 
+        span.current Envíos
+  
+.row ng-controller='HeadquarterPackageController' ng-init='loadPackages()'
+  .col-md-12.col-sm-12
+    .card
+      .card-block
+        h2.card-title.pull-left Órdenes de envíos
+        = link_to 'Solicitar envío', new_headquarter_package_path, class: 'btn btn-success pull-right', data: { turbolinks: :false }
+        .row
+          .col-md-12.col-sm-12
+            table.table.table-striped.table-white-color.table-responsive
+              thead
+                tr
+                  th Id Envío
+                  th Fecha de creación
+                  th Nombre completo
+                  th Comuna
+                  th Courier
+                  th Nº de seguimiento
+                  th Estado
+              tbody
+                tr ng-show='packages.length > 0' ng-repeat='package in packages'
+                  td
+                    a ng-href='/headquarter/packages/{{ package.id }}' data-turbolinks='false' {{ package.reference }}
+                  td
+                    | {{ package.created_at | date: 'dd-MM-yy HH:mm' }}
+                  td
+                    | {{ package.full_name == '' ? 'Sin Nombre' : package.full_name | titleize }}
+                  td
+                    | {{ package.address.commune.name == null ? 'Sin Comuna' : package.address.commune.name | titleize }}
+                  td
+                    image ng-src='{{ courierIcon(package.courier_for_client).link }}' width='{{ courierIcon(package.courier_for_client).size }}'
+                  td 
+                    a class='{{ courierTrackingLink(package).klass }}' ng-href='{{ courierTrackingLink(package).url }}' target='_blank' {{ courierTrackingLink(package).number }}
+                  td 
+                    span class='tag tag-pill {{ currentStatusFor(package).klass }}' data-toogle='tooltip' data-original-title='{{ currentStatusFor(package).message }}' data-placement='top' {{ currentStatusFor(package).message }}
+                tr ng-hide='packages.length > 0'
+                  td colspan='9' 
+                    h2 Sin envíos agregados
+      .card-block
+        .row
+          .col-lg-12.col-sm-12.text-center
+          / Paginate

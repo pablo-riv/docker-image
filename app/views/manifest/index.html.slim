@@ -1,0 +1,140 @@
+= wicked_pdf_stylesheet_link_tag "manifest_pdf"
+
+html
+  head
+    meta charset="utf-8"
+  body
+    .component
+      h1 MANIFIESTO DE RETIRO
+
+      .manifest-info
+        p
+          | Cliente Emisor: #{"\t"}
+          span.black #{company[:name]}
+        p
+          | ID Cliente: #{"\t"}
+          span.black #{company[:id]}
+        p
+          | Fecha de Emisión: #{"\t"}
+          span.black
+            = "#{date.strftime("%d/%m/%Y")}"
+        p
+          | Dirección de Retiro: #{"\t"}
+          span.black = "#{address[:place]}"
+
+      .data-table
+        table.border
+          tr
+            td
+              .courier-logo
+                = image_tag wicked_pdf_asset_base64("#{courier.downcase}.png"), style: 'width: 250px'
+            td.no-right-border
+              .fields
+                p
+                  | RUT: #{"\t"}
+                  span.black #{company[:run]}
+                p
+                  | RAZÓN SOCIAL: #{"\t"}
+                  span.black #{company[:business_turn]}
+                p
+                  | N° CUENTA: #{"\t"}
+                  span.black #{company[:id]}
+                p
+                  | USUARIO: #{"\t"}
+                  span.black #{person}
+            td
+              .items
+                p
+                  | N° DE ENVÍOS
+                h1
+                  | #{shipments.length}
+            td
+              .items
+                p
+                  | N° DE ITEMS
+                h1
+                  | #{total_items}
+      .sign-table
+        table.border
+          tr
+            th.empty.no-border
+            th.no-cell-border.title colspan='3'
+              h2 ENTREGA CONFORME
+          tr
+            th.no-border
+            th
+              .divide
+                p CLIENTE
+            th
+              .divide
+                p TRANSPORTISTA
+            th
+              .divide
+                p CENTRO DISTRIBUCIÓN
+          tr
+            td.no-border.black
+              .right.height-40
+                p NOMBRE
+            td
+            td
+            td
+          tr
+            td.no-border.black
+              .right.height-40
+                p RUT
+            td
+            td
+            td
+          tr
+            td.no-border.black
+              .right.height-70
+                p FIRMA
+            td
+            td
+            td
+      .shipment-table
+        table.border
+          tr
+            th.no-cell-border.title colspan='6'
+              h2 DETALLE
+          tr
+            th
+              .divide
+                p #
+            th
+              .divide
+                p REFERENCIA
+            th
+              .divide
+                p DESTINATARIO
+            th
+              .divide
+                p COMUNA
+            th
+              .divide-items
+                p ITEMS
+            th
+              .divide
+                p ID SHIPIT
+            th
+              .tracking
+                p NÚMERO DE SEGUIMIENTO
+          -shipments.each.with_index(1) do |shipment, index|
+            tr.height-100
+              td
+                p #{index}
+              td
+                p #{shipment[:reference]}
+              td
+                p #{shipment[:full_name].truncate(20)}
+              td
+                p #{shipment[:commune]}
+              td
+                p #{shipment[:items_count]}
+              td
+                p #{shipment[:id]}
+              td
+                .pt-10
+                  =raw shipment[:barcode_number]
+                  -if courier.downcase != 'shipit'
+                    p #{shipment[:code]}

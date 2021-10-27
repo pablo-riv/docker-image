@@ -1,0 +1,14 @@
+- breadcrumb :debtors
+.card
+  .card-block
+    .row
+      .col-lg-12.col-sm-12
+        h2.card-title = I18n.t('debtors.title')
+        p 
+          |
+          = I18n.t('debtors.bodyfl') 
+          br/
+          = I18n.t('debtors.bodysl') 
+          = mail_to  I18n.t('debtors.mail')
+      .col-md-12.text-center
+        = image_tag 'debtors.png', class: 'img img-responsive h-250'

@@ -1,0 +1,44 @@
+h4.mb-10= get_name_for(setting.service)
+- if setting.service.name == 'pp'
+  table.table
+    thead
+      tr
+        td.w-100 colspan="3" 
+          | #{I18n.t('settings.api.fields.model')}
+        td colspan="6" 
+          | URL
+        td.w-100 colspan="3" 
+    tbody
+      tr
+        td.w-100 colspan="3" 
+          | Packages
+        td colspan="6" 
+          = f.text_field 'configuration[pp[webhook[package[url]]]]', class: 'form-control', placeholder: 'http://api.midominio.cl', value: "#{setting.configuration['pp']['webhook']['package']['url'] unless setting.configuration['pp'].nil? || setting.configuration['pp']['webhook'].nil? || setting.configuration['pp']['webhook']['package'].nil?}"
+        / td.w-100 colspan="3" 
+        /   label.switch
+        /     | <input type="checkbox" name="checkbox['pp']['webhook']['package']['options']" 
+        /     = 'checked=true' unless setting.configuration['pp'].nil? || setting.configuration['pp']['webhook']['package']['url'].blank?
+        /     |  >
+        /     .slider.round
+- if setting.service.name == 'fulfillment'
+  table.table
+    thead
+      tr
+        td.w-100 colspan="3" 
+          | #{I18n.t('settings.api.fields.model')}
+        td colspan="6"
+          | URL
+        td.w-100 colspan="3" 
+    tbody
+      tr
+        td.w-100 colspan="3" 
+          | SKU'S
+        td colspan="6" 
+          = f.text_field 'configuration[fulfillment[webhook[sku]]]', class: 'form-control', placeholder: 'http://api.midominio.cl', value: "#{setting.configuration['fulfillment']['webhook']['sku']['url'] unless setting.configuration['fulfillment'].nil?}"
+        / td.w-100 colspan="3" 
+        /   label.switch
+        /     | <input type="checkbox" name="checkbox[skus_webhook_url]" 
+        /     = 'checked=true' unless setting.configuration['fulfillment'].nil? || setting.configuration['fulfillment']['webhook']['sku']['url'].blank?
+        /     |  >
+        /     .slider.round   
+            

@@ -1,0 +1,1 @@
+json.courier_destinies @courier_destinies

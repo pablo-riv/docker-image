@@ -1,0 +1,41 @@
+- breadcrumb :sku, @sku
+.card
+  .card-block
+    = link_to 'Volver', request.referrer, class: 'btn btn-default pull-right', data: { turbolinks: false }
+    h2.card-title Detalle del SKU
+    hr
+    .row
+      .col-md-4
+        h4
+          .bold Nombre
+        label = @sku['name']
+      .col-md-2.text-center
+        h4
+          .bold Cantidad
+        label = @sku['amount']
+      .col-md-2.text-center
+        h4
+          .bold Cantidad mínima
+        label = @sku['min_amount']
+      .col-md-1.text-center
+        h4
+          .bold Largo
+        label = @sku['length'] || '-'
+      .col-md-1.text-center
+        h4
+          .bold Ancho
+        label = @sku['width'] || '-'
+      .col-md-1.text-center
+        h4
+          .bold Alto
+        label = @sku['height'] || '-'
+      .col-md-1.text-center
+        h4
+          .bold Peso
+        label = @sku['weight'] || '-'
+    br
+    .row
+      .col-md-12
+        h4
+          .bold Descripción
+        label = @sku['description'] || 'Sin descripción'

@@ -1,0 +1,41 @@
+h2.card-title = I18n.t('analytics.index.titles.notifications')
+hr
+.row
+  .col-xs-12.col-sm-12.col-md-4.offset-md-2
+    div.analytics-card.center-block
+      br
+      p.title.text-black.bold = I18n.t('analytics.notifications.notification_number')
+      div ng-if='!loading'
+        h1.text-center
+          | {{ processedData.currentNotificationsQuantity }}
+        div ng-if='percentages.notificationNumber >= 0'
+          p.last_period_information.text-green
+            span
+              | + {{ percentages.notificationNumber }} %
+        div ng-if='percentages.notificationNumber < 0'
+          p.last_period_information.text-red 
+            span
+              | {{ percentages.notificationNumber }} %
+        p.last_period_information.text-black
+          span.number
+            | {{ processedData.lastNotificationsQuantity }}
+          span = I18n.t('analytics.last_period')
+  .col-xs-12.col-sm-12.col-md-4
+    div.analytics-card.center-block
+      br
+      p.title.text-black.bold = I18n.t('analytics.notifications.average_notifications')
+      div ng-if='!loading'
+        h1.text-center
+          | {{ processedData.currentAverageNotifications }}
+        div ng-if='percentages.notificationAverage >= 0'
+          p.last_period_information.text-green
+            span
+              | + {{ percentages.notificationAverage }} %
+        div ng-if='percentages.notificationAverage < 0'
+          p.last_period_information.text-red 
+            span
+              | {{ percentages.notificationAverage }} %
+        p.last_period_information.text-black
+          span.number
+            | {{ processedData.lastAverageNotifications }}
+          span = I18n.t('analytics.last_period')

@@ -1,0 +1,139 @@
+<mjml>
+  <mj-head>
+    <mj-style>
+      .box-shadow {
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.6);
+      }
+
+      .margin {
+        margin: 20px;
+      }
+
+      .margin-bottom {
+        margin-bottom: "20px"
+      }
+
+      .header {
+        margin-top: -40px;
+      }
+
+      .footer {
+        background-color: #00C2DE;
+        margin-bottom: -40px;
+        padding: 20px 0 20px 0;
+      }
+
+      .font {
+        font-family: "Roboto, Helvetica,sans-serif";
+      }
+    </mj-style>
+    <mj-attributes>
+      <mj-text align="center" color="#555" font-family="Roboto, Helvetica, sans-serif"></mj-text>
+      <mj-wrapper css-class="font box-shadow" background-color="#ffffff"></mj-wrapper>
+      <mj-column css-class="font"></mj-column>
+      <mj-section css-class="font"></mj-section>
+      <mj-body css-class="margin">
+    </mj-attributes>
+  </mj-head>
+  <mj-body>
+    <mj-wrapper>
+      <mj-section>
+        <mj-column css-class="header" background-color="<%= @company.preferences['email']['color']['background_header'] %>">
+          <mj-image href="<%= @company.website %>" alt="<%= @company.website %>" align="left" width="150px" src="<%= @company.logo.url(:medium).gsub('//', 'https://') %>"></mj-image>
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="<%= @mail.title_color %>" padding-top='5px' padding-bottom='5px'>
+        <mj-column>
+          <mj-text align="left" font-weight="800" font-size="16px" color="<%= @mail.title_font_color %>" font-family="Roboto, Helvetica, sans-serif">
+              <%= convert_tag(@mail.tags, @mail.title_text, @package) %>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding-top='5px' padding-bottom='0'>
+        <mj-column>
+          <mj-text align="left" font-family="Roboto, Helvetica, sans-serif">
+            <%= convert_tag(@mail.tags, @mail.one[:content], @package) %>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <% if @mail.tracking %>
+      <mj-section padding='0px' padding-bottom="<%= @mail.state.include?('failed') ? "20px" : 0 %>">
+        <mj-column>
+          <mj-button href='<%= @package.courier_tracking_link %>' background-color='<%= @mail.tracking_button %>' color='<%= @mail.tracking_text_color %>' font-size="16px" align="center" vertical-align="top" border="none" padding="25px 50px" border-radius="5px" font-family="Roboto, Helvetica, sans-serif" font-weight="300px" padding-left="25px" padding-right="25px" padding-bottom="0" padding-top="0">
+            <%= convert_tag(@mail.tags, @mail.tracking_text, @package) %>
+          </mj-button>
+        </mj-column>
+      </mj-section>
+      <% end %>
+
+      <% if @package.status.include?('failed') %>
+      <mj-section border="5px solid #000000" padding-top='0' padding-bottom='0'>
+        <mj-column>
+          <mj-text align="center" font-weight="300" font-family="Roboto, Helvetica, sans-serif">
+            <mj-text font-weight="300" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif">
+              <b>Estado: </b>
+            </mj-text>
+            <mj-text align="center" font-weight="300" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif">
+              <b>
+                <%= @package.courier_status %></b>
+            </mj-text>
+            <mj-text align="center" font-weight="300" font-size="16px" color="#333333" font-family="Roboto, Helvetica, sans-serif">
+              <b><%= @package.courier_for_client.upcase %>(<%= @package.tracking_number %>)</b>
+            </mj-text>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-text font-family="Roboto, Helvetica, sans-serif" padding-top='0' padding-bottom='0' align="left">
+            <%= @mail.two.html_safe %>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <% end %>
+
+      <% unless @package.status.include?('failed') %>
+      <mj-section padding-top='0' padding-bottom='0'>
+        <mj-column>
+          <mj-text align="left">
+            <%= convert_tag(@mail.tags, @mail.two[:content], @package) %>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding-top='0' padding-bottom='0'>
+          <mj-column>
+            <mj-text><strong>__________________________________________________________________________________</strong></mj-text>
+            <mj-text align="left">
+              <%= convert_tag(@mail.tags, @mail.three[:content], @package) %>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+      <mj-section background-color="#808080" >
+        <mj-column>
+          <mj-text align="center" font-weight="300" font-size="16px" color="#ffffff" font-family="Roboto, Helvetica, sans-serif">
+            Recuerda que <strong>el tiempo de entrega depende de la distancia</strong> entre el lugar de origen y el lugar de destino.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <% end %>
+      <mj-section background-color="#ffffff" padding-top='50px'>
+        <mj-column css-class="footer" padding-bottom="10px" background-color="<%= @company.preferences['email']['color']['background_footer'] %>">
+          <mj-text align="center" font-weight="300" font-size="14px" color="<%= @company.preferences['email']['color']['font_color_footer'] %>" font-family="Roboto, Helvetica, sans-serif">
+            <%= @company.name %> -
+            <%= @company.website %>
+          </mj-text>
+          <mj-text align="center" font-weight="300" font-size="11px" color="<%= @company.preferences['email']['color']['font_color_footer'] %>" font-family="Roboto, Helvetica, sans-serif">
+            Si no quieres recibir los números de seguimiento de tu compras contacta directamente con la tienda.
+          </mj-text>
+          <mj-text align="center" font-weight="300" font-size="11px" color="<%= @company.preferences['email']['color']['font_color_footer'] %>" font-family="Roboto, Helvetica, sans-serif">
+            <%= I18n.t('email.footer.copyright', year: Time.current.year) %>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>

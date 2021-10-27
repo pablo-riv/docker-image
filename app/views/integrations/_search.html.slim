@@ -1,0 +1,85 @@
+.row
+  .col-md-6.col-sm-6
+    .row
+      .col-md-4.col-sm-4
+        .form-group
+          label.form-label = I18n.t('integrations.search.from_date')
+          input.form-control.wp-100.datepicker-input.date-format.text-center.fs-18 ng-model='search.from_date' readonly='true'
+      .col-md-4.col-sm-4
+        .form-group
+          label.form-label = I18n.t('integrations.search.to_date')
+          input.form-control.wp-100.datepicker-input.date-format.text-center.fs-18 ng-model='search.to_date' readonly='true'
+      .col-md-2.col-sm-2.pt-20
+        button.btn.btn-success.btn-sm.mb-10.mr-10.btn-block data-toggle='tooltip' data-placement='top' ng-click='getOrders()' ng-disabled='' data-title='Buscar'
+          i.fas.fa-search aria-hidden='true'
+  .col-md-6.col-sm-6
+    .row.pt-20
+      .col-md-5.col-sm-5
+          button.btn.btn-success.pull-right ng-click='lunchXlsxOrderModal()'
+            i.fas.fa-sort-amount-down.mr-10
+            | Ordenar y Enviar
+      .col-md-5.col-sm-5.text-center
+        button.btn.btn-success.btn-sm.btn-block data-toggle='tooltip' data-placement='top' ng-click='downloadSellerOrders()' ng-disabled='loading' data-title=t('integrations.tooltips.update')
+          span ng-hide='loading'
+            = t('integrations.buttons.update')
+          |
+          i.fas.fa-spinner.loader aria-hidden='true' ng-show='loading'
+      .col-md-2.col-sm-2.text-center
+        = link_to faq_integrations_path, class: 'btn btn-info btn-sm mb-10 btn-block', data: { toogle: 'tooltip' }, 'data-placement' => 'left', 'data-toggle' => 'tooltip', 'title' => t('integrations.tooltips.help') do
+          i.fas.fa-question aria-hidden='true'
+
+.row
+  .col-md-6.col-sm-6
+    .row
+      .col-md-4.col-sm-4
+        .form-group
+          label.form-label = I18n.t('integrations.search.find')
+          input.form-control placeholder='Buscar #11111' ng-model='search.seller_reference'
+      .col-md-4.col-sm-4
+        .form-group.pt-20
+          label.form-label = I18n.t('integrations.search.filter')
+          select.form-control ng-options='type for type in filters' class='filter' ng-model='search.filter' placeholder='Filtrar Despacho' data-placeholder='Seleccione un tipo...' ng-change='getOrders()' ng-if='integratedSellers.includes("shopify")'
+      .col-md-4.col-sm-4
+        .form-group.pt-20
+          label.form-label = I18n.t('integrations.search.per')
+          select.form-control ng-options='per for per in [50, 100, 150, 200]' class='filter' ng-model='search.per' placeholder='Mostrar' data-placeholder='Cantidad a mostrar' ng-change='getOrders()'
+  .col-md-6.col-sm-6
+    .row
+      .col-md-5.col-sm-5.text-right
+        .btn-group data-toggle='tooltip' data-placement='top' data-title=t('integrations.tooltips.order_format') ng-show='api2cartClient'
+          button.btn.btn-default.dropdown-toggle.btn-block aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
+            = t('integrations.buttons.order_format')
+            span.caret
+          ul.dropdown-menu
+            li
+              a.dropdown-item ng-click="openApi2CartConfig('woocommerce')" ng-if="woocommerceOrders.length > 0"
+                | WooCommerce
+            li
+              a.dropdown-item ng-click="openApi2CartConfig('prestashop')" ng-if="prestashopOrders.length > 0"
+                | Prestashop
+      .col-md-4.col-sm-4.text-center
+        .btn-group data-toggle='tooltip' data-placement='top' data-title=t('integrations.tooltips.actions')
+          button.btn.btn-default.dropdown-toggle.btn-block aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
+            = t('integrations.buttons.actions.self')
+          ul.dropdown-menu
+            li
+              a.dropdown-item ng-click='selectAllOrders(true, true)'
+                = t('integrations.buttons.actions.select_pendings')
+            li
+              a.dropdown-item ng-click='selectAllOrders(true, false)'
+                = t('integrations.buttons.actions.select_archived')
+            hr
+            li
+              a.dropdown-item ng-click='archiveSelected(true)'
+                = t('integrations.buttons.actions.archive_selected')
+            li
+              a.dropdown-item ng-click='archiveSelected(false)'
+                = t('integrations.buttons.actions.unarchive_selected')
+            hr
+            li
+              a.dropdown-item ng-click='selectAllOrders(false, null)'
+                = t('integrations.buttons.actions.undo')
+      .col-md-3.col-sm-3
+        button.btn.btn-primary.btn-block ng-click='checkoutSelectedOrders()' data-toggle='tooltip' data-placement='top' data-title=t('integrations.tooltips.send')
+          = "#{t('integrations.buttons.send')} "
+          i.fa.fa-paper-plane aria-hidden='true'

@@ -1,0 +1,52 @@
+es:
+  labels:
+    index:
+        title: Etiquetas
+        table:
+          reference: ID Envío
+          full_name: Destinatario
+          commune: Comuna
+          tracking_number: Nº Seguimiento
+          created_at: Fecha Creación
+          courier_for_client: Courier
+          label_printed: ¿Etiqueta Impresa?
+          destiny: Tipo de Entrega
+        tooltips:
+          select_all: Seleccionar todos
+          clear_all: Limpiar selección
+          print: Imprimir
+          print_job: Enviar todas las etiquetas a la cola de impresión via PrintNode, se iniciara la impresión automaticamente.
+          printer_option: Selección de formato
+          edit: Editar
+          delete: Eliminar
+          support: Soporte
+          return: Devolución
+    search:
+      base: Buscar
+      courier: Courier
+      commune: Comuna
+      from: Desde
+      to: Hasta
+      per: Etiquetas por Página
+      reference: ID Envío
+      seller: Canal de venta
+      payable: Tipo de pago
+      destiny: Tipo de Entrega
+
+    pack:
+      titles:
+        devide: Nº Bultos
+      text_help: Presiona enter para buscar
+      buttons:
+        search: Buscar
+        cancel: Cancelar
+        reinit: Reiniciar
+        pack: Agregar bulto
+      detail:
+        package: Envío
+        items: Items
+        packing: Empaque
+        payable: ¿Por pagar?
+        id: ID
+        client: Cliente
+        hour: Hora

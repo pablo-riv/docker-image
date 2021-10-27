@@ -1,0 +1,3 @@
+class Condition < ApplicationRecord
+
+end

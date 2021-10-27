@@ -1,0 +1,28 @@
+<table class="table table-striped table-white-color">
+  <thead>
+    <tr>
+      <td>#</td>
+      <td>Nombre</td>
+      <td>Tipo de negocio</td>
+      <td>Cantidad de cuentas</td>
+      <td colspan="2">Acciones</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% unless @branch_offices.nil? || @branch_offices.count == 0 %>
+      <% @branch_offices.each do |branch_office| %>
+        <tr>
+          <td><%= branch_office.id %></td>
+          <td><%= branch_office.acting_as.name %></td>
+          <td><%= branch_office.acting_as.commercial_business %></td>
+          <td><%= branch_office.entity.accounts.count %></td>
+          <td>
+            <%#= link_to "Editar", edit_company_branch_office_path(@company.id, branch_office.id), class: "btn btn-warning btn-sm" %>
+            <%#= link_to "Administrar cuentas", company_branch_office_accounts_path(@company.id, branch_office.id), class: "btn btn-primary btn-sm pull-right" %>
+            <%#= link_to "Eliminar" destroy_company_branch_office_path(@company.id, branch_office.id), class: "btn btn-danger btn-sm" %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

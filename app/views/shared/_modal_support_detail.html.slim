@@ -1,0 +1,51 @@
+script id='support_detail.html' type='text/ng-template'
+  .modal-header
+    span.pull-right type='button' class='close' data-dismiss='modal' ng-click='cancel()'
+      span &times;
+    h2
+      = I18n.t('helps.show.title')
+      | &nbsp;
+      u
+        | #
+        |{{ support.provider_id }}
+  .modal-body
+    div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' ng-repeat='alert in alerts' uib-alert=''
+      | {{ alert.message }}
+    .container
+      .row
+        .col-md-12.overflow-x
+          span.pull-right
+            h4
+              = I18n.t('helps.show.attributes.created_at')
+              | : {{ support.created_at | date: format: 'medium' }}
+          span.fs-16.pull-left.tag ng-class='getClassifyStatus(support.status)'
+              | {{  getStatusName(support.status) }}
+          table.table.table-bordered
+            tbody
+              tr
+                td.wp-20 = I18n.t('helps.show.attributes.subject')
+                td.wp-80
+                  | {{ support.subject }}
+              tr
+                td.wp-20 = I18n.t('helps.show.attributes.assignee_id')
+                td.wp-80
+                  | {{ getAgent(support.assignee_id) }}
+              tr
+                td.wp-20 = I18n.t('helps.show.attributes.updated_at')
+                td.wp-80
+                  | {{ support.updated_at | date: format: 'medium' }}
+          table.table.table-bordered
+            tbody
+              tr
+                td
+                  u = I18n.t('helps.show.attributes.messages')
+              tr
+                td
+                  .row ng-repeat='message in support.messages'
+                    .col-md-12 ng-init='getKlass(message)'
+                      p style='box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.3);padding: 10px;border-radius:5px;' class='{{message.positionKlass}}'
+                        span class='{{message.textKlass}}'
+                          | {{message.name}} - {{message.created_at | date: format: 'medium' }}
+                        br /
+                        span.break-word ng-bind-html='sanitizeMessage(message)'
+                  input.form-control autofocus='true' name="new_message" value="{{inputMessage}}" ng-model='inputMessage' ng-keyup="submitMessage($event, inputMessage)"

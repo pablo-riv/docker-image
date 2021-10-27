@@ -1,0 +1,54 @@
+script id='integrationCheckout.html' type='text/ng-template'
+  .modal-header
+    div close='closeAlert($index)' ng-class="'alert-' + (alert.type || 'info')" dismiss-on-timeout='2000' ng-repeat='alert in alerts track by $index' uib-alert=''
+      | {{ alert.msg }}
+    h2 Confirmar orden
+  .modal-body
+    .row
+      .col-lg-12.col-sm-12
+        .card-block
+          .p-b-2.clearfix
+            .pull-right.text-xs-right
+              h5.bold.m-b-0
+              p.m-b-0= Time.current.strftime('%d-%m-%Y %H:%M')
+            .circle-icon.bg-success.text-white.m-r-1
+              i.fas.fa-archive aria-hidden='true'
+            h2 style='padding-top: 5px;'  Detalle Envío
+          .table-responsive.p-t-2.p-b-2
+            hr/
+            table.table.table-bordered.m-b-0
+              thead
+                tr
+                  th Tienda
+                  th N. Orden
+                  th Nombre
+                  th Precio
+                  th Empaque
+                  - unless @setting_fulfillment.present?
+                    th SKU’s
+                  - if @setting_fulfillment.present?
+                    th Stock / Sku
+              tbody#checkout-integration-orders-table-body
+                tr ng-repeat='row in rows'
+                  td
+                    | {{ row.seller }}
+                  td
+                    | {{ row.order_id }}
+                  td
+                    | {{ row.customer_name }}
+                  td
+                    | {{ row.total_price }}
+                  td
+                    | {{ row.packing }}
+                  td ng-if='!hasFulfillment'
+                    | {{ row.skus }}
+                  td ng-if='hasFulfillment'
+                    span ng-repeat='sas in row.skuAndStockArrayOfArrays track by $index'
+                      span ng-repeat='sos in sas'
+                        span ng-if="sos == sas[0] && sos != ' '"
+                          | {{ sos }}->
+                        span ng-if="sos != sas[0] && sos != ' '" ng-class="{ 'red bold': sos == ' no existe' }"
+                          | {{ sos }};
+  .modal-footer
+    button.btn.btn-primary ladda='loading' ng-click='createPackages($event)'
+      | Confirmar envío

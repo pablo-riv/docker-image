@@ -1,0 +1,94 @@
+<mjml>
+  <mj-head>
+    <mj-style>
+      .box-shadow {
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.6);
+      }
+
+      .margin {
+        margin: 20px;
+      }
+
+      .header {
+        background-color: #00C2DE;
+        margin-top: -40px;
+      }
+
+      .footer {
+        background-color: #00C2DE;
+        margin-bottom: -40px;
+        padding: 20px 0 20px 0;
+      }
+
+      .font {
+        font-family: "Roboto, Helvetica,sans-serif";
+      }
+    </mj-style>
+    <mj-attributes>
+      <mj-text align="center" color="#555" font-family="Roboto, Helvetica, sans-serif" />
+      <mj-wrapper css-class="font box-shadow" background-color="#eee"></mj-wrapper>
+      <mj-column css-class="font" />
+      <mj-section css-class="font" />
+      <mj-navbar-link font-family="Roboto, Helvetica, sans-serif" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body css-class="margin">
+    <mj-wrapper>
+      <mj-section background-color="#00C2DE">
+        <mj-column css-class="header">
+          <mj-image width="150px" padding-top="30px" src="http://staff.shipit.cl/assets/logo-shipit-light.png"></mj-image>
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#fff">
+        <mj-column>
+          <mj-text align="center">
+            <h2>Hola</h2>
+          </mj-text>
+          <mj-text align="left" padding-bottom="0px">
+            <ul>
+              <li>Nombre Empresa: <%= @company.name %></li>
+              <li>Sucursal asignada: <%= @branch_office.name %></li>
+              <li>Dirección: <%= @branch_office.full_address %></li>
+              <li>Área: <%= @location.area_id %></li>
+              <li>Héroe: <%= @location.hero.full_name %></li>
+              <li>Tipo de asignación: <%= @type %></li>
+            <ul>
+          </mj-text>
+          <mj-text align="left">
+            <p>Si es de tipo manual debes ir a <a href="staff.shipit.cl/administration/companies/<%= @company.id %>">staff.shipit.cl</a> y cambiar el área de la sucursal. <br>
+              Luego debes ir a <a href="staff.shipit.cl/administration/areas/assign">Asignar Área</a> seleccionar buscar el área y nuevamente <b>apretar el botón guardar</b> al costado del héroe asignado</p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#00C2DE" padding-bottom="0px">
+        <mj-column width="100%">
+          <mj-navbar>
+            <mj-navbar-link text-transform="lowercase" color="#ffffff" href="http://www.shipit.cl">
+              <mj-text align="center" padding-bottom="5px">
+                www.shipit.cl
+              </mj-text>
+            </mj-navbar-link>
+          </mj-navbar>
+        </mj-column>
+        <mj-column width="25%"></mj-column>
+        <mj-column width="15%">
+          <mj-image src="http://www.iconsdb.com/icons/preview/white/facebook-3-xxl.png" href="https://www.facebook.com/ShipitChile/" width="32px"></mj-image>
+        </mj-column>
+        <mj-column width="15%">
+          <mj-image src="http://www.iconsdb.com/icons/preview/white/instagram-xxl.png" href="https://www.instagram.com/shipitcl/" width="32px"></mj-image>
+        </mj-column>
+        <mj-column width="25%"></mj-column>
+      </mj-section>
+      <mj-section background-color="#00C2DE" padding-top="0px">
+        <mj-column css-class="footer">
+          <mj-text color="#ffffff">
+            <%= I18n.t('email.footer.copyright', year: Time.current.year) %><br> &#160;</mj-text>
+          <mj-text color="#ffffff">
+            <%= I18n.t('email.footer.title') %>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>

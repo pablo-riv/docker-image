@@ -1,0 +1,42 @@
+es:
+  notifications:
+    site_notification:
+      customer_satisfaction:
+        base:
+          title: Notificación de CSAT
+          content: Tienes una encuesta de satisfacción por el ticket resuelto
+      pickup:
+        pending:
+          title: Retiro confirmado
+          content: Tu retiro fue confirmado
+        failed:
+          title: Retiro rechazado
+          content: Tu retiro fue rechazado
+      multi_pickup:
+        pending:
+          title: Retiro múltiple confirmado para Las Condes
+          content: Shippify pasará a retirar hoy 3 retiros asignados. Haz clic para más información.
+      settings:
+        same_day_daily_limit:
+          title: Límite de 'Entregas el mismo día' alcanzado
+          content: Te informamos que hoy a las %{time} horas has alcanzado tu límite máximo de 10 envíos diarios para entregas el mismo día. Haz clic para ir a la configuración.
+      incidence:
+        pending:
+          title: Notificación de Incidencia
+          content: Se ha generado una nueva incidencia asociada al envío
+        completed:
+          title: Notificación de Incidencia
+          content: Hemos resuelto la incidencia asociada al envío
+    download:
+      title:
+        pending: Descarga pendiente
+        init: Proceso iniciado
+        downloading: Descargando
+        success: Descarga finalizada
+        failed: Descarga fallida
+      content:
+        pending: Se está procesando tu solicitud
+        init: Proceso de descarga iniciado correctamente
+        downloading: Descaga en proceso
+        success: Ha finalizado la descarga
+        failed: Ha ocurrido un error en la descarga
