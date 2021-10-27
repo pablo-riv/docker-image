@@ -23,6 +23,11 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
+    - name: Set Service name
+      run: echo "SERVICE_NAME=$(echo $secrets.AWS_ECR_REPOSITORY | cut -f1 -d"-")" >> $GITHUB_ENV
+    - name: Echo Service name
+      run: echo $SERVICE_NAME
+
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
@@ -30,5 +35,12 @@ jobs:
         ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPOSITORY }}
       run: |
         docker build . -t "$ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_SHA::8}" -f docker/production/app/Dockerfile
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:"${GITHUB_SHA::8}
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_SHA::8}
+
+    # - name: Deploy to cluster
+    #   id: rolling-update
+    #   env:
+    #     SERVICE: ${{ secrets.AWS_ECR_REPOSITORY }}
+    #   run:
+    #     aws ecs update-service --service service-michello --cluster shipit-prod --force-new-deployment
