@@ -5,12 +5,13 @@ on:
 name: Create release
 jobs:
   build:
+    name: Create release Job
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     - name: Create a Release
-      uses: elgohr/Github-Release-Action@master
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-      with:
-        args: MyReleaseMessage
+      run: | 
+        apt update && apt -y upgrade && apt install -y hub
+        hub release create -m "TITULO ACTION" -m "DESCRIPCION ACTION" 11.11.11
