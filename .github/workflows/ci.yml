@@ -17,4 +17,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       run: | 
         apt update && apt -y upgrade && apt install -y hub
-        hub release create -m "HOLA CAMI" -m "DESCRIPCION HOLA CAMI" 11.12.11
+        hub release create -m "TITULO ACTION2" -m "DESCRIPCION ACTION" 11.11.11
