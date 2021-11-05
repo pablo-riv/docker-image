@@ -27,4 +27,4 @@ jobs:
 
     - name: Echo Service name
       run:
-        echo "service-$SERVICE_NAME"
+        echo "service-$SERVICE_NAME-2"
