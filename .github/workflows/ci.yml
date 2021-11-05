@@ -10,11 +10,21 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - name: Get Latest merged PRs
+    # - name: Get Latest merged PRs
 
-    - name: Create a Release
+    # - name: Create a Release
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+    #   run: | 
+    #     apt update && apt -y upgrade && apt install -y hub
+    #     hub release create -m "TITULO ACTION2" -m "DESCRIPCION ACTION" 11.11.11
+
+    - name: Set Service name
       env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-      run: | 
-        apt update && apt -y upgrade && apt install -y hub
-        hub release create -m "TITULO ACTION2" -m "DESCRIPCION ACTION" 11.11.11
+        ECR_REPOSITORY: ${{ secrets.RELEASE_TOKEN }}
+      run: echo "SERVICE_NAME=$(echo $ECR_REPOSITORY)" >> $GITHUB_ENV
+
+
+    - name: Echo Service name
+      run:
+        echo "service-$SERVICE_NAME"
