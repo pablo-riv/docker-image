@@ -23,5 +23,5 @@ jobs:
 
     - name: Run db:migrate
       id: db-migrate-2
-      run: |
+      run:
         aws ecs run-task --cluster cron --overrides '{ "containerOverrides": [ { "name": "core", "command": ["/bin/bash", "./docker/production/app/migrate.sh"] } ] }' --task-definition core-prod
