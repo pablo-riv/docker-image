@@ -1,6 +1,6 @@
 on:
-  release:
-    types: [created]
+  push:
+    branch: [master]
 name: Deploy to Amazon ECS
 jobs:
   deploy:
